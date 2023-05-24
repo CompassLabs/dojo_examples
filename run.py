@@ -3,16 +3,12 @@ import pickle
 from argparse import ArgumentParser
 from datetime import datetime
 
-import pytest
-
 from demo.policies import MovingAveragePolicy, PassiveConcentratedLPPolicy
 
 logging.basicConfig(format="%(asctime)s - %(message)s", level=15)
 
 from demo.agents import DummyAgent
-from dojo.agents import ReplayAgent
 from dojo.environments import UniV3Env
-from dojo.policies import UniV3ReplayPolicy
 
 
 def run(pool: str, policy: str, start_time: datetime, end_time: datetime):
@@ -25,12 +21,11 @@ def run(pool: str, policy: str, start_time: datetime, end_time: datetime):
     with open("../tests/data/trades.pkl", "rb") as f:
         trades = pickle.load(f)
 
-    replay_agent = ReplayAgent(initial_portfolio={"WETH": 1e6, "USDC": 1e6})
     demo_agent = DummyAgent(initial_portfolio={"WETH": 1, "USDC": 1000})
 
     env = UniV3Env(
         date_range=(start_time, end_time),
-        agents=[replay_agent, demo_agent],
+        agents=[demo_agent],
         pools=[pool],  # WETH/USDC
     )
 
@@ -42,17 +37,12 @@ def run(pool: str, policy: str, start_time: datetime, end_time: datetime):
         demo_policy = PassiveConcentratedLPPolicy(
             agent=demo_agent, lower_tick_bound=0.95, upper_tick_bound=1.05
         )
-    replay_policy = UniV3ReplayPolicy(
-        # agent=replay_agent, replay_actions=env.replay_events
-        agent=replay_agent,
-        replay_actions=quotes + trades,
-    )
 
     obs = env.reset()
     for _ in env.iter_block():
-        replay_action = replay_policy.predict(obs)
-        demo_action = demo_policy.predict(obs)
-        actions = replay_action + demo_action
+        demo_actions = demo_policy.predict(obs)
+        market_actions = env.market_actions(agents_actions=demo_actions)
+        actions = market_actions + demo_actions
         print("Actions: ", actions)
         next_obs, rewards, dones, infos = env.step(actions=actions)
         obs = next_obs
