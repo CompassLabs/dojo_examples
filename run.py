@@ -1,5 +1,4 @@
 import logging
-import pickle
 from argparse import ArgumentParser
 from datetime import datetime
 
@@ -7,26 +6,18 @@ from demo.policies import MovingAveragePolicy, PassiveConcentratedLPPolicy
 
 logging.basicConfig(format="%(asctime)s - %(message)s", level=15)
 
-from demo.agents import DummyAgent
+from demo.agents import UniV3PoolWealthAgent
 from dojo.environments import UniV3Env
 
 
 def run(pool: str, policy: str, start_time: datetime, end_time: datetime):
-
-    # TODO(lukas) this needs to go
-    with open("../tests/data/DGCapital_token_data.pkl", "rb") as f:
-        token_data = pickle.load(f)
-    with open("../tests/data/quotes.pkl", "rb") as f:
-        quotes = pickle.load(f)
-    with open("../tests/data/trades.pkl", "rb") as f:
-        trades = pickle.load(f)
-
-    demo_agent = DummyAgent(initial_portfolio={"WETH": 1, "USDC": 1000})
+    demo_agent = UniV3PoolWealthAgent(initial_portfolio={"USDC": 10_000})
 
     env = UniV3Env(
         date_range=(start_time, end_time),
         agents=[demo_agent],
-        pools=[pool],  # WETH/USDC
+        pools=[pool],
+        market_impact="replay",
     )
 
     if policy.lower() == "moving-average":
@@ -43,7 +34,6 @@ def run(pool: str, policy: str, start_time: datetime, end_time: datetime):
         demo_actions = demo_policy.predict(obs)
         market_actions = env.market_actions(agents_actions=demo_actions)
         actions = market_actions + demo_actions
-        print("Actions: ", actions)
         next_obs, rewards, dones, infos = env.step(actions=actions)
         obs = next_obs
 
@@ -65,7 +55,7 @@ if __name__ == "__main__":
         "-pool",
         type=str,
         default="0x8ad599c3A0ff1De082011EFDDc58f1908eb6e6D8",
-        help="Pool aaa",
+        help="Pool address, defaults to WETH/USDC pool",
     )
 
     parser.add_argument(
