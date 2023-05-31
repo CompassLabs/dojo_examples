@@ -2,11 +2,10 @@ import logging
 from argparse import ArgumentParser
 from datetime import datetime
 
-from demo.policies import MovingAveragePolicy, PassiveConcentratedLPPolicy
-
-logging.basicConfig(format="%(asctime)s - %(message)s", level=15)
+logging.basicConfig(format="%(asctime)s - %(message)s", level=20)
 
 from demo.agents import UniV3PoolWealthAgent
+from demo.policies import MovingAveragePolicy, PassiveConcentratedLPPolicy
 from dojo.environments import UniV3Env
 
 
