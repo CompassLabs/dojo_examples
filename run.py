@@ -23,10 +23,6 @@ def run(pool: str, policy: str, start_time: datetime, end_time: datetime):
         demo_policy = MovingAveragePolicy(
             agent=demo_agent, short_window=20, long_window=50
         )
-    elif policy.lower() == "concentrated-lp":
-        demo_policy = PassiveConcentratedLPPolicy(
-            agent=demo_agent, lower_tick_bound=0.95, upper_tick_bound=1.05
-        )
 
     obs = env.reset()
     for _ in env.iter_block():
