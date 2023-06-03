@@ -6,17 +6,23 @@ This repository contains code examples for `dojo`. In order to run these, you mu
 
 You'll need to clone this repository directly. For example, if you have SSH authentication, you can run:
 
-```git clone git@github.com:CompassLabs/dojo_examples.git```
+```
+git clone git@github.com:CompassLabs/dojo_examples.git
+```
 
 ## Quick Start
 
 This can be run as a CLI with the command:
 
-```python -m demo.run```
+```
+python -m demo.run
+```
 
 Further info can be obtained with the command:
 
-```python -m demo -h```
+```
+python -m demo -h
+```
 
 Otherwise you can always copy these code snippets and add them into your own simulations!
 
