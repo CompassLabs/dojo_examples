@@ -26,7 +26,7 @@ def run(pool: str, policy: str, start_time: datetime, end_time: datetime):
 
     obs = env.reset()
     for _ in env.iter_block():
-        demo_actions = []
+        demo_actions = demo_policy.predict(obs)
         market_actions = env.market_actions(agents_actions=demo_actions)
         actions = market_actions + demo_actions
         next_obs, rewards, dones, infos = env.step(actions=actions)
