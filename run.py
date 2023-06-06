@@ -5,7 +5,7 @@ from datetime import datetime
 logging.basicConfig(format="%(asctime)s - %(message)s", level=20)
 
 from demo.agents import UniV3PoolWealthAgent
-from demo.policies import MovingAveragePolicy, PassiveConcentratedLPPolicy
+from demo.policies import MovingAveragePolicy
 from dojo.environments import UniV3Env
 
 
