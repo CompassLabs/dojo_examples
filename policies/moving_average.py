@@ -46,8 +46,8 @@ class MovingAveragePolicy(BasePolicy):
         pool = obs.pools[0]
         pool_tokens = obs.pool_tokens(pool=pool)
         price = obs.price(token=pool_tokens[0], unit=pool_tokens[1], pool=pool)
-        self.short_window.append(price)
-        self.long_window.append(price)
+        self.short_window.append(float(price))
+        self.long_window.append(float(price))
 
         # Only start trading when the windows are full
         if len(self.short_window) < self.short_window.maxlen:
@@ -62,7 +62,7 @@ class MovingAveragePolicy(BasePolicy):
                     agent=self.agent,
                     type="trade",
                     pool=pool,
-                    quantities=np.array([0, y_quantity]),
+                    quantities=(0, y_quantity),
                 )
             ]
 
@@ -73,7 +73,7 @@ class MovingAveragePolicy(BasePolicy):
                     agent=self.agent,
                     type="trade",
                     pool=pool,
-                    quantities=np.array([x_quantity, 0]),
+                    quantities=(x_quantity, 0),
                 )
             ]
         return []
