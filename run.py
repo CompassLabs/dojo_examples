@@ -27,6 +27,16 @@ def run(pool: str, policy: str, start_time: datetime, end_time: datetime):
             agent=demo_agent, short_window=20, long_window=50
         )
 
+
+
+
+
+
+
+
+
+
+
     sim_blocks = []
     sim_rewards = []
     obs = env.reset()
