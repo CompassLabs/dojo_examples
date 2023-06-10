@@ -1,4 +1,5 @@
 from collections import deque
+from decimal import Decimal
 from typing import List
 
 import numpy as np
@@ -62,7 +63,7 @@ class MovingAveragePolicy(BasePolicy):
                     agent=self.agent,
                     type="trade",
                     pool=pool,
-                    quantities=(0, y_quantity),
+                    quantities=(Decimal(0), y_quantity),
                 )
             ]
 
@@ -73,7 +74,7 @@ class MovingAveragePolicy(BasePolicy):
                     agent=self.agent,
                     type="trade",
                     pool=pool,
-                    quantities=(x_quantity, 0),
+                    quantities=(x_quantity, Decimal(0)),
                 )
             ]
         return []
