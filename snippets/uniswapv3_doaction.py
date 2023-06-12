@@ -1,15 +1,15 @@
-from datetime import datetime
 from decimal import Decimal
 
 import numpy as np
+from dateutil import parser as dateparser
 
 from demo.agents import UniV3PoolWealthAgent
 from dojo.environments.uniswapV3 import UniV3Action, UniV3Env
 
 # USDC/WETH pool on UniswapV3
 pools = ["0x8ad599c3A0ff1De082011EFDDc58f1908eb6e6D8"]  # WETH/USDC
-sim_start = datetime(2023, 4, 29)
-sim_end = datetime(2023, 4, 30)
+sim_start = dateparser.parse("2023-04-29 00:00:00 UTC")
+sim_end = dateparser.parse("2023-04-30 00:00:00 UTC")
 
 agent = UniV3PoolWealthAgent(initial_portfolio={"USDC": Decimal(10_000)})
 env = UniV3Env(
@@ -22,10 +22,9 @@ env.reset()
 
 action = UniV3Action(
     agent=agent,
-    type="quote",
+    type="trade",
     pool=env.obs.pools[0],
-    quantities=np.array([Decimal(0.1), Decimal(1)]),
-    tick_range=np.array([Decimal(0), Decimal(1)]),
+    quantities=np.array([Decimal("0.1"), Decimal("0")]),
 )
 
 env.step(actions=[action])
