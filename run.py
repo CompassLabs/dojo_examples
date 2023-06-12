@@ -12,6 +12,9 @@ from demo.policies import MovingAveragePolicy
 from dojo.environments import UniV3Env
 from dojo.vis import plotter
 
+import pytz
+from dateutil import parser as dateparser
+
 
 def run(pool: str, policy: str, start_time: datetime, end_time: datetime):
     demo_agent = UniV3PoolWealthAgent(initial_portfolio={"USDC": Decimal(10_000)})
@@ -37,9 +40,8 @@ def run(pool: str, policy: str, start_time: datetime, end_time: datetime):
         actions = market_actions + demo_actions
         next_obs, rewards, dones, infos = env.step(actions=actions)
         if len(actions) > 0:
-            print("rewards", rewards)
             plotter.send_data(block, "reward", rewards)
-
+        plotter.send_data(block, "progress", int((block-env.start_block)*100 / (env.end_block-env.start_block) ))
         obs = next_obs
         sim_blocks.append(block)
         sim_rewards.append(rewards[1])
@@ -72,7 +74,7 @@ if __name__ == "__main__":
         "--start_time",
         "-s",
         type=str,
-        default="2023-04-29 10:00:00",
+        default="2023-04-29 10:00:00 UTC",
         help="start time",
     )
 
@@ -80,13 +82,13 @@ if __name__ == "__main__":
         "--end_time",
         "-e",
         type=str,
-        default="2023-05-01 10:00:00",
+        default="2023-05-01 10:00:00 UTC",
         help="end time",
     )
 
     args = parser.parse_args()
 
-    start_time = datetime.strptime(args.start_time, "%Y-%m-%d %H:%M:%S")
-    end_time = datetime.strptime(args.end_time, "%Y-%m-%d %H:%M:%S")
+    start_time = dateparser.parse(args.start_time)
+    end_time = dateparser.parse(args.end_time)
 
     run(args.pool, args.policy, start_time, end_time)
