@@ -5,15 +5,14 @@ from decimal import Decimal
 
 logging.basicConfig(format="%(asctime)s - %(message)s", level=20)
 
+import pytz
+from dateutil import parser as dateparser
 from matplotlib import pyplot as plt
 
 from demo.agents import UniV3PoolWealthAgent
 from demo.policies import MovingAveragePolicy
 from dojo.environments import UniV3Env
 from dojo.vis import plotter
-
-import pytz
-from dateutil import parser as dateparser
 
 
 def run(pool: str, policy: str, start_time: datetime, end_time: datetime):
@@ -41,7 +40,11 @@ def run(pool: str, policy: str, start_time: datetime, end_time: datetime):
         next_obs, rewards, dones, infos = env.step(actions=actions)
         if len(actions) > 0:
             plotter.send_data(block, "reward", rewards)
-        plotter.send_data(block, "progress", int((block-env.start_block)*100 / (env.end_block-env.start_block) ))
+        plotter.send_data(
+            block,
+            "progress",
+            int((block - env.start_block) * 100 / (env.end_block - env.start_block)),
+        )
         obs = next_obs
         sim_blocks.append(block)
         sim_rewards.append(rewards[1])
