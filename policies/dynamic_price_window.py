@@ -5,17 +5,20 @@ from typing import List
 
 logging.basicConfig(format="%(asctime)s - %(message)s", level=20)
 
-from dojo.agents import BaseAgent
-from dojo.environments.uniswapV3 import UniV3Obs
+from price_window import PriceWindowPolicy
 
 from demo.agents import UniV3PoolWealthAgent
+from dojo.agents import BaseAgent
 from dojo.environments import UniV3Env
-from price_window import PriceWindowPolicy
+from dojo.environments.uniswapV3 import UniV3Obs
+
 
 class DynamicPriceWindowPolicy(PriceWindowPolicy):
 
     # upper and lower limit are now parameters of the policy
-    def __init__(self, agent: BaseAgent, lower_limit: float, upper_limit: float) -> None:
+    def __init__(
+        self, agent: BaseAgent, lower_limit: float, upper_limit: float
+    ) -> None:
         super().__init__(agent=agent, lower_limit=lower_limit, upper_limit=upper_limit)
         self.old_price = 0
         self.spread = self.upper_limit - self.lower_limit
@@ -25,9 +28,7 @@ class DynamicPriceWindowPolicy(PriceWindowPolicy):
     def fit(self, obs: UniV3Obs) -> None:
         pool = obs.pools[0]
         x_token, y_token = obs.pool_tokens(pool)
-        spot_price = obs.get_price(
-            token=x_token, unit=y_token, pool=pool
-        )
+        spot_price = obs.get_price(token=x_token, unit=y_token, pool=pool)
         if len(self.returns) == 0:
             self.old_price = spot_price
 
@@ -51,7 +52,9 @@ if __name__ == "__main__":
         market_impact="replay",
     )
 
-    demo_policy = DynamicPriceWindowPolicy(agent=demo_agent, lower_limit=0.9, upper_limit=1.1)
+    demo_policy = DynamicPriceWindowPolicy(
+        agent=demo_agent, lower_limit=0.9, upper_limit=1.1
+    )
 
     sim_blocks = []
     sim_rewards = []

@@ -10,6 +10,7 @@ from matplotlib import pyplot as plt
 from demo.agents import UniV3PoolWealthAgent
 from demo.policies import MovingAveragePolicy
 from dojo.environments import UniV3Env
+from dojo.vis import plotter
 
 
 def run(pool: str, policy: str, start_time: datetime, end_time: datetime):
@@ -35,6 +36,10 @@ def run(pool: str, policy: str, start_time: datetime, end_time: datetime):
         market_actions = env.market_actions(agents_actions=demo_actions)
         actions = market_actions + demo_actions
         next_obs, rewards, dones, infos = env.step(actions=actions)
+        if len(actions) > 0:
+            print("rewards", rewards)
+            plotter.send_data(block, "reward", rewards)
+
         obs = next_obs
         sim_blocks.append(block)
         sim_rewards.append(rewards[1])

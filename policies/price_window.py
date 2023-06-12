@@ -5,12 +5,12 @@ from typing import List
 
 logging.basicConfig(format="%(asctime)s - %(message)s", level=20)
 
+from demo.agents import UniV3PoolWealthAgent
 from dojo.agents import BaseAgent
+from dojo.environments import UniV3Env
 from dojo.environments.uniswapV3 import UniV3Action, UniV3Obs
 from dojo.policies import BasePolicy
 
-from demo.agents import UniV3PoolWealthAgent
-from dojo.environments import UniV3Env
 
 class PriceWindowPolicy(BasePolicy):
     def __init__(
