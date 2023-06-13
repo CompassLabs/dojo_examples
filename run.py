@@ -34,23 +34,21 @@ def run(pool: str, policy: str, start_time: datetime, end_time: datetime):
     sim_rewards = []
     obs = env.reset()
     for block in env.iter_block():
-        demo_actions = []
+        demo_actions = demo_policy.predict(obs)
         market_actions = env.market_actions(agents_actions=demo_actions)
         actions = market_actions + demo_actions
         next_obs, rewards, dones, infos = env.step(actions=actions)
+
         if len(actions) > 0:
-            plotter.send_data(block, "reward", rewards)
-        plotter.send_data(
-            block,
-            "progress",
-            int((block - env.start_block) * 100 / (env.end_block - env.start_block)),
+            plotter.send_rewards(block, rewards)
+        if len(demo_actions) > 0:
+            plotter.send_actions(block, demo_actions)
+        plotter.send_progress(
+            int((block - env.start_block) * 100 / (env.end_block - env.start_block))
         )
         obs = next_obs
         sim_blocks.append(block)
         sim_rewards.append(rewards[1])
-
-    plt.plot(sim_blocks, sim_rewards)
-    plt.show()
 
 
 if __name__ == "__main__":
