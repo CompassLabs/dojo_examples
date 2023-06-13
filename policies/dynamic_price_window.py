@@ -41,6 +41,8 @@ class DynamicPriceWindowPolicy(PriceWindowPolicy):
         self.spread = self.spread * vol_diff
         self.lower_limit = max(0, self.center - (self.spread / 2))
         self.upper_limit = self.center + (self.spread / 2)
+
+
 # SNIPPET dynamic_price_window END
 
 

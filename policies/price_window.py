@@ -45,6 +45,8 @@ class PriceWindowPolicy(BasePolicy):
             return [action]
 
         return []
+
+
 # SNIPPET price_window END
 
 
