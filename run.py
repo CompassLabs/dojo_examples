@@ -5,13 +5,12 @@ from decimal import Decimal
 
 logging.basicConfig(format="%(asctime)s - %(message)s", level=20)
 
-import pytz
 from dateutil import parser as dateparser
-from matplotlib import pyplot as plt
 
 from demo.agents import UniV3PoolWealthAgent
 from demo.policies import MovingAveragePolicy
 from dojo.environments import UniV3Env
+from dojo.environments.uniswapV3 import sqrt_priceX96_to_price
 from dojo.vis import plotter
 
 
@@ -42,6 +41,10 @@ def run(pool: str, policy: str, start_time: datetime, end_time: datetime):
 
         if len(actions) > 0:
             plotter.send_rewards(block, rewards)
+            sqrtPriceX96, tick, _, _, _, _, _ = next_obs.slot0(pool)
+            plotter.send_price(
+                block, sqrt_priceX96_to_price(sqrtPriceX96), next_obs.liquidity(pool)
+            )
         if len(demo_actions) > 0:
             plotter.send_actions(block, demo_actions)
         plotter.send_progress(
