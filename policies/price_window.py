@@ -12,6 +12,7 @@ from dojo.environments.uniswapV3 import UniV3Action, UniV3Obs
 from dojo.policies import BasePolicy
 
 
+# SNIPPET price_window START
 class PriceWindowPolicy(BasePolicy):
     def __init__(
         self, agent: BaseAgent, lower_limit: float, upper_limit: float
@@ -44,6 +45,7 @@ class PriceWindowPolicy(BasePolicy):
             return [action]
 
         return []
+# SNIPPET price_window END
 
 
 if __name__ == "__main__":

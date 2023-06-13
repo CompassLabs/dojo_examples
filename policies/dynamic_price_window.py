@@ -13,6 +13,7 @@ from dojo.environments import UniV3Env
 from dojo.environments.uniswapV3 import UniV3Obs
 
 
+# SNIPPET dynamic_price_window START
 class DynamicPriceWindowPolicy(PriceWindowPolicy):
 
     # upper and lower limit are now parameters of the policy
@@ -40,6 +41,7 @@ class DynamicPriceWindowPolicy(PriceWindowPolicy):
         self.spread = self.spread * vol_diff
         self.lower_limit = max(0, self.center - (self.spread / 2))
         self.upper_limit = self.center + (self.spread / 2)
+# SNIPPET dynamic_price_window END
 
 
 if __name__ == "__main__":
