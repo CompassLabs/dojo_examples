@@ -14,7 +14,7 @@ from demo.policies import MovingAveragePolicy
 from dojo.environments import UniV3Env
 from dojo.vis import plotter
 
-
+# SNIPPET 1 START
 def run(pool: str, policy: str, start_time: datetime, end_time: datetime):
     demo_agent = UniV3PoolWealthAgent(initial_portfolio={"USDC": Decimal(10_000)})
 
@@ -49,7 +49,7 @@ def run(pool: str, policy: str, start_time: datetime, end_time: datetime):
         obs = next_obs
         sim_blocks.append(block)
         sim_rewards.append(rewards[1])
-
+# SNIPPET 1 END
 
 if __name__ == "__main__":
     parser = ArgumentParser(
