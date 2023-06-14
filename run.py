@@ -17,7 +17,9 @@ pool = "0x8ad599c3A0ff1De082011EFDDc58f1908eb6e6D8"
 start_time = dateparser.parse("2023-04-29 10:00:00 UTC")
 end_time = dateparser.parse("2023-05-01 10:00:00 UTC")
 
-demo_agent = UniV3PoolWealthAgent(initial_portfolio={"USDC": Decimal(10_000)})
+demo_agent = UniV3PoolWealthAgent(
+    initial_portfolio={"USDC": Decimal(10_000), "WETH": Decimal(1)}
+)
 
 env = UniV3Env(
     date_range=(start_time, end_time),
@@ -26,7 +28,7 @@ env = UniV3Env(
     market_impact="replay",
 )
 
-demo_policy = MovingAveragePolicy(agent=demo_agent, short_window=20, long_window=50)
+demo_policy = MovingAveragePolicy(agent=demo_agent, short_window=200, long_window=1000)
 
 sim_blocks, sim_rewards = backtest_run(env, [demo_policy])
 plt.plot(sim_blocks, sim_rewards)

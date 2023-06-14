@@ -19,8 +19,14 @@ class MovingAveragePolicy(BasePolicy):
 
     def __init__(self, agent: BaseAgent, short_window: int, long_window: int) -> None:
         super().__init__(agent=agent)
+        self._short_window = short_window
+        self._long_window = long_window
         self.long_window = deque(maxlen=long_window)
         self.short_window = deque(maxlen=short_window)
+
+    def _clear_windows(self):
+        self.long_window = deque(maxlen=self._long_window)
+        self.short_window = deque(maxlen=self._short_window)
 
     def _x_to_y_indicated(self, pool_tokens):
         """If the short window crosses above the long window, convert asset y to asset x.
@@ -58,6 +64,7 @@ class MovingAveragePolicy(BasePolicy):
 
         if self._x_to_y_indicated(pool_tokens):
             y_quantity = self.agent.quantity(pool_tokens[1])
+            self._clear_windows()
             return [
                 UniV3Action(
                     agent=self.agent,
@@ -69,6 +76,7 @@ class MovingAveragePolicy(BasePolicy):
 
         if self._y_to_x_indicated(pool_tokens):
             x_quantity = self.agent.quantity(pool_tokens[0])
+            self._clear_windows()
             return [
                 UniV3Action(
                     agent=self.agent,
