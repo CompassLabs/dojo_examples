@@ -30,6 +30,6 @@ env = UniV3Env(
 
 demo_policy = MovingAveragePolicy(agent=demo_agent, short_window=200, long_window=1000)
 
-sim_blocks, sim_rewards = backtest_run(env, [demo_policy])
+sim_blocks, sim_rewards = backtest_run(env, [demo_policy], port=8051)
 plt.plot(sim_blocks, sim_rewards)
 # SNIPPET 1 END
