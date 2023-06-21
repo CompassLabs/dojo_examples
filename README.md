@@ -1,6 +1,6 @@
 # Dojo Examples
 
-This repository contains code examples for `dojo`. In order to run these, you must have `dojo` installed on your machine with a valid license key. Please refer to the [docs](https://compasslabs.github.io/docs) for more detailed instructions.
+This repository contains code examples for `dojo`. In order to run these, you must have `dojo` installed on your machine with a valid license key. Please refer to the [docs](https://compasslabs.github.io/docs) for more detailed instructions on this.
 
 ## Installation
 
