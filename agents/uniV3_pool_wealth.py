@@ -1,3 +1,5 @@
+from decimal import Decimal
+
 from dojo.agents import BaseAgent
 from dojo.common.types import Portfolio
 from dojo.environments.uniswapV3 import UniV3Obs
@@ -25,9 +27,9 @@ class UniV3PoolWealthAgent(BaseAgent):
                 token1 = pos_info["token1"]
                 quantities = pos_info["real_quantities"]
                 if token0 not in portfolio:
-                    portfolio[token0] = 0.0
+                    portfolio[token0] = Decimal("0.0")
                 if token1 not in portfolio:
-                    portfolio[token1] = 0.0
+                    portfolio[token1] = Decimal("0.0")
                 portfolio[token0] += quantities[0]
                 portfolio[token1] += quantities[1]
         return portfolio
