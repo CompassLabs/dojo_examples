@@ -41,8 +41,8 @@ class PassiveConcentratedLP(BasePolicy):
         decimals0 = money.get_decimals(address0)
         decimals1 = money.get_decimals(address1)
 
-        lower_price_range = self.lower_tick_bound * spot_price
-        upper_price_range = self.upper_tick_bound * spot_price
+        lower_price_range = self.lower_price_bound * spot_price
+        upper_price_range = self.upper_price_bound * spot_price
         tick_spacing = obs.tick_spacing(pool_address)
 
         lower_tick = uniswapV3.price_to_tick(
