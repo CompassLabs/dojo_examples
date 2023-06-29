@@ -1,8 +1,6 @@
 import logging
 from decimal import Decimal
 
-import matplotlib.pyplot as plt
-
 logging.basicConfig(format="%(asctime)s - %(message)s", level=20)
 
 from agents.uniV3_pool_wealth import UniV3PoolWealthAgent
@@ -31,5 +29,4 @@ env = UniV3Env(
 demo_policy = MovingAveragePolicy(agent=demo_agent, short_window=200, long_window=1000)
 
 sim_blocks, sim_rewards = backtest_run(env, [demo_policy], port=8051)
-plt.plot(sim_blocks, sim_rewards)
 # SNIPPET 1 END
