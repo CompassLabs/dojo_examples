@@ -30,7 +30,7 @@ from ..policies.price_window import PriceWindowPolicy
 def run_policy(agent: BaseAgent, policy: BasePolicy):
     pool = "0x8ad599c3A0ff1De082011EFDDc58f1908eb6e6D8"
     start_time = dateparser.parse("2023-04-29 10:00:00 UTC")
-    end_time = dateparser.parse("2023-04-29 14:00:00 UTC")
+    end_time = dateparser.parse("2023-04-29 12:00:00 UTC")
 
     if network.is_connected():
         network.disconnect(kill_rpc=True)
@@ -51,7 +51,7 @@ def test_demo_policies():
     policies = [
         PriceWindowPolicy(agent=agent, lower_limit=0.9, upper_limit=1.1),
         PassiveConcentratedLP(
-            agent=agent, lower_tick_bound=20000, upper_tick_bound=30000
+            agent=agent, lower_price_bound=0.95, upper_price_bound=1.05
         ),
         MovingAveragePolicy(agent=agent, short_window=200, long_window=500),
         DynamicPriceWindowPolicy(agent=agent, lower_limit=0.9, upper_limit=1.1),
