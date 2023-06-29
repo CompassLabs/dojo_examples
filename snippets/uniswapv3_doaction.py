@@ -1,9 +1,16 @@
+import os
+import sys
 from decimal import Decimal
 
+current = os.path.dirname(os.path.realpath(__file__))
+parent = os.path.dirname(current)
+sys.path.append(parent)
+
+
 import numpy as np
+from agents import UniV3PoolWealthAgent
 from dateutil import parser as dateparser
 
-from demo.agents import UniV3PoolWealthAgent
 from dojo.environments.uniswapV3 import UniV3Action, UniV3Env
 
 # USDC/WETH pool on UniswapV3
