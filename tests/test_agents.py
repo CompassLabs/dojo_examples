@@ -13,14 +13,15 @@ current = os.path.dirname(os.path.realpath(__file__))
 parent = os.path.dirname(current)
 sys.path.append(parent)
 
-from agents.univ3_impermanent_loss import ImpermanentLossAgent
-from agents.uniV3_pool_wealth import UniV3PoolWealthAgent
 from dateutil import parser as dateparser
-from policies.moving_average import MovingAveragePolicy
 
 from dojo.agents import BaseAgent
 from dojo.environments import UniV3Env
 from dojo.runners import backtest_run
+
+from ..agents.univ3_impermanent_loss import ImpermanentLossAgent
+from ..agents.uniV3_pool_wealth import UniV3PoolWealthAgent
+from ..policies.moving_average import MovingAveragePolicy
 
 
 def run_agent(agent: BaseAgent):

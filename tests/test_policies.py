@@ -15,15 +15,16 @@ sys.path.append(parent)
 
 from agents.uniV3_pool_wealth import UniV3PoolWealthAgent
 from dateutil import parser as dateparser
-from policies.dynamic_price_window import DynamicPriceWindowPolicy
-from policies.moving_average import MovingAveragePolicy
-from policies.passiveLP import PassiveConcentratedLPPolicy
-from policies.price_window import PriceWindowPolicy
 
 from dojo.agents import BaseAgent
 from dojo.environments import UniV3Env
 from dojo.policies import BasePolicy
 from dojo.runners import backtest_run
+
+from ..policies.dynamic_price_window import DynamicPriceWindowPolicy
+from ..policies.moving_average import MovingAveragePolicy
+from ..policies.passiveLP import PassiveConcentratedLP
+from ..policies.price_window import PriceWindowPolicy
 
 
 def run_policy(agent: BaseAgent, policy: BasePolicy):
@@ -49,7 +50,7 @@ def test_demo_policies():
     )
     policies = [
         PriceWindowPolicy(agent=agent, lower_limit=0.9, upper_limit=1.1),
-        PassiveConcentratedLPPolicy(
+        PassiveConcentratedLP(
             agent=agent, lower_tick_bound=20000, upper_tick_bound=30000
         ),
         MovingAveragePolicy(agent=agent, short_window=200, long_window=500),
