@@ -44,19 +44,35 @@ def run_policy(agent: BaseAgent, policy: BasePolicy):
     backtest_run(env, [policy], port=8051)
 
 
-def test_demo_policies():
+def test_price_window():
     agent = UniV3PoolWealthAgent(
         initial_portfolio={"USDC": Decimal(1000), "WETH": Decimal(1)}
     )
-    policies = [
-        PriceWindowPolicy(agent=agent, lower_limit=0.9, upper_limit=1.1),
-        PassiveConcentratedLP(
-            agent=agent, lower_price_bound=0.95, upper_price_bound=1.05
-        ),
-        MovingAveragePolicy(agent=agent, short_window=200, long_window=500),
-        DynamicPriceWindowPolicy(agent=agent, lower_limit=0.9, upper_limit=1.1),
-    ]
+    policy = PriceWindowPolicy(agent=agent, lower_limit=0.9, upper_limit=1.1)
+    run_policy(agent, policy)
 
-    for policy in policies:
-        print(policy)
-        run_policy(agent, policy)
+
+def test_passive_concentrated_lp():
+    agent = UniV3PoolWealthAgent(
+        initial_portfolio={"USDC": Decimal(1000), "WETH": Decimal(1)}
+    )
+    policy = PassiveConcentratedLP(
+        agent=agent, lower_price_bound=0.95, upper_price_bound=1.05
+    )
+    run_policy(agent, policy)
+
+
+def test_moving_average():
+    agent = UniV3PoolWealthAgent(
+        initial_portfolio={"USDC": Decimal(1000), "WETH": Decimal(1)}
+    )
+    policy = MovingAveragePolicy(agent=agent, short_window=200, long_window=500)
+    run_policy(agent, policy)
+
+
+def test_dynamic_price_window():
+    agent = UniV3PoolWealthAgent(
+        initial_portfolio={"USDC": Decimal(1000), "WETH": Decimal(1)}
+    )
+    policy = DynamicPriceWindowPolicy(agent=agent, lower_limit=0.9, upper_limit=1.1)
+    run_policy(agent, policy)

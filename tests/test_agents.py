@@ -42,15 +42,15 @@ def run_agent(agent: BaseAgent):
     backtest_run(env, [demo_policy], port=8051)
 
 
-def test_demo_agents():
-    agents = [
-        ImpermanentLossAgent(
-            initial_portfolio={"USDC": Decimal(10_000), "WETH": Decimal(1)}
-        ),
-        UniV3PoolWealthAgent(
-            initial_portfolio={"USDC": Decimal(10_000), "WETH": Decimal(1)}
-        ),
-    ]
-    for agent in agents:
-        print(agent)
-        run_agent(agent)
+def test_impermanent_loss():
+    agent = ImpermanentLossAgent(
+        initial_portfolio={"USDC": Decimal(10_000), "WETH": Decimal(1)}
+    )
+    run_agent(agent)
+
+
+def test_univ3_pool_wealth():
+    agent = UniV3PoolWealthAgent(
+        initial_portfolio={"USDC": Decimal(10_000), "WETH": Decimal(1)}
+    )
+    run_agent(agent)
