@@ -1,0 +1,19 @@
+{
+  "setupTasks": [
+    {
+      "name": "Installing hardhat",
+      "command": "npm install --save-dev hardhat"
+    },
+    {
+      "name": "Installing dojo",
+      "command": "pip install dojo-compass"
+    }
+  ],
+  "tasks": {
+    "start-app": {
+      "name": "Run dashboard",
+      "command": "python3.9 start_dashboard.py",
+      "runAtStart": true
+    }
+  }
+}
