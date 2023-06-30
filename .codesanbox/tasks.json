@@ -1,0 +1,13 @@
+{
+  // These tasks will run in order when initializing your CodeSandbox project.
+  "setupTasks": [
+    {
+      "name": "Installing hardhat",
+      "command": "npm install --save-dev hardhat"
+    },
+    {
+      "name": "Installing dojo",
+      "command": "pip install dojo-compass"
+    }
+  ]
+}
