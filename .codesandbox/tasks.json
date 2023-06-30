@@ -5,8 +5,12 @@
       "command": "npm install --save-dev hardhat"
     },
     {
+      "name": "Downloading pip",
+      "command": "wget https://bootstrap.pypa.io/pip/pip.pyz"
+    },
+    {
       "name": "Installing dojo",
-      "command": "pip install dojo-compass"
+      "command": "python3.9 pip.pyz install dojo-compass"
     }
   ],
   "tasks": {
