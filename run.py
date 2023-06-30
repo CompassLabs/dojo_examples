@@ -8,8 +8,8 @@ from dateutil import parser as dateparser
 from dojo.environments import UniV3Env
 from dojo.runners import backtest_run
 
-from .agents.uniV3_pool_wealth import UniV3PoolWealthAgent
-from .policies.moving_average import MovingAveragePolicy
+from agents.uniV3_pool_wealth import UniV3PoolWealthAgent
+from policies.moving_average import MovingAveragePolicy
 
 # SNIPPET 1 START
 pool = "0x8ad599c3A0ff1De082011EFDDc58f1908eb6e6D8"
