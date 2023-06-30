@@ -1,6 +1,7 @@
 # Dojo Examples 🥷
 
-[**Open in codesandbox**](https://codesandbox.io/p/github/compasslabs/dojo_examples)
+[**Open in codesandbox**](https://codesandbox.io/p/github/compasslabs/dojo_examples)  
+[![Run on Repl.it](https://replit.com/badge/github/CompassLabs/dojo_examples)](https://replit.com/new/github/CompassLabs/dojo_examples)
 
 This repository contains code examples for `dojo` 🎉. In order to run these, you must have `dojo` installed on your machine with a valid license key. Please refer to the [***Getting Started***]((https://dojo.compasslabs.ai/tutorial/Getting_Started)) guide in the docs for more detailed instructions on getting setup  🙂
 
