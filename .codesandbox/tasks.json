@@ -1,0 +1,32 @@
+{
+  "setupTasks": [
+    {
+      "name": "Installing hardhat",
+      "command": "npm install --save-dev hardhat"
+    },
+    {
+      "name": "Remove old pip",
+      "command": "rm /tmp/pip.pyz"
+    },
+    {
+      "name": "Downloading pip",
+      "command": "wget https://bootstrap.pypa.io/pip/pip.pyz -O /tmp/pip.pyz"
+    },
+    {
+      "name": "Installing dojo",
+      "command": "python3.9 /tmp/pip.pyz install dojo-compass"
+    }
+  ],
+  "tasks": {
+    "run-simulation": {
+      "name": "Run simulation",
+      "command": "python3.9 run.py",
+      "runAtStart": false
+    },
+    "run-dashboard": {
+      "name": "Run dashboard",
+      "command": "python3.9 start_dashboard.py",
+      "runAtStart": true
+    }
+  }
+}
