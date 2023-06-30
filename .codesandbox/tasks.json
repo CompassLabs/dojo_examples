@@ -6,11 +6,11 @@
     },
     {
       "name": "Downloading pip",
-      "command": "wget https://bootstrap.pypa.io/pip/pip.pyz"
+      "command": "wget https://bootstrap.pypa.io/pip/pip.pyz -O /tmp/pip.pyz"
     },
     {
       "name": "Installing dojo",
-      "command": "python3.9 pip.pyz install dojo-compass"
+      "command": "python3.9 /tmp/pip.pyz install dojo-compass"
     }
   ],
   "tasks": {
