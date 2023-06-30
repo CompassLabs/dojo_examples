@@ -1,16 +1,15 @@
 import logging
 from decimal import Decimal
 
-import matplotlib.pyplot as plt
-
 logging.basicConfig(format="%(asctime)s - %(message)s", level=20)
 
 from dateutil import parser as dateparser
 
-from demo.agents import UniV3PoolWealthAgent
-from demo.policies import MovingAveragePolicy
 from dojo.environments import UniV3Env
 from dojo.runners import backtest_run
+
+from .agents.uniV3_pool_wealth import UniV3PoolWealthAgent
+from .policies.moving_average import MovingAveragePolicy
 
 # SNIPPET 1 START
 pool = "0x8ad599c3A0ff1De082011EFDDc58f1908eb6e6D8"
@@ -31,5 +30,4 @@ env = UniV3Env(
 demo_policy = MovingAveragePolicy(agent=demo_agent, short_window=200, long_window=1000)
 
 sim_blocks, sim_rewards = backtest_run(env, [demo_policy], port=8051)
-plt.plot(sim_blocks, sim_rewards)
 # SNIPPET 1 END

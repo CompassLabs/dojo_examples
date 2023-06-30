@@ -1,16 +1,13 @@
 import logging
-from datetime import datetime
-from decimal import Decimal
-from typing import List
 
 logging.basicConfig(format="%(asctime)s - %(message)s", level=20)
 
-from price_window import PriceWindowPolicy
+import os
 
-from demo.agents import UniV3PoolWealthAgent
 from dojo.agents import BaseAgent
-from dojo.environments import UniV3Env
 from dojo.environments.uniswapV3 import UniV3Obs
+
+from .price_window import PriceWindowPolicy
 
 
 # SNIPPET dynamic_price_window START
@@ -44,30 +41,3 @@ class DynamicPriceWindowPolicy(PriceWindowPolicy):
 
 
 # SNIPPET dynamic_price_window END
-
-
-if __name__ == "__main__":
-
-    demo_agent = UniV3PoolWealthAgent(initial_portfolio={"USDC": Decimal(10_000)})
-    env = UniV3Env(
-        date_range=(datetime(2023, 4, 29), datetime(2023, 5, 2)),
-        agents=[demo_agent],
-        pools=["0x8ad599c3A0ff1De082011EFDDc58f1908eb6e6D8"],
-        market_impact="replay",
-    )
-
-    demo_policy = DynamicPriceWindowPolicy(
-        agent=demo_agent, lower_limit=0.9, upper_limit=1.1
-    )
-
-    sim_blocks = []
-    sim_rewards = []
-    obs = env.reset()
-    for block in env.iter_block():
-        demo_actions = []
-        market_actions = env.market_actions(agents_actions=demo_actions)
-        actions = market_actions + demo_actions
-        next_obs, rewards, dones, infos = env.step(actions=actions)
-        obs = next_obs
-        sim_blocks.append(block)
-        sim_rewards.append(rewards[1])
