@@ -2,7 +2,6 @@
 
 # Dojo Examples 🥷
 
-
 This repository contains code examples for `dojo` 🎉. In order to run these, you must have `dojo` installed on your machine with a valid license key. Please refer to the [***Getting Started***]((https://dojo.compasslabs.ai/tutorial/Getting_Started)) guide in the docs for more detailed instructions on getting setup  🙂
 
 ## ⬇️ Installation
