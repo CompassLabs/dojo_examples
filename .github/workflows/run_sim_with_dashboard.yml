@@ -12,6 +12,7 @@ on:
 env:
   RPC_URL: ${{ secrets.RPC_URL }}
   LICENSE_KEY: ${{ secrets.LICENSE_KEY }}
+  FAILURE_WEBHOOK: ${{secrets.FAILURE_WEBHOOK}}
   CHAIN: ethereum
 
 jobs:
@@ -51,4 +52,4 @@ jobs:
       - name: Send failure message to slack
         if: failure()
         run: |
-          curl https://hooks.slack.com/workflows/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
+          curl $FAILURE_WEBHOOK
