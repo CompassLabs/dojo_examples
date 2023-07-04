@@ -47,3 +47,8 @@ jobs:
           command: python run.py
           start: python start_dashboard.py
           wait-on: 'http://localhost:8051'
+      
+      - name: Notify on failure
+        if: failure()
+        run: |
+          echo "Failure detected"
