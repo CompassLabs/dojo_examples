@@ -48,7 +48,7 @@ jobs:
           start: python start_dashboard.py
           wait-on: 'http://localhost:8051'
       
-      - name: Notify on failure
+      - name: Send failure message to slack
         if: failure()
         run: |
-          echo "Failure detected"
+          curl https://hooks.slack.com/workflows/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
