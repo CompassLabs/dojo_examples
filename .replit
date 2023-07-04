@@ -1,1 +1,0 @@
-run = "npm install --save-dev hardhat; pip3.10 install dojo-compass"

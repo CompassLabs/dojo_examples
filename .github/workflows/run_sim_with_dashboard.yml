@@ -2,7 +2,7 @@ name: run_sim_with_dashboard
 
 on:
   push:
-    branches: [ main, dev ]
+    branches: [ main ]
   pull_request:
     branches: '*'
   schedule:
