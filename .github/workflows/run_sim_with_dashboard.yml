@@ -5,6 +5,8 @@ on:
     branches: [ main, dev ]
   pull_request:
     branches: '*'
+  schedule:
+  - cron: "0 0 * * *"
   workflow_dispatch:
 
 env:
