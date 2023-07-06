@@ -30,9 +30,9 @@ jobs:
         id: ip
         uses: haythem/public-ip@v1.2
 
-    - name: Add Github Actions IP to Security group
-      run: |
-        aws ec2 authorize-security-group-ingress --group-name ${{ env.AWS_SG_NAME }} --protocol tcp --port 8545 --cidr ${{ steps.ip.outputs.ipv4 }}/32
+      - name: Add Github Actions IP to Security group
+        run: |
+          aws ec2 authorize-security-group-ingress --group-name ${{ env.AWS_SG_NAME }} --protocol tcp --port 8545 --cidr ${{ steps.ip.outputs.ipv4 }}/32
 
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v2
