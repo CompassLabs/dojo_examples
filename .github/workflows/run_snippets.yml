@@ -1,0 +1,80 @@
+name: run_snippets
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: '*'
+  schedule:
+  - cron: "0 0 * * *"
+  workflow_dispatch:
+
+env:
+  RPC_URL: ${{ secrets.RPC_URL }}
+  LICENSE_KEY: ${{ secrets.LICENSE_KEY }}
+  FAILURE_WEBHOOK: ${{secrets.FAILURE_WEBHOOK}}
+  CHAIN: ethereum
+  AWS_DEFAULT_REGION: eu-west-2
+  AWS_SG_NAME: launch-wizard-2
+  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+jobs:
+  run_snippets:
+    runs-on: ubuntu-20.04
+    strategy:
+      matrix:
+        python-version: ['3.8', '3.9', '3.10']
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Get Github action IP
+        id: ip
+        uses: haythem/public-ip@v1.2
+
+      - name: Add Github Actions IP to Security group
+        run: |
+          aws ec2 authorize-security-group-ingress --group-name ${{ env.AWS_SG_NAME }} --protocol tcp --port 8545 --cidr ${{ steps.ip.outputs.ipv4 }}/32
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18'
+
+      - name: Install npm pre-requisites
+        run: |
+          npm install --save-dev hardhat
+      - name: Install release-executable
+        run: |
+          pip install dojo-compass 
+
+      - name: Run Snippets first
+        id: snippets_first_try
+        continue-on-error: true
+        run: |
+          cd snippets
+          ls . | xargs python
+
+      - name: Run Snippets second
+        id: snippets_second_try
+        if: steps.snippets_first_try.outcome == 'failure'
+        continue-on-error: false
+        run: |
+          cd snippets
+          ls . | xargs python
+      
+      - name: Send failure message to slack
+        if: failure()
+        run: |
+          curl $FAILURE_WEBHOOK
+
+      - name: Remove Github Actions IP from security group
+        run: |
+          aws ec2 revoke-security-group-ingress --group-name ${{ env.AWS_SG_NAME }} --protocol tcp --port 8545 --cidr ${{ steps.ip.outputs.ipv4 }}/32
+        if: always()
