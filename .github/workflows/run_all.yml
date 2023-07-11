@@ -56,7 +56,7 @@ jobs:
       - name: Run tests
         run: |
           pip install pytest-cov
-          pytest --cov=policies --cov=agents --cov=snippets --cov-report xml tests/
+          pytest --cov=policies --cov=agents --cov-report xml tests/
 
       - name: Remove Github Actions IP from security group
         run: |
