@@ -1,24 +1,26 @@
-name: test_examples
+name: run_snippets
 
 on:
   push:
-    branches: [ main, dev ]
+    branches: [ main ]
   pull_request:
     branches: '*'
+  schedule:
+  - cron: "0 0 * * *"
   workflow_dispatch:
 
 env:
   RPC_URL: ${{ secrets.RPC_URL }}
   LICENSE_KEY: ${{ secrets.LICENSE_KEY }}
+  FAILURE_WEBHOOK: ${{secrets.FAILURE_WEBHOOK}}
   CHAIN: ethereum
   AWS_DEFAULT_REGION: eu-west-2
   AWS_SG_NAME: launch-wizard-2
   AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
   AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-  CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
 jobs:
-  test-all:
+  run_snippets:
     runs-on: ubuntu-20.04
     strategy:
       matrix:
@@ -50,18 +52,29 @@ jobs:
           npm install --save-dev hardhat
       - name: Install release-executable
         run: |
-          pip install dojo-compass
-          pip install pytest
+          pip install dojo-compass 
 
-      - name: Run tests
+      - name: Run Snippets first
+        id: snippets_first_try
+        continue-on-error: true
         run: |
-          pip install pytest-cov
-          pytest --cov=policies --cov=agents --cov-report xml tests/
+          cd snippets
+          ls . | xargs python
+
+      - name: Run Snippets second
+        id: snippets_second_try
+        if: steps.snippets_first_try.outcome == 'failure'
+        continue-on-error: false
+        run: |
+          cd snippets
+          ls . | xargs python
+      
+      - name: Send failure message to slack
+        if: failure()
+        run: |
+          curl $FAILURE_WEBHOOK
 
       - name: Remove Github Actions IP from security group
         run: |
           aws ec2 revoke-security-group-ingress --group-name ${{ env.AWS_SG_NAME }} --protocol tcp --port 8545 --cidr ${{ steps.ip.outputs.ipv4 }}/32
         if: always()
-        
-      - name: Upload coverage reports to Codecov
-        uses: codecov/codecov-action@v3
