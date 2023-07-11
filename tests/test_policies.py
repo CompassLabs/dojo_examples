@@ -30,7 +30,7 @@ from ..policies.price_window import PriceWindowPolicy
 def run_policy(agent: BaseAgent, policy: BasePolicy):
     pool = "0x8ad599c3A0ff1De082011EFDDc58f1908eb6e6D8"
     start_time = dateparser.parse("2023-04-29 10:00:00 UTC")
-    end_time = dateparser.parse("2023-04-29 12:00:00 UTC")
+    end_time = dateparser.parse("2023-04-29 16:00:00 UTC")
 
     if network.is_connected():
         network.disconnect(kill_rpc=True)
