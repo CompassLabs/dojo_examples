@@ -31,9 +31,23 @@ jobs:
         id: ip
         uses: haythem/public-ip@v1.2
 
+      - name: Check if IP address is already allowed
+        id: check-ip-allowed
+        run: |
+          existing_rules=$(aws ec2 describe-security-groups --group-names ${{ env.AWS_SG_NAME }} --query 'SecurityGroups[?contains(IpPermissions[].IpRanges[].CidrIp, `${{ steps.ip.outputs.ipv4 }}/32`)].GroupId' --output text)
+          if [[ -n "${existing_rules}" ]]; then
+            echo "::set-output name=ip-allowed::true"
+          else
+            echo "::set-output name=ip-allowed::false"
+          fi
+
       - name: Add Github Actions IP to Security group
         run: |
-          aws ec2 authorize-security-group-ingress --group-name ${{ env.AWS_SG_NAME }} --protocol tcp --port 8545 --cidr ${{ steps.ip.outputs.ipv4 }}/32
+          if [[ "${{ steps.check-ip-allowed.outputs.ip-allowed }}" != "true" ]]; then
+            aws ec2 authorize-security-group-ingress --group-name ${{ env.AWS_SG_NAME }} --protocol tcp --port 8545 --cidr ${{ steps.ip.outputs.ipv4 }}/32
+          else
+            echo "IP address is already allowed. Skipping step."
+          fi
 
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v2
