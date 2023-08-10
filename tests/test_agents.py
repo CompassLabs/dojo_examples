@@ -1,8 +1,6 @@
 import logging
 from decimal import Decimal
 
-from brownie import network
-
 logging.basicConfig(format="%(asctime)s - %(message)s", level=20)
 
 
@@ -27,10 +25,7 @@ from ..policies.moving_average import MovingAveragePolicy
 def run_agent(agent: BaseAgent):
     pool = "0x8ad599c3A0ff1De082011EFDDc58f1908eb6e6D8"
     start_time = dateparser.parse("2023-04-29 10:00:00 UTC")
-    end_time = dateparser.parse("2023-04-29 16:00:00 UTC")
-
-    if network.is_connected():
-        network.disconnect(kill_rpc=True)
+    end_time = dateparser.parse("2023-04-29 12:00:00 UTC")
 
     env = UniV3Env(
         date_range=(start_time, end_time),
@@ -38,6 +33,7 @@ def run_agent(agent: BaseAgent):
         pools=[pool],
         market_impact="replay",
     )
+    agent.initialize_portfolio()
     demo_policy = MovingAveragePolicy(agent=agent, short_window=200, long_window=1000)
     backtest_run(env, [demo_policy], port=8051)
 
@@ -46,6 +42,7 @@ def test_impermanent_loss():
     agent = ImpermanentLossAgent(
         initial_portfolio={"USDC": Decimal(10_000), "WETH": Decimal(1)}
     )
+
     run_agent(agent)
 
 

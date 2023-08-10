@@ -1,8 +1,6 @@
 import logging
 from decimal import Decimal
 
-from brownie import network
-
 logging.basicConfig(format="%(asctime)s - %(message)s", level=20)
 
 
@@ -30,10 +28,7 @@ from ..policies.price_window import PriceWindowPolicy
 def run_policy(agent: BaseAgent, policy: BasePolicy):
     pool = "0x8ad599c3A0ff1De082011EFDDc58f1908eb6e6D8"
     start_time = dateparser.parse("2023-04-29 10:00:00 UTC")
-    end_time = dateparser.parse("2023-04-29 16:00:00 UTC")
-
-    if network.is_connected():
-        network.disconnect(kill_rpc=True)
+    end_time = dateparser.parse("2023-04-29 12:00:00 UTC")
 
     env = UniV3Env(
         date_range=(start_time, end_time),

@@ -38,8 +38,8 @@ class PassiveConcentratedLP(BasePolicy):
         wallet_portfolio = self.agent.erc20_portfolio()
 
         address0, address1 = obs.pool_token_addresses(obs.pools[pool_idx])
-        decimals0 = money.get_decimals(address0)
-        decimals1 = money.get_decimals(address1)
+        decimals0 = money.get_decimals(self.agent.backend, address0)
+        decimals1 = money.get_decimals(self.agent.backend, address1)
 
         lower_price_range = self.lower_price_bound * spot_price
         upper_price_range = self.upper_price_bound * spot_price
