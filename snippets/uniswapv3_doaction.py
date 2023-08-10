@@ -25,7 +25,6 @@ env = UniV3Env(
     pools=pools,
     market_impact="replay",  # defaults to "replay", simply replaying history
 )
-env.reset()
 
 action = UniV3Action(
     agent=agent,
