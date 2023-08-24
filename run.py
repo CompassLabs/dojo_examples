@@ -3,21 +3,17 @@ from decimal import Decimal
 
 logging.basicConfig(format="%(asctime)s - %(message)s", level=20)
 
-import time
-
+from agents.uniV3_pool_wealth import UniV3PoolWealthAgent
 from dateutil import parser as dateparser
+from policies.moving_average import MovingAveragePolicy
 
 from dojo.environments import UniV3Env
 from dojo.runners import backtest_run
 
-from .agents.uniV3_pool_wealth import UniV3PoolWealthAgent
-from .policies.moving_average import MovingAveragePolicy
-
 
 def main():
-    t0 = time.time()
     # SNIPPET 1 START
-    pool = "0x88e6A0c2dDD26FEEb64F039a2c41296FcB3f5640"
+    pool = "0x8ad599c3A0ff1De082011EFDDc58f1908eb6e6D8"
     start_time = dateparser.parse("2023-04-29 10:00:00 UTC")
     end_time = dateparser.parse("2023-04-29 16:00:00 UTC")
 
@@ -36,10 +32,8 @@ def main():
         agent=demo_agent, short_window=200, long_window=1000
     )
 
-    sim_blocks, sim_rewards = backtest_run(env, [demo_policy], port=None)
+    sim_blocks, sim_rewards = backtest_run(env, [demo_policy], port=8051)
     # SNIPPET 1 END
-    t1 = time.time()
-    print(f"Simulation took {t1-t0} seconds.")
 
 
 if __name__ == "__main__":
