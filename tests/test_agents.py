@@ -33,7 +33,6 @@ def run_agent(agent: BaseAgent):
         pools=[pool],
         market_impact="replay",
     )
-    agent.initialize_portfolio()
     demo_policy = MovingAveragePolicy(agent=agent, short_window=200, long_window=1000)
     backtest_run(env, [demo_policy], port=8051)
 
