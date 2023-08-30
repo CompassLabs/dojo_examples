@@ -15,7 +15,7 @@ def main():
     # SNIPPET 1 START
     pool = "0x8ad599c3A0ff1De082011EFDDc58f1908eb6e6D8"
     start_time = dateparser.parse("2023-04-29 10:00:00 UTC")
-    end_time = dateparser.parse("2023-04-29 16:00:00 UTC")
+    end_time = dateparser.parse("2023-04-30 16:00:00 UTC")
 
     demo_agent = UniV3PoolWealthAgent(
         initial_portfolio={"USDC": Decimal(10_000), "WETH": Decimal(1)}
