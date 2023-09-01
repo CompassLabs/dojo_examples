@@ -24,7 +24,7 @@ jobs:
     runs-on: ubuntu-20.04
     strategy:
       matrix:
-        python-version: ['3.8', '3.9', '3.10']
+        python-version: ['3.8', '3.9', '3.10', '3.11']
 
     steps:
       - uses: actions/checkout@v2
@@ -85,7 +85,13 @@ jobs:
         with:
           command: python run.py
           start: python start_dashboard.py
-          wait-on: 'http://localhost:8051'
+          wait-on: 'http://127.0.0.1:8051'
+
+      - name: screenshots-ci-action
+        uses: flameddd/screenshots-ci-action@master
+        with:
+          url: http://127.0.0.1:8051
+          fullPage: true
       
       - name: Send failure message to slack
         if: failure()
