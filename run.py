@@ -25,6 +25,7 @@ def main():
         date_range=(start_time, end_time),
         agents=[demo_agent],
         pools=[pool],
+        backend_type="forked",
         market_impact="replay",
     )
 
