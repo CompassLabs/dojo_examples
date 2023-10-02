@@ -20,9 +20,9 @@ class PriceWindowPolicy(BasePolicy):
 
     # derive actions from observations
     def predict(self, obs: UniV3Obs) -> List[UniV3Action]:
-        pool = obs.pools[0]
-        x_token, y_token = obs.pool_tokens(pool)
-        spot_price = obs.price(token=x_token, unit=y_token, pool=pool)
+        pool_name = obs.pools[0]
+        x_token, y_token = obs.pool_tokens(pool_name=pool_name)
+        spot_price = obs.price(token=x_token, unit=y_token, pool_name=pool_name)
 
         x_quantity, y_quantity = self.agent.quantity(x_token), self.agent.quantity(
             y_token
@@ -32,7 +32,7 @@ class PriceWindowPolicy(BasePolicy):
             action = UniV3Action(
                 agent=self.agent,
                 type="trade",
-                pool=pool,
+                pool_name=pool_name,
                 quantities=(Decimal(0), y_quantity),
             )
             return [action]
@@ -41,7 +41,7 @@ class PriceWindowPolicy(BasePolicy):
             action = UniV3Action(
                 agent=self.agent,
                 type="trade",
-                pool=pool,
+                pool_name=pool_name,
                 quantities=(x_quantity, Decimal(0)),
                 tick_range=(0, 0),
             )

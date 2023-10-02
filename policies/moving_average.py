@@ -50,9 +50,11 @@ class MovingAveragePolicy(BasePolicy):
 
     def predict(self, obs: UniV3Obs) -> List[UniV3Action]:
         """Make a trade if the mean of the short window crosses the mean of the long window."""
-        pool = obs.pools[0]
-        pool_tokens = obs.pool_tokens(pool=pool)
-        price = obs.price(token=pool_tokens[0], unit=pool_tokens[1], pool=pool)
+        pool_name = obs.pools[0]
+        pool_tokens = obs.pool_tokens(obs.pools[0])
+        price = obs.price(
+            token=pool_tokens[0], unit=pool_tokens[1], pool_name=pool_name
+        )
         self.short_window.append(float(price))
         self.long_window.append(float(price))
 
@@ -69,7 +71,7 @@ class MovingAveragePolicy(BasePolicy):
                 UniV3Action(
                     agent=self.agent,
                     type="trade",
-                    pool=pool,
+                    pool_name=pool_name,
                     quantities=(Decimal(0), y_quantity),
                 )
             ]
@@ -81,7 +83,7 @@ class MovingAveragePolicy(BasePolicy):
                 UniV3Action(
                     agent=self.agent,
                     type="trade",
-                    pool=pool,
+                    pool_name=pool_name,
                     quantities=(x_quantity, Decimal(0)),
                 )
             ]
