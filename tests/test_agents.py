@@ -24,8 +24,8 @@ from ..policies.moving_average import MovingAveragePolicy
 
 def run_agent(agent: BaseAgent):
     pool = "USDC/WETH-0.3"
-    start_time = dateparser.parse("2023-04-29 10:00:00 UTC")
-    end_time = dateparser.parse("2023-04-29 12:00:00 UTC")
+    start_time = dateparser.parse("2021-05-29 10:00:00 UTC")
+    end_time = dateparser.parse("2021-05-29 12:00:00 UTC")
 
     env = UniV3Env(
         date_range=(start_time, end_time),
