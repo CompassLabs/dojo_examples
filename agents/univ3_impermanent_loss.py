@@ -9,8 +9,8 @@ class ImpermanentLossAgent(BaseAgent):
     The agent should not be given any tokens that are not in the UniV3Env pool.
     """
 
-    def __init__(self, initial_portfolio: dict):
-        super().__init__(initial_portfolio=initial_portfolio)
+    def __init__(self, initial_portfolio: dict, name: str = "Impermanent Loss Agent"):
+        super().__init__(initial_portfolio=initial_portfolio, name=name)
         self.hold_portfolio = []
 
     def _pool_wealth(self, obs: UniV3Obs, portfolio: Portfolio) -> float:

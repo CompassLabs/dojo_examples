@@ -29,7 +29,7 @@ env = UniV3Env(
 action = UniV3Action(
     agent=agent,
     type="trade",
-    pool=env.obs.pools[0],
+    pool_address=env.obs.pools[0],
     quantities=np.array([Decimal("0.1"), Decimal("0")]),
 )
 
