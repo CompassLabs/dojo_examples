@@ -32,18 +32,18 @@ class PassiveConcentratedLP(BasePolicy):
 
     def inital_quote(self, obs: UniV3Obs) -> List[UniV3Action]:
         pool_idx = 0
-        pool_address = obs.pools[pool_idx]
-        token0, token1 = obs.pool_tokens(obs.pools[pool_idx])
-        spot_price = obs.price(token0, token1, pool_address)
+        pool = obs.pools[pool_idx]
+        token0, token1 = obs.pool_tokens(pool)
+        spot_price = obs.price(token0, token1, pool)
         wallet_portfolio = self.agent.erc20_portfolio()
 
-        address0, address1 = obs.pool_token_addresses(obs.pools[pool_idx])
-        decimals0 = money.get_decimals(self.agent.backend, address0)
-        decimals1 = money.get_decimals(self.agent.backend, address1)
+        token0, token1 = obs.pool_tokens(obs.pools[pool_idx])
+        decimals0 = money.get_decimals(self.agent.backend, token0)
+        decimals1 = money.get_decimals(self.agent.backend, token1)
 
         lower_price_range = self.lower_price_bound * spot_price
         upper_price_range = self.upper_price_bound * spot_price
-        tick_spacing = obs.tick_spacing(pool_address)
+        tick_spacing = obs.tick_spacing(pool)
 
         lower_tick = uniswapV3.price_to_tick(
             lower_price_range, tick_spacing, [decimals0, decimals1]
@@ -54,7 +54,7 @@ class PassiveConcentratedLP(BasePolicy):
         provide_action = UniV3Action(
             agent=self.agent,
             type="quote",
-            pool=pool_address,
+            pool=pool,
             quantities=[wallet_portfolio[token0], wallet_portfolio[token1]],
             tick_range=(lower_tick, upper_tick),
         )

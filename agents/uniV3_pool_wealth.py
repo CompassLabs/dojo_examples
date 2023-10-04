@@ -1,7 +1,6 @@
-from decimal import Decimal
+from typing import Optional
 
 from dojo.agents import BaseAgent
-from dojo.common.types import Portfolio
 from dojo.environments.uniswapV3 import UniV3Obs
 
 
@@ -11,9 +10,9 @@ class UniV3PoolWealthAgent(BaseAgent):
     The agent should not be given any tokens that are not in the UniV3Env pool.
     """
 
-    def __init__(self, initial_portfolio: dict):
+    def __init__(self, initial_portfolio: dict, name: Optional[str] = None):
         """Initialize the agent."""
-        super().__init__(initial_portfolio=initial_portfolio)
+        super().__init__(name=name, initial_portfolio=initial_portfolio)
 
     def reward(self, obs: UniV3Obs) -> float:
         """The agent wealth in units of asset y according to the UniV3 pool."""
