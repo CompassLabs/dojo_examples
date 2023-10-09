@@ -51,15 +51,27 @@ class PassiveConcentratedLP(BasePolicy):
         upper_tick = uniswapV3.price_to_tick(
             upper_price_range, tick_spacing, [decimals0, decimals1]
         )
+        target0 = (wallet_portfolio[token0] + wallet_portfolio[token1] / spot_price) / 2
+        target1 = spot_price * target0
+        trade_action = UniV3Action(
+            agent=self.agent,
+            type="trade",
+            pool=pool,
+            quantities=[
+                -target0 + wallet_portfolio[token0],
+                -target1 + wallet_portfolio[token1],
+            ],
+            tick_range=(lower_tick, upper_tick),
+        )
         provide_action = UniV3Action(
             agent=self.agent,
             type="quote",
             pool=pool,
-            quantities=[wallet_portfolio[token0], wallet_portfolio[token1]],
+            quantities=[target0, target1],
             tick_range=(lower_tick, upper_tick),
         )
         self.has_invested = True
-        return [provide_action]
+        return [trade_action, provide_action]
 
     def predict(self, obs: UniV3Obs) -> List[UniV3Action]:
         if not self.has_invested:
