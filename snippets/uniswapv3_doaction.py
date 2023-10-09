@@ -13,8 +13,7 @@ from dateutil import parser as dateparser
 
 from dojo.environments.uniswapV3 import UniV3Action, UniV3Env
 
-# USDC/WETH pool on UniswapV3
-pools = ["0x8ad599c3A0ff1De082011EFDDc58f1908eb6e6D8"]  # WETH/USDC
+pools = ["USDC/WETH-0.3"]
 sim_start = dateparser.parse("2023-04-29 00:00:00 UTC")
 sim_end = dateparser.parse("2023-04-30 00:00:00 UTC")
 

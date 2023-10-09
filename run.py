@@ -6,27 +6,52 @@ logging.basicConfig(format="%(asctime)s - %(message)s", level=20)
 from agents.uniV3_pool_wealth import UniV3PoolWealthAgent
 from dateutil import parser as dateparser
 from policies.moving_average import MovingAveragePolicy
+from policies.passiveLP import PassiveConcentratedLP
 
 from dojo.environments import UniV3Env
 from dojo.runners import backtest_run
 
-# SNIPPET 1 START
-pool = "0x8ad599c3A0ff1De082011EFDDc58f1908eb6e6D8"
-start_time = dateparser.parse("2023-04-29 10:00:00 UTC")
-end_time = dateparser.parse("2023-04-29 16:00:00 UTC")
 
-demo_agent = UniV3PoolWealthAgent(
-    initial_portfolio={"USDC": Decimal(10_000), "WETH": Decimal(1)}
-)
+def main():
+    # SNIPPET 1 START
+    pools = ["USDC/WETH-0.05"]
+    start_time = dateparser.parse("2021-05-05 22:00:00 UTC")
+    end_time = dateparser.parse("2021-05-06 06:00:00 UTC")
 
-env = UniV3Env(
-    date_range=(start_time, end_time),
-    agents=[demo_agent],
-    pools=[pool],
-    market_impact="replay",
-)
+    # Agents
+    agent1 = UniV3PoolWealthAgent(
+        initial_portfolio={
+            "ETH": Decimal(100),
+            "USDC": Decimal(10_000),
+            "WETH": Decimal(1),
+        },
+        name="TraderAgent",
+    )
+    agent2 = UniV3PoolWealthAgent(
+        initial_portfolio={"USDC": Decimal(10_000), "WETH": Decimal(1)},
+        name="LPAgent",
+    )
 
-demo_policy = MovingAveragePolicy(agent=demo_agent, short_window=200, long_window=1000)
+    # Simulation environment (Uniswap V3)
+    env = UniV3Env(
+        date_range=(start_time, end_time),
+        agents=[agent1, agent2],
+        pools=pools,
+        backend_type="local",
+        market_impact="replay",
+    )
 
-sim_blocks, sim_rewards = backtest_run(env, [demo_policy], port=8051)
-# SNIPPET 1 END
+    # Policies
+    mvag_policy = MovingAveragePolicy(agent=agent1, short_window=50, long_window=200)
+    passive_lp_policy = PassiveConcentratedLP(
+        agent=agent2, lower_price_bound=0.95, upper_price_bound=1.05
+    )
+
+    sim_blocks, sim_rewards = backtest_run(
+        env, [mvag_policy, passive_lp_policy], port=8051
+    )
+    # SNIPPET 1 END
+
+
+if __name__ == "__main__":
+    main()

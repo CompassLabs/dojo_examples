@@ -1,5 +1,6 @@
+from typing import Optional
+
 from dojo.agents import BaseAgent
-from dojo.common.types import Portfolio
 from dojo.environments.uniswapV3 import UniV3Obs
 
 
@@ -9,11 +10,11 @@ class ImpermanentLossAgent(BaseAgent):
     The agent should not be given any tokens that are not in the UniV3Env pool.
     """
 
-    def __init__(self, initial_portfolio: dict):
-        super().__init__(initial_portfolio=initial_portfolio)
+    def __init__(self, initial_portfolio: dict, name: Optional[str] = None):
+        super().__init__(name=name, initial_portfolio=initial_portfolio)
         self.hold_portfolio = []
 
-    def _pool_wealth(self, obs: UniV3Obs, portfolio: Portfolio) -> float:
+    def _pool_wealth(self, obs: UniV3Obs, portfolio: dict) -> float:
         """Calculate the wealth of a portfolio denoted in the y asset of the pool.
 
         :param portfolio: Portfolio to calculate wealth for.

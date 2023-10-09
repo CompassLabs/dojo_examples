@@ -37,7 +37,7 @@ initial_sqrt_priceX96, initial_tick, _, _, _, _, _ = env.obs.slot0(pool)
 initial_liquidity = env.obs.liquidity(pool)
 
 
-backtest_run(env, [], port=8051)
+backtest_run(env, [])
 
 
 obs = env.obs
