@@ -12,7 +12,7 @@ class PassiveConcentratedLP(BasePolicy):
     """Provide liquidity passively to a pool in the sepcified price bounds."""
 
     def __init__(
-            self, agent: BaseAgent, lower_price_bound: float, upper_price_bound: float
+        self, agent: BaseAgent, lower_price_bound: float, upper_price_bound: float
     ) -> None:
         """Initialize the policy.
 
