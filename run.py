@@ -15,8 +15,8 @@ from dojo.runners import backtest_run
 def main():
     # SNIPPET 1 START
     pools = ["USDC/WETH-0.05"]
-    start_time = dateparser.parse("2021-05-05 22:00:00 UTC")
-    end_time = dateparser.parse("2021-05-06 06:00:00 UTC")
+    start_time = dateparser.parse("2021-06-22 22:00:00 UTC")
+    end_time = dateparser.parse("2021-06-23 02:00:00 UTC")
 
     # Agents
     agent1 = UniV3PoolWealthAgent(
@@ -42,7 +42,7 @@ def main():
     )
 
     # Policies
-    mvag_policy = MovingAveragePolicy(agent=agent1, short_window=50, long_window=200)
+    mvag_policy = MovingAveragePolicy(agent=agent1, short_window=25, long_window=100)
     passive_lp_policy = PassiveConcentratedLP(
         agent=agent2, lower_price_bound=0.95, upper_price_bound=1.05
     )
