@@ -46,11 +46,11 @@ class PassiveConcentratedLP(BasePolicy):
         upper_price_range = self.upper_price_bound * spot_price
         tick_spacing = obs.tick_spacing(pool)
 
-        lower_tick = uniswapV3.price_to_tick(
-            lower_price_range, tick_spacing, [decimals0, decimals1]
+        lower_tick = uniswapV3.price_to_active_tick(
+            lower_price_range, tick_spacing, (decimals0, decimals1)
         )
-        upper_tick = uniswapV3.price_to_tick(
-            upper_price_range, tick_spacing, [decimals0, decimals1]
+        upper_tick = uniswapV3.price_to_active_tick(
+            upper_price_range, tick_spacing, (decimals0, decimals1)
         )
         target0 = (wallet_portfolio[token0] + wallet_portfolio[token1] / spot_price) / 2
         target1 = spot_price * target0
@@ -82,11 +82,11 @@ class PassiveConcentratedLP(BasePolicy):
         upper_price_range = self.upper_price_bound * spot_price
         tick_spacing = obs.tick_spacing(pool)
 
-        lower_tick = uniswapV3.price_to_tick(
-            lower_price_range, tick_spacing, [decimals0, decimals1]
+        lower_tick = uniswapV3.price_to_active_tick(
+            lower_price_range, tick_spacing, (decimals0, decimals1)
         )
-        upper_tick = uniswapV3.price_to_tick(
-            upper_price_range, tick_spacing, [decimals0, decimals1]
+        upper_tick = uniswapV3.price_to_active_tick(
+            upper_price_range, tick_spacing, (decimals0, decimals1)
         )
         # target0 = (wallet_portfolio[token0] + wallet_portfolio[token1] / spot_price) / 2
         # target1 = spot_price * target0
