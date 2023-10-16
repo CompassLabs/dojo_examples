@@ -1,7 +1,6 @@
 from decimal import Decimal
 from typing import List
 
-from dojo import money
 from dojo.agents import BaseAgent
 from dojo.environments.uniswapV3 import UniV3Action, UniV3Obs
 from dojo.observations import uniswapV3
@@ -39,8 +38,8 @@ class PassiveConcentratedLP(BasePolicy):
         wallet_portfolio = self.agent.erc20_portfolio()
 
         token0, token1 = obs.pool_tokens(obs.pools[pool_idx])
-        decimals0 = money.get_decimals(self.agent.backend, token0)
-        decimals1 = money.get_decimals(self.agent.backend, token1)
+        decimals0 = obs.token_decimals(token0)
+        decimals1 = obs.token_decimals(token1)
 
         lower_price_range = self.lower_price_bound * spot_price
         upper_price_range = self.upper_price_bound * spot_price
@@ -75,8 +74,8 @@ class PassiveConcentratedLP(BasePolicy):
         wallet_portfolio = self.agent.erc20_portfolio()
 
         token0, token1 = obs.pool_tokens(obs.pools[pool_idx])
-        decimals0 = money.get_decimals(self.agent.backend, token0)
-        decimals1 = money.get_decimals(self.agent.backend, token1)
+        decimals0 = obs.token_decimals(token0)
+        decimals1 = obs.token_decimals(token1)
 
         lower_price_range = self.lower_price_bound * spot_price
         upper_price_range = self.upper_price_bound * spot_price
