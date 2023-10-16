@@ -55,12 +55,19 @@ class MovingAveragePolicy(BasePolicy):
         price = obs.price(token=pool_tokens[0], unit=pool_tokens[1], pool=pool)
         self.short_window.append(float(price))
         self.long_window.append(float(price))
+        obs.add_signal(
+            "LongShortDiff",
+            float(np.mean(self.short_window) - np.mean(self.long_window)),
+        )
 
         # Only start trading when the windows are full
         if len(self.short_window) < self.short_window.maxlen:
+            obs.add_signal("Locked", float(True))
             return []
         if len(self.long_window) < self.long_window.maxlen:
+            obs.add_signal("Locked", float(True))
             return []
+        obs.add_signal("Locked", float(False))
 
         if self._x_to_y_indicated(pool_tokens):
             y_quantity = self.agent.quantity(pool_tokens[1])
