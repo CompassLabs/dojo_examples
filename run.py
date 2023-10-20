@@ -48,7 +48,7 @@ def main():
     )
 
     sim_blocks, sim_rewards = backtest_run(
-        env, [mvag_policy, passive_lp_policy], port=8051
+        env, [mvag_policy, passive_lp_policy], dashboard_port=8051
     )
     # SNIPPET 1 END
 
