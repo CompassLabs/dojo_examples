@@ -71,15 +71,21 @@ jobs:
       - name: Run E2E Tests
         id: e2e_first_try
         continue-on-error: true
-        run: |
-          python run.py
+        uses: BerniWittmann/background-server-action@v1
+        with:
+          command: python run.py
+          start: python start_dashboard.py
+          wait-on: 'http://localhost:8051'
 
       - name: Run E2E Tests if first failed
         id: e2e_second_try
         if: steps.e2e_first_try.outcome == 'failure'
         continue-on-error: false
-        run: |
-          python run.py
+        uses: BerniWittmann/background-server-action@v1
+        with:
+          command: python run.py
+          start: python start_dashboard.py
+          wait-on: 'http://127.0.0.1:8051'
 
       - name: screenshots-ci-action
         uses: flameddd/screenshots-ci-action@master
