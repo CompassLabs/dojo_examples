@@ -22,11 +22,10 @@ class UniV3PoolWealthAgent(BaseAgent):
         token_ids = self.erc721_portfolio().get("UNI-V3-POS", [])
         lp_portfolio = obs.lp_quantities(token_ids)
         wallet_portfolio = self.erc20_portfolio()
+        total_portfolio = {**lp_portfolio, **wallet_portfolio}
 
         # wealth expressed as token0 of the pool
         wealth = 0
-        for token, quantity in lp_portfolio.items():
-            wealth += quantity * obs.price(token=token, unit=pool_tokens[0], pool=pool)
-        for token, quantity in wallet_portfolio.items():
+        for token, quantity in total_portfolio.items():
             wealth += quantity * obs.price(token=token, unit=pool_tokens[0], pool=pool)
         return wealth
