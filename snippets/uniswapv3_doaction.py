@@ -29,7 +29,7 @@ action = UniV3Action(
     agent=agent,
     type="trade",
     pool=env.obs.pools[0],
-    quantities=np.array([Decimal("0.1"), Decimal("0")]),
+    quantities=(Decimal("0.1"), Decimal("0")),
 )
 
 env.step(actions=[action])
