@@ -6,7 +6,7 @@ on:
   pull_request:
     branches: '*'
   schedule:
-  - cron: "0 0 * * *"
+    - cron: "0 0 * * *"
   workflow_dispatch:
 
 env:
@@ -24,7 +24,7 @@ jobs:
     runs-on: ubuntu-20.04
     strategy:
       matrix:
-        python-version: ['3.8', '3.9', '3.10', '3.11']
+        python-version: ['3.9', '3.10', '3.11']
 
     steps:
       - uses: actions/checkout@v2
@@ -61,9 +61,9 @@ jobs:
         with:
           node-version: '18'
 
-      - name: Install npm pre-requisites
-        run: |
-          npm install --save-dev hardhat
+      - name: Install Foundry
+        uses: foundry-rs/foundry-toolchain@v1
+
       - name: Install release-executable
         run: |
           pip install dojo-compass 
@@ -71,28 +71,16 @@ jobs:
       - name: Run E2E Tests
         id: e2e_first_try
         continue-on-error: true
-        uses: BerniWittmann/background-server-action@v1
-        with:
-          command: python run.py
-          start: python start_dashboard.py
-          wait-on: 'http://localhost:8051'
+        run: |
+          python run.py
 
       - name: Run E2E Tests if first failed
         id: e2e_second_try
         if: steps.e2e_first_try.outcome == 'failure'
         continue-on-error: false
-        uses: BerniWittmann/background-server-action@v1
-        with:
-          command: python run.py
-          start: python start_dashboard.py
-          wait-on: 'http://127.0.0.1:8051'
+        run: |
+          python run.py
 
-      - name: screenshots-ci-action
-        uses: flameddd/screenshots-ci-action@master
-        with:
-          url: http://127.0.0.1:8051
-          fullPage: true
-      
       - name: Send failure message to slack
         if: failure()
         run: |
