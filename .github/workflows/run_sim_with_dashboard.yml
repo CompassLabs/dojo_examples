@@ -24,7 +24,7 @@ jobs:
     runs-on: ubuntu-20.04
     strategy:
       matrix:
-        python-version: ['3.8', '3.9', '3.10', '3.11']
+        python-version: ['3.9', '3.10', '3.11']
 
     steps:
       - uses: actions/checkout@v2
@@ -61,9 +61,9 @@ jobs:
         with:
           node-version: '18'
 
-      - name: Install npm pre-requisites
-        run: |
-          npm install --save-dev hardhat
+      - name: Install Foundry
+        uses: foundry-rs/foundry-toolchain@v1
+        
       - name: Install release-executable
         run: |
           pip install dojo-compass 
