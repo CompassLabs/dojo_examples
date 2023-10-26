@@ -42,7 +42,6 @@ class PriceWindowPolicy(BasePolicy):
                 agent=self.agent,
                 pool=pool,
                 quantities=(x_quantity, Decimal(0)),
-                tick_range=(0, 0),
             )
             return [action]
 
