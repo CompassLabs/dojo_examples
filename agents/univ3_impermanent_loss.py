@@ -40,7 +40,7 @@ class ImpermanentLossAgent(BaseAgent):
         if not self.hold_portfolio:
             self.hold_portfolio = obs.lp_quantities(token_ids)
         hold_wealth = self._pool_wealth(obs, self.hold_portfolio)
-        lp_wealth = self._pool_wealth(obs, obs.lp_portfolio(token_ids))
+        lp_wealth = self._pool_wealth(obs, obs.lp_quantities(token_ids))
         if hold_wealth == 0:
             return 0.0
         return (lp_wealth - hold_wealth) / hold_wealth

@@ -4,9 +4,8 @@ from typing import List
 
 import numpy as np
 
-from dojo.actions import BaseAction
 from dojo.agents import BaseAgent
-from dojo.environments.uniswapV3 import UniV3Obs, UniV3Trade
+from dojo.environments.uniswapV3 import UniV3Action, UniV3Obs
 from dojo.policies import BasePolicy
 
 
@@ -49,7 +48,7 @@ class MovingAveragePolicy(BasePolicy):
             and self.agent.quantity(pool_tokens[0]) > 0
         )
 
-    def predict(self, obs: UniV3Obs) -> List[BaseAction]:
+    def predict(self, obs: UniV3Obs) -> List[UniV3Action]:
         """Make a trade if the mean of the short window crosses the mean of the long window."""
         pool = obs.pools[0]
         pool_tokens = obs.pool_tokens(pool=pool)
@@ -74,8 +73,9 @@ class MovingAveragePolicy(BasePolicy):
             y_quantity = self.agent.quantity(pool_tokens[1])
             self._clear_windows()
             return [
-                UniV3Trade(
+                UniV3Action(
                     agent=self.agent,
+                    type="trade",
                     pool=pool,
                     quantities=(Decimal(0), y_quantity),
                 )
@@ -85,8 +85,9 @@ class MovingAveragePolicy(BasePolicy):
             x_quantity = self.agent.quantity(pool_tokens[0])
             self._clear_windows()
             return [
-                UniV3Trade(
+                UniV3Action(
                     agent=self.agent,
+                    type="trade",
                     pool=pool,
                     quantities=(x_quantity, Decimal(0)),
                 )

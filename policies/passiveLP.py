@@ -1,9 +1,8 @@
 from decimal import Decimal
 from typing import List
 
-from dojo.actions.base_action import BaseAction
 from dojo.agents import BaseAgent
-from dojo.environments.uniswapV3 import UniV3Obs, UniV3Quote, UniV3Trade
+from dojo.environments.uniswapV3 import UniV3Action, UniV3Obs
 from dojo.observations import uniswapV3
 from dojo.policies import BasePolicy
 
@@ -31,7 +30,7 @@ class PassiveConcentratedLP(BasePolicy):
     def fit(self):
         pass
 
-    def initial_trade(self, obs: UniV3Obs) -> List[BaseAction]:
+    def initial_trade(self, obs: UniV3Obs) -> List[UniV3Action]:
         pool_idx = 0
         pool = obs.pools[pool_idx]
         token0, token1 = obs.pool_tokens(pool)
@@ -54,18 +53,20 @@ class PassiveConcentratedLP(BasePolicy):
         )
         target0 = (wallet_portfolio[token0] + wallet_portfolio[token1] / spot_price) / 2
         target1 = spot_price * target0
-        trade_action = UniV3Trade(
+        trade_action = UniV3Action(
             agent=self.agent,
+            type="trade",
             pool=pool,
             quantities=[
                 (-target0 + wallet_portfolio[token0]),
                 (-target1 + wallet_portfolio[token1]),
             ],
+            tick_range=(lower_tick, upper_tick),
         )
         self.has_traded = True
         return [trade_action]
 
-    def inital_quote(self, obs: UniV3Obs) -> List[BaseAction]:
+    def inital_quote(self, obs: UniV3Obs) -> List[UniV3Action]:
         pool_idx = 0
         pool = obs.pools[pool_idx]
         token0, token1 = obs.pool_tokens(pool)
@@ -88,8 +89,9 @@ class PassiveConcentratedLP(BasePolicy):
         )
         # target0 = (wallet_portfolio[token0] + wallet_portfolio[token1] / spot_price) / 2
         # target1 = spot_price * target0
-        provide_action = UniV3Quote(
+        provide_action = UniV3Action(
             agent=self.agent,
+            type="quote",
             pool=pool,
             quantities=[wallet_portfolio[token0], wallet_portfolio[token1]],
             tick_range=(lower_tick, upper_tick),
@@ -97,7 +99,7 @@ class PassiveConcentratedLP(BasePolicy):
         self.has_invested = True
         return [provide_action]
 
-    def predict(self, obs: UniV3Obs) -> List[BaseAction]:
+    def predict(self, obs: UniV3Obs) -> List[UniV3Action]:
         if not self.has_traded:
             return self.initial_trade(obs)
         if not self.has_invested:
