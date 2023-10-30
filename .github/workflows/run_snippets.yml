@@ -6,7 +6,7 @@ on:
   pull_request:
     branches: '*'
   schedule:
-  - cron: "0 0 * * *"
+    - cron: "0 0 * * *"
   workflow_dispatch:
 
 env:
@@ -63,7 +63,7 @@ jobs:
 
       - name: Install Foundry
         uses: foundry-rs/foundry-toolchain@v1
-        
+
       - name: Install release-executable
         run: |
           pip install dojo-compass 
@@ -82,7 +82,7 @@ jobs:
         run: |
           cd snippets
           ls . | xargs python
-      
+
       - name: Send failure message to slack
         if: failure()
         run: |

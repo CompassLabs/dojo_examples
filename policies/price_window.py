@@ -43,7 +43,6 @@ class PriceWindowPolicy(BasePolicy):
                 type="trade",
                 pool=pool,
                 quantities=(x_quantity, Decimal(0)),
-                tick_range=(0, 0),
             )
             return [action]
 
