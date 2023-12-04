@@ -13,15 +13,15 @@ from dojo.runners import backtest_run
 
 def main():
     # SNIPPET 1 START
-    start_time = dateparser.parse("2023-06-29 00:00:00 UTC")
-    end_time = dateparser.parse("2023-06-29 12:30:00 UTC")
+    start_time = dateparser.parse("2023-03-11 00:00:00 UTC")
+    end_time = dateparser.parse("2023-03-11 12:00:00 UTC")
 
     # Agents
     agent1 = AAVEv3Agent(
         initial_portfolio={
             "ETH": Decimal(100),
-            "WETH": Decimal(1),
-            "WBTC": Decimal(1),
+            "USDC": Decimal(30000),
+            "WBTC": Decimal(2),
         },
         name="AAVEAgent",
     )

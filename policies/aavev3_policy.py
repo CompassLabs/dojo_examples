@@ -19,34 +19,15 @@ class AAVEv3Policy(BasePolicy):
         self.active = True
 
         self.block2action = {
-            500: AAVEv3Supply(agent=self.agent, token_name="WBTC", amount=Decimal("1")),
+            500: AAVEv3Supply(
+                agent=self.agent, token_name="USDC", amount=Decimal("30000")
+            ),
             1000: AAVEv3Borrow(
                 agent=self.agent,
-                token_name="BAL",
-                amount=Decimal("850"),  # 4852 is max
+                token_name="WBTC",
+                amount=Decimal("1.0"),  # 4852 is max
                 mode="variable",
             ),
-            # 1500: AAVEv3Borrow(
-            #     agent=self.agent,
-            #     token_name="USDC",
-            #     amount=Decimal("300"),
-            #     mode="variable",
-            # ),
-            # 2000: AAVEv3Supply(
-            #     agent=self.agent, token_name="USDC", amount=Decimal("1200")
-            # ),
-            # 2500: AAVEv3Repay(
-            #     agent=self.agent,
-            #     token_name="USDC",
-            #     amount=Decimal("0.1"),
-            #     mode="variable",
-            # ),
-            # 3000: AAVEv3Withdraw(
-            #     agent=self.agent, token_name="WETH", amount=Decimal("0.3")
-            # ),
-            # 3500: AAVEv3Withdraw(
-            #     agent=self.agent, token_name="WETH", amount=Decimal("0.3")
-            # ),
         }
 
     def fit(self):
