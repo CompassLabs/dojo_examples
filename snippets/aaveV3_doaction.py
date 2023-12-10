@@ -35,15 +35,19 @@ env = AAVEv3Env(
 
 actions = [
     AAVEv3Supply(
+        agent=agent,
         token_name="USDC",
         amount=Decimal(10_000),
     ),
-    AAVEv3BorrowToHealthFactor(token_name="WETH", factor=2.0, mode="variable"),
+    AAVEv3BorrowToHealthFactor(
+        agent=agent, token_name="WETH", factor=2.0, mode="variable"
+    ),
     AAVEv3RepayAll(
+        agent=agent,
         token_name="WETH",
         mode="variable",
     ),
-    AAVEv3WithdrawAll(token_name="WETH"),
+    AAVEv3WithdrawAll(agent=agent, token_name="WETH"),
 ]
 
 for action in actions:
