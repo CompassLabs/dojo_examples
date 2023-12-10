@@ -32,6 +32,7 @@ env = AAVEv3Env(
     backend_type="forked",
     market_impact="default",
 )
+env.reset()
 
 actions = [
     AAVEv3Supply(
@@ -39,17 +40,10 @@ actions = [
         token_name="USDC",
         amount=Decimal(10_000),
     ),
-    AAVEv3BorrowToHealthFactor(
-        agent=agent, token_name="WETH", factor=2.0, mode="variable"
-    ),
-    AAVEv3RepayAll(
-        agent=agent,
-        token_name="WETH",
-        mode="variable",
-    ),
-    AAVEv3WithdrawAll(agent=agent, token_name="WETH"),
+    AAVEv3WithdrawAll(agent=agent, token_name="USDC"),
 ]
 
 for action in actions:
+    print(action)
     env.step(actions=[action])
 # SNIPPET 1 END
