@@ -59,7 +59,7 @@ jobs:
         run: |
           python run.py
 
-      - name: Send failure message to slack
-        if: failure()
-        run: |
-          curl $FAILURE_WEBHOOK
+      # - name: Send failure message to slack
+      #   if: failure()
+      #   run: |
+      #     curl $FAILURE_WEBHOOK
