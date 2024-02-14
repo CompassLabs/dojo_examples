@@ -21,10 +21,11 @@ Then, install dojo via pip
 pip install dojo-compass
 ```
 
-Finally, install hardhat on your system
+Finally, [install](https://book.getfoundry.sh/getting-started/installation) anvil on your system
 ```bash
-npm install --save-dev hardhat
+curl -L https://foundry.paradigm.xyz | bash
 ```
+This will install Foundryup, then simply follow the instructions on-screen, which will make the foundryup command available in your CLI.
 
 ## 📄 Authentication
 You'll need a license key and access to an archive node (e.g. from Infura) to run `dojo`.
