@@ -2,15 +2,14 @@ import os
 import sys
 from decimal import Decimal
 
+current = os.path.dirname(os.path.realpath(__file__))
+parent = os.path.dirname(current)
+sys.path.append(parent)
+
 from agents import AAVEv3Agent
 from dateutil import parser as dateparser
 
-from dojo.actions.aaveV3 import (
-    AAVEv3BorrowToHealthFactor,
-    AAVEv3RepayAll,
-    AAVEv3Supply,
-    AAVEv3WithdrawAll,
-)
+from dojo.actions.aaveV3 import AAVEv3Supply, AAVEv3WithdrawAll
 from dojo.environments.aaveV3 import AAVEv3Env
 
 current = os.path.dirname(os.path.realpath(__file__))
@@ -28,18 +27,15 @@ env = AAVEv3Env(
     backend_type="forked",
     market_impact="default",
 )
+env.reset()
 
 actions = [
     AAVEv3Supply(
+        agent=agent,
         token_name="USDC",
         amount=Decimal(10_000),
     ),
-    AAVEv3BorrowToHealthFactor(token_name="WETH", factor=2.0, mode="variable"),
-    AAVEv3RepayAll(
-        token_name="WETH",
-        mode="variable",
-    ),
-    AAVEv3WithdrawAll(token_name="WETH"),
+    AAVEv3WithdrawAll(agent=agent, token_name="USDC"),
 ]
 
 for action in actions:

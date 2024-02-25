@@ -21,35 +21,14 @@ env:
 
 jobs:
   run_snippets:
-    runs-on: ubuntu-20.04
+    runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        python-version: ['3.9', '3.10', '3.11']
+        os: ['ubuntu-latest', 'macos-13', 'macos-14']
+        python-version: ['3.10', '3.11']
 
     steps:
       - uses: actions/checkout@v2
-
-      - name: Get Github action IP
-        id: ip
-        uses: haythem/public-ip@v1.2
-
-      - name: Check if IP address is already allowed
-        id: check-ip-allowed
-        run: |
-          existing_rules=$(aws ec2 describe-security-groups --group-names ${{ env.AWS_SG_NAME }} --query 'SecurityGroups[?contains(IpPermissions[].IpRanges[].CidrIp, `${{ steps.ip.outputs.ipv4 }}/32`)].GroupId' --output text)
-          if [[ -n "${existing_rules}" ]]; then
-            echo "::set-output name=ip-allowed::true"
-          else
-            echo "::set-output name=ip-allowed::false"
-          fi
-
-      - name: Add Github Actions IP to Security group
-        run: |
-          if [[ "${{ steps.check-ip-allowed.outputs.ip-allowed }}" != "true" ]]; then
-            aws ec2 authorize-security-group-ingress --group-name ${{ env.AWS_SG_NAME }} --protocol tcp --port 8545 --cidr ${{ steps.ip.outputs.ipv4 }}/32
-          else
-            echo "IP address is already allowed. Skipping step."
-          fi
 
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v2
@@ -87,8 +66,3 @@ jobs:
         if: failure()
         run: |
           curl $FAILURE_WEBHOOK
-
-      - name: Remove Github Actions IP from security group
-        run: |
-          aws ec2 revoke-security-group-ingress --group-name ${{ env.AWS_SG_NAME }} --protocol tcp --port 8545 --cidr ${{ steps.ip.outputs.ipv4 }}/32
-        if: always()
