@@ -39,5 +39,6 @@ actions = [
 ]
 
 for action in actions:
+    print(action)
     env.step(actions=[action])
 # SNIPPET 1 END

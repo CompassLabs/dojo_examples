@@ -1,6 +1,4 @@
-[![pipeline status](https://github.com/CompassLabs/dojo_examples/actions/workflows/run_all.yml/badge.svg)](https://github.com/CompassLabs/dojo_examples/actions/workflows/run_all.yml)
-[![pipeline status](https://github.com/CompassLabs/dojo_examples/actions/workflows/run_sim_with_dashboard.yml/badge.svg)](https://github.com/CompassLabs/dojo_examples/actions/workflows/run_sim_with_dashboard.yml)
-[![codecov](https://codecov.io/gh/CompassLabs/dojo_examples/branch/main/graph/badge.svg?token=RJWT1KWPWG)](https://codecov.io/gh/CompassLabs/dojo_examples)
+
 
 [👉 **TRY IT NOW**](https://codesandbox.io/p/github/compasslabs/dojo_examples)
 
@@ -23,10 +21,11 @@ Then, install dojo via pip
 pip install dojo-compass
 ```
 
-Finally, install hardhat on your system
+Finally, [install](https://book.getfoundry.sh/getting-started/installation) anvil on your system
 ```bash
-npm install --save-dev hardhat
+curl -L https://foundry.paradigm.xyz | bash
 ```
+This will install Foundryup, then simply follow the instructions on-screen, which will make the foundryup command available in your CLI.
 
 ## 📄 Authentication
 You'll need a license key and access to an archive node (e.g. from Infura) to run `dojo`.
