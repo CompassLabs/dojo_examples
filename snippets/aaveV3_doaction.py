@@ -9,12 +9,7 @@ sys.path.append(parent)
 from agents import AAVEv3Agent
 from dateutil import parser as dateparser
 
-from dojo.actions.aaveV3 import (
-    AAVEv3BorrowToHealthFactor,
-    AAVEv3RepayAll,
-    AAVEv3Supply,
-    AAVEv3WithdrawAll,
-)
+from dojo.actions.aaveV3 import AAVEv3Supply, AAVEv3WithdrawAll
 from dojo.environments.aaveV3 import AAVEv3Env
 
 current = os.path.dirname(os.path.realpath(__file__))
