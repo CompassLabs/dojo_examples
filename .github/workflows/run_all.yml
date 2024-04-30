@@ -6,6 +6,9 @@ on:
   pull_request:
     branches: '*'
   workflow_dispatch:
+  schedule:
+    # Run every 12 hours
+    - cron: '0 */12 * * *'
 
 env:
   RPC_URL: ${{ secrets.RPC_URL }}
