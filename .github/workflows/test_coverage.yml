@@ -32,39 +32,36 @@ jobs:
         python-version: ['3.10', '3.11', '3.12']
 
     steps:
-    - uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
-    - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v2
-      with:
-        python-version: ${{ matrix.python-version }}
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
 
-    - name: Install Foundry
-      uses: foundry-rs/foundry-toolchain@v1
-      with:
-        version: nightly-de33b6af53005037b463318d2628b5cfcaf39916 
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18'
+
+      - name: Install Foundry
+        uses: foundry-rs/foundry-toolchain@v1
+        with:
+          version: nightly-de33b6af53005037b463318d2628b5cfcaf39916 
+
+      - name: Install release-executable
+        run: |
+          pip install dojo-compass
+          pip install pytest
+
+      - name: Run tests
+        run: |
+          pip install pytest-cov
+          pytest --cov=policies --cov=agents --cov-report xml tests/
+        env:
+          COVERAGE_FILE: .coverage
     
-    - name: Install python dependencies on linux
-      if: matrix.os == 'ubuntu-latest'
-      run: |
-        curl -sSL https://install.python-poetry.org | python3 - --version 1.4.2
-        poetry install
-        echo "POETRY=poetry" >> $GITHUB_ENV
-
-    - name: Install poetry dependencies on mac
-      if: matrix.os == 'macos-14-xlarge'
-      run: |
-        curl -sSL https://install.python-poetry.org | python3 - --version 1.4.2
-        /Users/runner/.local/bin/poetry install
-        echo "POETRY=/Users/runner/.local/bin/poetry" >> $GITHUB_ENV
-
-    - name: Run pytest with coverage
-      run: |
-        ${{ env.POETRY }} run pytest tests/ demo/tests
-      env:
-        COVERAGE_FILE: .coverage
-
-    - name: Check coverage
-      run: |
-        coverage report -m --fail-under=90
-      working-directory: ${{ github.workspace }}
+      - name: Check coverage
+        run: |
+          coverage report -m --fail-under=90
+        working-directory: ${{ github.workspace }}
