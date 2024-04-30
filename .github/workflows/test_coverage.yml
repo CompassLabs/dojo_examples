@@ -1,33 +1,66 @@
-name: Test and Coverage
+name: Coverage
 
 on:
   push:
-    branches:
-      - main
+    branches: [ main, dev ]
   pull_request:
-    branches:
-      - main
+    branches: '*'
+  workflow_dispatch:
+  schedule:
+    # Run every 12 hours
+    - cron: '0 */12 * * *'
+
+env:
+  AWS_DEFAULT_REGION: eu-west-2
+  AWS_SG_NAME: launch-wizard-2
+  RPC_URL: ${{ secrets.RPC_URL }}
+  LICENSE_KEY: ${{ secrets.LICENSE_KEY }}
+  CHAIN: ethereum
+  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+  CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
 jobs:
-  test:
-    name: Run tests
-    runs-on: ubuntu-latest
+  check-test-coverage:
+    # Skip CI if [ci skip] in the commit message
+    if: (github.event_name != 'schedule') || github.ref == 'refs/heads/main'
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: ['ubuntu-latest', 'macos-14-xlarge']
+        python-version: ['3.10', '3.11', '3.12']
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
+    - uses: actions/checkout@v2
 
-    - name: Set up Python
+    - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v2
       with:
-        python-version: 3.8
+        python-version: ${{ matrix.python-version }}
 
-    - name: Install dependencies
-      run: pip install -r requirements.txt
-
-    - name: Run tests with coverage
+    - name: Install Foundry
+      uses: foundry-rs/foundry-toolchain@v1
+      with:
+        version: nightly-de33b6af53005037b463318d2628b5cfcaf39916 
+    
+    - name: Install python dependencies on linux
+      if: matrix.os == 'ubuntu-latest'
       run: |
-        pytest --cov=your_module tests/
+        curl -sSL https://install.python-poetry.org | python3 - --version 1.4.2
+        poetry install
+        echo "POETRY=poetry" >> $GITHUB_ENV
+
+    - name: Install poetry dependencies on mac
+      if: matrix.os == 'macos-14-xlarge'
+      run: |
+        curl -sSL https://install.python-poetry.org | python3 - --version 1.4.2
+        /Users/runner/.local/bin/poetry install
+        echo "POETRY=/Users/runner/.local/bin/poetry" >> $GITHUB_ENV
+
+    - name: Run pytest with coverage
+      run: |
+        ${{ env.POETRY }} run pytest tests/ demo/tests
       env:
         COVERAGE_FILE: .coverage
 
