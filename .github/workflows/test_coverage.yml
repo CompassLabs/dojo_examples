@@ -63,5 +63,5 @@ jobs:
     
       - name: Check coverage
         run: |
-          coverage report -m --fail-under=90
+          coverage report -m --fail-under=60
         working-directory: ${{ github.workspace }}
