@@ -22,6 +22,4 @@ class DynamicPriceWindowPolicy(PriceWindowPolicy):
         self.spread = self.upper_limit - self.lower_limit
         self.center = (self.upper_limit + self.lower_limit) / 2
         self.returns = []
-
-
 # SNIPPET dynamic_price_window END
