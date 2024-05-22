@@ -1,4 +1,4 @@
-name: test_examples
+name: run_all
 
 on:
   push:
@@ -23,7 +23,6 @@ env:
 jobs:
   test-all:
     runs-on: ${{ matrix.os }}
-    continue-on-error: true
     strategy:
       fail-fast: false
       matrix:
