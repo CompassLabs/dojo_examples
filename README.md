@@ -23,10 +23,7 @@ Then, install dojo via pip
 pip install dojo-compass
 ```
 
-Finally, install hardhat on your system
-```bash
-npm install --save-dev hardhat
-```
+Finally, [install](https://book.getfoundry.sh/getting-started/installation) foundry on your system
 
 ## 📄 Authentication
 You'll need a license key and access to an archive node (e.g. from Infura) to run `dojo`.
