@@ -43,6 +43,7 @@ def main():
 
     # Policies
     mvag_policy = MovingAveragePolicy(agent=agent1, short_window=25, long_window=100)
+
     passive_lp_policy = PassiveConcentratedLP(
         agent=agent2, lower_price_bound=0.95, upper_price_bound=1.05
     )
