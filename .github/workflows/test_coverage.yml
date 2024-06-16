@@ -10,13 +10,9 @@ on:
     - cron: '0 0 */3 * *'   # Runs at midnight every 3 days
 
 env:
-  AWS_DEFAULT_REGION: eu-west-2
-  AWS_SG_NAME: launch-wizard-2
   RPC_URL: ${{ secrets.RPC_URL }}
   LICENSE_KEY: ${{ secrets.LICENSE_KEY }}
   CHAIN: ethereum
-  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
   CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
 jobs:
@@ -35,29 +31,14 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v2
-        with:
-          python-version: ${{ matrix.python-version }}
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '18'
-
-      - name: Install Foundry
-        uses: foundry-rs/foundry-toolchain@v1
-        with:
-          version: nightly-de33b6af53005037b463318d2628b5cfcaf39916 
-
-      - name: Install release-executable
-        run: |
-          pip install dojo-compass
-          pip install pytest
+      - name: Setup dev environment
+        uses: CompassLabs/workflows/.github/actions/setup_dojo_pypi@main
+          with:
+            python-version: ${{ matrix.python-version }}
 
       - name: Run tests
         run: |
-          pip install pytest-cov
+          pip install pytest pytest-cov
           pytest --cov=policies --cov=agents --cov-report xml tests/
         env:
           COVERAGE_FILE: .coverage
