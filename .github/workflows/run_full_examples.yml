@@ -33,8 +33,8 @@ jobs:
 
       - name: Setup dev environment
         uses: CompassLabs/workflows/.github/actions/setup_dojo_pypi@main
-          with:
-            python-version: ${{ matrix.python-version }}
+        with:
+          python-version: ${{ matrix.python-version }}
 
       - name: Run example_backtest.py
         run: |
