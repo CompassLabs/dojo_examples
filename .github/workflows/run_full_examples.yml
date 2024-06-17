@@ -15,6 +15,10 @@ env:
   FAILURE_WEBHOOK: ${{secrets.FAILURE_WEBHOOK}}
   CHAIN: ethereum
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   run_full_examples:
     runs-on: ${{ matrix.os }}
@@ -32,7 +36,7 @@ jobs:
           with:
             python-version: ${{ matrix.python-version }}
 
-      - name: Run run.py
+      - name: Run example_backtest.py
         run: |
           python run.py 
 

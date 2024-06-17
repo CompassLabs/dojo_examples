@@ -15,6 +15,10 @@ env:
   FAILURE_WEBHOOK: ${{secrets.FAILURE_WEBHOOK}}
   CHAIN: ethereum
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   run_snippets:
     runs-on: ${{ matrix.os }}

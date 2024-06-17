@@ -36,7 +36,7 @@ This can be run as a CLI with the command:
 
 ```bash
 cd dojo_examples
-python run.py
+python example_backtest.py
 ```
 
 

@@ -16,6 +16,10 @@ env:
   CHAIN: ethereum
   CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   test-all:
     runs-on: ${{ matrix.os }}
