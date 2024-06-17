@@ -38,7 +38,7 @@ jobs:
 
       - name: Run example_backtest.py
         run: |
-          python run.py 
+          python example_backtest.py 
 
       - name: Run run_aave.py
         run: |
