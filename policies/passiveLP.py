@@ -17,10 +17,12 @@ class PassiveConcentratedLP(BasePolicy):
         """Initialize the policy.
 
         :param agent: The agent which is using this policy.
-        :param lower_price_bound: The lower price bound for the tick range of the LP position to invest in.
-            e.g. 0.95 means the lower price bound is 95% of the current spot price.
-        :param upper_price_bound: The upper price bound for the tick range of the LP position to invest in.
-            e.g. 1.05 means the upper price bound is 105% of the current spot price.
+        :param lower_price_bound: The lower price bound for the tick range of the LP
+            position to invest in. e.g. 0.95 means the lower price bound is 95% of the
+            current spot price.
+        :param upper_price_bound: The upper price bound for the tick range of the LP
+            position to invest in. e.g. 1.05 means the upper price bound is 105% of the
+            current spot price.
         """
         super().__init__(agent=agent)
         self.lower_price_bound = Decimal(lower_price_bound)

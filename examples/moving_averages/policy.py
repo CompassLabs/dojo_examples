@@ -33,7 +33,8 @@ class MovingAveragePolicy(BasePolicy):
         self.short_window = deque(maxlen=self._short_window)
 
     def _x_to_y_indicated(self, pool_tokens):
-        """If the short window crosses above the long window, convert asset y to asset x.
+        """If the short window crosses above the long window, convert asset y to asset
+        x.
 
         Only do so if there are tokens left to trade.
         """
@@ -43,7 +44,8 @@ class MovingAveragePolicy(BasePolicy):
         )
 
     def _y_to_x_indicated(self, pool_tokens):
-        """If the short window crosses below the long window, convert asset x to asset y
+        """If the short window crosses below the long window, convert asset x to asset
+        y.
 
         Only do so if there are tokens left to trade.
         """
@@ -53,7 +55,8 @@ class MovingAveragePolicy(BasePolicy):
         )
 
     def predict(self, obs: UniV3Obs) -> List[BaseAction]:
-        """Make a trade if the mean of the short window crosses the mean of the long window."""
+        """Make a trade if the mean of the short window crosses the mean of the long
+        window."""
         pool = obs.pools[0]
         pool_tokens = obs.pool_tokens(pool=pool)
         price = obs.price(token=pool_tokens[0], unit=pool_tokens[1], pool=pool)

@@ -9,9 +9,9 @@ from dojo.policies import BasePolicy
 class SingleAction(BasePolicy):
     """A policy that executes a single action.
 
-    This is useful for testing the impact of a single action in an environment.
-    For example, you might want to see what the final price in a UniswapV3 pool
-    would be if you executed a single swap.
+    This is useful for testing the impact of a single action in an environment. For
+    example, you might want to see what the final price in a UniswapV3 pool would be if
+    you executed a single swap.
     """
 
     def __init__(self, agent: BaseAgent, action: BaseAction) -> None:

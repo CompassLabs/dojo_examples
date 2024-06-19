@@ -18,7 +18,6 @@ class ImpermanentLossAgent(BaseAgent):
         """Calculate the wealth of a portfolio denoted in the y asset of the pool.
 
         :param portfolio: Portfolio to calculate wealth for.
-
         :raises ValueError: If agent token is not in pool.
         """
         wealth = 0

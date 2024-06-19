@@ -14,7 +14,8 @@ class DCAPolicy(BasePolicy):
 
     :param agent: The agent which is using this policy.
     :param buying_amount: The number of tokens to swap at each trade.
-    :param min_dist: The interval to swap tokens. The agent will only swap tokens if the last trade was at least min_dist blocks ago.
+    :param min_dist: The interval to swap tokens. The agent will only swap tokens if the
+        last trade was at least min_dist blocks ago.
     """
 
     def __init__(self, agent: BaseAgent, buying_amount: float, min_dist: int) -> None:

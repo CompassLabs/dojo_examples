@@ -14,7 +14,9 @@ from dojo.policies import BasePolicy
 # a policy that uses the RSI indicator to make decisions
 class RSIPolicy(BasePolicy):
     """RSI trading policy for a UniV3Env with a single pool.
-    :param agent: The agent which is using this policy."""
+
+    :param agent: The agent which is using this policy.
+    """
 
     def __init__(self, agent: BaseAgent):
         self.agent = agent
