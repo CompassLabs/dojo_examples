@@ -10,7 +10,9 @@ from agents.uniV3_pool_wealth import UniV3PoolWealthAgent
 from dateutil import parser as dateparser
 from policy import RSIPolicy
 
+# SNIPPET 1 START
 from dojo.environments import UniV3Env
+# SNIPPET 1 END
 from dojo.runners import backtest_run
 
 pools = ["USDC/WETH-0.05"]

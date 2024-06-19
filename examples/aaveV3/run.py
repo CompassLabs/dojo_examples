@@ -9,7 +9,9 @@ from dateutil import parser as dateparser
 from policy import AAVEv3Policy
 
 from dojo.agents import BaseAgent
+# SNIPPET 1 START
 from dojo.environments import AAVEv3Env
+# SNIPPET 1 END
 from dojo.environments.aaveV3 import AAVEv3Obs
 from dojo.runners import backtest_run
 

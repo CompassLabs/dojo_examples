@@ -48,6 +48,8 @@ passive_lp_policy = PassiveConcentratedLP(
     agent=lp_agent, lower_price_bound=0.95, upper_price_bound=1.05
 )
 
+# SNIPPET 1 START
 sim_blocks, sim_rewards = backtest_run(
     env, [mavg_policy, passive_lp_policy], dashboard_port=8051, auto_close=True
 )
+# SNIPPET 1 END
