@@ -8,7 +8,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".
 
 from agents.uniV3_pool_wealth import UniV3PoolWealthAgent
 from dateutil import parser as dateparser
-from policies.arbitrage import ArbitragePolicy
+from policy import ArbitragePolicy
 
 from dojo.environments import UniV3Env
 from dojo.runners import backtest_run

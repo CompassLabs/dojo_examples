@@ -5,7 +5,7 @@ logging.basicConfig(format="%(asctime)s - %(message)s", level=20)
 
 from agents.uniV3_pool_wealth import UniV3PoolWealthAgent
 from dateutil import parser as dateparser
-from policies.moving_average import MovingAveragePolicy
+from examples.moving_averages.policy import MovingAveragePolicy
 from policies.passiveLP import PassiveConcentratedLP
 
 from dojo.environments import UniV3Env

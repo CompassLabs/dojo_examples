@@ -6,7 +6,7 @@ current = os.path.dirname(os.path.realpath(__file__))
 parent = os.path.dirname(current)
 sys.path.append(parent)
 
-from agents import AAVEv3Agent
+from agents.dummy_agent import DummyAgent
 from dateutil import parser as dateparser
 
 from dojo.actions.aaveV3 import AAVEv3Supply, AAVEv3WithdrawAll
@@ -20,7 +20,7 @@ start_time = dateparser.parse("2023-06-29 00:00:00 UTC")
 end_time = dateparser.parse("2023-06-29 12:30:00 UTC")
 
 # SNIPPET 1 START
-agent = AAVEv3Agent(initial_portfolio={"USDC": Decimal(11_000)})
+agent = DummyAgent(initial_portfolio={"USDC": Decimal(11_000)})
 env = AAVEv3Env(
     date_range=(start_time, end_time),
     agents=[agent],
