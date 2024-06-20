@@ -40,13 +40,9 @@ jobs:
         run: |
           python example_backtest.py 
 
-      - name: Run run_aave.py
+      - name: Run everything in the examples/ folder
         run: |
-          python run_aave.py
-
-      - name: Run run_arbitrage.py
-        run: |
-          python run_arbitrage.py 
+          find examples -wholename "*run.py" -exec python {} \;
 
 
               

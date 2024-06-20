@@ -40,17 +40,4 @@ jobs:
         continue-on-error: true
         run: |
           cd snippets
-          ls . | xargs python
-
-      - name: Run Snippets second
-        id: snippets_second_try
-        if: steps.snippets_first_try.outcome == 'failure'
-        continue-on-error: false
-        run: |
-          cd snippets
-          ls . | xargs python
-
-      - name: Send failure message to slack
-        if: failure()
-        run: |
-          curl $FAILURE_WEBHOOK
+          find . -name "*.py" -exec python {} \;
