@@ -43,7 +43,3 @@ jobs:
       - name: Run everything in the examples/ folder
         run: |
           find examples -wholename "*run.py" -exec python {} \;
-
-
-              
-

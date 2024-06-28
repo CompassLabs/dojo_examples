@@ -9,8 +9,10 @@ from dateutil import parser as dateparser
 from policy import AAVEv3Policy
 
 from dojo.agents import BaseAgent
+
 # SNIPPET 1 START
 from dojo.environments import AAVEv3Env
+
 # SNIPPET 1 END
 from dojo.environments.aaveV3 import AAVEv3Obs
 from dojo.runners import backtest_run
@@ -31,7 +33,7 @@ class AAVEv3Agent(BaseAgent):
 def main():
     # SNIPPET 1 START
     start_time = dateparser.parse("2023-03-11 00:00:00 UTC")
-    end_time = dateparser.parse("2023-03-11 12:00:00 UTC")
+    end_time = dateparser.parse("2023-03-11 00:10:00 UTC")
 
     # Agents
     agent1 = AAVEv3Agent(

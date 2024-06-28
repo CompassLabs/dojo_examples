@@ -1,9 +1,7 @@
-
 from typing import Optional
 
 from dojo.agents import BaseAgent
 from dojo.environments.aaveV3 import AAVEv3Obs
-
 
 
 class DummyAgent(BaseAgent):

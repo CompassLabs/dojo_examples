@@ -12,12 +12,13 @@ from policy import RSIPolicy
 
 # SNIPPET 1 START
 from dojo.environments import UniV3Env
+
 # SNIPPET 1 END
 from dojo.runners import backtest_run
 
 pools = ["USDC/WETH-0.05"]
-start_time = dateparser.parse("2023-06-21 09:00:00 UTC")
-end_time = dateparser.parse("2023-06-24 22:00:00 UTC")
+start_time = dateparser.parse("2021-06-21 00:00:00 UTC")
+end_time = dateparser.parse("2021-06-21 00:10:00 UTC")
 
 # Agents
 rsi_agent = UniV3PoolWealthAgent(

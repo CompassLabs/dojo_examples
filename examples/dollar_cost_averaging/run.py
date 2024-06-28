@@ -14,8 +14,8 @@ from dojo.environments import UniV3Env
 from dojo.runners import backtest_run
 
 pools = ["USDC/WETH-0.05"]
-start_time = dateparser.parse("2023-06-21 09:00:00 UTC")
-end_time = dateparser.parse("2023-06-24 22:00:00 UTC")
+start_time = dateparser.parse("2021-06-21 00:00:00 UTC")
+end_time = dateparser.parse("2021-06-21 00:20:00 UTC")
 
 # Agents
 dca_agent = UniV3PoolWealthAgent(
@@ -31,7 +31,7 @@ env = UniV3Env(
     date_range=(start_time, end_time),
     agents=[dca_agent],
     pools=pools,
-    backend_type="local",
+    backend_type="forked",
     market_impact="replay",
 )
 
