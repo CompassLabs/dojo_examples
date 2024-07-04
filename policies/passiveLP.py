@@ -70,11 +70,10 @@ class PassiveConcentratedLP(BasePolicy):
     def inital_quote(self, obs: UniV3Obs) -> List[BaseAction]:
         pool_idx = 0
         pool = obs.pools[pool_idx]
+        portfolio = self.agent.portfolio()
         token0, token1 = obs.pool_tokens(pool)
         spot_price = obs.price(token0, token1, pool)
-        wallet_portfolio = self.agent.erc20_portfolio()
 
-        token0, token1 = obs.pool_tokens(obs.pools[pool_idx])
         decimals0 = obs.token_decimals(token0)
         decimals1 = obs.token_decimals(token1)
 
@@ -88,12 +87,10 @@ class PassiveConcentratedLP(BasePolicy):
         upper_tick = uniswapV3.price_to_active_tick(
             upper_price_range, tick_spacing, (decimals0, decimals1)
         )
-        # target0 = (wallet_portfolio[token0] + wallet_portfolio[token1] / spot_price) / 2
-        # target1 = spot_price * target0
         provide_action = UniV3Quote(
             agent=self.agent,
             pool=pool,
-            quantities=[wallet_portfolio[token0], wallet_portfolio[token1]],
+            quantities=[portfolio[token0], portfolio[token1]],
             tick_range=(lower_tick, upper_tick),
         )
         self.has_invested = True

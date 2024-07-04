@@ -18,7 +18,9 @@ def test_all_files():
         if "test" in test_file:
             continue
         # Run each test file using subprocess
-        _ = subprocess.run(["pytest", test_file], capture_output=True, text=True)
+        _ = subprocess.run(
+            ["pytest", "--durations=0", test_file], capture_output=True, text=True
+        )
 
         # Check if the test run was successful
         ### assert result.returncode == 0, f"Test failed for {test_file}\n{result.stdout}\n{result.stderr}"

@@ -39,7 +39,7 @@ jobs:
       - name: Run tests
         run: |
           pip install pytest pytest-cov
-          pytest --cov=policies --cov=agents --cov-report xml tests/
+          pytest --durations=0 --cov=policies --cov=agents --cov-report xml tests/
         env:
           COVERAGE_FILE: .coverage
     

@@ -15,8 +15,8 @@ from dojo.runners import backtest_run
 def main():
     # SNIPPET 1 START
     pools = ["USDC/WETH-0.05"]
-    start_time = dateparser.parse("2021-06-22 00:00:00 UTC")
-    end_time = dateparser.parse("2021-06-22 12:00:00 UTC")
+    start_time = dateparser.parse("2021-06-21 00:00:00 UTC")
+    end_time = dateparser.parse("2021-06-21 06:00:00 UTC")
 
     # Agents
     agent1 = UniV3PoolWealthAgent(
@@ -27,6 +27,7 @@ def main():
         },
         name="TraderAgent",
     )
+
     agent2 = UniV3PoolWealthAgent(
         initial_portfolio={"USDC": Decimal(10_000), "WETH": Decimal(1)},
         name="LPAgent",
