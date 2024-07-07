@@ -15,8 +15,8 @@ from dojo.runners import backtest_run
 def main():
     # SNIPPET 1 START
     pools = ["USDC/WETH-0.05"]
-    start_time = dateparser.parse("2021-06-21 00:00:00 UTC")
-    end_time = dateparser.parse("2021-06-21 06:00:00 UTC")
+    start_time = dateparser.parse("2022-06-21 00:00:00 UTC")
+    end_time = dateparser.parse("2022-06-21 06:00:00 UTC")
 
     # Agents
     agent1 = UniV3PoolWealthAgent(
@@ -50,7 +50,7 @@ def main():
     )
 
     sim_blocks, sim_rewards = backtest_run(
-        env, [mvag_policy, passive_lp_policy], dashboard_port=8051, auto_close=True
+        env, [mvag_policy, passive_lp_policy], dashboard_port=None, auto_close=True
     )
     # SNIPPET 1 END
 
