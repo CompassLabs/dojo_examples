@@ -10,10 +10,7 @@ from policy import AAVEv3Policy
 
 from dojo.agents import BaseAgent
 
-# SNIPPET 1 START
 from dojo.environments import AAVEv3Env
-
-# SNIPPET 1 END
 from dojo.environments.aaveV3 import AAVEv3Obs
 from dojo.runners import backtest_run
 
@@ -29,9 +26,7 @@ class AAVEv3Agent(BaseAgent):
         """This agent does not measure reward."""
         return 0
 
-
 def main():
-    # SNIPPET 1 START
     start_time = dateparser.parse("2023-03-11 00:00:00 UTC")
     end_time = dateparser.parse("2023-03-11 00:10:00 UTC")
 
@@ -42,7 +37,7 @@ def main():
             "USDC": Decimal(30000),
             "WBTC": Decimal(2),
         },
-        name="AAVEAgent",
+        name="AAVE_Agent",
     )
 
     # Simulation environment (AAVE V3)
@@ -59,7 +54,6 @@ def main():
     policy = AAVEv3Policy(agent=agent1)
 
     _, _ = backtest_run(env, [policy], dashboard_port=8051, auto_close=True)
-    # SNIPPET 1 END
 
 
 if __name__ == "__main__":

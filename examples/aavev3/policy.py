@@ -11,7 +11,7 @@ from dojo.agents import BaseAgent
 from dojo.environments.aaveV3 import AAVEv3Obs
 from dojo.policies import BasePolicy
 
-
+# SNIPPET 1 START
 class AAVEv3Policy(BasePolicy):
     """Provide liquidity passively to a pool in the specified price bounds."""
 
@@ -20,10 +20,12 @@ class AAVEv3Policy(BasePolicy):
         super().__init__(agent=agent)
 
         self.has_invested = False
+    # SNIPPET 1 END
 
     def fit(self):
         pass
 
+    # SNIPPET 2 START
     def predict(self, obs: AAVEv3Obs) -> List[BaseAction]:
         if not self.has_invested:
             self.has_invested = True
@@ -32,6 +34,8 @@ class AAVEv3Policy(BasePolicy):
                     agent=self.agent, token_name="USDC", amount=Decimal("30000")
                 )
             ]
+        # SNIPPET 2 END
+        # SNIPPET 3 START
         health_factor = obs.get_user_account_data_base(
             self.agent.original_address
         ).healthFactor
@@ -49,3 +53,4 @@ class AAVEv3Policy(BasePolicy):
                 )
             ]
         return []
+        # SNIPPET 3 END

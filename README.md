@@ -1,3 +1,6 @@
+[![pipeline status](https://github.com/CompassLabs/dojo_examples/actions/workflows/run_all.yml/badge.svg)](https://github.com/CompassLabs/dojo_examples/actions/workflows/run_all.yml)
+[![pipeline status](https://github.com/CompassLabs/dojo_examples/actions/workflows/run_sim_with_dashboard.yml/badge.svg)](https://github.com/CompassLabs/dojo_examples/actions/workflows/run_sim_with_dashboard.yml)
+[![codecov](https://codecov.io/gh/CompassLabs/dojo_examples/branch/main/graph/badge.svg?token=RJWT1KWPWG)](https://codecov.io/gh/CompassLabs/dojo_examples)
 
 
 # Dojo Examples
