@@ -1,11 +1,8 @@
-# SNIPPET 2 START
 # SNIPPET 1 START
 from decimal import Decimal
 
 from dojo.agents import BaseAgent
 from dojo.environments.uniswapV3 import UniV3Env, UniV3Obs
-
-# SNIPPET 2 END
 
 
 class ETHAgent(BaseAgent):
@@ -16,6 +13,4 @@ class ETHAgent(BaseAgent):
 
     def reward(self, obs: UniV3Obs) -> float:
         return float(self.quantity("ETH"))
-
-
 # SNIPPET 1 END
