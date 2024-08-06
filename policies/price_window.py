@@ -2,12 +2,12 @@ import logging
 from decimal import Decimal
 from typing import List
 
-logging.basicConfig(format="%(asctime)s - %(message)s", level=20)
-
 from dojo.actions import BaseAction
 from dojo.agents import BaseAgent
 from dojo.environments.uniswapV3 import UniV3Obs, UniV3Trade
 from dojo.policies import BasePolicy
+
+logging.basicConfig(format="%(asctime)s - %(message)s", level=logging.INFO)
 
 
 # SNIPPET price_window START

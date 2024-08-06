@@ -1,18 +1,17 @@
 import logging
 from decimal import Decimal
 
-logging.basicConfig(format="%(asctime)s - %(message)s", level=20)
-
 from typing import Optional
 
 from dateutil import parser as dateparser
 from policy import AAVEv3Policy
 
 from dojo.agents import BaseAgent
-
 from dojo.environments import AAVEv3Env
 from dojo.environments.aaveV3 import AAVEv3Obs
 from dojo.runners import backtest_run
+
+logging.basicConfig(format="%(asctime)s - %(levelname)s - %(message)s", level=logging.INFO)
 
 
 class AAVEv3Agent(BaseAgent):
@@ -25,6 +24,7 @@ class AAVEv3Agent(BaseAgent):
     def reward(self, obs: AAVEv3Obs) -> float:
         """This agent does not measure reward."""
         return 0
+
 
 def main():
     start_time = dateparser.parse("2023-03-11 00:00:00 UTC")
@@ -47,8 +47,6 @@ def main():
         backend_type="forked",
         market_impact="default",
     )
-
-    env.reset()
 
     # Policies
     policy = AAVEv3Policy(agent=agent1)

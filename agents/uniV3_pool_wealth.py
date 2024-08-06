@@ -1,10 +1,10 @@
 from typing import Optional
 
-from dojo.agents import BaseAgent
+from dojo.agents import UniV3Agent
 from dojo.environments.uniswapV3 import UniV3Obs
 
 
-class UniV3PoolWealthAgent(BaseAgent):
+class UniV3PoolWealthAgent(UniV3Agent):
     """This agent implements a pool wealth reward function for a single UniV3 pool.
 
     The agent should not be given any tokens that are not in the UniV3Env pool.
@@ -19,8 +19,8 @@ class UniV3PoolWealthAgent(BaseAgent):
         pool = obs.pools[0]
         pool_tokens = obs.pool_tokens(pool=pool)
 
-        token_ids = self.erc721_portfolio().get("UNI-V3-POS", [])
-        lp_portfolio = obs.lp_quantities(token_ids)
+        token_ids = self.get_liquidity_ownership_tokens()
+        lp_portfolio = obs.lp_total_potential_tokens_on_withdrawal(token_ids)
         wallet_portfolio = self.erc20_portfolio()
 
         # wealth expressed as token0 of the pool

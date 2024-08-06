@@ -27,7 +27,6 @@ env = AAVEv3Env(
     backend_type="forked",
     market_impact="default",
 )
-env.reset()
 
 actions = [
     AAVEv3Supply(

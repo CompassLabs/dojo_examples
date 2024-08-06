@@ -1,10 +1,10 @@
 from typing import Optional
 
-from dojo.agents import BaseAgent
+from dojo.agents import UniV3Agent
 from dojo.environments.uniswapV3 import UniV3Obs
 
 
-class ImpermanentLossAgent(BaseAgent):
+class ImpermanentLossAgent(UniV3Agent):
     """This agent implements an IL reward function for a single UniV3 pool.
 
     The agent should not be given any tokens that are not in the UniV3Env pool.
@@ -35,7 +35,7 @@ class ImpermanentLossAgent(BaseAgent):
 
     def reward(self, obs: UniV3Obs) -> float:
         """Impermanent loss of the agent denoted in the y asset of the pool."""
-        token_ids = self.erc721_portfolio().get("UNI-V3-POS", [])
+        token_ids = self.get_liquidity_ownership_tokens()
         if not self.hold_portfolio:
             self.hold_portfolio = obs.lp_quantities(token_ids)
         hold_wealth = self._pool_wealth(obs, self.hold_portfolio)

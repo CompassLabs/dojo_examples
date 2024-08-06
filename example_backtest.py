@@ -1,8 +1,6 @@
 import logging
 from decimal import Decimal
 
-logging.basicConfig(format="%(asctime)s - %(message)s", level=20)
-
 from agents.uniV3_pool_wealth import UniV3PoolWealthAgent
 from dateutil import parser as dateparser
 from examples.moving_averages.policy import MovingAveragePolicy
@@ -10,6 +8,17 @@ from policies.passiveLP import PassiveConcentratedLP
 
 from dojo.environments import UniV3Env
 from dojo.runners import backtest_run
+
+# Example logging configuration which:
+# - by default, it logs only INFO
+# - logs DEBUG messages only from "dojo.network"
+# For more config options, see: https://docs.python.org/3.12/howto/logging-cookbook.html#customizing-handlers-with-dictconfig
+logging.getLogger("dojo.network").setLevel(logging.DEBUG)
+logging.basicConfig(
+    level=logging.INFO,
+    handlers=[logging.StreamHandler()],
+)
+logger = logging.getLogger(__name__)
 
 
 def main():
@@ -50,7 +59,7 @@ def main():
     )
 
     sim_blocks, sim_rewards = backtest_run(
-        env, [mvag_policy, passive_lp_policy], dashboard_port=None, auto_close=True
+        env, [mvag_policy, passive_lp_policy], dashboard_port=8051, auto_close=True
     )
     # SNIPPET 1 END
 

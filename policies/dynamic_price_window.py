@@ -1,7 +1,4 @@
 import logging
-
-logging.basicConfig(format="%(asctime)s - %(message)s", level=20)
-
 import os
 
 from dojo.agents import BaseAgent
@@ -9,6 +6,7 @@ from dojo.environments.uniswapV3 import UniV3Obs
 
 from .price_window import PriceWindowPolicy
 
+logging.basicConfig(format="%(asctime)s - %(message)s", level=logging.INFO)
 
 # SNIPPET dynamic_price_window START
 class DynamicPriceWindowPolicy(PriceWindowPolicy):

@@ -3,15 +3,16 @@ import os
 import sys
 from decimal import Decimal
 
-logging.basicConfig(format="%(asctime)s - %(message)s", level=20)
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..")))
-
-from agents.uniV3_pool_wealth import UniV3PoolWealthAgent
 from dateutil import parser as dateparser
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..")))
+from agents.uniV3_pool_wealth import UniV3PoolWealthAgent
 from policy import ArbitragePolicy
 
 from dojo.environments import UniV3Env
 from dojo.runners import backtest_run
+
+logging.basicConfig(format="%(asctime)s - %(message)s", level=logging.INFO)
 
 pools = ["USDC/WETH-0.05", "USDC/WETH-0.3"]
 start_time = dateparser.parse("2021-06-21 00:00:00 UTC")

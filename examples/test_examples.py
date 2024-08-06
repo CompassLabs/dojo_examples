@@ -15,7 +15,7 @@ def test_all_files():
     test_files = glob.glob(
         os.path.join(test_directory, "**", "*run.py"), recursive=True
     )
-    print("a", test_files)
+    print("files to run:", test_files)
 
     for test_file in test_files:
         print(test_file)

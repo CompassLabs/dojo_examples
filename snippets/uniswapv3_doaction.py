@@ -25,7 +25,6 @@ env = UniV3Env(
     backend_type="forked",
     market_impact="replay",  # defaults to "replay", simply replaying history
 )
-env.reset()
 
 action = UniV3Trade(
     agent=agent,

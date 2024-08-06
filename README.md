@@ -1,5 +1,6 @@
 [![pipeline status](https://github.com/CompassLabs/dojo_examples/actions/workflows/run_all.yml/badge.svg)](https://github.com/CompassLabs/dojo_examples/actions/workflows/run_all.yml)
 [![pipeline status](https://github.com/CompassLabs/dojo_examples/actions/workflows/run_sim_with_dashboard.yml/badge.svg)](https://github.com/CompassLabs/dojo_examples/actions/workflows/run_sim_with_dashboard.yml)
+[![codecov](https://codecov.io/gh/CompassLabs/dojo_examples/branch/main/graph/badge.svg?token=RJWT1KWPWG)](https://codecov.io/gh/CompassLabs/dojo_examples)
 
 
 # Dojo Examples
@@ -25,7 +26,7 @@ Then, install dojo via pip
 pip install dojo-compass
 ```
 
-Finally, [install](https://book.getfoundry.sh/getting-started/installation) foundry on your system
+Finally, [install Foundry](https://book.getfoundry.sh/getting-started/installation) on your system
 
 ## 📄 Authentication
 You'll need a license key and access to an archive node (e.g. from Infura) to run `dojo`.
