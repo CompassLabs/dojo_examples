@@ -10,6 +10,7 @@ from dateutil import parser as dateparser
 from policies.passiveLP import PassiveConcentratedLP
 from policy import MovingAveragePolicy
 
+from dojo.common.constants import Chain
 from dojo.environments import UniV3Env
 from dojo.runners import backtest_run
 
@@ -34,6 +35,7 @@ lp_agent = UniV3PoolWealthAgent(
 
 # Simulation environment (Uniswap V3)
 env = UniV3Env(
+    chain=Chain.ETHEREUM,
     date_range=(start_time, end_time),
     agents=[mavg_agent, lp_agent],
     pools=pools,

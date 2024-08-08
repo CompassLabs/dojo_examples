@@ -9,6 +9,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".
 from agents.uniV3_pool_wealth import UniV3PoolWealthAgent
 from policy import ArbitragePolicy
 
+from dojo.common.constants import Chain
 from dojo.environments import UniV3Env
 from dojo.runners import backtest_run
 
@@ -30,6 +31,7 @@ arb_agent = UniV3PoolWealthAgent(
 
 # Simulation environment (Uniswap V3)
 env = UniV3Env(
+    chain=Chain.ETHEREUM,
     date_range=(start_time, end_time),
     agents=[arb_agent],
     pools=pools,

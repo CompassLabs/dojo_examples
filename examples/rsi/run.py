@@ -3,12 +3,13 @@ import os
 import sys
 from decimal import Decimal
 
-
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..")))
 
 from agents.uniV3_pool_wealth import UniV3PoolWealthAgent
 from dateutil import parser as dateparser
 from policy import RSIPolicy
+
+from dojo.common.constants import Chain
 
 # SNIPPET 1 START
 from dojo.environments import UniV3Env
@@ -32,6 +33,7 @@ rsi_agent = UniV3PoolWealthAgent(
 
 # Simulation environment (Uniswap V3)
 env = UniV3Env(
+    chain=Chain.ETHEREUM,
     date_range=(start_time, end_time),
     agents=[rsi_agent],
     pools=pools,

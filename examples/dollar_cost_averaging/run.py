@@ -9,6 +9,7 @@ from agents.uniV3_pool_wealth import UniV3PoolWealthAgent
 from dateutil import parser as dateparser
 from policy import DCAPolicy
 
+from dojo.common.constants import Chain
 from dojo.environments import UniV3Env
 from dojo.runners import backtest_run
 
@@ -29,6 +30,7 @@ dca_agent = UniV3PoolWealthAgent(
 
 # Simulation environment (Uniswap V3)
 env = UniV3Env(
+    chain=Chain.ETHEREUM,
     date_range=(start_time, end_time),
     agents=[dca_agent],
     pools=pools,

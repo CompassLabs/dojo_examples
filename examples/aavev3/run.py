@@ -1,20 +1,22 @@
 import logging
 from decimal import Decimal
-
 from typing import Optional
 
 from dateutil import parser as dateparser
 from policy import AAVEv3Policy
 
-from dojo.agents import BaseAgent
+from dojo.agents import AAVEv3Agent
+from dojo.common.constants import Chain
 from dojo.environments import AAVEv3Env
 from dojo.environments.aaveV3 import AAVEv3Obs
 from dojo.runners import backtest_run
 
-logging.basicConfig(format="%(asctime)s - %(levelname)s - %(message)s", level=logging.INFO)
+logging.basicConfig(
+    format="%(asctime)s - %(levelname)s - %(message)s", level=logging.INFO
+)
 
 
-class AAVEv3Agent(BaseAgent):
+class ConstantRewardAgent(AAVEv3Agent):
     """An agent that does not have any particular objective."""
 
     def __init__(self, initial_portfolio: dict, name: Optional[str] = None):
@@ -26,12 +28,12 @@ class AAVEv3Agent(BaseAgent):
         return 0
 
 
-def main():
+def main() -> None:
     start_time = dateparser.parse("2023-03-11 00:00:00 UTC")
     end_time = dateparser.parse("2023-03-11 00:10:00 UTC")
 
     # Agents
-    agent1 = AAVEv3Agent(
+    agent1 = ConstantRewardAgent(
         initial_portfolio={
             "ETH": Decimal(100),
             "USDC": Decimal(30000),
@@ -42,6 +44,7 @@ def main():
 
     # Simulation environment (AAVE V3)
     env = AAVEv3Env(
+        chain=Chain.ETHEREUM,
         date_range=(start_time, end_time),
         agents=[agent1],
         backend_type="forked",

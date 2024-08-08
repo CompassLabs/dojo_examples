@@ -6,6 +6,7 @@ from dateutil import parser as dateparser
 from examples.moving_averages.policy import MovingAveragePolicy
 from policies.passiveLP import PassiveConcentratedLP
 
+from dojo.common.constants import Chain
 from dojo.environments import UniV3Env
 from dojo.runners import backtest_run
 
@@ -15,13 +16,14 @@ from dojo.runners import backtest_run
 # For more config options, see: https://docs.python.org/3.12/howto/logging-cookbook.html#customizing-handlers-with-dictconfig
 logging.getLogger("dojo.network").setLevel(logging.DEBUG)
 logging.basicConfig(
+    format="%(asctime)s - %(levelname)s - %(message)s",
     level=logging.INFO,
     handlers=[logging.StreamHandler()],
 )
 logger = logging.getLogger(__name__)
 
 
-def main():
+def main() -> None:
     # SNIPPET 1 START
     pools = ["USDC/WETH-0.05"]
     start_time = dateparser.parse("2022-06-21 00:00:00 UTC")
@@ -44,6 +46,7 @@ def main():
 
     # Simulation environment (Uniswap V3)
     env = UniV3Env(
+        chain=Chain.ETHEREUM,
         date_range=(start_time, end_time),
         agents=[agent1, agent2],
         pools=pools,

@@ -9,16 +9,16 @@ from agents.uniV3_pool_wealth import UniV3PoolWealthAgent
 from dateutil import parser as dateparser
 from policy import RSIPolicy
 
+from dojo.common.constants import Chain
+from dojo.config import cfg
+from dojo.config.config import load_network_cfg
+
 # SNIPPET 1 START
 from dojo.environments import UniV3Env
 
 # SNIPPET 1 END
 from dojo.runners import backtest_run
 
-# HACK to make tests pass
-os.environ["CHAIN"] = "arbitrum"
-from dojo.config import cfg
-from dojo.config.config import load_network_cfg
 cfg.network = load_network_cfg()
 
 
@@ -39,6 +39,7 @@ rsi_agent = UniV3PoolWealthAgent(
 
 # Simulation environment (Uniswap V3)
 env = UniV3Env(
+    chain=Chain.ARBITRUM,
     date_range=(start_time, end_time),
     agents=[rsi_agent],
     pools=pools,
