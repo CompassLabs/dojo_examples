@@ -11,6 +11,7 @@ from dojo.agents import BaseAgent
 from dojo.environments.aaveV3 import AAVEv3Obs
 from dojo.policies import BasePolicy
 
+
 # SNIPPET 1 START
 class AAVEv3Policy(BasePolicy):
     """Provide liquidity passively to a pool in the specified price bounds."""
@@ -20,6 +21,7 @@ class AAVEv3Policy(BasePolicy):
         super().__init__(agent=agent)
 
         self.has_invested = False
+
     # SNIPPET 1 END
 
     def fit(self):

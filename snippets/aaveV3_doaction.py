@@ -2,6 +2,8 @@ import os
 import sys
 from decimal import Decimal
 
+from dojo.common.constants import Chain
+
 current = os.path.dirname(os.path.realpath(__file__))
 parent = os.path.dirname(current)
 sys.path.append(parent)
@@ -22,6 +24,7 @@ end_time = dateparser.parse("2023-06-29 00:05:00 UTC")
 # SNIPPET 1 START
 agent = DummyAgent(initial_portfolio={"USDC": Decimal(11_000)})
 env = AAVEv3Env(
+    chain=Chain.ETHEREUM,
     date_range=(start_time, end_time),
     agents=[agent],
     backend_type="forked",

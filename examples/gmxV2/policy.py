@@ -1,5 +1,5 @@
 from dojo.actions.base_action import BaseAction
-from dojo.actions.gmxV2 import (
+from dojo.actions.gmxV2.models import (
     CreateOrderParams,
     CreateOrderParamsAddresses,
     CreateOrderParamsNumbers,

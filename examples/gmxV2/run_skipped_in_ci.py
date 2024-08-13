@@ -1,6 +1,5 @@
 import logging
 from decimal import Decimal
-
 from typing import Optional
 
 from dateutil import parser as dateparser
@@ -10,11 +9,11 @@ from dojo.agents import BaseAgent
 
 # SNIPPET 1 START
 from dojo.environments import GmxV2Env
+from dojo.models.gmxV2.market import create_market
 
 # SNIPPET 1 END
 from dojo.observations.gmxV2 import GmxV2Obs
 from dojo.runners import backtest_run
-from dojo.models.gmxV2.market import Market
 
 logging.basicConfig(format="%(asctime)s - %(message)s", level=logging.INFO)
 
@@ -38,11 +37,12 @@ def main():
     # leaving the following commented out for now to use later for profiling
     # start_time = dateparser.parse("2024-06-21 00:00:45 UTC")
     # end_time = dateparser.parse("2024-06-21 00:00:50 UTC")
-    market = Market(
+    market = create_market(
         long_token="WETH",
         short_token="USDC",
         index_token="WETH",
     )
+
     # Agents
     agent1 = GmxV2Agent(
         initial_portfolio={

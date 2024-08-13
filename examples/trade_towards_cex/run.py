@@ -1,19 +1,11 @@
 import logging
 import os
 import sys
-from dataclasses import dataclass
 from decimal import Decimal
 
 from dateutil import parser as dateparser
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..")))
-import csv
-import io
-import zipfile
-from datetime import datetime
-from typing import List
-
-import requests
 from agents.uniV3_pool_wealth import UniV3PoolWealthAgent
 from binance_data import load_binance_data
 from policy import TradeTowardsCentralisedExchangePolicy
