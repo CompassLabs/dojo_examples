@@ -9,11 +9,12 @@ from dojo.agents import BaseAgent
 
 # SNIPPET 1 START
 from dojo.environments import GmxV2Env
-from dojo.models.gmxV2.market import create_market
 
 # SNIPPET 1 END
 from dojo.observations.gmxV2 import GmxV2Obs
 from dojo.runners import backtest_run
+from dojo.models.gmxV2.market import MarketVenue
+from dojo.common.constants import Chain
 
 logging.basicConfig(format="%(asctime)s - %(message)s", level=logging.INFO)
 
@@ -33,11 +34,11 @@ class GmxV2Agent(BaseAgent):
 def main():
     # SNIPPET 1 START
     start_time = dateparser.parse("2024-07-10 00:00:00 UTC")
-    end_time = dateparser.parse("2024-07-10 01:10:00 UTC")
+    end_time = dateparser.parse("2024-07-10 00:01:00 UTC")
     # leaving the following commented out for now to use later for profiling
     # start_time = dateparser.parse("2024-06-21 00:00:45 UTC")
     # end_time = dateparser.parse("2024-06-21 00:00:50 UTC")
-    market = create_market(
+    market_venue = MarketVenue(
         long_token="WETH",
         short_token="USDC",
         index_token="WETH",
@@ -55,9 +56,10 @@ def main():
 
     # Simulation environment (AAVE V3)
     env = GmxV2Env(
+        chain=Chain.ARBITRUM,
         date_range=(start_time, end_time),
         agents=[agent1],
-        markets=[market],
+        market_venues=[market_venue],
         market_impact="replay",
         backend_type="forked",
     )
