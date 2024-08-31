@@ -3,13 +3,13 @@ from typing import List, Tuple
 
 from dojo.actions.base_action import BaseAction
 from dojo.agents import BaseAgent
-from dojo.environments.uniswapV3 import UniV3Obs, UniV3Trade
+from dojo.environments.uniswapV3 import UniswapV3Observation, UniswapV3Trade
 from dojo.policies import BasePolicy
 
 
 # SNIPPET 1 START
 class ArbitragePolicy(BasePolicy):
-    """Arbitrage trading policy for a UniV3Env with two pools.
+    """Arbitrage trading policy for a UniswapV3Env with two pools.
 
     :param agent: The agent which is using this policy.
     """
@@ -24,7 +24,7 @@ class ArbitragePolicy(BasePolicy):
     # SNIPPET 1 END
 
     # SNIPPET 2 START
-    def compute_signal(self, obs: UniV3Obs) -> Tuple[Decimal, Decimal]:
+    def compute_signal(self, obs: UniswapV3Observation) -> Tuple[Decimal, Decimal]:
         pools = obs.pools
         pool_tokens_0 = obs.pool_tokens(pool=pools[0])
         pool_tokens_1 = obs.pool_tokens(pool=pools[1])
@@ -58,7 +58,7 @@ class ArbitragePolicy(BasePolicy):
     # SNIPPET 2 END
 
     # SNIPPET 3 START
-    def predict(self, obs: UniV3Obs) -> List[BaseAction]:
+    def predict(self, obs: UniswapV3Observation) -> List[BaseAction]:
         pools = obs.pools
         pool_tokens_0 = obs.pool_tokens(pool=pools[0])
         pool_tokens_1 = obs.pool_tokens(pool=pools[1])
@@ -72,7 +72,7 @@ class ArbitragePolicy(BasePolicy):
 
         # Since we don't support multihop yet, we need to trade this way for now.
         if self.tradeback_via_pool is not None:
-            action = UniV3Trade(
+            action = UniswapV3Trade(
                 agent=self.agent,
                 pool=self.tradeback_via_pool,
                 quantities=(Decimal(0), amount_1),
@@ -98,7 +98,7 @@ class ArbitragePolicy(BasePolicy):
         )
         self.block_last_trade = obs.block
         return [
-            UniV3Trade(
+            UniswapV3Trade(
                 agent=self.agent,
                 pool=pool,
                 quantities=(amount_0, Decimal(0)),

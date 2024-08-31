@@ -2,7 +2,7 @@ from typing import List
 
 from dojo.actions import BaseAction
 from dojo.agents.base_agent import BaseAgent
-from dojo.observations import BaseObs
+from dojo.observations import BaseObservation
 from dojo.policies import BasePolicy
 
 
@@ -23,6 +23,6 @@ class SingleAction(BasePolicy):
         super().__init__(agent)
         self.action = action
 
-    def predict(self, obs: BaseObs) -> List[BaseAction]:
+    def predict(self, obs: BaseObservation) -> List[BaseAction]:
         """Return the action to execute."""
         return [self.action]

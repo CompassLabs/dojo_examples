@@ -12,11 +12,11 @@ logger.setLevel(logging.INFO)
 
 
 sys.path.append("..")
-from agents.uniV3_pool_wealth import UniV3PoolWealthAgent
 from dateutil import parser as dateparser
 
-from dojo.environments import UniV3Env
-from dojo.environments.uniswapV3 import UniV3Quote, UniV3Trade
+from agents.uniswapV3_pool_wealth import UniswapV3PoolWealthAgent
+from dojo.environments import UniswapV3Env
+from dojo.environments.uniswapV3 import UniswapV3Quote, UniswapV3Trade
 
 POOL = "SAFE/WETH-0.1"
 start_time = dateparser.parse("2024-06-21 00:00:00 UTC")
@@ -28,12 +28,12 @@ initial_portfolio = initial_portfolio = {
     "SAFE": Decimal(0),
     "WETH": Decimal(100),  # We will try to trade WETH and track slippage
 }
-trader_agent = UniV3PoolWealthAgent(
+trader_agent = UniswapV3PoolWealthAgent(
     initial_portfolio=initial_portfolio,
     name="TraderAgent",
 )
 
-lp_agent = UniV3PoolWealthAgent(
+lp_agent = UniswapV3PoolWealthAgent(
     initial_portfolio={
         "SAFE": Decimal(100_000),
         "WETH": Decimal(1000),
@@ -43,7 +43,7 @@ lp_agent = UniV3PoolWealthAgent(
 )
 
 # Simulation environment (Uniswap V3)
-env = UniV3Env(
+env = UniswapV3Env(
     date_range=(start_time, end_time),
     agents=[trader_agent, lp_agent],
     pools=[POOL],
@@ -80,7 +80,7 @@ without_slippage = trader_agent.portfolio()[token1] * price_1_in_0 * (1 - fee)
 # Provide LP in current tick range
 env.step(
     actions=[
-        UniV3Quote(
+        UniswapV3Quote(
             agent=lp_agent,
             pool=POOL,
             quantities=[
@@ -102,7 +102,7 @@ logger.info(
 
 env.step(
     actions=[
-        UniV3Trade(
+        UniswapV3Trade(
             agent=trader_agent,
             pool=POOL,
             quantities=[

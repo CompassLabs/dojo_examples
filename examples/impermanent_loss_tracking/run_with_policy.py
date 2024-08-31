@@ -7,10 +7,10 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".
 
 from dateutil import parser as dateparser
 
-from demo.agents.uniV3_pool_wealth import UniV3PoolWealthAgent
+from demo.agents.uniswapV3_pool_wealth import UniswapV3PoolWealthAgent
 from demo.examples.impermanent_loss_tracking.policy import ImpermanentLossPolicy
 from dojo.common.constants import Chain
-from dojo.environments import UniV3Env
+from dojo.environments import UniswapV3Env
 from dojo.runners import backtest_run
 
 logging.basicConfig(format="%(asctime)s - %(message)s", level=logging.INFO)
@@ -20,7 +20,7 @@ start_time = dateparser.parse("2021-06-21 00:00:00 UTC")
 end_time = dateparser.parse("2021-06-21 00:20:00 UTC")
 
 # Agents
-impermanent_loss_agent = UniV3PoolWealthAgent(
+impermanent_loss_agent = UniswapV3PoolWealthAgent(
     initial_portfolio={
         "USDC": Decimal(10_000),
         "WETH": Decimal(1),
@@ -29,7 +29,7 @@ impermanent_loss_agent = UniV3PoolWealthAgent(
 )
 
 # Simulation environment (Uniswap V3)
-env = UniV3Env(
+env = UniswapV3Env(
     chain=Chain.ETHEREUM,
     date_range=(start_time, end_time),
     agents=[impermanent_loss_agent],

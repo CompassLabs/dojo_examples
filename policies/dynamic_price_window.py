@@ -2,7 +2,7 @@ import logging
 import os
 
 from dojo.agents import BaseAgent
-from dojo.environments.uniswapV3 import UniV3Obs
+from dojo.environments.uniswapV3 import UniswapV3Observation
 
 from .price_window import PriceWindowPolicy
 

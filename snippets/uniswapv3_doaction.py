@@ -8,17 +8,17 @@ sys.path.append(parent)
 
 
 import numpy as np
-from agents import UniV3PoolWealthAgent
 from dateutil import parser as dateparser
 
-from dojo.environments.uniswapV3 import UniV3Env, UniV3Trade
+from agents import UniswapV3PoolWealthAgent
+from dojo.environments.uniswapV3 import UniswapV3Env, UniswapV3Trade
 
 pools = ["USDC/WETH-0.3"]
 sim_start = dateparser.parse("2021-06-21 00:00:00 UTC")
 sim_end = dateparser.parse("2021-06-21 00:10:00 UTC")
 
-agent = UniV3PoolWealthAgent(initial_portfolio={"USDC": Decimal(10_000)})
-env = UniV3Env(
+agent = UniswapV3PoolWealthAgent(initial_portfolio={"USDC": Decimal(10_000)})
+env = UniswapV3Env(
     agents=[agent],  # Of course, you'd want an agent here to actually do things
     date_range=(sim_start, sim_end),
     pools=pools,
@@ -26,7 +26,7 @@ env = UniV3Env(
     market_impact="replay",  # defaults to "replay", simply replaying history
 )
 
-action = UniV3Trade(
+action = UniswapV3Trade(
     agent=agent,
     pool=env.obs.pools[0],
     quantities=(Decimal("0.1"), Decimal("0")),

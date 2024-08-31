@@ -1,16 +1,16 @@
 from dojo.actions.gmxV2.orders.base_models import BaseTraderOrder
 from dojo.actions.gmxV2.orders.models import (
-    IncreaseLongMarketOrder,
+    DecreaseLongLimitOrder,
     DecreaseLongMarketOrder,
-    IncreaseShortMarketOrder,
+    DecreaseShortLimitOrder,
     DecreaseShortMarketOrder,
     IncreaseLongLimitOrder,
-    DecreaseLongLimitOrder,
+    IncreaseLongMarketOrder,
     IncreaseShortLimitOrder,
-    DecreaseShortLimitOrder,
+    IncreaseShortMarketOrder,
 )
 from dojo.agents import BaseAgent
-from dojo.environments.gmxV2 import GmxV2Obs
+from dojo.environments.gmxV2 import GmxV2Observation
 from dojo.policies import BasePolicy
 
 
@@ -25,7 +25,7 @@ class GmxV2Policy(BasePolicy):
     def fit(self):
         pass
 
-    def predict(self, obs: GmxV2Obs) -> list[BaseTraderOrder]:
+    def predict(self, obs: GmxV2Observation) -> list[BaseTraderOrder]:
         self.count += 1
         match self.count % 10:
             case 0:

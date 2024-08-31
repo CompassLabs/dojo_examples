@@ -1,20 +1,21 @@
 from typing import Optional
 
-from dojo.agents import UniV3Agent
-from dojo.environments.uniswapV3 import UniV3Obs
+from dojo.agents import UniswapV3Agent
+from dojo.environments.uniswapV3 import UniswapV3Observation
 
 
-class ImpermanentLossAgent(UniV3Agent):
-    """This agent implements an IL reward function for a single UniV3 pool.
+class ImpermanentLossAgent(UniswapV3Agent):
+    """This agent implements an IL reward function for a single UniswapV3 pool.
 
-    The agent should not be given any tokens that are not in the UniV3Env pool.
+    The agent should not be given any tokens that are not in the UniswapV3Env pool.
     """
 
     def __init__(self, initial_portfolio: dict, name: Optional[str] = None):
         super().__init__(name=name, initial_portfolio=initial_portfolio)
         self.hold_portfolio = []
 
-    def _pool_wealth(self, obs: UniV3Obs, portfolio: dict) -> float:
+    # SNIPPET 1 START
+    def _pool_wealth(self, obs: UniswapV3Observation, portfolio: dict) -> float:
         """Calculate the wealth of a portfolio denoted in the y asset of the pool.
 
         :param portfolio: Portfolio to calculate wealth for.
@@ -33,7 +34,10 @@ class ImpermanentLossAgent(UniV3Agent):
             wealth += quantity * price
         return wealth
 
-    def reward(self, obs: UniV3Obs) -> float:
+    # SNIPPET 1 END
+
+    # SNIPPET 2 START
+    def reward(self, obs: UniswapV3Observation) -> float:
         """Impermanent loss of the agent denoted in the y asset of the pool."""
         token_ids = self.get_liquidity_ownership_tokens()
         if not self.hold_portfolio:
@@ -43,3 +47,5 @@ class ImpermanentLossAgent(UniV3Agent):
         if hold_wealth == 0:
             return 0.0
         return (lp_wealth - hold_wealth) / hold_wealth
+
+    # SNIPPET 2 END

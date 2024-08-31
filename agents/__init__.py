@@ -1,4 +1,4 @@
-from .univ3_impermanent_loss import ImpermanentLossAgent
-from .uniV3_pool_wealth import UniV3PoolWealthAgent
+from .uniswapV3_impermanent_loss import ImpermanentLossAgent
+from .uniswapV3_pool_wealth import UniswapV3PoolWealthAgent
 
-__all__ = ["UniV3PoolWealthAgent", "ImpermanentLossAgent"]
+__all__ = ["UniswapV3PoolWealthAgent", "ImpermanentLossAgent"]

@@ -1,7 +1,7 @@
 from typing import Optional
 
 from dojo.agents import BaseAgent
-from dojo.environments.aaveV3 import AAVEv3Obs
+from dojo.environments.aaveV3 import AAVEv3Observation
 
 
 class DummyAgent(BaseAgent):
@@ -11,6 +11,6 @@ class DummyAgent(BaseAgent):
         """Initialize the agent."""
         super().__init__(name=name, initial_portfolio=initial_portfolio)
 
-    def reward(self, obs: AAVEv3Obs) -> float:
+    def reward(self, obs: AAVEv3Observation) -> float:
         """This agent does not measure reward."""
         return 0

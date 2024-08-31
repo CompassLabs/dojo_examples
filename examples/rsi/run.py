@@ -5,14 +5,14 @@ from decimal import Decimal
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..")))
 
-from agents.uniV3_pool_wealth import UniV3PoolWealthAgent
 from dateutil import parser as dateparser
 from policy import RSIPolicy
 
+from agents.uniswapV3_pool_wealth import UniswapV3PoolWealthAgent
 from dojo.common.constants import Chain
 
 # SNIPPET 1 START
-from dojo.environments import UniV3Env
+from dojo.environments import UniswapV3Env
 
 # SNIPPET 1 END
 from dojo.runners import backtest_run
@@ -23,7 +23,7 @@ start_time = dateparser.parse("2021-06-21 00:00:00 UTC")
 end_time = dateparser.parse("2021-06-21 00:10:00 UTC")
 
 # Agents
-rsi_agent = UniV3PoolWealthAgent(
+rsi_agent = UniswapV3PoolWealthAgent(
     initial_portfolio={
         "USDC": Decimal(10000),
         "WETH": Decimal(10),
@@ -32,7 +32,7 @@ rsi_agent = UniV3PoolWealthAgent(
 )
 
 # Simulation environment (Uniswap V3)
-env = UniV3Env(
+env = UniswapV3Env(
     chain=Chain.ETHEREUM,
     date_range=(start_time, end_time),
     agents=[rsi_agent],
@@ -46,4 +46,10 @@ rsi_policy = RSIPolicy(
     agent=rsi_agent,
 )
 
-_, _ = backtest_run(env, [rsi_policy], dashboard_port=8051, auto_close=True)
+_, _ = backtest_run(
+    env=env,
+    policies=[rsi_policy],
+    dashboard_server_port=8051,
+    output_dir="./",
+    auto_close=True,
+)

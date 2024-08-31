@@ -3,7 +3,7 @@ from typing import List, Tuple
 
 from dojo.actions.base_action import BaseAction
 from dojo.agents import BaseAgent
-from dojo.environments.uniswapV3 import UniV3Obs, UniV3Quote
+from dojo.environments.uniswapV3 import UniswapV3Observation, UniswapV3Quote
 from dojo.observations import uniswapV3
 from dojo.policies import BasePolicy
 
@@ -18,7 +18,9 @@ class ImpermanentLossPolicy(BasePolicy):
 
     # SNIPPET 1 END
 
-    def calculate_initial_signal(self, obs: UniV3Obs) -> Tuple[Decimal, Decimal]:
+    def calculate_initial_signal(
+        self, obs: UniswapV3Observation
+    ) -> Tuple[Decimal, Decimal]:
         """Calculate initial signal based on the portfolio's token holdings."""
         pool = obs.pools[0]
         token0, token1 = obs.pool_tokens(pool)
@@ -33,7 +35,7 @@ class ImpermanentLossPolicy(BasePolicy):
         return (token0_amount, token0_amount * obs.price(token0, token1, pool))
 
     # SNIPPET 3 START
-    def compute_signals(self, obs: UniV3Obs) -> None:
+    def compute_signals(self, obs: UniswapV3Observation) -> None:
         pool = obs.pools[0]
         token0, token1 = obs.pool_tokens(pool)
         token_ids = self.agent.get_liquidity_ownership_tokens()
@@ -80,7 +82,7 @@ class ImpermanentLossPolicy(BasePolicy):
 
     # SNIPPET 3 END
 
-    def predict(self, obs: UniV3Obs) -> List[BaseAction]:
+    def predict(self, obs: UniswapV3Observation) -> List[BaseAction]:
         pool = obs.pools[0]
         token0, token1 = obs.pool_tokens(pool)
         action = None
@@ -104,7 +106,7 @@ class ImpermanentLossPolicy(BasePolicy):
             upper_tick = uniswapV3.price_to_active_tick(
                 upper_price_range, tick_spacing, (decimals0, decimals1)
             )
-            action = UniV3Quote(
+            action = UniswapV3Quote(
                 agent=self.agent,
                 pool=pool,
                 quantities=[portfolio[token0], portfolio[token1]],

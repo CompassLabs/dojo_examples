@@ -1,0 +1,3095 @@
+{
+  "params": {
+    "environment": "UniV3Env",
+    "startDate": "2024-05-01 09:08:00+00:00",
+    "endDate": "2024-05-01 09:09:00+00:00",
+    "startBlock": 19774286,
+    "endBlock": 19774291,
+    "agents": [
+      {
+        "address": "0x896E4Ee96b5A7038955fAd73A32e346Dfa18B714",
+        "name": "RSI_Agent_Arbitrum"
+      }
+    ],
+    "pools": [
+      {
+        "name": "WETH/USDC-0.05",
+        "token0": "WETH",
+        "token1": "USDC",
+        "fee": 0
+      }
+    ]
+  },
+  "blockData": {
+    "206669966": {
+      "agents": [
+        {
+          "reward": 103.47571563720703,
+          "uniswap": {
+            "actions": [
+              {
+                "type": "sell",
+                "pool": "WETH/USDC-0.05",
+                "quantities": {
+                  "token0": 100,
+                  "token1": 0
+                }
+              }
+            ],
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 0,
+                "token1": 296904.625
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "2221143183568660862",
+          "price": 0.0003491901734378189
+        }
+      ],
+      "signals": [
+        {
+          "name": "RSI",
+          "value": 0
+        }
+      ]
+    },
+    "206669979": {
+      "agents": [
+        {
+          "reward": 103.67617797851562,
+          "uniswap": {
+            "actions": [
+              {
+                "type": "sell",
+                "pool": "WETH/USDC-0.05",
+                "quantities": {
+                  "token0": 0,
+                  "token1": 296904.625
+                }
+              }
+            ],
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 103.37384796142578,
+                "token1": 0
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "2327027791547435066",
+          "price": 0.0003475164994597435
+        }
+      ],
+      "signals": [
+        {
+          "name": "RSI",
+          "value": 100
+        }
+      ]
+    },
+    "206669980": {
+      "agents": [
+        {
+          "reward": 103.37384796142578,
+          "uniswap": {
+            "actions": [
+              {
+                "type": "sell",
+                "pool": "WETH/USDC-0.05",
+                "quantities": {
+                  "token0": 103.37384796142578,
+                  "token1": 0
+                }
+              }
+            ],
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 0,
+                "token1": 296608.15625
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "2221143183568660862",
+          "price": 0.00034918932942673564
+        }
+      ],
+      "signals": [
+        {
+          "name": "RSI",
+          "value": 0
+        }
+      ]
+    },
+    "206669993": {
+      "agents": [
+        {
+          "reward": 103.57239532470703,
+          "uniswap": {
+            "actions": [
+              {
+                "type": "sell",
+                "pool": "WETH/USDC-0.05",
+                "quantities": {
+                  "token0": 0,
+                  "token1": 296608.15625
+                }
+              }
+            ],
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 103.27062225341797,
+                "token1": 0
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "2327027791547435066",
+          "price": 0.00034751734347082675
+        }
+      ],
+      "signals": [
+        {
+          "name": "RSI",
+          "value": 100
+        }
+      ]
+    },
+    "206669994": {
+      "agents": [
+        {
+          "reward": 103.27062225341797,
+          "uniswap": {
+            "actions": [
+              {
+                "type": "sell",
+                "pool": "WETH/USDC-0.05",
+                "quantities": {
+                  "token0": 103.27062225341797,
+                  "token1": 0
+                }
+              }
+            ],
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 0,
+                "token1": 296311.96875
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "2221143183568660862",
+          "price": 0.00034918845631182194
+        }
+      ],
+      "signals": [
+        {
+          "name": "RSI",
+          "value": 0
+        }
+      ]
+    },
+    "206670000": {
+      "agents": [
+        {
+          "reward": 103.46871948242188,
+          "uniswap": {
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 0,
+                "token1": 296311.96875
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "2221143183568660862",
+          "price": 0.00034918845631182194
+        }
+      ],
+      "signals": [
+        {
+          "name": "RSI",
+          "value": 49.987005785473144
+        }
+      ]
+    },
+    "206670001": {
+      "agents": [
+        {
+          "reward": 103.46871948242188,
+          "uniswap": {
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 0,
+                "token1": 296311.96875
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "2232086572624458070",
+          "price": 0.0003491503302939236
+        }
+      ],
+      "signals": [
+        {
+          "name": "RSI",
+          "value": 49.987005785473144
+        }
+      ]
+    },
+    "206670007": {
+      "agents": [
+        {
+          "reward": 103.4574203491211,
+          "uniswap": {
+            "actions": [
+              {
+                "type": "sell",
+                "pool": "WETH/USDC-0.05",
+                "quantities": {
+                  "token0": 0,
+                  "token1": 296311.96875
+                }
+              }
+            ],
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 103.15666198730469,
+                "token1": 0
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "2327027791547435066",
+          "price": 0.00034748201142065227
+        }
+      ],
+      "signals": [
+        {
+          "name": "RSI",
+          "value": 97.76923691561588
+        }
+      ]
+    },
+    "206670008": {
+      "agents": [
+        {
+          "reward": 103.15666198730469,
+          "uniswap": {
+            "actions": [
+              {
+                "type": "sell",
+                "pool": "WETH/USDC-0.05",
+                "quantities": {
+                  "token0": 103.15666198730469,
+                  "token1": 0
+                }
+              }
+            ],
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 0,
+                "token1": 296016.09375
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "2232086572624458070",
+          "price": 0.0003491494571790099
+        }
+      ],
+      "signals": [
+        {
+          "name": "RSI",
+          "value": 0
+        }
+      ]
+    },
+    "206670011": {
+      "agents": [
+        {
+          "reward": 103.3538589477539,
+          "uniswap": {
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 0,
+                "token1": 296016.09375
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "2232086572624458070",
+          "price": 0.00034913630224764347
+        }
+      ],
+      "signals": [
+        {
+          "name": "RSI",
+          "value": 66.15102280439193
+        }
+      ]
+    },
+    "206670012": {
+      "agents": [
+        {
+          "reward": 103.34996795654297,
+          "uniswap": {
+            "actions": [
+              {
+                "type": "sell",
+                "pool": "WETH/USDC-0.05",
+                "quantities": {
+                  "token0": 0,
+                  "token1": 296016.09375
+                }
+              }
+            ],
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 103.0499038696289,
+                "token1": 0
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "2327027791547435066",
+          "price": 0.00034747031168080866
+        }
+      ],
+      "signals": [
+        {
+          "name": "RSI",
+          "value": 74.41825940232934
+        }
+      ]
+    },
+    "206670014": {
+      "agents": [
+        {
+          "reward": 103.0499038696289,
+          "uniswap": {
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 103.0499038696289,
+                "token1": 0
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "2327027791547435066",
+          "price": 0.00034750235499814153
+        }
+      ],
+      "signals": [
+        {
+          "name": "RSI",
+          "value": 66.3306046493432
+        }
+      ]
+    },
+    "206670015": {
+      "agents": [
+        {
+          "reward": 103.0499038696289,
+          "uniswap": {
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 103.0499038696289,
+                "token1": 0
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "2327027791547435066",
+          "price": 0.0003474822442512959
+        }
+      ],
+      "signals": [
+        {
+          "name": "RSI",
+          "value": 43.23140534410586
+        }
+      ]
+    },
+    "206670022": {
+      "agents": [
+        {
+          "reward": 103.0499038696289,
+          "uniswap": {
+            "actions": [
+              {
+                "type": "sell",
+                "pool": "WETH/USDC-0.05",
+                "quantities": {
+                  "token0": 103.0499038696289,
+                  "token1": 0
+                }
+              }
+            ],
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 0,
+                "token1": 295710.28125
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "2232082582899248344",
+          "price": 0.0003491128736641258
+        }
+      ],
+      "signals": [
+        {
+          "name": "RSI",
+          "value": 5.351657071736379
+        }
+      ]
+    },
+    "206670023": {
+      "agents": [
+        {
+          "reward": 103.23626708984375,
+          "uniswap": {
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 0,
+                "token1": 295710.28125
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "2232082582899248344",
+          "price": 0.00034909535315819085
+        }
+      ],
+      "signals": [
+        {
+          "name": "RSI",
+          "value": 59.47634551011023
+        }
+      ]
+    },
+    "206670025": {
+      "agents": [
+        {
+          "reward": 103.23108673095703,
+          "uniswap": {
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 0,
+                "token1": 295710.28125
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "2232082582899248344",
+          "price": 0.00034906063228845596
+        }
+      ],
+      "signals": [
+        {
+          "name": "RSI",
+          "value": 59.414546738093556
+        }
+      ]
+    },
+    "206670026": {
+      "agents": [
+        {
+          "reward": 103.22081756591797,
+          "uniswap": {
+            "actions": [
+              {
+                "type": "sell",
+                "pool": "WETH/USDC-0.05",
+                "quantities": {
+                  "token0": 0,
+                  "token1": 295710.28125
+                }
+              }
+            ],
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 102.92217254638672,
+                "token1": 0
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "2331878408684130304",
+          "price": 0.00034739996772259474
+        }
+      ],
+      "signals": [
+        {
+          "name": "RSI",
+          "value": 97.1810280103397
+        }
+      ]
+    },
+    "206670027": {
+      "agents": [
+        {
+          "reward": 102.92217254638672,
+          "uniswap": {
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 102.92217254638672,
+                "token1": 0
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "2331878408684130304",
+          "price": 0.00034734001383185387
+        }
+      ],
+      "signals": [
+        {
+          "name": "RSI",
+          "value": 65.7393507913388
+        }
+      ]
+    },
+    "206670028": {
+      "agents": [
+        {
+          "reward": 102.92217254638672,
+          "uniswap": {
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 102.92217254638672,
+                "token1": 0
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "2331878500611581126",
+          "price": 0.00034731224877759814
+        }
+      ],
+      "signals": [
+        {
+          "name": "RSI",
+          "value": 81.97314008740794
+        }
+      ]
+    },
+    "206670029": {
+      "agents": [
+        {
+          "reward": 102.92217254638672,
+          "uniswap": {
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 102.92217254638672,
+                "token1": 0
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "2331878500611581126",
+          "price": 0.00034729615435935557
+        }
+      ],
+      "signals": [
+        {
+          "name": "RSI",
+          "value": 81.91027329218511
+        }
+      ]
+    },
+    "206670030": {
+      "agents": [
+        {
+          "reward": 102.92217254638672,
+          "uniswap": {
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 102.92217254638672,
+                "token1": 0
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "2331878500611581126",
+          "price": 0.0003472855605650693
+        }
+      ],
+      "signals": [
+        {
+          "name": "RSI",
+          "value": 84.33935729479313
+        }
+      ]
+    },
+    "206670034": {
+      "agents": [
+        {
+          "reward": 102.92217254638672,
+          "uniswap": {
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 102.92217254638672,
+                "token1": 0
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "2331878500611581126",
+          "price": 0.0003472855023574084
+        }
+      ],
+      "signals": [
+        {
+          "name": "RSI",
+          "value": 86.2003535875706
+        }
+      ]
+    },
+    "206670036": {
+      "agents": [
+        {
+          "reward": 102.92217254638672,
+          "uniswap": {
+            "actions": [
+              {
+                "type": "sell",
+                "pool": "WETH/USDC-0.05",
+                "quantities": {
+                  "token0": 102.92217254638672,
+                  "token1": 0
+                }
+              }
+            ],
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 0,
+                "token1": 295512.9375
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "2232759416876465378",
+          "price": 0.0003489104856271297
+        }
+      ],
+      "signals": [
+        {
+          "name": "RSI",
+          "value": 0
+        }
+      ]
+    },
+    "206670037": {
+      "agents": [
+        {
+          "reward": 103.1075668334961,
+          "uniswap": {
+            "actions": [
+              {
+                "type": "sell",
+                "pool": "WETH/USDC-0.05",
+                "quantities": {
+                  "token0": 0,
+                  "token1": 295512.9375
+                }
+              }
+            ],
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 102.81114196777344,
+                "token1": 0
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "2331878500611581126",
+          "price": 0.0003472391690593213
+        }
+      ],
+      "signals": [
+        {
+          "name": "RSI",
+          "value": 86.27311742081481
+        }
+      ]
+    },
+    "206670038": {
+      "agents": [
+        {
+          "reward": 102.81114196777344,
+          "uniswap": {
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 102.81114196777344,
+                "token1": 0
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "2331878500611581126",
+          "price": 0.00034724135184660554
+        }
+      ],
+      "signals": [
+        {
+          "name": "RSI",
+          "value": 78.87778305321866
+        }
+      ]
+    },
+    "206670039": {
+      "agents": [
+        {
+          "reward": 102.81114196777344,
+          "uniswap": {
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 102.81114196777344,
+                "token1": 0
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "2331877716998661386",
+          "price": 0.00034724135184660554
+        }
+      ],
+      "signals": [
+        {
+          "name": "RSI",
+          "value": 62.29915375595241
+        }
+      ]
+    },
+    "206670046": {
+      "agents": [
+        {
+          "reward": 102.81114196777344,
+          "uniswap": {
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 102.81114196777344,
+                "token1": 0
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "2331877716998661386",
+          "price": 0.00034718317328952253
+        }
+      ],
+      "signals": [
+        {
+          "name": "RSI",
+          "value": 49.33009557058115
+        }
+      ]
+    },
+    "206670048": {
+      "agents": [
+        {
+          "reward": 102.81114196777344,
+          "uniswap": {
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 102.81114196777344,
+                "token1": 0
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "2331877716998661386",
+          "price": 0.000347167399013415
+        }
+      ],
+      "signals": [
+        {
+          "name": "RSI",
+          "value": 48.475842479126
+        }
+      ]
+    },
+    "206670050": {
+      "agents": [
+        {
+          "reward": 102.81114196777344,
+          "uniswap": {
+            "actions": [
+              {
+                "type": "sell",
+                "pool": "WETH/USDC-0.05",
+                "quantities": {
+                  "token0": 102.81114196777344,
+                  "token1": 0
+                }
+              }
+            ],
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 0,
+                "token1": 295295.53125
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "2329115175666744543",
+          "price": 0.0003487913345452398
+        }
+      ],
+      "signals": [
+        {
+          "name": "RSI",
+          "value": 0.3741948871840001
+        }
+      ]
+    },
+    "206670051": {
+      "agents": [
+        {
+          "reward": 102.99651336669922,
+          "uniswap": {
+            "actions": [
+              {
+                "type": "sell",
+                "pool": "WETH/USDC-0.05",
+                "quantities": {
+                  "token0": 0,
+                  "token1": 295295.53125
+                }
+              }
+            ],
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 102.701904296875,
+                "token1": 0
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "2331877716998661386",
+          "price": 0.00034713110653683543
+        }
+      ],
+      "signals": [
+        {
+          "name": "RSI",
+          "value": 95.65000177836781
+        }
+      ]
+    },
+    "206670052": {
+      "agents": [
+        {
+          "reward": 102.701904296875,
+          "uniswap": {
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 102.701904296875,
+                "token1": 0
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "2331877716998661386",
+          "price": 0.0003471034287940711
+        }
+      ],
+      "signals": [
+        {
+          "name": "RSI",
+          "value": 73.74831973925536
+        }
+      ]
+    },
+    "206670057": {
+      "agents": [
+        {
+          "reward": 102.701904296875,
+          "uniswap": {
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 102.701904296875,
+                "token1": 0
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "2331877716998661386",
+          "price": 0.0003470916417427361
+        }
+      ],
+      "signals": [
+        {
+          "name": "RSI",
+          "value": 78.6636516762572
+        }
+      ]
+    },
+    "206670058": {
+      "agents": [
+        {
+          "reward": 102.701904296875,
+          "uniswap": {
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 102.701904296875,
+                "token1": 0
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "2318566561173849262",
+          "price": 0.0003470444935373962
+        }
+      ],
+      "signals": [
+        {
+          "name": "RSI",
+          "value": 82.07222914915926
+        }
+      ]
+    },
+    "206670063": {
+      "agents": [
+        {
+          "reward": 102.701904296875,
+          "uniswap": {
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 102.701904296875,
+                "token1": 0
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "2318566561173849262",
+          "price": 0.00034702877746894956
+        }
+      ],
+      "signals": [
+        {
+          "name": "RSI",
+          "value": 78.80683720376484
+        }
+      ]
+    },
+    "206670064": {
+      "agents": [
+        {
+          "reward": 102.701904296875,
+          "uniswap": {
+            "actions": [
+              {
+                "type": "sell",
+                "pool": "WETH/USDC-0.05",
+                "quantities": {
+                  "token0": 102.701904296875,
+                  "token1": 0
+                }
+              }
+            ],
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 0,
+                "token1": 295100.1875
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "2329115175666744543",
+          "price": 0.0003486729983706027
+        }
+      ],
+      "signals": [
+        {
+          "name": "RSI",
+          "value": 0
+        }
+      ]
+    },
+    "206670065": {
+      "agents": [
+        {
+          "reward": 102.89347076416016,
+          "uniswap": {
+            "actions": [
+              {
+                "type": "sell",
+                "pool": "WETH/USDC-0.05",
+                "quantities": {
+                  "token0": 0,
+                  "token1": 295100.1875
+                }
+              }
+            ],
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 102.5993423461914,
+                "token1": 0
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "2318566561173849262",
+          "price": 0.00034702991251833737
+        }
+      ],
+      "signals": [
+        {
+          "name": "RSI",
+          "value": 98.4677585168262
+        }
+      ]
+    },
+    "206670068": {
+      "agents": [
+        {
+          "reward": 102.5993423461914,
+          "uniswap": {
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 102.5993423461914,
+                "token1": 0
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "2318566561173849262",
+          "price": 0.0003470206866040826
+        }
+      ],
+      "signals": [
+        {
+          "name": "RSI",
+          "value": 79.29096610173117
+        }
+      ]
+    },
+    "206670070": {
+      "agents": [
+        {
+          "reward": 102.5993423461914,
+          "uniswap": {
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 102.5993423461914,
+                "token1": 0
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "2318566561173849262",
+          "price": 0.0003469939692877233
+        }
+      ],
+      "signals": [
+        {
+          "name": "RSI",
+          "value": 82.64010904963529
+        }
+      ]
+    },
+    "206670072": {
+      "agents": [
+        {
+          "reward": 102.5993423461914,
+          "uniswap": {
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 102.5993423461914,
+                "token1": 0
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "2318566542535548314",
+          "price": 0.0003469939692877233
+        }
+      ],
+      "signals": [
+        {
+          "name": "RSI",
+          "value": 79.51143154453659
+        }
+      ]
+    },
+    "206670078": {
+      "agents": [
+        {
+          "reward": 102.5993423461914,
+          "uniswap": {
+            "actions": [
+              {
+                "type": "sell",
+                "pool": "WETH/USDC-0.05",
+                "quantities": {
+                  "token0": 102.5993423461914,
+                  "token1": 0
+                }
+              }
+            ],
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 0,
+                "token1": 294835.625
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "2329115157028443595",
+          "price": 0.0003486366185825318
+        }
+      ],
+      "signals": [
+        {
+          "name": "RSI",
+          "value": 0
+        }
+      ]
+    },
+    "206670079": {
+      "agents": [
+        {
+          "reward": 102.79048919677734,
+          "uniswap": {
+            "actions": [
+              {
+                "type": "sell",
+                "pool": "WETH/USDC-0.05",
+                "quantities": {
+                  "token0": 0,
+                  "token1": 294835.625
+                }
+              }
+            ],
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 102.49689483642578,
+                "token1": 0
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "2318566542535548314",
+          "price": 0.0003469947841949761
+        }
+      ],
+      "signals": [
+        {
+          "name": "RSI",
+          "value": 98.91758580463794
+        }
+      ]
+    },
+    "206670085": {
+      "agents": [
+        {
+          "reward": 102.49689483642578,
+          "uniswap": {
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 102.49689483642578,
+                "token1": 0
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "2318566542535548314",
+          "price": 0.0003469954535830766
+        }
+      ],
+      "signals": [
+        {
+          "name": "RSI",
+          "value": 50.0125125332819
+        }
+      ]
+    },
+    "206670090": {
+      "agents": [
+        {
+          "reward": 102.49689483642578,
+          "uniswap": {
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 102.49689483642578,
+                "token1": 0
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "2318566543712465732",
+          "price": 0.0003469954535830766
+        }
+      ],
+      "signals": [
+        {
+          "name": "RSI",
+          "value": 33.353342804750646
+        }
+      ]
+    },
+    "206670092": {
+      "agents": [
+        {
+          "reward": 102.49689483642578,
+          "uniswap": {
+            "actions": [
+              {
+                "type": "sell",
+                "pool": "WETH/USDC-0.05",
+                "quantities": {
+                  "token0": 102.49689483642578,
+                  "token1": 0
+                }
+              }
+            ],
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 0,
+                "token1": 294540.65625
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "2329115158205361013",
+          "price": 0.00034863644395954907
+        }
+      ],
+      "signals": [
+        {
+          "name": "RSI",
+          "value": 0.07995001570791027
+        }
+      ]
+    },
+    "206670093": {
+      "agents": [
+        {
+          "reward": 102.68760681152344,
+          "uniswap": {
+            "actions": [
+              {
+                "type": "sell",
+                "pool": "WETH/USDC-0.05",
+                "quantities": {
+                  "token0": 0,
+                  "token1": 294540.65625
+                }
+              }
+            ],
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 102.39453887939453,
+                "token1": 0
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "2318566543712465732",
+          "price": 0.0003469962684903294
+        }
+      ],
+      "signals": [
+        {
+          "name": "RSI",
+          "value": 99.99999861361789
+        }
+      ]
+    },
+    "206670099": {
+      "agents": [
+        {
+          "reward": 102.39453887939453,
+          "uniswap": {
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 102.39453887939453,
+                "token1": 0
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "2318566543712465732",
+          "price": 0.00034699629759415984
+        }
+      ],
+      "signals": [
+        {
+          "name": "RSI",
+          "value": 66.67778791894541
+        }
+      ]
+    },
+    "206670100": {
+      "agents": [
+        {
+          "reward": 102.39453887939453,
+          "uniswap": {
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 102.39453887939453,
+                "token1": 0
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "2318566543712465732",
+          "price": 0.00034699629759415984
+        }
+      ],
+      "signals": [
+        {
+          "name": "RSI",
+          "value": 50.01287945693791
+        }
+      ]
+    },
+    "206670102": {
+      "agents": [
+        {
+          "reward": 102.39453887939453,
+          "uniswap": {
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 102.39453887939453,
+                "token1": 0
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "2318566543712465732",
+          "price": 0.0003469517105259001
+        }
+      ],
+      "signals": [
+        {
+          "name": "RSI",
+          "value": 50.01287945693791
+        }
+      ]
+    },
+    "206670106": {
+      "agents": [
+        {
+          "reward": 102.39453887939453,
+          "uniswap": {
+            "actions": [
+              {
+                "type": "sell",
+                "pool": "WETH/USDC-0.05",
+                "quantities": {
+                  "token0": 102.39453887939453,
+                  "token1": 0
+                }
+              }
+            ],
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 0,
+                "token1": 294284.09375
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "2329115158205361013",
+          "price": 0.00034859118750318885
+        }
+      ],
+      "signals": [
+        {
+          "name": "RSI",
+          "value": 0.002859746226191621
+        }
+      ]
+    },
+    "206670107": {
+      "agents": [
+        {
+          "reward": 102.58484649658203,
+          "uniswap": {
+            "actions": [
+              {
+                "type": "sell",
+                "pool": "WETH/USDC-0.05",
+                "quantities": {
+                  "token0": 0,
+                  "token1": 294284.09375
+                }
+              }
+            ],
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 102.29229736328125,
+                "token1": 0
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "2318566543712465732",
+          "price": 0.00034695255453698337
+        }
+      ],
+      "signals": [
+        {
+          "name": "RSI",
+          "value": 94.84411538162202
+        }
+      ]
+    },
+    "206670111": {
+      "agents": [
+        {
+          "reward": 102.29229736328125,
+          "uniswap": {
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 102.29229736328125,
+                "token1": 0
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "2318566543712465732",
+          "price": 0.0003469510702416301
+        }
+      ],
+      "signals": [
+        {
+          "name": "RSI",
+          "value": 49.34212566837018
+        }
+      ]
+    },
+    "206670114": {
+      "agents": [
+        {
+          "reward": 102.29229736328125,
+          "uniswap": {
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 102.29229736328125,
+                "token1": 0
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "2318566543712465732",
+          "price": 0.0003469350631348789
+        }
+      ],
+      "signals": [
+        {
+          "name": "RSI",
+          "value": 74.48644141281092
+        }
+      ]
+    },
+    "206670115": {
+      "agents": [
+        {
+          "reward": 102.29229736328125,
+          "uniswap": {
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 102.29229736328125,
+                "token1": 0
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "2318566543712465732",
+          "price": 0.0003468897775746882
+        }
+      ],
+      "signals": [
+        {
+          "name": "RSI",
+          "value": 79.40684521147854
+        }
+      ]
+    },
+    "206670116": {
+      "agents": [
+        {
+          "reward": 102.29229736328125,
+          "uniswap": {
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 102.29229736328125,
+                "token1": 0
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "2318566543712465732",
+          "price": 0.00034686195431277156
+        }
+      ],
+      "signals": [
+        {
+          "name": "RSI",
+          "value": 79.40011026131901
+        }
+      ]
+    },
+    "206670117": {
+      "agents": [
+        {
+          "reward": 102.29229736328125,
+          "uniswap": {
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 102.29229736328125,
+                "token1": 0
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "2318566543712465732",
+          "price": 0.00034686195431277156
+        }
+      ],
+      "signals": [
+        {
+          "name": "RSI",
+          "value": 82.57971825601017
+        }
+      ]
+    },
+    "206670118": {
+      "agents": [
+        {
+          "reward": 102.29229736328125,
+          "uniswap": {
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 102.29229736328125,
+                "token1": 0
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "2318566543712465732",
+          "price": 0.00034686195431277156
+        }
+      ],
+      "signals": [
+        {
+          "name": "RSI",
+          "value": 70.3283462004638
+        }
+      ]
+    },
+    "206670120": {
+      "agents": [
+        {
+          "reward": 102.29229736328125,
+          "uniswap": {
+            "actions": [
+              {
+                "type": "sell",
+                "pool": "WETH/USDC-0.05",
+                "quantities": {
+                  "token0": 102.29229736328125,
+                  "token1": 0
+                }
+              }
+            ],
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 0,
+                "token1": 294066.59375
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "2329115158205361013",
+          "price": 0.00034849997609853745
+        }
+      ],
+      "signals": [
+        {
+          "name": "RSI",
+          "value": 0.0004642848189674718
+        }
+      ]
+    },
+    "206670121": {
+      "agents": [
+        {
+          "reward": 102.48220825195312,
+          "uniswap": {
+            "actions": [
+              {
+                "type": "sell",
+                "pool": "WETH/USDC-0.05",
+                "quantities": {
+                  "token0": 0,
+                  "token1": 294066.59375
+                }
+              }
+            ],
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 102.19014739990234,
+                "token1": 0
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "2318566543712465732",
+          "price": 0.00034686276922002435
+        }
+      ],
+      "signals": [
+        {
+          "name": "RSI",
+          "value": 97.30918736455864
+        }
+      ]
+    },
+    "206670124": {
+      "agents": [
+        {
+          "reward": 102.19014739990234,
+          "uniswap": {
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 102.19014739990234,
+                "token1": 0
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "2318566543712465732",
+          "price": 0.00034686209983192384
+        }
+      ],
+      "signals": [
+        {
+          "name": "RSI",
+          "value": 70.32738100552275
+        }
+      ]
+    },
+    "206670127": {
+      "agents": [
+        {
+          "reward": 102.19014739990234,
+          "uniswap": {
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 102.19014739990234,
+                "token1": 0
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "2318566543712465732",
+          "price": 0.00034686209983192384
+        }
+      ],
+      "signals": [
+        {
+          "name": "RSI",
+          "value": 70.33709887035236
+        }
+      ]
+    },
+    "206670134": {
+      "agents": [
+        {
+          "reward": 102.19014739990234,
+          "uniswap": {
+            "actions": [
+              {
+                "type": "sell",
+                "pool": "WETH/USDC-0.05",
+                "quantities": {
+                  "token0": 102.19014739990234,
+                  "token1": 0
+                }
+              }
+            ],
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 0,
+                "token1": 293773.53125
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "2329115158205361013",
+          "price": 0.00034849849180318415
+        }
+      ],
+      "signals": [
+        {
+          "name": "RSI",
+          "value": 0
+        }
+      ]
+    },
+    "206670135": {
+      "agents": [
+        {
+          "reward": 102.37963104248047,
+          "uniswap": {
+            "actions": [
+              {
+                "type": "sell",
+                "pool": "WETH/USDC-0.05",
+                "quantities": {
+                  "token0": 0,
+                  "token1": 293773.53125
+                }
+              }
+            ],
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 102.08810424804688,
+                "token1": 0
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "2318566543712465732",
+          "price": 0.00034686291473917663
+        }
+      ],
+      "signals": [
+        {
+          "name": "RSI",
+          "value": 99.95923847083795
+        }
+      ]
+    },
+    "206670140": {
+      "agents": [
+        {
+          "reward": 102.08810424804688,
+          "uniswap": {
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 102.08810424804688,
+                "token1": 0
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "2318566543712465732",
+          "price": 0.00034686303115449846
+        }
+      ],
+      "signals": [
+        {
+          "name": "RSI",
+          "value": 50.01250809189994
+        }
+      ]
+    },
+    "206670148": {
+      "agents": [
+        {
+          "reward": 102.08810424804688,
+          "uniswap": {
+            "actions": [
+              {
+                "type": "sell",
+                "pool": "WETH/USDC-0.05",
+                "quantities": {
+                  "token0": 102.08810424804688,
+                  "token1": 0
+                }
+              }
+            ],
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 0,
+                "token1": 293480.09375
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "2329115158205361013",
+          "price": 0.0003484977933112532
+        }
+      ],
+      "signals": [
+        {
+          "name": "RSI",
+          "value": 0.006499186923067216
+        }
+      ]
+    },
+    "206670149": {
+      "agents": [
+        {
+          "reward": 102.27716064453125,
+          "uniswap": {
+            "actions": [
+              {
+                "type": "sell",
+                "pool": "WETH/USDC-0.05",
+                "quantities": {
+                  "token0": 0,
+                  "token1": 293480.09375
+                }
+              }
+            ],
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 101.98616027832031,
+                "token1": 0
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "2318566543712465732",
+          "price": 0.00034686384606175125
+        }
+      ],
+      "signals": [
+        {
+          "name": "RSI",
+          "value": 100
+        }
+      ]
+    },
+    "206670150": {
+      "agents": [
+        {
+          "reward": 101.98616027832031,
+          "uniswap": {
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 101.98616027832031,
+                "token1": 0
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "2318566543712465732",
+          "price": 0.00034686384606175125
+        }
+      ],
+      "signals": [
+        {
+          "name": "RSI",
+          "value": 33.34589791592683
+        }
+      ]
+    },
+    "206670154": {
+      "agents": [
+        {
+          "reward": 101.98616027832031,
+          "uniswap": {
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 101.98616027832031,
+                "token1": 0
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "2318566543712465732",
+          "price": 0.0003468638751655817
+        }
+      ],
+      "signals": [
+        {
+          "name": "RSI",
+          "value": 50.01250816061437
+        }
+      ]
+    },
+    "206670162": {
+      "agents": [
+        {
+          "reward": 101.98616027832031,
+          "uniswap": {
+            "actions": [
+              {
+                "type": "sell",
+                "pool": "WETH/USDC-0.05",
+                "quantities": {
+                  "token0": 101.98616027832031,
+                  "token1": 0
+                }
+              }
+            ],
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 0,
+                "token1": 293187
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "2329115158205361013",
+          "price": 0.0003484969784040004
+        }
+      ],
+      "signals": [
+        {
+          "name": "RSI",
+          "value": 0.0009827288470217088
+        }
+      ]
+    },
+    "206670163": {
+      "agents": [
+        {
+          "reward": 102.17478942871094,
+          "uniswap": {
+            "actions": [
+              {
+                "type": "sell",
+                "pool": "WETH/USDC-0.05",
+                "quantities": {
+                  "token0": 0,
+                  "token1": 293187
+                }
+              }
+            ],
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 101.88431549072266,
+                "token1": 0
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "2318566543712465732",
+          "price": 0.0003468646900728345
+        }
+      ],
+      "signals": [
+        {
+          "name": "RSI",
+          "value": 100
+        }
+      ]
+    },
+    "206670176": {
+      "agents": [
+        {
+          "reward": 101.88431549072266,
+          "uniswap": {
+            "actions": [
+              {
+                "type": "sell",
+                "pool": "WETH/USDC-0.05",
+                "quantities": {
+                  "token0": 101.88431549072266,
+                  "token1": 0
+                }
+              }
+            ],
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 0,
+                "token1": 292894.21875
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "2329115158205361013",
+          "price": 0.0003484961634967476
+        }
+      ],
+      "signals": [
+        {
+          "name": "RSI",
+          "value": 0
+        }
+      ]
+    },
+    "206670177": {
+      "agents": [
+        {
+          "reward": 102.07251739501953,
+          "uniswap": {
+            "actions": [
+              {
+                "type": "sell",
+                "pool": "WETH/USDC-0.05",
+                "quantities": {
+                  "token0": 0,
+                  "token1": 292894.21875
+                }
+              }
+            ],
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 101.78257751464844,
+                "token1": 0
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "2318566543712465732",
+          "price": 0.0003468655049800873
+        }
+      ],
+      "signals": [
+        {
+          "name": "RSI",
+          "value": 100
+        }
+      ]
+    },
+    "206670182": {
+      "agents": [
+        {
+          "reward": 101.78257751464844,
+          "uniswap": {
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 101.78257751464844,
+                "token1": 0
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "2318566543712465732",
+          "price": 0.0003468126233201474
+        }
+      ],
+      "signals": [
+        {
+          "name": "RSI",
+          "value": 50.01250829101737
+        }
+      ]
+    },
+    "206670190": {
+      "agents": [
+        {
+          "reward": 101.78257751464844,
+          "uniswap": {
+            "actions": [
+              {
+                "type": "sell",
+                "pool": "WETH/USDC-0.05",
+                "quantities": {
+                  "token0": 101.78257751464844,
+                  "token1": 0
+                }
+              }
+            ],
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 0,
+                "token1": 292646.125
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "2327644742248932752",
+          "price": 0.00034844258334487677
+        }
+      ],
+      "signals": [
+        {
+          "name": "RSI",
+          "value": 0
+        }
+      ]
+    },
+    "206670191": {
+      "agents": [
+        {
+          "reward": 101.97037506103516,
+          "uniswap": {
+            "actions": [
+              {
+                "type": "sell",
+                "pool": "WETH/USDC-0.05",
+                "quantities": {
+                  "token0": 0,
+                  "token1": 292646.125
+                }
+              }
+            ],
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 101.68093872070312,
+                "token1": 0
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "2318566543712465732",
+          "price": 0.0003468134382274002
+        }
+      ],
+      "signals": [
+        {
+          "name": "RSI",
+          "value": 96.85825573647114
+        }
+      ]
+    },
+    "206670192": {
+      "agents": [
+        {
+          "reward": 101.68093872070312,
+          "uniswap": {
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 101.68093872070312,
+                "token1": 0
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "2318566548165872049",
+          "price": 0.0003468134382274002
+        }
+      ],
+      "signals": [
+        {
+          "name": "RSI",
+          "value": 65.96444485646875
+        }
+      ]
+    },
+    "206670196": {
+      "agents": [
+        {
+          "reward": 101.68093872070312,
+          "uniswap": {
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 101.68093872070312,
+                "token1": 0
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "2318566548165872049",
+          "price": 0.0003468060458544642
+        }
+      ],
+      "signals": [
+        {
+          "name": "RSI",
+          "value": 66.67778236914897
+        }
+      ]
+    },
+    "206670197": {
+      "agents": [
+        {
+          "reward": 101.68093872070312,
+          "uniswap": {
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 101.68093872070312,
+                "token1": 0
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "2318567781636058034",
+          "price": 0.00034680607495829463
+        }
+      ],
+      "signals": [
+        {
+          "name": "RSI",
+          "value": 74.9243701747081
+        }
+      ]
+    },
+    "206670200": {
+      "agents": [
+        {
+          "reward": 101.68093872070312,
+          "uniswap": {
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 101.68093872070312,
+                "token1": 0
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "2318567781636058034",
+          "price": 0.00034680607495829463
+        }
+      ],
+      "signals": [
+        {
+          "name": "RSI",
+          "value": 59.90350103053477
+        }
+      ]
+    }
+  }
+}

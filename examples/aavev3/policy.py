@@ -8,7 +8,7 @@ from dojo.actions.aaveV3 import (
 )
 from dojo.actions.base_action import BaseAction
 from dojo.agents import BaseAgent
-from dojo.environments.aaveV3 import AAVEv3Obs
+from dojo.environments.aaveV3 import AAVEv3Observation
 from dojo.policies import BasePolicy
 
 
@@ -28,7 +28,7 @@ class AAVEv3Policy(BasePolicy):
         pass
 
     # SNIPPET 2 START
-    def predict(self, obs: AAVEv3Obs) -> List[BaseAction]:
+    def predict(self, obs: AAVEv3Observation) -> List[BaseAction]:
         if not self.has_invested:
             self.has_invested = True
             return [
@@ -45,13 +45,13 @@ class AAVEv3Policy(BasePolicy):
         if health_factor > 2.0:
             return [
                 AAVEv3BorrowToHealthFactor(
-                    agent=self.agent, token_name="WBTC", factor=1.7, mode="variable"
+                    agent=self.agent, token_name="WBTC", factor=1.8, mode="variable"
                 )
             ]
         if health_factor < 1.7:
             return [
                 AAVEv3RepayToHealthFactor(
-                    agent=self.agent, token_name="WBTC", factor=2.0, mode="variable"
+                    agent=self.agent, token_name="WBTC", factor=1.90, mode="variable"
                 )
             ]
         return []

@@ -5,14 +5,14 @@ from decimal import Decimal
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..")))
 
-from agents.uniV3_pool_wealth import UniV3PoolWealthAgent
 from dateutil import parser as dateparser
-from policies.passiveLP import PassiveConcentratedLP
 from policy import MovingAveragePolicy
 
+from agents.uniswapV3_pool_wealth import UniswapV3PoolWealthAgent
 from dojo.common.constants import Chain
-from dojo.environments import UniV3Env
+from dojo.environments import UniswapV3Env
 from dojo.runners import backtest_run
+from policies.passiveLP import PassiveConcentratedLP
 
 logging.basicConfig(format="%(asctime)s - %(message)s", level=logging.INFO)
 pools = ["USDC/WETH-0.05"]
@@ -20,7 +20,7 @@ start_time = dateparser.parse("2021-06-21 00:00:00 UTC")
 end_time = dateparser.parse("2021-06-21 00:10:00 UTC")
 
 # Agents
-mavg_agent = UniV3PoolWealthAgent(
+mavg_agent = UniswapV3PoolWealthAgent(
     initial_portfolio={
         "ETH": Decimal(100),
         "USDC": Decimal(10_000),
@@ -28,13 +28,13 @@ mavg_agent = UniV3PoolWealthAgent(
     },
     name="MAvg_Agent",
 )
-lp_agent = UniV3PoolWealthAgent(
+lp_agent = UniswapV3PoolWealthAgent(
     initial_portfolio={"USDC": Decimal(10_000), "WETH": Decimal(1)},
     name="LP_Agent",
 )
 
 # Simulation environment (Uniswap V3)
-env = UniV3Env(
+env = UniswapV3Env(
     chain=Chain.ETHEREUM,
     date_range=(start_time, end_time),
     agents=[mavg_agent, lp_agent],
@@ -52,6 +52,10 @@ passive_lp_policy = PassiveConcentratedLP(
 
 # SNIPPET 1 START
 sim_blocks, sim_rewards = backtest_run(
-    env, [mavg_policy, passive_lp_policy], dashboard_port=8051, auto_close=True
+    env=env,
+    policies=[mavg_policy, passive_lp_policy],
+    dashboard_server_port=8051,
+    output_dir="./",
+    auto_close=True,
 )
 # SNIPPET 1 END

@@ -4,7 +4,7 @@ from typing import List
 
 from dojo.actions import BaseAction
 from dojo.agents import BaseAgent
-from dojo.environments.uniswapV3 import UniV3Obs, UniV3Trade
+from dojo.environments.uniswapV3 import UniswapV3Observation, UniswapV3Trade
 from dojo.policies import BasePolicy
 
 logging.basicConfig(format="%(asctime)s - %(message)s", level=logging.INFO)
@@ -20,7 +20,7 @@ class PriceWindowPolicy(BasePolicy):
         self.lower_limit = lower_limit
 
     # derive actions from observations
-    def predict(self, obs: UniV3Obs) -> List[BaseAction]:
+    def predict(self, obs: UniswapV3Observation) -> List[BaseAction]:
         pool = obs.pools[0]
         x_token, y_token = obs.pool_tokens(pool)
         spot_price = obs.price(token=x_token, unit=y_token, pool=pool)
@@ -30,7 +30,7 @@ class PriceWindowPolicy(BasePolicy):
         )
 
         if spot_price > self.upper_limit and y_quantity > Decimal("0"):
-            action = UniV3Trade(
+            action = UniswapV3Trade(
                 agent=self.agent,
                 pool=pool,
                 quantities=(Decimal(0), y_quantity),
@@ -38,7 +38,7 @@ class PriceWindowPolicy(BasePolicy):
             return [action]
 
         if spot_price < self.lower_limit and x_quantity > Decimal("0"):
-            action = UniV3Trade(
+            action = UniswapV3Trade(
                 agent=self.agent,
                 pool=pool,
                 quantities=(x_quantity, Decimal(0)),

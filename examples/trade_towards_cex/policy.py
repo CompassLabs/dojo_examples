@@ -4,9 +4,9 @@ from typing import List, Tuple
 
 from binance_data import Binance_data, Binance_data_point
 
-from dojo.actions.uniswapV3 import UniV3Action, UniV3Trade
-from dojo.agents import UniV3Agent
-from dojo.environments.uniswapV3 import UniV3Obs
+from dojo.actions.uniswapV3 import UniswapV3Action, UniswapV3Trade
+from dojo.agents import UniswapV3Agent
+from dojo.environments.uniswapV3 import UniswapV3Observation
 from dojo.network import block_date
 from dojo.policies import BasePolicy
 
@@ -15,9 +15,9 @@ WETH = "WETH"
 
 
 class TradeTowardsCentralisedExchangePolicy(
-    BasePolicy[UniV3Action, UniV3Agent, UniV3Obs]
+    BasePolicy[UniswapV3Action, UniswapV3Agent, UniswapV3Observation]
 ):
-    """Arbitrage trading policy for a UniV3Env with two pools.
+    """Arbitrage trading policy for a UniswapV3Env with two pools.
 
     :param agent: The agent which is using this policy.
     """
@@ -27,13 +27,13 @@ class TradeTowardsCentralisedExchangePolicy(
     TIME_ADVANTAGE = timedelta(minutes=16.0)
 
     # SNIPPET 1 START
-    def __init__(self, agent: UniV3Agent, binance_data: Binance_data) -> None:
+    def __init__(self, agent: UniswapV3Agent, binance_data: Binance_data) -> None:
         super().__init__(agent=agent)
         self.binance_data = binance_data
 
     # SNIPPET 1 END
 
-    def predict(self, obs: UniV3Obs) -> List[UniV3Action]:
+    def predict(self, obs: UniswapV3Observation) -> List[UniswapV3Action]:
         pool = obs.pools[0]
         pool_tokens = obs.pool_tokens(pool)
         dex_usdc_per_eth = float(obs.price(WETH, USDC, pool))
@@ -48,7 +48,7 @@ class TradeTowardsCentralisedExchangePolicy(
 
         date = obs.backend.block_to_datetime(block) + self.TIME_ADVANTAGE
         # SNIPPET 2 START
-        # inside [ def predict(self, obs: UniV3Obs -> List[UniV3Action]: ]
+        # inside [ def predict(self, obs: UniswapV3Observation -> List[UniswapV3Action]: ]
         binance_data_point = self.binance_data.find_nearest(date)
         cex_usdc_per_eth = (binance_data_point.open_ + binance_data_point.close) / 2.0
         # SNIPPET 2 END
@@ -72,7 +72,7 @@ class TradeTowardsCentralisedExchangePolicy(
             if usdc_trade_amount < 0.001:
                 return []
             return [
-                UniV3Trade(
+                UniswapV3Trade(
                     agent=self.agent,
                     pool=pool,
                     quantities=(Decimal(usdc_trade_amount), Decimal(0)),
@@ -86,7 +86,7 @@ class TradeTowardsCentralisedExchangePolicy(
             if weth_trade_amount < 0.000001:
                 return []
             return [
-                UniV3Trade(
+                UniswapV3Trade(
                     agent=self.agent,
                     pool=pool,
                     quantities=(Decimal(0), Decimal(weth_trade_amount)),

@@ -6,13 +6,13 @@ import numpy as np
 
 from dojo.actions import BaseAction
 from dojo.agents import BaseAgent
-from dojo.environments.uniswapV3 import UniV3Obs, UniV3Trade
+from dojo.environments.uniswapV3 import UniswapV3Observation, UniswapV3Trade
 from dojo.policies import BasePolicy
 
 
 # SNIPPET 1 START
 class MovingAveragePolicy(BasePolicy):
-    """Moving average trading policy for a UniV3Env with a single pool.
+    """Moving average trading policy for a UniswapV3Env with a single pool.
 
     :param agent: The agent which is using this policy.
     :param short_window: The short window length for the moving average.
@@ -54,7 +54,7 @@ class MovingAveragePolicy(BasePolicy):
             and self.agent.quantity(pool_tokens[0]) > 0
         )
 
-    def predict(self, obs: UniV3Obs) -> List[BaseAction]:
+    def predict(self, obs: UniswapV3Observation) -> List[BaseAction]:
         """Make a trade if the mean of the short window crosses the mean of the long
         window."""
         pool = obs.pools[0]
@@ -81,7 +81,7 @@ class MovingAveragePolicy(BasePolicy):
             y_quantity = self.agent.quantity(pool_tokens[1])
             self._clear_windows()
             return [
-                UniV3Trade(
+                UniswapV3Trade(
                     agent=self.agent,
                     pool=pool,
                     quantities=(Decimal(0), y_quantity),
@@ -93,7 +93,7 @@ class MovingAveragePolicy(BasePolicy):
             x_quantity = self.agent.quantity(pool_tokens[0])
             self._clear_windows()
             return [
-                UniV3Trade(
+                UniswapV3Trade(
                     agent=self.agent,
                     pool=pool,
                     quantities=(x_quantity, Decimal(0)),

@@ -1,0 +1,1506 @@
+{
+  "params": {
+    "environment": "UniV3Env",
+    "startDate": "2021-06-01 00:00:00+00:00",
+    "endDate": "2021-06-01 01:00:00+00:00",
+    "startBlock": 12545218,
+    "endBlock": 12545516,
+    "agents": [
+      {
+        "address": "0xC99A278a458Be6fE53bDfe7C85133F52CF43d5Dc",
+        "name": "CEX Directional Agent"
+      }
+    ],
+    "pools": [
+      {
+        "name": "USDC/WETH-0.05",
+        "token0": "USDC",
+        "token1": "WETH",
+        "fee": 0
+      }
+    ]
+  },
+  "blockData": {
+    "12545218": {
+      "agents": [
+        {
+          "reward": 3701.01416015625,
+          "uniswap": {
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 1000,
+                "token1": 1
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "12643453294325471",
+          "price": 2701.01416015625
+        }
+      ]
+    },
+    "12545222": {
+      "agents": [
+        {
+          "reward": 3701.01416015625,
+          "uniswap": {
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 1000,
+                "token1": 1
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "12643453294325471",
+          "price": 2711.9609375
+        }
+      ]
+    },
+    "12545236": {
+      "agents": [
+        {
+          "reward": 3711.9609375,
+          "uniswap": {
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 1000,
+                "token1": 1
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "12643453294325471",
+          "price": 2710.3134765625
+        }
+      ]
+    },
+    "12545239": {
+      "agents": [
+        {
+          "reward": 3710.3134765625,
+          "uniswap": {
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 1000,
+                "token1": 1
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "12643453294325471",
+          "price": 2709.817626953125
+        }
+      ]
+    },
+    "12545241": {
+      "agents": [
+        {
+          "reward": 3709.817626953125,
+          "uniswap": {
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 1000,
+                "token1": 1
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "12643453294325471",
+          "price": 2706.1572265625
+        }
+      ]
+    },
+    "12545250": {
+      "agents": [
+        {
+          "reward": 3706.1572265625,
+          "uniswap": {
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 1000,
+                "token1": 1
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "12643453294325471",
+          "price": 2706.1572265625
+        }
+      ]
+    },
+    "12545251": {
+      "agents": [
+        {
+          "reward": 3706.1572265625,
+          "uniswap": {
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 1000,
+                "token1": 1
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "12643453294325471",
+          "price": 2710.97265625
+        }
+      ]
+    },
+    "12545259": {
+      "agents": [
+        {
+          "reward": 3710.97265625,
+          "uniswap": {
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 1000,
+                "token1": 1
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "12643453294325471",
+          "price": 2712.55029296875
+        }
+      ]
+    },
+    "12545279": {
+      "agents": [
+        {
+          "reward": 3712.55029296875,
+          "uniswap": {
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 1000,
+                "token1": 1
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "12643453294325471",
+          "price": 2716.525390625
+        }
+      ]
+    },
+    "12545281": {
+      "agents": [
+        {
+          "reward": 3716.525390625,
+          "uniswap": {
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 1000,
+                "token1": 1
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "12643453294325471",
+          "price": 2741.30322265625
+        }
+      ]
+    },
+    "12545290": {
+      "agents": [
+        {
+          "reward": 3741.30322265625,
+          "uniswap": {
+            "actions": [
+              {
+                "type": "sell",
+                "pool": "USDC/WETH-0.05",
+                "quantities": {
+                  "token0": 500,
+                  "token1": 0
+                }
+              }
+            ],
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 500,
+                "token1": 1.1821662187576294
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "12643453294325471",
+          "price": 2745.44384765625
+        }
+      ]
+    },
+    "12545298": {
+      "agents": [
+        {
+          "reward": 3745.571044921875,
+          "uniswap": {
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 500,
+                "token1": 1.1821662187576294
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "12643453294325471",
+          "price": 2732.959716796875
+        }
+      ]
+    },
+    "12545300": {
+      "agents": [
+        {
+          "reward": 3730.812744140625,
+          "uniswap": {
+            "actions": [
+              {
+                "type": "sell",
+                "pool": "USDC/WETH-0.05",
+                "quantities": {
+                  "token0": 475,
+                  "token1": 0
+                }
+              }
+            ],
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 25,
+                "token1": 1.3557589054107666
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "12643453294325471",
+          "price": 2736.88720703125
+        }
+      ]
+    },
+    "12545305": {
+      "agents": [
+        {
+          "reward": 3735.559326171875,
+          "uniswap": {
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 25,
+                "token1": 1.3557589054107666
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "12643453294325471",
+          "price": 2732.6259765625
+        }
+      ]
+    },
+    "12545310": {
+      "agents": [
+        {
+          "reward": 3729.7822265625,
+          "uniswap": {
+            "actions": [
+              {
+                "type": "sell",
+                "pool": "USDC/WETH-0.05",
+                "quantities": {
+                  "token0": 23.75,
+                  "token1": 0
+                }
+              }
+            ],
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 1.25,
+                "token1": 1.3644455671310425
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "12643453294325471",
+          "price": 2732.822265625
+        }
+      ]
+    },
+    "12545320": {
+      "agents": [
+        {
+          "reward": 3730.037353515625,
+          "uniswap": {
+            "actions": [
+              {
+                "type": "sell",
+                "pool": "USDC/WETH-0.05",
+                "quantities": {
+                  "token0": 1.1875,
+                  "token1": 0
+                }
+              }
+            ],
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 0.0625,
+                "token1": 1.364879846572876
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "12643453294325471",
+          "price": 2732.832275390625
+        }
+      ]
+    },
+    "12545324": {
+      "agents": [
+        {
+          "reward": 3730.050048828125,
+          "uniswap": {
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 0.0625,
+                "token1": 1.364879846572876
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "12643453294325471",
+          "price": 2727.998779296875
+        }
+      ]
+    },
+    "12545326": {
+      "agents": [
+        {
+          "reward": 3723.453125,
+          "uniswap": {
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 0.0625,
+                "token1": 1.364879846572876
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "12643453294325471",
+          "price": 2716.769775390625
+        }
+      ]
+    },
+    "12545334": {
+      "agents": [
+        {
+          "reward": 3708.126953125,
+          "uniswap": {
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 0.0625,
+                "token1": 1.364879846572876
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "12643453294325471",
+          "price": 2729.3349609375
+        }
+      ]
+    },
+    "12545340": {
+      "agents": [
+        {
+          "reward": 3725.276611328125,
+          "uniswap": {
+            "actions": [
+              {
+                "type": "sell",
+                "pool": "USDC/WETH-0.05",
+                "quantities": {
+                  "token0": 0.05937499925494194,
+                  "token1": 0
+                }
+              }
+            ],
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 0.003126000054180622,
+                "token1": 1.3649015426635742
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "12643453294325471",
+          "price": 2729.33544921875
+        }
+      ]
+    },
+    "12545346": {
+      "agents": [
+        {
+          "reward": 3725.27734375,
+          "uniswap": {
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 0.003126000054180622,
+                "token1": 1.3649015426635742
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "12643453294325471",
+          "price": 2726.181884765625
+        }
+      ]
+    },
+    "12545350": {
+      "agents": [
+        {
+          "reward": 3720.97314453125,
+          "uniswap": {
+            "actions": [
+              {
+                "type": "sell",
+                "pool": "USDC/WETH-0.05",
+                "quantities": {
+                  "token0": 0.002969699911773205,
+                  "token1": 0
+                }
+              }
+            ],
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 0.00015700000221841037,
+                "token1": 1.3649027347564697
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "12643453294325471",
+          "price": 2726.181884765625
+        }
+      ]
+    },
+    "12545359": {
+      "agents": [
+        {
+          "reward": 3720.97314453125,
+          "uniswap": {
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 0.00015700000221841037,
+                "token1": 1.3649027347564697
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "12643453294325471",
+          "price": 2723.932861328125
+        }
+      ]
+    },
+    "12545367": {
+      "agents": [
+        {
+          "reward": 3717.9033203125,
+          "uniswap": {
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 0.00015700000221841037,
+                "token1": 1.3649027347564697
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "12643453294325471",
+          "price": 2717.04833984375
+        }
+      ]
+    },
+    "12545370": {
+      "agents": [
+        {
+          "reward": 3708.506591796875,
+          "uniswap": {
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 0.00015700000221841037,
+                "token1": 1.3649027347564697
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "12643453294325471",
+          "price": 2728.2509765625
+        }
+      ]
+    },
+    "12545372": {
+      "agents": [
+        {
+          "reward": 3723.797119140625,
+          "uniswap": {
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 0.00015700000221841037,
+                "token1": 1.3649027347564697
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "12643453294325471",
+          "price": 2736.515380859375
+        }
+      ]
+    },
+    "12545379": {
+      "agents": [
+        {
+          "reward": 3735.077392578125,
+          "uniswap": {
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 0.00015700000221841037,
+                "token1": 1.3649027347564697
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "12643453294325471",
+          "price": 2735.68408203125
+        }
+      ]
+    },
+    "12545392": {
+      "agents": [
+        {
+          "reward": 3733.942626953125,
+          "uniswap": {
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 0.00015700000221841037,
+                "token1": 1.3649027347564697
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "12643453294325471",
+          "price": 2735.11474609375
+        }
+      ]
+    },
+    "12545395": {
+      "agents": [
+        {
+          "reward": 3733.16552734375,
+          "uniswap": {
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 0.00015700000221841037,
+                "token1": 1.3649027347564697
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "12643453294325471",
+          "price": 2710.67333984375
+        }
+      ]
+    },
+    "12545400": {
+      "agents": [
+        {
+          "reward": 3699.805419921875,
+          "uniswap": {
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 0.00015700000221841037,
+                "token1": 1.3649027347564697
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "12643453294325471",
+          "price": 2710.67333984375
+        }
+      ]
+    },
+    "12545401": {
+      "agents": [
+        {
+          "reward": 3699.805419921875,
+          "uniswap": {
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 0.00015700000221841037,
+                "token1": 1.3649027347564697
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "12643453294325471",
+          "price": 2729.858642578125
+        }
+      ]
+    },
+    "12545405": {
+      "agents": [
+        {
+          "reward": 3725.991455078125,
+          "uniswap": {
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 0.00015700000221841037,
+                "token1": 1.3649027347564697
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "12643453294325471",
+          "price": 2729.858642578125
+        }
+      ]
+    },
+    "12545408": {
+      "agents": [
+        {
+          "reward": 3725.991455078125,
+          "uniswap": {
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 0.00015700000221841037,
+                "token1": 1.3649027347564697
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "12643453294325471",
+          "price": 2738.12548828125
+        }
+      ]
+    },
+    "12545422": {
+      "agents": [
+        {
+          "reward": 3737.275146484375,
+          "uniswap": {
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 0.00015700000221841037,
+                "token1": 1.3649027347564697
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "12643453294325471",
+          "price": 2744.723388671875
+        }
+      ]
+    },
+    "12545426": {
+      "agents": [
+        {
+          "reward": 3746.2802734375,
+          "uniswap": {
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 0.00015700000221841037,
+                "token1": 1.3649027347564697
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "12643453294325471",
+          "price": 2738.396728515625
+        }
+      ]
+    },
+    "12545430": {
+      "agents": [
+        {
+          "reward": 3737.645263671875,
+          "uniswap": {
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 0.00015700000221841037,
+                "token1": 1.3649027347564697
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "12643453294325471",
+          "price": 2738.043701171875
+        }
+      ]
+    },
+    "12545439": {
+      "agents": [
+        {
+          "reward": 3737.163330078125,
+          "uniswap": {
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 0.00015700000221841037,
+                "token1": 1.3649027347564697
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "12643453294325471",
+          "price": 2724.5029296875
+        }
+      ]
+    },
+    "12545450": {
+      "agents": [
+        {
+          "reward": 3718.681640625,
+          "uniswap": {
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 0.00015700000221841037,
+                "token1": 1.3649027347564697
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "12643453294325471",
+          "price": 2724.5029296875
+        }
+      ]
+    },
+    "12545451": {
+      "agents": [
+        {
+          "reward": 3718.681640625,
+          "uniswap": {
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 0.00015700000221841037,
+                "token1": 1.3649027347564697
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "12643453294325471",
+          "price": 2724.03466796875
+        }
+      ]
+    },
+    "12545458": {
+      "agents": [
+        {
+          "reward": 3718.04248046875,
+          "uniswap": {
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 0.00015700000221841037,
+                "token1": 1.3649027347564697
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "12643453294325471",
+          "price": 2723.026123046875
+        }
+      ]
+    },
+    "12545464": {
+      "agents": [
+        {
+          "reward": 3716.665771484375,
+          "uniswap": {
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 0.00015700000221841037,
+                "token1": 1.3649027347564697
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "12643453294325471",
+          "price": 2729.020263671875
+        }
+      ]
+    },
+    "12545471": {
+      "agents": [
+        {
+          "reward": 3724.84716796875,
+          "uniswap": {
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 0.00015700000221841037,
+                "token1": 1.3649027347564697
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "12643453294325471",
+          "price": 2729.40673828125
+        }
+      ]
+    },
+    "12545474": {
+      "agents": [
+        {
+          "reward": 3725.374755859375,
+          "uniswap": {
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 0.00015700000221841037,
+                "token1": 1.3649027347564697
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "11582501134770829",
+          "price": 2729.40673828125
+        }
+      ]
+    },
+    "12545476": {
+      "agents": [
+        {
+          "reward": 3725.374755859375,
+          "uniswap": {
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 0.00015700000221841037,
+                "token1": 1.3649027347564697
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "11582501134770829",
+          "price": 2733.726318359375
+        }
+      ]
+    },
+    "12545481": {
+      "agents": [
+        {
+          "reward": 3731.2705078125,
+          "uniswap": {
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 0.00015700000221841037,
+                "token1": 1.3649027347564697
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "11582501134770829",
+          "price": 2731.630615234375
+        }
+      ]
+    },
+    "12545495": {
+      "agents": [
+        {
+          "reward": 3728.41015625,
+          "uniswap": {
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 0.00015700000221841037,
+                "token1": 1.3649027347564697
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "11582501134770829",
+          "price": 2736.3193359375
+        }
+      ]
+    },
+    "12545500": {
+      "agents": [
+        {
+          "reward": 3734.809814453125,
+          "uniswap": {
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 0.00015700000221841037,
+                "token1": 1.3649027347564697
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "11582501134770829",
+          "price": 2736.3193359375
+        }
+      ]
+    },
+    "12545508": {
+      "agents": [
+        {
+          "reward": 3734.809814453125,
+          "uniswap": {
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 0.00015700000221841037,
+                "token1": 1.3649027347564697
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "11582501134770829",
+          "price": 2738.54443359375
+        }
+      ]
+    },
+    "12545516": {
+      "agents": [
+        {
+          "reward": 3737.8466796875,
+          "uniswap": {
+            "liquidities": {
+              "lp_quantities": {
+                "token0": 0,
+                "token1": 0
+              },
+              "lp_fees": {
+                "token0": 0,
+                "token1": 0
+              },
+              "wallet": {
+                "token0": 0.00015700000221841037,
+                "token1": 1.3649027347564697
+              }
+            }
+          }
+        }
+      ],
+      "uniswap_pools_data": [
+        {
+          "liquidity": "11582501134770829",
+          "price": 2738.54443359375
+        }
+      ]
+    }
+  }
+}

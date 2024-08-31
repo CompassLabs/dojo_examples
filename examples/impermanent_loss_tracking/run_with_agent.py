@@ -7,10 +7,10 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".
 
 from dateutil import parser as dateparser
 
-from demo.agents.univ3_impermanent_loss import ImpermanentLossAgent
+from demo.agents.uniswapV3_impermanent_loss import ImpermanentLossAgent
 from demo.policies.passiveLP import PassiveConcentratedLP
 from dojo.common.constants import Chain
-from dojo.environments import UniV3Env
+from dojo.environments import UniswapV3Env
 from dojo.runners import backtest_run
 
 logging.basicConfig(format="%(asctime)s - %(message)s", level=logging.INFO)
@@ -29,7 +29,7 @@ impermanent_loss_agent = ImpermanentLossAgent(
 )
 
 # Simulation environment (Uniswap V3)
-env = UniV3Env(
+env = UniswapV3Env(
     chain=Chain.ETHEREUM,
     date_range=(start_time, end_time),
     agents=[impermanent_loss_agent],

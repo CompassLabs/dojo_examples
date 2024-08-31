@@ -6,11 +6,11 @@ from decimal import Decimal
 from dateutil import parser as dateparser
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..")))
-from agents.uniV3_pool_wealth import UniV3PoolWealthAgent
 from policy import ArbitragePolicy
 
+from agents.uniswapV3_pool_wealth import UniswapV3PoolWealthAgent
 from dojo.common.constants import Chain
-from dojo.environments import UniV3Env
+from dojo.environments import UniswapV3Env
 from dojo.runners import backtest_run
 
 logging.basicConfig(format="%(asctime)s - %(message)s", level=logging.INFO)
@@ -20,7 +20,7 @@ start_time = dateparser.parse("2021-06-21 00:00:00 UTC")
 end_time = dateparser.parse("2021-06-21 00:10:00 UTC")
 
 # Agents
-arb_agent = UniV3PoolWealthAgent(
+arb_agent = UniswapV3PoolWealthAgent(
     initial_portfolio={
         "ETH": Decimal(100),
         "USDC": Decimal(10000),
@@ -30,7 +30,7 @@ arb_agent = UniV3PoolWealthAgent(
 )
 
 # Simulation environment (Uniswap V3)
-env = UniV3Env(
+env = UniswapV3Env(
     chain=Chain.ETHEREUM,
     date_range=(start_time, end_time),
     agents=[arb_agent],
@@ -42,4 +42,10 @@ env = UniV3Env(
 # Policies
 arb_policy = ArbitragePolicy(agent=arb_agent)
 
-_, _ = backtest_run(env, [arb_policy], dashboard_port=8051, auto_close=True)
+_, _ = backtest_run(
+    env=env,
+    policies=[arb_policy],
+    dashboard_server_port=8051,
+    output_dir="./",
+    auto_close=True,
+)

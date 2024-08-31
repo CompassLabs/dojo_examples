@@ -1,3 +1,4 @@
+# import logging
 import logging
 from decimal import Decimal
 from typing import Optional
@@ -8,12 +9,12 @@ from policy import AAVEv3Policy
 from dojo.agents import AAVEv3Agent
 from dojo.common.constants import Chain
 from dojo.environments import AAVEv3Env
-from dojo.environments.aaveV3 import AAVEv3Obs
+from dojo.environments.aaveV3 import AAVEv3Observation
 from dojo.runners import backtest_run
 
-logging.basicConfig(
-    format="%(asctime)s - %(levelname)s - %(message)s", level=logging.INFO
-)
+# logging.basicConfig(
+#     format="%(asctime)s - %(levelname)s - %(message)s", level=logging.INFO
+# )
 
 
 class ConstantRewardAgent(AAVEv3Agent):
@@ -23,15 +24,15 @@ class ConstantRewardAgent(AAVEv3Agent):
         """Initialize the agent."""
         super().__init__(name=name, initial_portfolio=initial_portfolio)
 
-    def reward(self, obs: AAVEv3Obs) -> float:
+    def reward(self, obs: AAVEv3Observation) -> float:
         """This agent does not measure reward."""
-        return 0
+        ###print(obs.get_user_account_data_base(self.original_address).healthFactor)
+        return obs.get_user_account_data_base(self.original_address).healthFactor
 
 
 def main() -> None:
     start_time = dateparser.parse("2023-03-11 00:00:00 UTC")
-    end_time = dateparser.parse("2023-03-11 00:10:00 UTC")
-
+    end_time = dateparser.parse("2023-03-11 06:00:00 UTC")
     # Agents
     agent1 = ConstantRewardAgent(
         initial_portfolio={
@@ -54,7 +55,14 @@ def main() -> None:
     # Policies
     policy = AAVEv3Policy(agent=agent1)
 
-    _, _ = backtest_run(env, [policy], dashboard_port=8051, auto_close=True)
+    _, _ = backtest_run(
+        env=env,
+        policies=[policy],
+        dashboard_server_port=8051,
+        output_dir="./",
+        auto_close=True,
+        simulation_status_bar=True,
+    )
 
 
 if __name__ == "__main__":

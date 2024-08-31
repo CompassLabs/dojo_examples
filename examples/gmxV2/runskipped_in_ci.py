@@ -6,15 +6,15 @@ from dateutil import parser as dateparser
 from policy import GmxV2Policy
 
 from dojo.agents import BaseAgent
+from dojo.common.constants import Chain
 
 # SNIPPET 1 START
 from dojo.environments import GmxV2Env
+from dojo.models.gmxV2.market import MarketVenue
 
 # SNIPPET 1 END
-from dojo.observations.gmxV2 import GmxV2Obs
+from dojo.observations.gmxV2 import GmxV2Observation
 from dojo.runners import backtest_run
-from dojo.models.gmxV2.market import MarketVenue
-from dojo.common.constants import Chain
 
 logging.basicConfig(format="%(asctime)s - %(message)s", level=logging.INFO)
 
@@ -26,7 +26,7 @@ class GmxV2Agent(BaseAgent):
         """Initialize the agent."""
         super().__init__(name=name, initial_portfolio=initial_portfolio)
 
-    def reward(self, obs: GmxV2Obs) -> float:
+    def reward(self, obs: GmxV2Observation) -> float:
         """This agent does not measure reward."""
         return 0
 
@@ -67,7 +67,13 @@ def main():
     # Policies
     policy = GmxV2Policy(agent=agent1)
 
-    _, _ = backtest_run(env, [policy], dashboard_port=None, auto_close=True)
+    _, _ = backtest_run(
+        env=env,
+        policies=[policy],
+        dashboard_server_port=8051,
+        output_dir="./",
+        auto_close=True,
+    )
     # SNIPPET 1 END
 
 
