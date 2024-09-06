@@ -33,8 +33,8 @@ class GmxV2Agent(BaseAgent):
 
 def main():
     # SNIPPET 1 START
-    start_time = dateparser.parse("2024-07-10 00:00:00 UTC")
-    end_time = dateparser.parse("2024-07-10 00:01:00 UTC")
+    start_time = dateparser.parse("2024-08-30 00:00:00 UTC")
+    end_time = dateparser.parse("2024-08-30 01:00:00 UTC")
     # leaving the following commented out for now to use later for profiling
     # start_time = dateparser.parse("2024-06-21 00:00:45 UTC")
     # end_time = dateparser.parse("2024-06-21 00:00:50 UTC")
@@ -61,7 +61,7 @@ def main():
         agents=[agent1],
         market_venues=[market_venue],
         market_impact="replay",
-        backend_type="forked",
+        backend_type="forked", 
     )
 
     # Policies

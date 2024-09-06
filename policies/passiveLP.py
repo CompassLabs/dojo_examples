@@ -3,7 +3,11 @@ from typing import List
 
 from dojo.actions.base_action import BaseAction
 from dojo.agents import BaseAgent
-from dojo.environments.uniswapV3 import UniswapV3Observation, UniswapV3Quote, UniswapV3Trade
+from dojo.environments.uniswapV3 import (
+    UniswapV3Observation,
+    UniswapV3Quote,
+    UniswapV3Trade,
+)
 from dojo.observations import uniswapV3
 from dojo.policies import BasePolicy
 

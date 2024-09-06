@@ -1,5 +1,7 @@
+import argparse
 import logging
 from decimal import Decimal
+from typing import Union
 
 # Example logging configuration which:
 # - by default, it logs only INFO
@@ -12,17 +14,18 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-from dateutil import parser as dateparser
-
 from agents.uniswapV3_pool_wealth import UniswapV3PoolWealthAgent
-from dojo.common.constants import Chain
-from dojo.environments import UniswapV3Env
-from dojo.runners import backtest_run
+from dateutil import parser as dateparser
 from examples.moving_averages.policy import MovingAveragePolicy
 from policies.passiveLP import PassiveConcentratedLP
 
+from dojo.common.constants import Chain
+from dojo.environments import UniswapV3Env
+from dojo.runners import backtest_run
 
-def main() -> None:
+
+def main(dashboard_server_port: Union[int, None]) -> None:
+
     # SNIPPET 1 START
     # pools = ["USDC/WETH-0.3"]
     # start_time = dateparser.parse("2021-06-22 00:00:00 UTC")
@@ -66,7 +69,9 @@ def main() -> None:
     sim_blocks, sim_rewards = backtest_run(
         env,
         [mvag_policy, passive_lp_policy],
-        dashboard_server_port=8768,
+        dashboard_server_port=dashboard_server_port
+        if dashboard_server_port is not -1
+        else None,
         output_dir="./",
         auto_close=True,
         simulation_status_bar=True,
@@ -75,4 +80,18 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    # Adding a boolean flag
+    parser = argparse.ArgumentParser(
+        description="Example script for boolean argument with argparse"
+    )
+
+    # Adding an optional integer argument with a default value
+    parser.add_argument(
+        "--dashboard_server_port",
+        type=int,
+        default=8786,
+        help="What port the data should be served on. Can be None, in which case the data is not being served.",
+    )
+
+    args = parser.parse_args()
+    main(dashboard_server_port=args.dashboard_server_port)
