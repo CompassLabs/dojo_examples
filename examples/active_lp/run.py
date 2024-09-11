@@ -53,9 +53,7 @@ def main() -> None:
 
     active_lp_policy = ActiveConcentratedLP(agent=agent2, lp_width=2)
 
-    sim_blocks, sim_rewards = backtest_run(
-        env, [active_lp_policy], dashboard_server_port=8051, auto_close=True
-    )
+    backtest_run(env, [active_lp_policy], dashboard_server_port=8051, auto_close=True)
     # SNIPPET 1 END
 
 

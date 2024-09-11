@@ -6,9 +6,9 @@ from decimal import Decimal
 from dateutil import parser as dateparser
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..")))
+from agents.uniswapV3_pool_wealth import UniswapV3PoolWealthAgent
 from policy import ArbitragePolicy
 
-from agents.uniswapV3_pool_wealth import UniswapV3PoolWealthAgent
 from dojo.common.constants import Chain
 from dojo.environments import UniswapV3Env
 from dojo.runners import backtest_run
@@ -42,7 +42,7 @@ env = UniswapV3Env(
 # Policies
 arb_policy = ArbitragePolicy(agent=arb_agent)
 
-_, _ = backtest_run(
+backtest_run(
     env=env,
     policies=[arb_policy],
     dashboard_server_port=8051,

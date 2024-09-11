@@ -5,10 +5,10 @@ from decimal import Decimal
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..")))
 
+from agents.uniswapV3_pool_wealth import UniswapV3PoolWealthAgent
 from dateutil import parser as dateparser
 from policy import RSIPolicy
 
-from agents.uniswapV3_pool_wealth import UniswapV3PoolWealthAgent
 from dojo.common.constants import Chain
 
 # SNIPPET 1 START
@@ -46,7 +46,7 @@ rsi_policy = RSIPolicy(
     agent=rsi_agent,
 )
 
-_, _ = backtest_run(
+backtest_run(
     env=env,
     policies=[rsi_policy],
     dashboard_server_port=8051,

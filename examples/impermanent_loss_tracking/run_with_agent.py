@@ -41,11 +41,11 @@ env = UniswapV3Env(
 # Policies
 liquidity_policy = PassiveConcentratedLP(
     agent=impermanent_loss_agent,
-    lower_price_bound=Decimal(0.95),
-    upper_price_bound=Decimal(1.05),
+    lower_price_bound=0.95,
+    upper_price_bound=1.05,
 )
 
-_, _ = backtest_run(
+backtest_run(
     env=env,
     policies=[liquidity_policy],
     dashboard_server_port=8051,

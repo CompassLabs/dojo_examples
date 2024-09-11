@@ -5,10 +5,10 @@ from decimal import Decimal
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..")))
 
+from agents.uniswapV3_pool_wealth import UniswapV3PoolWealthAgent
 from dateutil import parser as dateparser
 from policy import DCAPolicy
 
-from agents.uniswapV3_pool_wealth import UniswapV3PoolWealthAgent
 from dojo.common.constants import Chain
 from dojo.environments import UniswapV3Env
 from dojo.runners import backtest_run
@@ -45,7 +45,7 @@ dca_policy = DCAPolicy(
     min_dist=10,
 )
 
-_, _ = backtest_run(
+backtest_run(
     env=env,
     policies=[dca_policy],
     dashboard_server_port=8051,

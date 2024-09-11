@@ -1,3 +1,4 @@
+from decimal import Decimal
 from typing import Optional
 
 from dojo.agents import UniswapV3Agent
@@ -10,20 +11,24 @@ class ImpermanentLossAgent(UniswapV3Agent):
     The agent should not be given any tokens that are not in the UniswapV3Env pool.
     """
 
-    def __init__(self, initial_portfolio: dict, name: Optional[str] = None):
+    def __init__(
+        self, initial_portfolio: dict[str, Decimal], name: Optional[str] = None
+    ):
         super().__init__(name=name, initial_portfolio=initial_portfolio)
-        self.hold_portfolio = []
+        self.hold_portfolio: dict[str, Decimal] = {}
 
     # SNIPPET 1 START
-    def _pool_wealth(self, obs: UniswapV3Observation, portfolio: dict) -> float:
+    def _pool_wealth(
+        self, obs: UniswapV3Observation, portfolio: dict[str, Decimal]
+    ) -> float:
         """Calculate the wealth of a portfolio denoted in the y asset of the pool.
 
         :param portfolio: Portfolio to calculate wealth for.
         :raises ValueError: If agent token is not in pool.
         """
-        wealth = 0
+        wealth = Decimal(0)
         if len(portfolio) == 0:
-            return wealth
+            return float(wealth)
 
         pool = obs.pools[0]
         pool_tokens = obs.pool_tokens(pool=pool)
@@ -32,12 +37,12 @@ class ImpermanentLossAgent(UniswapV3Agent):
                 raise ValueError(f"{token} not in pool, so it can't be priced.")
             price = obs.price(token=token, unit=pool_tokens[1], pool=pool)
             wealth += quantity * price
-        return wealth
+        return float(wealth)
 
     # SNIPPET 1 END
 
     # SNIPPET 2 START
-    def reward(self, obs: UniswapV3Observation) -> float:
+    def reward(self, obs: UniswapV3Observation) -> float:  # type: ignore
         """Impermanent loss of the agent denoted in the y asset of the pool."""
         token_ids = self.get_liquidity_ownership_tokens()
         if not self.hold_portfolio:

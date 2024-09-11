@@ -7,7 +7,7 @@ import sys
 sys.path.append("..")
 
 
-def test_all_files():
+def test_all_files() -> None:
     # Specify the directory where your other test files are located
     test_directory = "."
 

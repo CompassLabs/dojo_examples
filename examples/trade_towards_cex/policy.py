@@ -43,10 +43,10 @@ class TradeTowardsCentralisedExchangePolicy(
 
         block = obs.block
         # let's run every tenth block
-        if block % 10 != 0:
+        if block % 10 != 0:  # type: ignore
             return []
 
-        date = obs.backend.block_to_datetime(block) + self.TIME_ADVANTAGE
+        date = obs.backend.block_to_datetime(block) + self.TIME_ADVANTAGE  # type: ignore
         # SNIPPET 2 START
         # inside [ def predict(self, obs: UniswapV3Observation -> List[UniswapV3Action]: ]
         binance_data_point = self.binance_data.find_nearest(date)

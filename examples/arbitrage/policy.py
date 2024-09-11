@@ -1,14 +1,15 @@
 from decimal import Decimal
-from typing import List, Tuple
+from typing import List, Tuple, Union
 
 from dojo.actions.base_action import BaseAction
+from dojo.actions.uniswapV3 import UniswapV3Trade
 from dojo.agents import BaseAgent
-from dojo.environments.uniswapV3 import UniswapV3Observation, UniswapV3Trade
+from dojo.observations.uniswapV3 import UniswapV3Observation
 from dojo.policies import BasePolicy
 
 
 # SNIPPET 1 START
-class ArbitragePolicy(BasePolicy):
+class ArbitragePolicy(BasePolicy):  # type: ignore
     """Arbitrage trading policy for a UniswapV3Env with two pools.
 
     :param agent: The agent which is using this policy.
@@ -16,10 +17,10 @@ class ArbitragePolicy(BasePolicy):
 
     def __init__(self, agent: BaseAgent) -> None:
         super().__init__(agent=agent)
-        self.block_last_trade = -1
-        self.min_block_dist = 20
-        self.min_signal = 1.901
-        self.tradeback_via_pool = None
+        self.block_last_trade: int = -1
+        self.min_block_dist: int = 20
+        self.min_signal: float = 1.901
+        self.tradeback_via_pool: Union[str, None] = None
 
     # SNIPPET 1 END
 
@@ -58,7 +59,7 @@ class ArbitragePolicy(BasePolicy):
     # SNIPPET 2 END
 
     # SNIPPET 3 START
-    def predict(self, obs: UniswapV3Observation) -> List[BaseAction]:
+    def predict(self, obs: UniswapV3Observation) -> List[BaseAction]:  # type: ignore
         pools = obs.pools
         pool_tokens_0 = obs.pool_tokens(pool=pools[0])
         pool_tokens_1 = obs.pool_tokens(pool=pools[1])
@@ -86,17 +87,14 @@ class ArbitragePolicy(BasePolicy):
         pool = obs.pools[index_pool_first]
 
         # Don't trade if the last trade was too recent
-        if (
-            earnings < self.min_signal
-            or obs.block - self.block_last_trade < self.min_block_dist
-        ):
+        if earnings < self.min_signal or obs.block - self.block_last_trade < self.min_block_dist:  # type: ignore
             return []
 
         # Make first trade
         self.tradeback_via_pool = (
             obs.pools[0] if index_pool_first == 1 else obs.pools[1]
         )
-        self.block_last_trade = obs.block
+        self.block_last_trade = obs.block  # type: ignore
         return [
             UniswapV3Trade(
                 agent=self.agent,

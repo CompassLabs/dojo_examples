@@ -52,7 +52,7 @@ rsi_policy = RSIPolicy(
     agent=rsi_agent,
 )
 
-_, _ = backtest_run(
+backtest_run(
     env=env,
     policies=[rsi_policy],
     dashboard_server_port=8051,

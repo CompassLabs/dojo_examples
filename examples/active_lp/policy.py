@@ -1,16 +1,16 @@
 from dataclasses import dataclass
 from enum import Enum
-from typing import List
+from typing import Any, List, Union
 
 from dojo.actions.base_action import BaseAction
-from dojo.agents import BaseAgent
-from dojo.environments.uniswapV3 import (
+from dojo.actions.uniswapV3 import (
     UniswapV3BurnNew,
     UniswapV3CollectFull,
     UniswapV3ProvideQuantities,
     UniswapV3TradeToTickRange,
     UniswapV3WithdrawLiquidity,
 )
+from dojo.agents import BaseAgent
 from dojo.observations import UniswapV3Observation
 from dojo.policies import BasePolicy
 
@@ -30,10 +30,10 @@ class _PositionInfo:
     liquidity: int
 
 
-class ActiveConcentratedLP(BasePolicy):
+class ActiveConcentratedLP(BasePolicy):  # type: ignore
     """TODO."""
 
-    def __init__(self, agent: BaseAgent, lp_width) -> None:
+    def __init__(self, agent: BaseAgent, lp_width: int) -> None:
         """Initialize the policy.
 
         :param agent: The agent which is using this policy.
@@ -46,7 +46,7 @@ class ActiveConcentratedLP(BasePolicy):
         """
         super().__init__(agent=agent)
         self.state: State = State.IDLE
-        self.position_info: _PositionInfo = None
+        self.position_info: Union[_PositionInfo, None] = None
         self.lp_width = lp_width
         self.swap_volume = 0
         self.swap_count = 0
@@ -60,7 +60,7 @@ class ActiveConcentratedLP(BasePolicy):
             upper_active_tick + self.lp_width * tick_spacing,
         )
 
-    def _rebalance(self, obs: UniswapV3Observation):
+    def _rebalance(self, obs: UniswapV3Observation) -> list[BaseAction[Any]]:
         token0, token1 = obs.pool_tokens(obs.pools[0])
         portfolio = self.agent.portfolio()
         self.wealth_before = portfolio[token0] + portfolio[token1] * obs.price(
@@ -69,13 +69,13 @@ class ActiveConcentratedLP(BasePolicy):
         action = UniswapV3TradeToTickRange(
             agent=self.agent,
             pool=obs.pools[0],
-            quantities=[portfolio[token0], portfolio[token1]],
+            quantities=(portfolio[token0], portfolio[token1]),
             tick_range=self._get_provide_lp_range(obs),
         )
         self.state = State.REBALANCED
         return [action]
 
-    def _invest(self, obs: UniswapV3Observation):
+    def _invest(self, obs: UniswapV3Observation) -> list[BaseAction[Any]]:
         token0, token1 = obs.pool_tokens(obs.pools[0])
         portfolio = self.agent.portfolio()
         wealth_after = portfolio[token0] + portfolio[token1] * obs.price(
@@ -100,8 +100,11 @@ class ActiveConcentratedLP(BasePolicy):
         self.state = State.INVESTED
         return [action]
 
-    def _withdraw_if_neccessary(self, obs: UniswapV3Observation):
+    def _withdraw_if_neccessary(self, obs: UniswapV3Observation) -> list[Any]:
         lower_active_tick, upper_active_tick = obs.active_tick_range(obs.pools[0])
+
+        if not self.position_info:
+            return []
 
         if (lower_active_tick > self.position_info.upper_tick) or (
             upper_active_tick < self.position_info.lower_tick
@@ -119,7 +122,7 @@ class ActiveConcentratedLP(BasePolicy):
         else:
             return []
 
-    def _collect(self, obs: UniswapV3Observation):
+    def _collect(self, obs: UniswapV3Observation) -> list[BaseAction[Any]]:
         position_id = self.agent.erc721_portfolio()["UNI-V3-POS"][-1]
         action = UniswapV3CollectFull(
             agent=self.agent,
@@ -129,7 +132,7 @@ class ActiveConcentratedLP(BasePolicy):
         self.state = State.COLLECTED
         return [action]
 
-    def _burn_position(self, obs: UniswapV3Observation):
+    def _burn_position(self, obs: UniswapV3Observation) -> list[BaseAction[Any]]:
         action = UniswapV3BurnNew(
             agent=self.agent,
             pool=obs.pools[0],
@@ -148,22 +151,24 @@ class ActiveConcentratedLP(BasePolicy):
         current_quantities = obs.lp_quantities(token_ids)
         current_fees = obs.lp_fees(token_ids)
 
-        obs.add_signal("LP fees earned", current_fees[token0] + current_fees[token1])
-        obs.add_signal("WETH Price", obs.price("WETH", "USDC", pool))
-        obs.add_signal("WETH Holdings", current_quantities[token0])
+        obs.add_signal(
+            "LP fees earned", float(current_fees[token0] + current_fees[token1])
+        )
+        obs.add_signal("WETH Price", float(obs.price("WETH", "USDC", pool)))
+        obs.add_signal("WETH Holdings", float(current_quantities[token0]))
         obs.add_signal(
             "WETH Holdings in USD",
-            current_portfolio[token0] * obs.price(token0, token1, pool),
+            float(current_portfolio[token0] * obs.price(token0, token1, pool)),
         )
         obs.add_signal("Swap count", self.swap_count)
         obs.add_signal("Swap volume", self.swap_volume)
 
-    def predict(self, obs: UniswapV3Observation) -> List[BaseAction]:
+    def predict(self, obs: UniswapV3Observation) -> List[BaseAction]:  # type: ignore
         obs.add_signal("Swap Volume", self.swap_volume)
         obs.add_signal("Swap Count", self.swap_count)
-        obs.add_signal("LP fees earned", 0)
-        obs.add_signal("WETH Price", obs.price("WETH", "USDC", obs.pools[0]))
-        obs.add_signal("WETH Holdings", self.agent.portfolio()["WETH"])
+        obs.add_signal("LP fees earned", float(0))
+        obs.add_signal("WETH Price", float(obs.price("WETH", "USDC", obs.pools[0])))
+        obs.add_signal("WETH Holdings", float(self.agent.portfolio()["WETH"]))
         obs.add_signal(
             "WETH Holdings in USD",
             self.agent.portfolio()["WETH"] * obs.price("WETH", "USDC", obs.pools[0]),

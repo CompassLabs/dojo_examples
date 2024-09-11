@@ -12,11 +12,12 @@ logger.setLevel(logging.INFO)
 
 
 sys.path.append("..")
+from agents.uniswapV3_pool_wealth import UniswapV3PoolWealthAgent
 from dateutil import parser as dateparser
 
-from agents.uniswapV3_pool_wealth import UniswapV3PoolWealthAgent
+from dojo.actions.uniswapV3 import UniswapV3Quote, UniswapV3Trade
+from dojo.common.constants import Chain
 from dojo.environments import UniswapV3Env
-from dojo.environments.uniswapV3 import UniswapV3Quote, UniswapV3Trade
 
 POOL = "SAFE/WETH-0.1"
 start_time = dateparser.parse("2024-06-21 00:00:00 UTC")
@@ -45,6 +46,7 @@ lp_agent = UniswapV3PoolWealthAgent(
 # Simulation environment (Uniswap V3)
 env = UniswapV3Env(
     date_range=(start_time, end_time),
+    chain=Chain.ETHEREUM,
     agents=[trader_agent, lp_agent],
     pools=[POOL],
     backend_type="forked",
@@ -83,10 +85,10 @@ env.step(
         UniswapV3Quote(
             agent=lp_agent,
             pool=POOL,
-            quantities=[
+            quantities=(
                 Decimal(10_000),
                 Decimal(10),
-            ],  # Change these parameters to add liqudidity
+            ),  # Change these parameters to add liqudidity
             tick_range=current_tick_range,
         )
     ]
@@ -105,10 +107,10 @@ env.step(
         UniswapV3Trade(
             agent=trader_agent,
             pool=POOL,
-            quantities=[
+            quantities=(
                 Decimal(0),
                 Decimal(100),  # Trade all token1 to token0
-            ],
+            ),
         )
     ]
 )

@@ -1,20 +1,21 @@
 from decimal import Decimal
-from typing import List, Tuple
+from typing import Any, List, Tuple
 
 from dojo.actions.base_action import BaseAction
+from dojo.actions.uniswapV3 import UniswapV3Quote
 from dojo.agents import BaseAgent
-from dojo.environments.uniswapV3 import UniswapV3Observation, UniswapV3Quote
 from dojo.observations import uniswapV3
+from dojo.observations.uniswapV3 import UniswapV3Observation
 from dojo.policies import BasePolicy
 
 
 # SNIPPET 1 START
-class ImpermanentLossPolicy(BasePolicy):
+class ImpermanentLossPolicy(BasePolicy):  # type: ignore
     def __init__(self, agent: BaseAgent) -> None:
         super().__init__(agent=agent)
         self.has_provided_liquidity = False
         self.has_executed_lp_action = False
-        self.initial_lp_positions = {}
+        self.initial_lp_positions: dict[str, Decimal] = {}
 
     # SNIPPET 1 END
 
@@ -82,7 +83,7 @@ class ImpermanentLossPolicy(BasePolicy):
 
     # SNIPPET 3 END
 
-    def predict(self, obs: UniswapV3Observation) -> List[BaseAction]:
+    def predict(self, obs: UniswapV3Observation) -> List[BaseAction[Any]]:
         pool = obs.pools[0]
         token0, token1 = obs.pool_tokens(pool)
         action = None
@@ -109,7 +110,7 @@ class ImpermanentLossPolicy(BasePolicy):
             action = UniswapV3Quote(
                 agent=self.agent,
                 pool=pool,
-                quantities=[portfolio[token0], portfolio[token1]],
+                quantities=(portfolio[token0], portfolio[token1]),
                 tick_range=(lower_tick, upper_tick),
             )
         # SNIPPET 2 END

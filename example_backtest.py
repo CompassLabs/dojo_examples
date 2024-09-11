@@ -60,17 +60,19 @@ def main(dashboard_server_port: Union[int, None]) -> None:
     )
 
     # Policies
-    mvag_policy = MovingAveragePolicy(agent=agent1, short_window=25, long_window=100)
+    mvag_policy = MovingAveragePolicy(
+        agent=agent1, pool="USDC/WETH-0.05", short_window=25, long_window=100
+    )
 
     passive_lp_policy = PassiveConcentratedLP(
         agent=agent2, lower_price_bound=0.95, upper_price_bound=1.05
     )
 
-    sim_blocks, sim_rewards = backtest_run(
+    backtest_run(
         env,
         [mvag_policy, passive_lp_policy],
         dashboard_server_port=dashboard_server_port
-        if dashboard_server_port is not -1
+        if dashboard_server_port != -1
         else None,
         output_dir="./",
         auto_close=True,

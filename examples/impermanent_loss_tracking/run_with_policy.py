@@ -43,7 +43,7 @@ impermanent_loss_policy = ImpermanentLossPolicy(
     agent=impermanent_loss_agent,
 )
 
-_, _ = backtest_run(
+backtest_run(
     env=env,
     policies=[impermanent_loss_policy],
     dashboard_server_port=8051,

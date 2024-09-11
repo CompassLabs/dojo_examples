@@ -1,34 +1,35 @@
 from collections import deque
 from decimal import Decimal
-from typing import List
+from typing import Any, List
 
 import numpy as np
 
 from dojo.actions.base_action import BaseAction
+from dojo.actions.uniswapV3 import UniswapV3Trade
 from dojo.agents import BaseAgent
-from dojo.environments.uniswapV3 import UniswapV3Observation, UniswapV3Trade
+from dojo.observations.uniswapV3 import UniswapV3Observation
 from dojo.policies import BasePolicy
 
 
 # SNIPPET 1 START
 # a policy that uses the RSI indicator to make decisions
-class RSIPolicy(BasePolicy):
+class RSIPolicy(BasePolicy):  # type: ignore
     """RSI trading policy for a UniswapV3Env with a single pool.
 
     :param agent: The agent which is using this policy.
     """
 
     def __init__(self, agent: BaseAgent):
-        self.agent = agent
-        self.rsi_period = 14
-        self.rsi_values = deque(maxlen=self.rsi_period)
-        self.rsi = 0
+        self.agent: BaseAgent = agent
+        self.rsi_period: int = 14
+        self.rsi_values: deque[Decimal] = deque(maxlen=self.rsi_period)
+        self.rsi: float = 0
         self.buying = False
         self.selling = False
 
     # SNIPPET 1 END
 
-    def predict(self, obs: UniswapV3Observation) -> List[BaseAction]:
+    def predict(self, obs: UniswapV3Observation) -> List[BaseAction]:  # type: ignore
         # SNIPPET 2 START
         pool = obs.pools[0]
         token0, token1 = obs.pool_tokens(pool)
@@ -36,7 +37,7 @@ class RSIPolicy(BasePolicy):
         # calculate RSI
         self.rsi_values.append(obs.price(token1, token0, pool))
         if len(self.rsi_values) == self.rsi_period:
-            delta = np.diff(self.rsi_values)
+            delta = np.diff(self.rsi_values)  # type: ignore
 
             gains = delta[delta > 0]
             losses = -delta[delta < 0]
@@ -48,7 +49,7 @@ class RSIPolicy(BasePolicy):
                 gain = Decimal(gains.mean())
                 loss = Decimal(losses.mean())
                 rs = gain / loss
-                self.rsi = 100 - 100 / (1 + rs)
+                self.rsi = float(100 - 100 / (1 + rs))
 
         obs.add_signal("RSI", self.rsi)
         # SNIPPET 2 END

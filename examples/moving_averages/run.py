@@ -5,14 +5,14 @@ from decimal import Decimal
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..")))
 
+from agents.uniswapV3_pool_wealth import UniswapV3PoolWealthAgent
 from dateutil import parser as dateparser
+from policies.passiveLP import PassiveConcentratedLP
 from policy import MovingAveragePolicy
 
-from agents.uniswapV3_pool_wealth import UniswapV3PoolWealthAgent
 from dojo.common.constants import Chain
 from dojo.environments import UniswapV3Env
 from dojo.runners import backtest_run
-from policies.passiveLP import PassiveConcentratedLP
 
 logging.basicConfig(format="%(asctime)s - %(message)s", level=logging.INFO)
 pools = ["USDC/WETH-0.05"]
@@ -44,14 +44,16 @@ env = UniswapV3Env(
 )
 
 # Policies
-mavg_policy = MovingAveragePolicy(agent=mavg_agent, short_window=25, long_window=100)
+mavg_policy = MovingAveragePolicy(
+    agent=mavg_agent, pool="USDC/WETH-0.05", short_window=25, long_window=100
+)
 
 passive_lp_policy = PassiveConcentratedLP(
     agent=lp_agent, lower_price_bound=0.95, upper_price_bound=1.05
 )
 
 # SNIPPET 1 START
-sim_blocks, sim_rewards = backtest_run(
+backtest_run(
     env=env,
     policies=[mavg_policy, passive_lp_policy],
     dashboard_server_port=8051,

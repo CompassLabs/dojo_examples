@@ -8,9 +8,9 @@ current = os.path.dirname(os.path.realpath(__file__))
 parent = os.path.dirname(current)
 sys.path.append(parent)
 
+from agents.dummy_agent import DummyAgent
 from dateutil import parser as dateparser
 
-from agents.dummy_agent import DummyAgent
 from dojo.actions.aaveV3 import AAVEv3Supply, AAVEv3WithdrawAll
 from dojo.environments.aaveV3 import AAVEv3Env
 

@@ -6,7 +6,7 @@ from dojo.observations import BaseObservation
 from dojo.policies import BasePolicy
 
 
-class SingleAction(BasePolicy):
+class SingleAction(BasePolicy):  # type: ignore
     """A policy that executes a single action.
 
     This is useful for testing the impact of a single action in an environment. For
@@ -14,7 +14,7 @@ class SingleAction(BasePolicy):
     you executed a single swap.
     """
 
-    def __init__(self, agent: BaseAgent, action: BaseAction) -> None:
+    def __init__(self, agent: BaseAgent, action: BaseAction) -> None:  # type: ignore
         """Initialize the policy.
 
         :param agent: The agent which is using this policy.
@@ -22,7 +22,3 @@ class SingleAction(BasePolicy):
         """
         super().__init__(agent)
         self.action = action
-
-    def predict(self, obs: BaseObservation) -> List[BaseAction]:
-        """Return the action to execute."""
-        return [self.action]

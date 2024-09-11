@@ -1,5 +1,5 @@
 from decimal import Decimal
-from typing import List
+from typing import Any, List
 
 from dojo.actions.aaveV3 import (
     AAVEv3BorrowToHealthFactor,
@@ -13,7 +13,7 @@ from dojo.policies import BasePolicy
 
 
 # SNIPPET 1 START
-class AAVEv3Policy(BasePolicy):
+class AAVEv3Policy(BasePolicy):  # type: ignore
     """Provide liquidity passively to a pool in the specified price bounds."""
 
     def __init__(self, agent: BaseAgent) -> None:
@@ -24,11 +24,8 @@ class AAVEv3Policy(BasePolicy):
 
     # SNIPPET 1 END
 
-    def fit(self):
-        pass
-
     # SNIPPET 2 START
-    def predict(self, obs: AAVEv3Observation) -> List[BaseAction]:
+    def predict(self, obs: AAVEv3Observation) -> List[BaseAction[Any]]:
         if not self.has_invested:
             self.has_invested = True
             return [

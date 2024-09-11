@@ -20,14 +20,16 @@ from dojo.runners import backtest_run
 class ConstantRewardAgent(AAVEv3Agent):
     """An agent that does not have any particular objective."""
 
-    def __init__(self, initial_portfolio: dict, name: Optional[str] = None):
+    def __init__(
+        self, initial_portfolio: dict[str, Decimal], name: Optional[str] = None
+    ):
         """Initialize the agent."""
         super().__init__(name=name, initial_portfolio=initial_portfolio)
 
-    def reward(self, obs: AAVEv3Observation) -> float:
+    def reward(self, obs: AAVEv3Observation) -> float:  # type: ignore
         """This agent does not measure reward."""
         ###print(obs.get_user_account_data_base(self.original_address).healthFactor)
-        return obs.get_user_account_data_base(self.original_address).healthFactor
+        return obs.get_user_account_data_base(self.original_address).healthFactor  # type: ignore[arg-type]
 
 
 def main() -> None:
@@ -55,7 +57,7 @@ def main() -> None:
     # Policies
     policy = AAVEv3Policy(agent=agent1)
 
-    _, _ = backtest_run(
+    backtest_run(
         env=env,
         policies=[policy],
         dashboard_server_port=8051,

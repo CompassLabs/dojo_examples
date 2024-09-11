@@ -2,17 +2,14 @@ from decimal import Decimal
 from typing import List
 
 from dojo.actions.base_action import BaseAction
+from dojo.actions.uniswapV3 import UniswapV3Quote, UniswapV3Trade
 from dojo.agents import BaseAgent
-from dojo.environments.uniswapV3 import (
-    UniswapV3Observation,
-    UniswapV3Quote,
-    UniswapV3Trade,
-)
 from dojo.observations import uniswapV3
+from dojo.observations.uniswapV3 import UniswapV3Observation
 from dojo.policies import BasePolicy
 
 
-class PassiveConcentratedLP(BasePolicy):
+class PassiveConcentratedLP(BasePolicy):  # type: ignore
     """Provide liquidity passively to a pool in the specified price bounds."""
 
     def __init__(
@@ -29,15 +26,12 @@ class PassiveConcentratedLP(BasePolicy):
             current spot price.
         """
         super().__init__(agent=agent)
-        self.lower_price_bound = Decimal(lower_price_bound)
-        self.upper_price_bound = Decimal(upper_price_bound)
+        self.lower_price_bound: Decimal = Decimal(lower_price_bound)
+        self.upper_price_bound: Decimal = Decimal(upper_price_bound)
         self.has_traded = False
         self.has_invested = False
 
-    def fit(self):
-        pass
-
-    def initial_trade(self, obs: UniswapV3Observation) -> List[BaseAction]:
+    def initial_trade(self, obs: UniswapV3Observation) -> List[BaseAction]:  # type: ignore
         pool_idx = 0
         pool = obs.pools[pool_idx]
         token0, token1 = obs.pool_tokens(pool)
@@ -51,15 +45,15 @@ class PassiveConcentratedLP(BasePolicy):
         trade_action = UniswapV3Trade(
             agent=self.agent,
             pool=pool,
-            quantities=[
+            quantities=(
                 (-target0 + wallet_portfolio[token0]),
                 (-target1 + wallet_portfolio[token1]),
-            ],
+            ),
         )
         self.has_traded = True
         return [trade_action]
 
-    def inital_quote(self, obs: UniswapV3Observation) -> List[BaseAction]:
+    def inital_quote(self, obs: UniswapV3Observation) -> List[BaseAction]:  # type: ignore
         pool_idx = 0
         pool = obs.pools[pool_idx]
         portfolio = self.agent.portfolio()
@@ -82,13 +76,13 @@ class PassiveConcentratedLP(BasePolicy):
         provide_action = UniswapV3Quote(
             agent=self.agent,
             pool=pool,
-            quantities=[portfolio[token0], portfolio[token1]],
+            quantities=(portfolio[token0], portfolio[token1]),
             tick_range=(lower_tick, upper_tick),
         )
         self.has_invested = True
         return [provide_action]
 
-    def predict(self, obs: UniswapV3Observation) -> List[BaseAction]:
+    def predict(self, obs: UniswapV3Observation) -> List[BaseAction]:  # type: ignore
         if not self.has_traded:
             return self.initial_trade(obs)
         if not self.has_invested:

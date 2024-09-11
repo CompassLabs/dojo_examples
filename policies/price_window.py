@@ -3,15 +3,16 @@ from decimal import Decimal
 from typing import List
 
 from dojo.actions import BaseAction
+from dojo.actions.uniswapV3 import UniswapV3Trade
 from dojo.agents import BaseAgent
-from dojo.environments.uniswapV3 import UniswapV3Observation, UniswapV3Trade
+from dojo.observations.uniswapV3 import UniswapV3Observation
 from dojo.policies import BasePolicy
 
 logging.basicConfig(format="%(asctime)s - %(message)s", level=logging.INFO)
 
 
 # SNIPPET price_window START
-class PriceWindowPolicy(BasePolicy):
+class PriceWindowPolicy(BasePolicy):  # type: ignore
     def __init__(
         self, agent: BaseAgent, lower_limit: float, upper_limit: float
     ) -> None:
@@ -20,7 +21,7 @@ class PriceWindowPolicy(BasePolicy):
         self.lower_limit = lower_limit
 
     # derive actions from observations
-    def predict(self, obs: UniswapV3Observation) -> List[BaseAction]:
+    def predict(self, obs: UniswapV3Observation) -> List[BaseAction]:  # type: ignore
         pool = obs.pools[0]
         x_token, y_token = obs.pool_tokens(pool)
         spot_price = obs.price(token=x_token, unit=y_token, pool=pool)

@@ -2,14 +2,15 @@ from decimal import Decimal
 from typing import List
 
 from dojo.actions.base_action import BaseAction
+from dojo.actions.uniswapV3 import UniswapV3Trade
 from dojo.agents import BaseAgent
-from dojo.environments.uniswapV3 import UniswapV3Observation, UniswapV3Trade
+from dojo.observations.uniswapV3 import UniswapV3Observation
 from dojo.policies import BasePolicy
 
 
 # a policy that buys a fixed amount of the first token in the pool
 # SNIPPET 1 START
-class DCAPolicy(BasePolicy):
+class DCAPolicy(BasePolicy):  # type: ignore
     """Dollar Cost Averaging policy for a UniswapV3Env with a single pool.
 
     :param agent: The agent which is using this policy.
@@ -26,7 +27,7 @@ class DCAPolicy(BasePolicy):
 
     # SNIPPET 1 END
 
-    def predict(self, obs: UniswapV3Observation) -> List[BaseAction]:
+    def predict(self, obs: UniswapV3Observation) -> List[BaseAction]:  # type: ignore
         # SNIPPET 2 START
         pool = obs.pools[0]
         token0, token1 = obs.pool_tokens(pool)
@@ -56,9 +57,9 @@ class DCAPolicy(BasePolicy):
         # SNIPPET 3 START
         if (
             portfolio[token0] >= self.buying_amount
-            and obs.block - self.last_trade_block >= self.min_dist
+            and obs.block - self.last_trade_block >= self.min_dist  # type: ignore
         ):
-            self.last_trade_block = obs.block
+            self.last_trade_block = obs.block  # type: ignore
             return [
                 UniswapV3Trade(
                     agent=self.agent,
