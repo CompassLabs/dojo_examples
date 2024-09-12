@@ -1,0 +1,6082 @@
+{
+  "params": {
+    "environment": "GmxV2Env",
+    "startDate": "2024-08-30 00:00:00+00:00",
+    "endDate": "2024-08-30 00:25:00+00:00",
+    "startBlock": 248100520,
+    "endBlock": 248106491,
+    "agents": [
+      {
+        "address": "0xDa5CAa30770420591a0DaEe7D37B1B13b1C34FEb",
+        "name": "GMXAgent"
+      }
+    ],
+    "pools": []
+  },
+  "blockData": {
+    "248100520": {
+      "agents": [
+        {
+          "reward": 0,
+          "gmx": {}
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1286697.261201021
+        },
+        {
+          "name": "long pnl",
+          "value": -576937.250452769
+        },
+        {
+          "name": "short pnl",
+          "value": 1863634.51165379
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17489698.629561428
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20421506.101719394
+        },
+        {
+          "name": "gm token value",
+          "value": 1.4213127895658109
+        },
+        {
+          "name": "index token price",
+          "value": 2526.8039510555745
+        },
+        {
+          "name": "long token price",
+          "value": 2526.8039510555745
+        },
+        {
+          "name": "short token price",
+          "value": 0.9998710070136513
+        },
+        {
+          "name": "Current trader pnl",
+          "value": 0
+        }
+      ]
+    },
+    "248100550": {
+      "agents": [
+        {
+          "reward": 0,
+          "gmx": {}
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1286697.261201021
+        },
+        {
+          "name": "long pnl",
+          "value": -576937.250452769
+        },
+        {
+          "name": "short pnl",
+          "value": 1863634.51165379
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17489698.629561428
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20421506.101719394
+        },
+        {
+          "name": "gm token value",
+          "value": 1.421312802332253
+        },
+        {
+          "name": "index token price",
+          "value": 2526.8039510555745
+        },
+        {
+          "name": "long token price",
+          "value": 2526.8039510555745
+        },
+        {
+          "name": "short token price",
+          "value": 0.9998710070136513
+        },
+        {
+          "name": "Current trader pnl",
+          "value": 0
+        }
+      ]
+    },
+    "248100600": {
+      "agents": [
+        {
+          "reward": 0,
+          "gmx": {}
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1286697.261201021
+        },
+        {
+          "name": "long pnl",
+          "value": -576937.250452769
+        },
+        {
+          "name": "short pnl",
+          "value": 1863634.51165379
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17489698.629561428
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20421506.101719394
+        },
+        {
+          "name": "gm token value",
+          "value": 1.4213128236096566
+        },
+        {
+          "name": "index token price",
+          "value": 2526.8039510555745
+        },
+        {
+          "name": "long token price",
+          "value": 2526.8039510555745
+        },
+        {
+          "name": "short token price",
+          "value": 0.9998710070136513
+        },
+        {
+          "name": "Current trader pnl",
+          "value": 0
+        }
+      ]
+    },
+    "248100644": {
+      "agents": [
+        {
+          "reward": 0,
+          "gmx": {}
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1286697.261201021
+        },
+        {
+          "name": "long pnl",
+          "value": -576937.250452769
+        },
+        {
+          "name": "short pnl",
+          "value": 1863634.51165379
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17489698.629561428
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20421506.101719394
+        },
+        {
+          "name": "gm token value",
+          "value": 1.4213128423337715
+        },
+        {
+          "name": "index token price",
+          "value": 2526.8039510555745
+        },
+        {
+          "name": "long token price",
+          "value": 2526.8039510555745
+        },
+        {
+          "name": "short token price",
+          "value": 0.9998710070136513
+        },
+        {
+          "name": "Current trader pnl",
+          "value": 0
+        }
+      ]
+    },
+    "248100650": {
+      "agents": [
+        {
+          "reward": 0,
+          "gmx": {}
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1286697.261201021
+        },
+        {
+          "name": "long pnl",
+          "value": -576937.250452769
+        },
+        {
+          "name": "short pnl",
+          "value": 1863634.51165379
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17489698.629561428
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20421506.101719394
+        },
+        {
+          "name": "gm token value",
+          "value": 1.42131284488706
+        },
+        {
+          "name": "index token price",
+          "value": 2526.8039510555745
+        },
+        {
+          "name": "long token price",
+          "value": 2526.8039510555745
+        },
+        {
+          "name": "short token price",
+          "value": 0.9998710070136513
+        },
+        {
+          "name": "Current trader pnl",
+          "value": 0
+        }
+      ]
+    },
+    "248100700": {
+      "agents": [
+        {
+          "reward": 0,
+          "gmx": {}
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1286697.261201021
+        },
+        {
+          "name": "long pnl",
+          "value": -576937.250452769
+        },
+        {
+          "name": "short pnl",
+          "value": 1863634.51165379
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17489698.629561428
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20421506.101719394
+        },
+        {
+          "name": "gm token value",
+          "value": 1.4213128661644636
+        },
+        {
+          "name": "index token price",
+          "value": 2526.8039510555745
+        },
+        {
+          "name": "long token price",
+          "value": 2526.8039510555745
+        },
+        {
+          "name": "short token price",
+          "value": 0.9998710070136513
+        },
+        {
+          "name": "Current trader pnl",
+          "value": 0
+        }
+      ]
+    },
+    "248100720": {
+      "agents": [
+        {
+          "reward": 0,
+          "gmx": {}
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1286697.261201021
+        },
+        {
+          "name": "long pnl",
+          "value": -576937.250452769
+        },
+        {
+          "name": "short pnl",
+          "value": 1863634.51165379
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17489698.629561428
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20421506.101719394
+        },
+        {
+          "name": "gm token value",
+          "value": 1.4213128746754249
+        },
+        {
+          "name": "index token price",
+          "value": 2526.8039510555745
+        },
+        {
+          "name": "long token price",
+          "value": 2526.8039510555745
+        },
+        {
+          "name": "short token price",
+          "value": 0.9998710070136513
+        },
+        {
+          "name": "Current trader pnl",
+          "value": 0
+        }
+      ]
+    },
+    "248100726": {
+      "agents": [
+        {
+          "reward": 0,
+          "gmx": {}
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1286697.261201021
+        },
+        {
+          "name": "long pnl",
+          "value": -576937.250452769
+        },
+        {
+          "name": "short pnl",
+          "value": 1863634.51165379
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17489698.629561428
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20421506.101719394
+        },
+        {
+          "name": "gm token value",
+          "value": 1.4213128772287134
+        },
+        {
+          "name": "index token price",
+          "value": 2526.8039510555745
+        },
+        {
+          "name": "long token price",
+          "value": 2526.8039510555745
+        },
+        {
+          "name": "short token price",
+          "value": 0.9998710070136513
+        },
+        {
+          "name": "Current trader pnl",
+          "value": 0
+        }
+      ]
+    },
+    "248100750": {
+      "agents": [
+        {
+          "reward": 0,
+          "gmx": {}
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1286697.2974566943
+        },
+        {
+          "name": "long pnl",
+          "value": -576937.2141970956
+        },
+        {
+          "name": "short pnl",
+          "value": 1863634.51165379
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17490930.293862846
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20421506.101719394
+        },
+        {
+          "name": "gm token value",
+          "value": 1.4213665446569432
+        },
+        {
+          "name": "index token price",
+          "value": 2526.8039510555745
+        },
+        {
+          "name": "long token price",
+          "value": 2526.8039510555745
+        },
+        {
+          "name": "short token price",
+          "value": 0.9999207848436835
+        },
+        {
+          "name": "Current trader pnl",
+          "value": 0
+        }
+      ]
+    },
+    "248100763": {
+      "agents": [
+        {
+          "reward": 0,
+          "gmx": {}
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1286697.2974566943
+        },
+        {
+          "name": "long pnl",
+          "value": -576937.2141970956
+        },
+        {
+          "name": "short pnl",
+          "value": 1863634.51165379
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17490930.293862846
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20421506.101719394
+        },
+        {
+          "name": "gm token value",
+          "value": 1.4213665501889272
+        },
+        {
+          "name": "index token price",
+          "value": 2526.8039510555745
+        },
+        {
+          "name": "long token price",
+          "value": 2526.8039510555745
+        },
+        {
+          "name": "short token price",
+          "value": 0.9999207848436835
+        },
+        {
+          "name": "Current trader pnl",
+          "value": 0
+        }
+      ]
+    },
+    "248100769": {
+      "agents": [
+        {
+          "reward": 0,
+          "gmx": {}
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1286697.2974566943
+        },
+        {
+          "name": "long pnl",
+          "value": -576937.2141970956
+        },
+        {
+          "name": "short pnl",
+          "value": 1863634.51165379
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17490930.293862846
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20421506.101719394
+        },
+        {
+          "name": "gm token value",
+          "value": 1.4213665527421506
+        },
+        {
+          "name": "index token price",
+          "value": 2526.8039510555745
+        },
+        {
+          "name": "long token price",
+          "value": 2526.8039510555745
+        },
+        {
+          "name": "short token price",
+          "value": 0.9999207848436835
+        },
+        {
+          "name": "Current trader pnl",
+          "value": 0
+        }
+      ]
+    },
+    "248100800": {
+      "agents": [
+        {
+          "reward": 0,
+          "gmx": {}
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1286697.2974566943
+        },
+        {
+          "name": "long pnl",
+          "value": -576937.2141970956
+        },
+        {
+          "name": "short pnl",
+          "value": 1863634.51165379
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17490930.293862846
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20421506.101719394
+        },
+        {
+          "name": "gm token value",
+          "value": 1.421307489066632
+        },
+        {
+          "name": "index token price",
+          "value": 2526.8039510555745
+        },
+        {
+          "name": "long token price",
+          "value": 2526.8039510555745
+        },
+        {
+          "name": "short token price",
+          "value": 0.9998462799279138
+        },
+        {
+          "name": "Current trader pnl",
+          "value": 0
+        }
+      ]
+    },
+    "248100847": {
+      "agents": [
+        {
+          "reward": 0,
+          "gmx": {}
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1286697.2974566943
+        },
+        {
+          "name": "long pnl",
+          "value": -576937.2141970956
+        },
+        {
+          "name": "short pnl",
+          "value": 1863634.51165379
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17490930.293862846
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20421506.101719394
+        },
+        {
+          "name": "gm token value",
+          "value": 1.4213075090682306
+        },
+        {
+          "name": "index token price",
+          "value": 2526.8039510555745
+        },
+        {
+          "name": "long token price",
+          "value": 2526.8039510555745
+        },
+        {
+          "name": "short token price",
+          "value": 0.9998462799279138
+        },
+        {
+          "name": "Current trader pnl",
+          "value": 0
+        }
+      ]
+    },
+    "248100850": {
+      "agents": [
+        {
+          "reward": 0,
+          "gmx": {}
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1286697.2974566943
+        },
+        {
+          "name": "long pnl",
+          "value": -576937.2141970956
+        },
+        {
+          "name": "short pnl",
+          "value": 1863634.51165379
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17490930.293862846
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20421506.101719394
+        },
+        {
+          "name": "gm token value",
+          "value": 1.4213757487147944
+        },
+        {
+          "name": "index token price",
+          "value": 2526.8039510555745
+        },
+        {
+          "name": "long token price",
+          "value": 2526.8039510555745
+        },
+        {
+          "name": "short token price",
+          "value": 0.9999321096631903
+        },
+        {
+          "name": "Current trader pnl",
+          "value": 0
+        }
+      ]
+    },
+    "248100890": {
+      "agents": [
+        {
+          "reward": 0,
+          "gmx": {}
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1286697.2974566943
+        },
+        {
+          "name": "long pnl",
+          "value": -576937.2141970956
+        },
+        {
+          "name": "short pnl",
+          "value": 1863634.51165379
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17490930.293862846
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20421506.101719394
+        },
+        {
+          "name": "gm token value",
+          "value": 1.4213757657361132
+        },
+        {
+          "name": "index token price",
+          "value": 2526.8039510555745
+        },
+        {
+          "name": "long token price",
+          "value": 2526.8039510555745
+        },
+        {
+          "name": "short token price",
+          "value": 0.9999321096631903
+        },
+        {
+          "name": "Current trader pnl",
+          "value": 0
+        }
+      ]
+    },
+    "248100898": {
+      "agents": [
+        {
+          "reward": 0,
+          "gmx": {}
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1286697.2974566943
+        },
+        {
+          "name": "long pnl",
+          "value": -576937.2141970956
+        },
+        {
+          "name": "short pnl",
+          "value": 1863634.51165379
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17490930.293862846
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20421506.101719394
+        },
+        {
+          "name": "gm token value",
+          "value": 1.421375769140377
+        },
+        {
+          "name": "index token price",
+          "value": 2526.8039510555745
+        },
+        {
+          "name": "long token price",
+          "value": 2526.8039510555745
+        },
+        {
+          "name": "short token price",
+          "value": 0.9999321096631903
+        },
+        {
+          "name": "Current trader pnl",
+          "value": 0
+        }
+      ]
+    },
+    "248100900": {
+      "agents": [
+        {
+          "reward": 0,
+          "gmx": {}
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1286697.2974566943
+        },
+        {
+          "name": "long pnl",
+          "value": -576937.2141970956
+        },
+        {
+          "name": "short pnl",
+          "value": 1863634.51165379
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17490930.293862846
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20421506.101719394
+        },
+        {
+          "name": "gm token value",
+          "value": 1.4214706273767803
+        },
+        {
+          "name": "index token price",
+          "value": 2526.8039510555745
+        },
+        {
+          "name": "long token price",
+          "value": 2526.8039510555745
+        },
+        {
+          "name": "short token price",
+          "value": 0.9999925962682039
+        },
+        {
+          "name": "Current trader pnl",
+          "value": 0
+        }
+      ]
+    },
+    "248100916": {
+      "agents": [
+        {
+          "reward": 0,
+          "gmx": {}
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1286697.2974566943
+        },
+        {
+          "name": "long pnl",
+          "value": -576937.2141970956
+        },
+        {
+          "name": "short pnl",
+          "value": 1863634.51165379
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17490930.293862846
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20421506.101719394
+        },
+        {
+          "name": "gm token value",
+          "value": 1.421470634185376
+        },
+        {
+          "name": "index token price",
+          "value": 2526.8039510555745
+        },
+        {
+          "name": "long token price",
+          "value": 2526.8039510555745
+        },
+        {
+          "name": "short token price",
+          "value": 0.9999925962682039
+        },
+        {
+          "name": "Current trader pnl",
+          "value": 0
+        }
+      ]
+    },
+    "248100917": {
+      "agents": [
+        {
+          "reward": 0,
+          "gmx": {
+            "actions": [
+              {
+                "type": "MARKET_INCREASE",
+                "market": "WETH:WETH:USDC",
+                "usd_value": 100000,
+                "leverage": 3,
+                "token_in_symbol": "WETH",
+                "collateral_symbol": "WETH",
+                "is_long": true,
+                "order_id": 1
+              }
+            ]
+          }
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1286130.18190539
+        },
+        {
+          "name": "long pnl",
+          "value": -592616.5205812333
+        },
+        {
+          "name": "short pnl",
+          "value": 1878746.7024866233
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17475250.987478707
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20436618.29255223
+        },
+        {
+          "name": "gm token value",
+          "value": 1.420836403201376
+        },
+        {
+          "name": "index token price",
+          "value": 2524.5277321554818
+        },
+        {
+          "name": "long token price",
+          "value": 2524.5277321554818
+        },
+        {
+          "name": "short token price",
+          "value": 0.9999887284759289
+        },
+        {
+          "name": "Current trader pnl",
+          "value": 0
+        }
+      ]
+    },
+    "248100927": {
+      "agents": [
+        {
+          "reward": 0,
+          "gmx": {
+            "actions": [
+              {
+                "type": "EXECUTE_ORDER",
+                "order_id": 1
+              }
+            ],
+            "total_trader_pnl": -8.455918312072754
+          }
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1286130.18190539
+        },
+        {
+          "name": "long pnl",
+          "value": -592616.5205812333
+        },
+        {
+          "name": "short pnl",
+          "value": 1878746.7024866233
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17475250.987478707
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20436618.29255223
+        },
+        {
+          "name": "gm token value",
+          "value": 1.4208364074567483
+        },
+        {
+          "name": "index token price",
+          "value": 2524.5277321554818
+        },
+        {
+          "name": "long token price",
+          "value": 2524.5277321554818
+        },
+        {
+          "name": "short token price",
+          "value": 0.9999887284759289
+        },
+        {
+          "name": "Current trader pnl",
+          "value": 0
+        }
+      ]
+    },
+    "248100950": {
+      "agents": [
+        {
+          "reward": -8.455918312072754,
+          "gmx": {
+            "total_trader_pnl": -8.455918312072754
+          }
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1286132.821929882
+        },
+        {
+          "name": "long pnl",
+          "value": -592613.8805567413
+        },
+        {
+          "name": "short pnl",
+          "value": 1878746.7024866233
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17575253.627503198
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20436618.29255223
+        },
+        {
+          "name": "gm token value",
+          "value": 1.4208370720205736
+        },
+        {
+          "name": "index token price",
+          "value": 2524.5277321554818
+        },
+        {
+          "name": "long token price",
+          "value": 2524.5277321554818
+        },
+        {
+          "name": "short token price",
+          "value": 0.9999887284759289
+        },
+        {
+          "name": "Current trader pnl",
+          "value": -8.455918777387513
+        }
+      ]
+    },
+    "248101000": {
+      "agents": [
+        {
+          "reward": -8.455918312072754,
+          "gmx": {
+            "total_trader_pnl": -8.455918312072754
+          }
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1286132.821929882
+        },
+        {
+          "name": "long pnl",
+          "value": -592613.8805567413
+        },
+        {
+          "name": "short pnl",
+          "value": 1878746.7024866233
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17575253.627503198
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20436618.29255223
+        },
+        {
+          "name": "gm token value",
+          "value": 1.420837093297435
+        },
+        {
+          "name": "index token price",
+          "value": 2524.5277321554818
+        },
+        {
+          "name": "long token price",
+          "value": 2524.5277321554818
+        },
+        {
+          "name": "short token price",
+          "value": 0.9999887284759289
+        },
+        {
+          "name": "Current trader pnl",
+          "value": -8.455918777387513
+        }
+      ]
+    },
+    "248101050": {
+      "agents": [
+        {
+          "reward": -8.455918312072754,
+          "gmx": {
+            "total_trader_pnl": -8.455918312072754
+          }
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1286132.821929882
+        },
+        {
+          "name": "long pnl",
+          "value": -592613.8805567413
+        },
+        {
+          "name": "short pnl",
+          "value": 1878746.7024866233
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17575253.627503198
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20436618.29255223
+        },
+        {
+          "name": "gm token value",
+          "value": 1.4208371145742962
+        },
+        {
+          "name": "index token price",
+          "value": 2524.5277321554818
+        },
+        {
+          "name": "long token price",
+          "value": 2524.5277321554818
+        },
+        {
+          "name": "short token price",
+          "value": 0.9999887284759289
+        },
+        {
+          "name": "Current trader pnl",
+          "value": -8.455918777387513
+        }
+      ]
+    },
+    "248101077": {
+      "agents": [
+        {
+          "reward": -8.455918312072754,
+          "gmx": {
+            "total_trader_pnl": -8.455918312072754
+          }
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1286132.821929882
+        },
+        {
+          "name": "long pnl",
+          "value": -592613.8805567413
+        },
+        {
+          "name": "short pnl",
+          "value": 1878746.7024866233
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17575253.627503198
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20436618.29255223
+        },
+        {
+          "name": "gm token value",
+          "value": 1.4208371260638013
+        },
+        {
+          "name": "index token price",
+          "value": 2524.5277321554818
+        },
+        {
+          "name": "long token price",
+          "value": 2524.5277321554818
+        },
+        {
+          "name": "short token price",
+          "value": 0.9999887284759289
+        },
+        {
+          "name": "Current trader pnl",
+          "value": -8.455918777387513
+        }
+      ]
+    },
+    "248101088": {
+      "agents": [
+        {
+          "reward": -8.455918312072754,
+          "gmx": {
+            "total_trader_pnl": -8.455918312072754
+          }
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1286132.821929882
+        },
+        {
+          "name": "long pnl",
+          "value": -592613.8805567413
+        },
+        {
+          "name": "short pnl",
+          "value": 1878746.7024866233
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17575253.627503198
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20436618.29255223
+        },
+        {
+          "name": "gm token value",
+          "value": 1.4208371307447107
+        },
+        {
+          "name": "index token price",
+          "value": 2524.5277321554818
+        },
+        {
+          "name": "long token price",
+          "value": 2524.5277321554818
+        },
+        {
+          "name": "short token price",
+          "value": 0.9999887284759289
+        },
+        {
+          "name": "Current trader pnl",
+          "value": -8.455918777387513
+        }
+      ]
+    },
+    "248101089": {
+      "agents": [
+        {
+          "reward": 124.04655456542969,
+          "gmx": {
+            "actions": [
+              {
+                "type": "MARKET_DECREASE",
+                "market": "WETH:WETH:USDC",
+                "usd_value": 100000,
+                "leverage": 3,
+                "token_in_symbol": "WETH",
+                "collateral_symbol": "WETH",
+                "is_long": true,
+                "order_id": 2
+              }
+            ],
+            "total_trader_pnl": 124.04655456542969
+          }
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1286405.237807493
+        },
+        {
+          "name": "long pnl",
+          "value": -570239.3424745748
+        },
+        {
+          "name": "short pnl",
+          "value": 1856644.5802820679
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17597628.165585365
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20414516.170347672
+        },
+        {
+          "name": "gm token value",
+          "value": 1.421633964915886
+        },
+        {
+          "name": "index token price",
+          "value": 2527.8073517856164
+        },
+        {
+          "name": "long token price",
+          "value": 2527.8073517856164
+        },
+        {
+          "name": "short token price",
+          "value": 0.9999368499999999
+        },
+        {
+          "name": "Current trader pnl",
+          "value": -8.455918777387513
+        }
+      ]
+    },
+    "248101099": {
+      "agents": [
+        {
+          "reward": 124.04655456542969,
+          "gmx": {
+            "actions": [
+              {
+                "type": "EXECUTE_ORDER",
+                "order_id": 2
+              }
+            ]
+          }
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1286405.237807493
+        },
+        {
+          "name": "long pnl",
+          "value": -570239.3424745748
+        },
+        {
+          "name": "short pnl",
+          "value": 1856644.5802820679
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17597628.165585365
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20414516.170347672
+        },
+        {
+          "name": "gm token value",
+          "value": 1.4216339691712157
+        },
+        {
+          "name": "index token price",
+          "value": 2527.8073517856164
+        },
+        {
+          "name": "long token price",
+          "value": 2527.8073517856164
+        },
+        {
+          "name": "short token price",
+          "value": 0.9999368499999999
+        },
+        {
+          "name": "Current trader pnl",
+          "value": 124.04655611871412
+        }
+      ]
+    },
+    "248101100": {
+      "agents": [
+        {
+          "reward": 0,
+          "gmx": {}
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1286275.2873654692
+        },
+        {
+          "name": "long pnl",
+          "value": -570369.2929165986
+        },
+        {
+          "name": "short pnl",
+          "value": 1856644.5802820679
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17497498.21514334
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20414516.170347672
+        },
+        {
+          "name": "gm token value",
+          "value": 1.4216346475058956
+        },
+        {
+          "name": "index token price",
+          "value": 2527.8073517856164
+        },
+        {
+          "name": "long token price",
+          "value": 2527.8073517856164
+        },
+        {
+          "name": "short token price",
+          "value": 0.9999368499999999
+        },
+        {
+          "name": "Current trader pnl",
+          "value": 0
+        }
+      ]
+    },
+    "248101135": {
+      "agents": [
+        {
+          "reward": 0,
+          "gmx": {}
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1286275.2873654692
+        },
+        {
+          "name": "long pnl",
+          "value": -570369.2929165986
+        },
+        {
+          "name": "short pnl",
+          "value": 1856644.5802820679
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17497498.21514334
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20414516.170347672
+        },
+        {
+          "name": "gm token value",
+          "value": 1.4216346623995497
+        },
+        {
+          "name": "index token price",
+          "value": 2527.8073517856164
+        },
+        {
+          "name": "long token price",
+          "value": 2527.8073517856164
+        },
+        {
+          "name": "short token price",
+          "value": 0.9999368499999999
+        },
+        {
+          "name": "Current trader pnl",
+          "value": 0
+        }
+      ]
+    },
+    "248101142": {
+      "agents": [
+        {
+          "reward": 0,
+          "gmx": {}
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1286275.2873654692
+        },
+        {
+          "name": "long pnl",
+          "value": -570369.2929165986
+        },
+        {
+          "name": "short pnl",
+          "value": 1856644.5802820679
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17497498.21514334
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20414516.170347672
+        },
+        {
+          "name": "gm token value",
+          "value": 1.4216346653782805
+        },
+        {
+          "name": "index token price",
+          "value": 2527.8073517856164
+        },
+        {
+          "name": "long token price",
+          "value": 2527.8073517856164
+        },
+        {
+          "name": "short token price",
+          "value": 0.9999368499999999
+        },
+        {
+          "name": "Current trader pnl",
+          "value": 0
+        }
+      ]
+    },
+    "248101150": {
+      "agents": [
+        {
+          "reward": 0,
+          "gmx": {}
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1285929.8886769572
+        },
+        {
+          "name": "long pnl",
+          "value": -576076.5965914064
+        },
+        {
+          "name": "short pnl",
+          "value": 1862006.4852683635
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17492293.796916183
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20419878.075333968
+        },
+        {
+          "name": "gm token value",
+          "value": 1.4213607924995646
+        },
+        {
+          "name": "index token price",
+          "value": 2526.98933
+        },
+        {
+          "name": "long token price",
+          "value": 2526.98933
+        },
+        {
+          "name": "short token price",
+          "value": 0.9998899276177563
+        },
+        {
+          "name": "Current trader pnl",
+          "value": 0
+        }
+      ]
+    },
+    "248101200": {
+      "agents": [
+        {
+          "reward": 0,
+          "gmx": {}
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1285929.8886769572
+        },
+        {
+          "name": "long pnl",
+          "value": -576076.5965914064
+        },
+        {
+          "name": "short pnl",
+          "value": 1862006.4852683635
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17492293.796916183
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20419878.075333968
+        },
+        {
+          "name": "gm token value",
+          "value": 1.4213608137769522
+        },
+        {
+          "name": "index token price",
+          "value": 2526.98933
+        },
+        {
+          "name": "long token price",
+          "value": 2526.98933
+        },
+        {
+          "name": "short token price",
+          "value": 0.9998899276177563
+        },
+        {
+          "name": "Current trader pnl",
+          "value": 0
+        }
+      ]
+    },
+    "248101250": {
+      "agents": [
+        {
+          "reward": 0,
+          "gmx": {}
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1285929.8886769572
+        },
+        {
+          "name": "long pnl",
+          "value": -576076.5965914064
+        },
+        {
+          "name": "short pnl",
+          "value": 1862006.4852683635
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17492293.796916183
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20419878.075333968
+        },
+        {
+          "name": "gm token value",
+          "value": 1.4213608350543399
+        },
+        {
+          "name": "index token price",
+          "value": 2526.98933
+        },
+        {
+          "name": "long token price",
+          "value": 2526.98933
+        },
+        {
+          "name": "short token price",
+          "value": 0.9998899276177563
+        },
+        {
+          "name": "Current trader pnl",
+          "value": 0
+        }
+      ]
+    },
+    "248101264": {
+      "agents": [
+        {
+          "reward": 0,
+          "gmx": {}
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1285929.8886769572
+        },
+        {
+          "name": "long pnl",
+          "value": -576076.5965914064
+        },
+        {
+          "name": "short pnl",
+          "value": 1862006.4852683635
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17492293.796916183
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20419878.075333968
+        },
+        {
+          "name": "gm token value",
+          "value": 1.4213608410120082
+        },
+        {
+          "name": "index token price",
+          "value": 2526.98933
+        },
+        {
+          "name": "long token price",
+          "value": 2526.98933
+        },
+        {
+          "name": "short token price",
+          "value": 0.9998899276177563
+        },
+        {
+          "name": "Current trader pnl",
+          "value": 0
+        }
+      ]
+    },
+    "248101270": {
+      "agents": [
+        {
+          "reward": 0,
+          "gmx": {}
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1285929.8886769572
+        },
+        {
+          "name": "long pnl",
+          "value": -576076.5965914064
+        },
+        {
+          "name": "short pnl",
+          "value": 1862006.4852683635
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17492293.796916183
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20419878.075333968
+        },
+        {
+          "name": "gm token value",
+          "value": 1.4213608435652947
+        },
+        {
+          "name": "index token price",
+          "value": 2526.98933
+        },
+        {
+          "name": "long token price",
+          "value": 2526.98933
+        },
+        {
+          "name": "short token price",
+          "value": 0.9998899276177563
+        },
+        {
+          "name": "Current trader pnl",
+          "value": 0
+        }
+      ]
+    },
+    "248101300": {
+      "agents": [
+        {
+          "reward": 0,
+          "gmx": {}
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1285929.8886769572
+        },
+        {
+          "name": "long pnl",
+          "value": -576076.5965914064
+        },
+        {
+          "name": "short pnl",
+          "value": 1862006.4852683635
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17492293.796916183
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20419878.075333968
+        },
+        {
+          "name": "gm token value",
+          "value": 1.4213581551437786
+        },
+        {
+          "name": "index token price",
+          "value": 2526.98933
+        },
+        {
+          "name": "long token price",
+          "value": 2526.98933
+        },
+        {
+          "name": "short token price",
+          "value": 0.9998908490216514
+        },
+        {
+          "name": "Current trader pnl",
+          "value": 0
+        }
+      ]
+    },
+    "248101304": {
+      "agents": [
+        {
+          "reward": 0,
+          "gmx": {}
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1285929.8886769572
+        },
+        {
+          "name": "long pnl",
+          "value": -576076.5965914064
+        },
+        {
+          "name": "short pnl",
+          "value": 1862006.4852683635
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17492293.796916183
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20419878.075333968
+        },
+        {
+          "name": "gm token value",
+          "value": 1.4213581568459601
+        },
+        {
+          "name": "index token price",
+          "value": 2526.98933
+        },
+        {
+          "name": "long token price",
+          "value": 2526.98933
+        },
+        {
+          "name": "short token price",
+          "value": 0.9998908490216514
+        },
+        {
+          "name": "Current trader pnl",
+          "value": 0
+        }
+      ]
+    },
+    "248101314": {
+      "agents": [
+        {
+          "reward": 0,
+          "gmx": {}
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1285929.8886769572
+        },
+        {
+          "name": "long pnl",
+          "value": -576076.5965914064
+        },
+        {
+          "name": "short pnl",
+          "value": 1862006.4852683635
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17492293.796916183
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20419878.075333968
+        },
+        {
+          "name": "gm token value",
+          "value": 1.4213581611014139
+        },
+        {
+          "name": "index token price",
+          "value": 2526.98933
+        },
+        {
+          "name": "long token price",
+          "value": 2526.98933
+        },
+        {
+          "name": "short token price",
+          "value": 0.9998908490216514
+        },
+        {
+          "name": "Current trader pnl",
+          "value": 0
+        }
+      ]
+    },
+    "248101350": {
+      "agents": [
+        {
+          "reward": 0,
+          "gmx": {}
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1285929.8886769572
+        },
+        {
+          "name": "long pnl",
+          "value": -576076.5965914064
+        },
+        {
+          "name": "short pnl",
+          "value": 1862006.4852683635
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17492293.796916183
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20419878.075333968
+        },
+        {
+          "name": "gm token value",
+          "value": 1.4213414541862133
+        },
+        {
+          "name": "index token price",
+          "value": 2526.98933
+        },
+        {
+          "name": "long token price",
+          "value": 2526.98933
+        },
+        {
+          "name": "short token price",
+          "value": 0.9998750432870445
+        },
+        {
+          "name": "Current trader pnl",
+          "value": 0
+        }
+      ]
+    },
+    "248101400": {
+      "agents": [
+        {
+          "reward": 0,
+          "gmx": {}
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1285929.8886769572
+        },
+        {
+          "name": "long pnl",
+          "value": -576076.5965914064
+        },
+        {
+          "name": "short pnl",
+          "value": 1862006.4852683635
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17492293.796916183
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20419878.075333968
+        },
+        {
+          "name": "gm token value",
+          "value": 1.4213414754636637
+        },
+        {
+          "name": "index token price",
+          "value": 2526.98933
+        },
+        {
+          "name": "long token price",
+          "value": 2526.98933
+        },
+        {
+          "name": "short token price",
+          "value": 0.9998750432870445
+        },
+        {
+          "name": "Current trader pnl",
+          "value": 0
+        }
+      ]
+    },
+    "248101402": {
+      "agents": [
+        {
+          "reward": 0,
+          "gmx": {}
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1285929.8886769572
+        },
+        {
+          "name": "long pnl",
+          "value": -576076.5965914064
+        },
+        {
+          "name": "short pnl",
+          "value": 1862006.4852683635
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17492293.796916183
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20419878.075333968
+        },
+        {
+          "name": "gm token value",
+          "value": 1.4213414763147616
+        },
+        {
+          "name": "index token price",
+          "value": 2526.98933
+        },
+        {
+          "name": "long token price",
+          "value": 2526.98933
+        },
+        {
+          "name": "short token price",
+          "value": 0.9998750432870445
+        },
+        {
+          "name": "Current trader pnl",
+          "value": 0
+        }
+      ]
+    },
+    "248101409": {
+      "agents": [
+        {
+          "reward": 0,
+          "gmx": {}
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1285929.8886769572
+        },
+        {
+          "name": "long pnl",
+          "value": -576076.5965914064
+        },
+        {
+          "name": "short pnl",
+          "value": 1862006.4852683635
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17492293.796916183
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20419878.075333968
+        },
+        {
+          "name": "gm token value",
+          "value": 1.4213414792936048
+        },
+        {
+          "name": "index token price",
+          "value": 2526.98933
+        },
+        {
+          "name": "long token price",
+          "value": 2526.98933
+        },
+        {
+          "name": "short token price",
+          "value": 0.9998750432870445
+        },
+        {
+          "name": "Current trader pnl",
+          "value": 0
+        }
+      ]
+    },
+    "248101425": {
+      "agents": [
+        {
+          "reward": 0,
+          "gmx": {}
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1285929.8886769572
+        },
+        {
+          "name": "long pnl",
+          "value": -576076.5965914064
+        },
+        {
+          "name": "short pnl",
+          "value": 1862006.4852683635
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17492293.796916183
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20419878.075333968
+        },
+        {
+          "name": "gm token value",
+          "value": 1.421402781881846
+        },
+        {
+          "name": "index token price",
+          "value": 2526.98933
+        },
+        {
+          "name": "long token price",
+          "value": 2526.98933
+        },
+        {
+          "name": "short token price",
+          "value": 0.9999311999999999
+        },
+        {
+          "name": "Current trader pnl",
+          "value": 0
+        }
+      ]
+    },
+    "248101434": {
+      "agents": [
+        {
+          "reward": 0,
+          "gmx": {}
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1285929.8886769572
+        },
+        {
+          "name": "long pnl",
+          "value": -576076.5965914064
+        },
+        {
+          "name": "short pnl",
+          "value": 1862006.4852683635
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17492293.796916183
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20419878.075333968
+        },
+        {
+          "name": "gm token value",
+          "value": 1.421402785711681
+        },
+        {
+          "name": "index token price",
+          "value": 2526.98933
+        },
+        {
+          "name": "long token price",
+          "value": 2526.98933
+        },
+        {
+          "name": "short token price",
+          "value": 0.9999311999999999
+        },
+        {
+          "name": "Current trader pnl",
+          "value": 0
+        }
+      ]
+    },
+    "248101435": {
+      "agents": [
+        {
+          "reward": 0,
+          "gmx": {
+            "actions": [
+              {
+                "type": "MARKET_INCREASE",
+                "market": "WETH:WETH:USDC",
+                "usd_value": 100000,
+                "leverage": 3,
+                "token_in_symbol": "WETH",
+                "collateral_symbol": "WETH",
+                "is_long": true,
+                "order_id": 3
+              }
+            ]
+          }
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1284942.1133367643
+        },
+        {
+          "name": "long pnl",
+          "value": -592488.8849340542
+        },
+        {
+          "name": "short pnl",
+          "value": 1877430.9982708185
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17475881.508573536
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20435302.588336423
+        },
+        {
+          "name": "gm token value",
+          "value": 1.4207321898443104
+        },
+        {
+          "name": "index token price",
+          "value": 2524.6365628378708
+        },
+        {
+          "name": "long token price",
+          "value": 2524.6365628378708
+        },
+        {
+          "name": "short token price",
+          "value": 0.9999269049999999
+        },
+        {
+          "name": "Current trader pnl",
+          "value": 0
+        }
+      ]
+    },
+    "248101439": {
+      "agents": [
+        {
+          "reward": 0,
+          "gmx": {}
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1284942.1133367643
+        },
+        {
+          "name": "long pnl",
+          "value": -592488.8849340542
+        },
+        {
+          "name": "short pnl",
+          "value": 1877430.9982708185
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17475881.508573536
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20435302.588336423
+        },
+        {
+          "name": "gm token value",
+          "value": 1.4207321915464592
+        },
+        {
+          "name": "index token price",
+          "value": 2524.6365628378708
+        },
+        {
+          "name": "long token price",
+          "value": 2524.6365628378708
+        },
+        {
+          "name": "short token price",
+          "value": 0.9999269049999999
+        },
+        {
+          "name": "Current trader pnl",
+          "value": 0
+        }
+      ]
+    },
+    "248101445": {
+      "agents": [
+        {
+          "reward": 0,
+          "gmx": {
+            "actions": [
+              {
+                "type": "EXECUTE_ORDER",
+                "order_id": 3
+              }
+            ],
+            "total_trader_pnl": -1.3051973581314087
+          }
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1284942.1133367643
+        },
+        {
+          "name": "long pnl",
+          "value": -592488.8849340542
+        },
+        {
+          "name": "short pnl",
+          "value": 1877430.9982708185
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17475881.508573536
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20435302.588336423
+        },
+        {
+          "name": "gm token value",
+          "value": 1.4207644491468188
+        },
+        {
+          "name": "index token price",
+          "value": 2524.6365628378708
+        },
+        {
+          "name": "long token price",
+          "value": 2524.6365628378708
+        },
+        {
+          "name": "short token price",
+          "value": 0.9999491728871063
+        },
+        {
+          "name": "Current trader pnl",
+          "value": 0
+        }
+      ]
+    },
+    "248101450": {
+      "agents": [
+        {
+          "reward": -1.3051973581314087,
+          "gmx": {
+            "total_trader_pnl": -1.3051973581314087
+          }
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1284944.7503439435
+        },
+        {
+          "name": "long pnl",
+          "value": -592486.2479268749
+        },
+        {
+          "name": "short pnl",
+          "value": 1877430.9982708185
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17575884.145580713
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20435302.588336423
+        },
+        {
+          "name": "gm token value",
+          "value": 1.42076499606164
+        },
+        {
+          "name": "index token price",
+          "value": 2524.6365628378708
+        },
+        {
+          "name": "long token price",
+          "value": 2524.6365628378708
+        },
+        {
+          "name": "short token price",
+          "value": 0.9999491728871063
+        },
+        {
+          "name": "Current trader pnl",
+          "value": -1.305197411734148
+        }
+      ]
+    },
+    "248101500": {
+      "agents": [
+        {
+          "reward": -1.3051973581314087,
+          "gmx": {
+            "total_trader_pnl": -1.3051973581314087
+          }
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1284944.7503439435
+        },
+        {
+          "name": "long pnl",
+          "value": -592486.2479268749
+        },
+        {
+          "name": "short pnl",
+          "value": 1877430.9982708185
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17575884.145580713
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20435302.588336423
+        },
+        {
+          "name": "gm token value",
+          "value": 1.4207650173385011
+        },
+        {
+          "name": "index token price",
+          "value": 2524.6365628378708
+        },
+        {
+          "name": "long token price",
+          "value": 2524.6365628378708
+        },
+        {
+          "name": "short token price",
+          "value": 0.9999491728871063
+        },
+        {
+          "name": "Current trader pnl",
+          "value": -1.305197411734148
+        }
+      ]
+    },
+    "248101549": {
+      "agents": [
+        {
+          "reward": -1.3051973581314087,
+          "gmx": {
+            "total_trader_pnl": -1.3051973581314087
+          }
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1284944.7503439435
+        },
+        {
+          "name": "long pnl",
+          "value": -592486.2479268749
+        },
+        {
+          "name": "short pnl",
+          "value": 1877430.9982708185
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17575884.145580713
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20435302.588336423
+        },
+        {
+          "name": "gm token value",
+          "value": 1.4207650381898251
+        },
+        {
+          "name": "index token price",
+          "value": 2524.6365628378708
+        },
+        {
+          "name": "long token price",
+          "value": 2524.6365628378708
+        },
+        {
+          "name": "short token price",
+          "value": 0.9999491728871063
+        },
+        {
+          "name": "Current trader pnl",
+          "value": -1.305197411734148
+        }
+      ]
+    },
+    "248101550": {
+      "agents": [
+        {
+          "reward": -1.3051973581314087,
+          "gmx": {
+            "total_trader_pnl": -1.3051973581314087
+          }
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1284944.7503439435
+        },
+        {
+          "name": "long pnl",
+          "value": -592486.2479268749
+        },
+        {
+          "name": "short pnl",
+          "value": 1877430.9982708185
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17575884.145580713
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20435302.588336423
+        },
+        {
+          "name": "gm token value",
+          "value": 1.4207650386153625
+        },
+        {
+          "name": "index token price",
+          "value": 2524.6365628378708
+        },
+        {
+          "name": "long token price",
+          "value": 2524.6365628378708
+        },
+        {
+          "name": "short token price",
+          "value": 0.9999491728871063
+        },
+        {
+          "name": "Current trader pnl",
+          "value": -1.305197411734148
+        }
+      ]
+    },
+    "248101556": {
+      "agents": [
+        {
+          "reward": -1.3051973581314087,
+          "gmx": {
+            "total_trader_pnl": -1.3051973581314087
+          }
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1284944.7503439435
+        },
+        {
+          "name": "long pnl",
+          "value": -592486.2479268749
+        },
+        {
+          "name": "short pnl",
+          "value": 1877430.9982708185
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17575884.145580713
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20435302.588336423
+        },
+        {
+          "name": "gm token value",
+          "value": 1.4207650411685857
+        },
+        {
+          "name": "index token price",
+          "value": 2524.6365628378708
+        },
+        {
+          "name": "long token price",
+          "value": 2524.6365628378708
+        },
+        {
+          "name": "short token price",
+          "value": 0.9999491728871063
+        },
+        {
+          "name": "Current trader pnl",
+          "value": -1.305197411734148
+        }
+      ]
+    },
+    "248101600": {
+      "agents": [
+        {
+          "reward": -1.3051973581314087,
+          "gmx": {
+            "total_trader_pnl": -1.3051973581314087
+          }
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1284944.7503439435
+        },
+        {
+          "name": "long pnl",
+          "value": -592486.2479268749
+        },
+        {
+          "name": "short pnl",
+          "value": 1877430.9982708185
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17575884.145580713
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20435302.588336423
+        },
+        {
+          "name": "gm token value",
+          "value": 1.4207179375651946
+        },
+        {
+          "name": "index token price",
+          "value": 2524.6365628378708
+        },
+        {
+          "name": "long token price",
+          "value": 2524.6365628378708
+        },
+        {
+          "name": "short token price",
+          "value": 0.999916641089709
+        },
+        {
+          "name": "Current trader pnl",
+          "value": -1.305197411734148
+        }
+      ]
+    },
+    "248101650": {
+      "agents": [
+        {
+          "reward": -1.3051973581314087,
+          "gmx": {
+            "total_trader_pnl": -1.3051973581314087
+          }
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1284944.7503439435
+        },
+        {
+          "name": "long pnl",
+          "value": -592486.2479268749
+        },
+        {
+          "name": "short pnl",
+          "value": 1877430.9982708185
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17575884.145580713
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20435302.588336423
+        },
+        {
+          "name": "gm token value",
+          "value": 1.420717958842056
+        },
+        {
+          "name": "index token price",
+          "value": 2524.6365628378708
+        },
+        {
+          "name": "long token price",
+          "value": 2524.6365628378708
+        },
+        {
+          "name": "short token price",
+          "value": 0.999916641089709
+        },
+        {
+          "name": "Current trader pnl",
+          "value": -1.305197411734148
+        }
+      ]
+    },
+    "248101657": {
+      "agents": [
+        {
+          "reward": -1.3051973581314087,
+          "gmx": {
+            "total_trader_pnl": -1.3051973581314087
+          }
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1284944.7503439435
+        },
+        {
+          "name": "long pnl",
+          "value": -592486.2479268749
+        },
+        {
+          "name": "short pnl",
+          "value": 1877430.9982708185
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17575884.145580713
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20435302.588336423
+        },
+        {
+          "name": "gm token value",
+          "value": 1.4207179618208166
+        },
+        {
+          "name": "index token price",
+          "value": 2524.6365628378708
+        },
+        {
+          "name": "long token price",
+          "value": 2524.6365628378708
+        },
+        {
+          "name": "short token price",
+          "value": 0.999916641089709
+        },
+        {
+          "name": "Current trader pnl",
+          "value": -1.305197411734148
+        }
+      ]
+    },
+    "248101700": {
+      "agents": [
+        {
+          "reward": -1.3051973581314087,
+          "gmx": {
+            "total_trader_pnl": -1.3051973581314087
+          }
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1284944.7503439435
+        },
+        {
+          "name": "long pnl",
+          "value": -592486.2479268749
+        },
+        {
+          "name": "short pnl",
+          "value": 1877430.9982708185
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17575884.145580713
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20435302.588336423
+        },
+        {
+          "name": "gm token value",
+          "value": 1.4207179801189171
+        },
+        {
+          "name": "index token price",
+          "value": 2524.6365628378708
+        },
+        {
+          "name": "long token price",
+          "value": 2524.6365628378708
+        },
+        {
+          "name": "short token price",
+          "value": 0.999916641089709
+        },
+        {
+          "name": "Current trader pnl",
+          "value": -1.305197411734148
+        }
+      ]
+    },
+    "248101750": {
+      "agents": [
+        {
+          "reward": -1.3051973581314087,
+          "gmx": {
+            "total_trader_pnl": -1.3051973581314087
+          }
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1284944.7503439435
+        },
+        {
+          "name": "long pnl",
+          "value": -592486.2479268749
+        },
+        {
+          "name": "short pnl",
+          "value": 1877430.9982708185
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17575884.145580713
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20435302.588336423
+        },
+        {
+          "name": "gm token value",
+          "value": 1.4207180013957785
+        },
+        {
+          "name": "index token price",
+          "value": 2524.6365628378708
+        },
+        {
+          "name": "long token price",
+          "value": 2524.6365628378708
+        },
+        {
+          "name": "short token price",
+          "value": 0.999916641089709
+        },
+        {
+          "name": "Current trader pnl",
+          "value": -1.305197411734148
+        }
+      ]
+    },
+    "248101800": {
+      "agents": [
+        {
+          "reward": -1.3051973581314087,
+          "gmx": {
+            "total_trader_pnl": -1.3051973581314087
+          }
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1284944.7503439435
+        },
+        {
+          "name": "long pnl",
+          "value": -592486.2479268749
+        },
+        {
+          "name": "short pnl",
+          "value": 1877430.9982708185
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17575884.145580713
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20435302.588336423
+        },
+        {
+          "name": "gm token value",
+          "value": 1.4207180226726397
+        },
+        {
+          "name": "index token price",
+          "value": 2524.6365628378708
+        },
+        {
+          "name": "long token price",
+          "value": 2524.6365628378708
+        },
+        {
+          "name": "short token price",
+          "value": 0.999916641089709
+        },
+        {
+          "name": "Current trader pnl",
+          "value": -1.305197411734148
+        }
+      ]
+    },
+    "248101850": {
+      "agents": [
+        {
+          "reward": -1.3051973581314087,
+          "gmx": {
+            "total_trader_pnl": -1.3051973581314087
+          }
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1284944.7503439435
+        },
+        {
+          "name": "long pnl",
+          "value": -592486.2479268749
+        },
+        {
+          "name": "short pnl",
+          "value": 1877430.9982708185
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17575884.145580713
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20435302.588336423
+        },
+        {
+          "name": "gm token value",
+          "value": 1.420718043949501
+        },
+        {
+          "name": "index token price",
+          "value": 2524.6365628378708
+        },
+        {
+          "name": "long token price",
+          "value": 2524.6365628378708
+        },
+        {
+          "name": "short token price",
+          "value": 0.999916641089709
+        },
+        {
+          "name": "Current trader pnl",
+          "value": -1.305197411734148
+        }
+      ]
+    },
+    "248101898": {
+      "agents": [
+        {
+          "reward": -1.3051973581314087,
+          "gmx": {
+            "total_trader_pnl": -1.3051973581314087
+          }
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1284944.7503439435
+        },
+        {
+          "name": "long pnl",
+          "value": -592486.2479268749
+        },
+        {
+          "name": "short pnl",
+          "value": 1877430.9982708185
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17575884.145580713
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20435302.588336423
+        },
+        {
+          "name": "gm token value",
+          "value": 1.420718064375288
+        },
+        {
+          "name": "index token price",
+          "value": 2524.6365628378708
+        },
+        {
+          "name": "long token price",
+          "value": 2524.6365628378708
+        },
+        {
+          "name": "short token price",
+          "value": 0.999916641089709
+        },
+        {
+          "name": "Current trader pnl",
+          "value": -1.305197411734148
+        }
+      ]
+    },
+    "248101900": {
+      "agents": [
+        {
+          "reward": -1.3051973581314087,
+          "gmx": {
+            "total_trader_pnl": -1.3051973581314087
+          }
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1284944.7503439435
+        },
+        {
+          "name": "long pnl",
+          "value": -592486.2479268749
+        },
+        {
+          "name": "short pnl",
+          "value": 1877430.9982708185
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17575884.145580713
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20435302.588336423
+        },
+        {
+          "name": "gm token value",
+          "value": 1.4207180652263625
+        },
+        {
+          "name": "index token price",
+          "value": 2524.6365628378708
+        },
+        {
+          "name": "long token price",
+          "value": 2524.6365628378708
+        },
+        {
+          "name": "short token price",
+          "value": 0.999916641089709
+        },
+        {
+          "name": "Current trader pnl",
+          "value": -1.305197411734148
+        }
+      ]
+    },
+    "248101906": {
+      "agents": [
+        {
+          "reward": -1.3051973581314087,
+          "gmx": {
+            "total_trader_pnl": -1.3051973581314087
+          }
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1284944.7503439435
+        },
+        {
+          "name": "long pnl",
+          "value": -592486.2479268749
+        },
+        {
+          "name": "short pnl",
+          "value": 1877430.9982708185
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17575884.145580713
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20435302.588336423
+        },
+        {
+          "name": "gm token value",
+          "value": 1.4207180677795856
+        },
+        {
+          "name": "index token price",
+          "value": 2524.6365628378708
+        },
+        {
+          "name": "long token price",
+          "value": 2524.6365628378708
+        },
+        {
+          "name": "short token price",
+          "value": 0.999916641089709
+        },
+        {
+          "name": "Current trader pnl",
+          "value": -1.305197411734148
+        }
+      ]
+    },
+    "248101913": {
+      "agents": [
+        {
+          "reward": -1.3051973581314087,
+          "gmx": {
+            "total_trader_pnl": -1.3051973581314087
+          }
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1284944.7503439435
+        },
+        {
+          "name": "long pnl",
+          "value": -592486.2479268749
+        },
+        {
+          "name": "short pnl",
+          "value": 1877430.9982708185
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17575884.145580713
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20435302.588336423
+        },
+        {
+          "name": "gm token value",
+          "value": 1.4207022818952624
+        },
+        {
+          "name": "index token price",
+          "value": 2524.6365628378708
+        },
+        {
+          "name": "long token price",
+          "value": 2524.6365628378708
+        },
+        {
+          "name": "short token price",
+          "value": 0.9999007409455094
+        },
+        {
+          "name": "Current trader pnl",
+          "value": -1.305197411734148
+        }
+      ]
+    },
+    "248101942": {
+      "agents": [
+        {
+          "reward": -1.3051973581314087,
+          "gmx": {
+            "total_trader_pnl": -1.3051973581314087
+          }
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1284944.7503439435
+        },
+        {
+          "name": "long pnl",
+          "value": -592486.2479268749
+        },
+        {
+          "name": "short pnl",
+          "value": 1877430.9982708185
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17575884.145580713
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20435302.588336423
+        },
+        {
+          "name": "gm token value",
+          "value": 1.4207022942359653
+        },
+        {
+          "name": "index token price",
+          "value": 2524.6365628378708
+        },
+        {
+          "name": "long token price",
+          "value": 2524.6365628378708
+        },
+        {
+          "name": "short token price",
+          "value": 0.9999007409455094
+        },
+        {
+          "name": "Current trader pnl",
+          "value": -1.305197411734148
+        }
+      ]
+    },
+    "248101949": {
+      "agents": [
+        {
+          "reward": -1.3051973581314087,
+          "gmx": {
+            "total_trader_pnl": -1.3051973581314087
+          }
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1284944.7503439435
+        },
+        {
+          "name": "long pnl",
+          "value": -592486.2479268749
+        },
+        {
+          "name": "short pnl",
+          "value": 1877430.9982708185
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17575884.145580713
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20435302.588336423
+        },
+        {
+          "name": "gm token value",
+          "value": 1.4207022972147556
+        },
+        {
+          "name": "index token price",
+          "value": 2524.6365628378708
+        },
+        {
+          "name": "long token price",
+          "value": 2524.6365628378708
+        },
+        {
+          "name": "short token price",
+          "value": 0.9999007409455094
+        },
+        {
+          "name": "Current trader pnl",
+          "value": -1.305197411734148
+        }
+      ]
+    },
+    "248101950": {
+      "agents": [
+        {
+          "reward": 30.99669647216797,
+          "gmx": {
+            "total_trader_pnl": 30.99669647216797
+          }
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1285332.549275504
+        },
+        {
+          "name": "long pnl",
+          "value": -586710.2804036826
+        },
+        {
+          "name": "short pnl",
+          "value": 1872042.8296791865
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17594678.539889894
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20429914.419744793
+        },
+        {
+          "name": "gm token value",
+          "value": 1.4209693268259642
+        },
+        {
+          "name": "index token price",
+          "value": 2525.458828485942
+        },
+        {
+          "name": "long token price",
+          "value": 2525.458828485942
+        },
+        {
+          "name": "short token price",
+          "value": 0.9999338741624536
+        },
+        {
+          "name": "Current trader pnl",
+          "value": 30.996696748336216
+        }
+      ]
+    },
+    "248102000": {
+      "agents": [
+        {
+          "reward": 30.99669647216797,
+          "gmx": {
+            "total_trader_pnl": 30.99669647216797
+          }
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1285332.549275504
+        },
+        {
+          "name": "long pnl",
+          "value": -586710.2804036826
+        },
+        {
+          "name": "short pnl",
+          "value": 1872042.8296791865
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17594678.539889894
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20429914.419744793
+        },
+        {
+          "name": "gm token value",
+          "value": 1.4209693481026606
+        },
+        {
+          "name": "index token price",
+          "value": 2525.458828485942
+        },
+        {
+          "name": "long token price",
+          "value": 2525.458828485942
+        },
+        {
+          "name": "short token price",
+          "value": 0.9999338741624536
+        },
+        {
+          "name": "Current trader pnl",
+          "value": 30.996696748336216
+        }
+      ]
+    },
+    "248102050": {
+      "agents": [
+        {
+          "reward": 30.99669647216797,
+          "gmx": {
+            "total_trader_pnl": 30.99669647216797
+          }
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1285332.549275504
+        },
+        {
+          "name": "long pnl",
+          "value": -586710.2804036826
+        },
+        {
+          "name": "short pnl",
+          "value": 1872042.8296791865
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17594678.539889894
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20429914.419744793
+        },
+        {
+          "name": "gm token value",
+          "value": 1.420969369379357
+        },
+        {
+          "name": "index token price",
+          "value": 2525.458828485942
+        },
+        {
+          "name": "long token price",
+          "value": 2525.458828485942
+        },
+        {
+          "name": "short token price",
+          "value": 0.9999338741624536
+        },
+        {
+          "name": "Current trader pnl",
+          "value": 30.996696748336216
+        }
+      ]
+    },
+    "248102100": {
+      "agents": [
+        {
+          "reward": 30.99669647216797,
+          "gmx": {
+            "total_trader_pnl": 30.99669647216797
+          }
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1285332.549275504
+        },
+        {
+          "name": "long pnl",
+          "value": -586710.2804036826
+        },
+        {
+          "name": "short pnl",
+          "value": 1872042.8296791865
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17594678.539889894
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20429914.419744793
+        },
+        {
+          "name": "gm token value",
+          "value": 1.4209693906560534
+        },
+        {
+          "name": "index token price",
+          "value": 2525.458828485942
+        },
+        {
+          "name": "long token price",
+          "value": 2525.458828485942
+        },
+        {
+          "name": "short token price",
+          "value": 0.9999338741624536
+        },
+        {
+          "name": "Current trader pnl",
+          "value": 30.996696748336216
+        }
+      ]
+    },
+    "248102138": {
+      "agents": [
+        {
+          "reward": 30.99669647216797,
+          "gmx": {
+            "total_trader_pnl": 30.99669647216797
+          }
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1285332.549275504
+        },
+        {
+          "name": "long pnl",
+          "value": -586710.2804036826
+        },
+        {
+          "name": "short pnl",
+          "value": 1872042.8296791865
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17594678.539889894
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20429914.419744793
+        },
+        {
+          "name": "gm token value",
+          "value": 1.4209694068263428
+        },
+        {
+          "name": "index token price",
+          "value": 2525.458828485942
+        },
+        {
+          "name": "long token price",
+          "value": 2525.458828485942
+        },
+        {
+          "name": "short token price",
+          "value": 0.9999338741624536
+        },
+        {
+          "name": "Current trader pnl",
+          "value": 30.996696748336216
+        }
+      ]
+    },
+    "248102149": {
+      "agents": [
+        {
+          "reward": 30.99669647216797,
+          "gmx": {
+            "total_trader_pnl": 30.99669647216797
+          }
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1285332.549275504
+        },
+        {
+          "name": "long pnl",
+          "value": -586710.2804036826
+        },
+        {
+          "name": "short pnl",
+          "value": 1872042.8296791865
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17594678.539889894
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20429914.419744793
+        },
+        {
+          "name": "gm token value",
+          "value": 1.420969411507216
+        },
+        {
+          "name": "index token price",
+          "value": 2525.458828485942
+        },
+        {
+          "name": "long token price",
+          "value": 2525.458828485942
+        },
+        {
+          "name": "short token price",
+          "value": 0.9999338741624536
+        },
+        {
+          "name": "Current trader pnl",
+          "value": 30.996696748336216
+        }
+      ]
+    },
+    "248102150": {
+      "agents": [
+        {
+          "reward": 30.99669647216797,
+          "gmx": {
+            "total_trader_pnl": 30.99669647216797
+          }
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1285332.549275504
+        },
+        {
+          "name": "long pnl",
+          "value": -586710.2804036826
+        },
+        {
+          "name": "short pnl",
+          "value": 1872042.8296791865
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17594678.539889894
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20429914.419744793
+        },
+        {
+          "name": "gm token value",
+          "value": 1.4209694119320428
+        },
+        {
+          "name": "index token price",
+          "value": 2525.458828485942
+        },
+        {
+          "name": "long token price",
+          "value": 2525.458828485942
+        },
+        {
+          "name": "short token price",
+          "value": 0.9999380277334
+        },
+        {
+          "name": "Current trader pnl",
+          "value": 30.996696748336216
+        }
+      ]
+    },
+    "248102177": {
+      "agents": [
+        {
+          "reward": 30.99669647216797,
+          "gmx": {
+            "total_trader_pnl": 30.99669647216797
+          }
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1285332.549275504
+        },
+        {
+          "name": "long pnl",
+          "value": -586710.2804036826
+        },
+        {
+          "name": "short pnl",
+          "value": 1872042.8296791865
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17594678.539889894
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20429914.419744793
+        },
+        {
+          "name": "gm token value",
+          "value": 1.4209694234213635
+        },
+        {
+          "name": "index token price",
+          "value": 2525.458828485942
+        },
+        {
+          "name": "long token price",
+          "value": 2525.458828485942
+        },
+        {
+          "name": "short token price",
+          "value": 0.9999380277334
+        },
+        {
+          "name": "Current trader pnl",
+          "value": 30.996696748336216
+        }
+      ]
+    },
+    "248102200": {
+      "agents": [
+        {
+          "reward": 30.99669647216797,
+          "gmx": {
+            "total_trader_pnl": 30.99669647216797
+          }
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1285332.549275504
+        },
+        {
+          "name": "long pnl",
+          "value": -586710.2804036826
+        },
+        {
+          "name": "short pnl",
+          "value": 1872042.8296791865
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17594678.539889894
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20429914.419744793
+        },
+        {
+          "name": "gm token value",
+          "value": 1.4210531565440772
+        },
+        {
+          "name": "index token price",
+          "value": 2525.458828485942
+        },
+        {
+          "name": "long token price",
+          "value": 2525.458828485942
+        },
+        {
+          "name": "short token price",
+          "value": 0.9999833898268338
+        },
+        {
+          "name": "Current trader pnl",
+          "value": 30.996696748336216
+        }
+      ]
+    },
+    "248102235": {
+      "agents": [
+        {
+          "reward": 30.99669647216797,
+          "gmx": {
+            "total_trader_pnl": 30.99669647216797
+          }
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1285332.549275504
+        },
+        {
+          "name": "long pnl",
+          "value": -586710.2804036826
+        },
+        {
+          "name": "short pnl",
+          "value": 1872042.8296791865
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17594678.539889894
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20429914.419744793
+        },
+        {
+          "name": "gm token value",
+          "value": 1.4210531714380115
+        },
+        {
+          "name": "index token price",
+          "value": 2525.458828485942
+        },
+        {
+          "name": "long token price",
+          "value": 2525.458828485942
+        },
+        {
+          "name": "short token price",
+          "value": 0.9999833898268338
+        },
+        {
+          "name": "Current trader pnl",
+          "value": 30.996696748336216
+        }
+      ]
+    },
+    "248102240": {
+      "agents": [
+        {
+          "reward": 30.99669647216797,
+          "gmx": {
+            "total_trader_pnl": 30.99669647216797
+          }
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1285332.549275504
+        },
+        {
+          "name": "long pnl",
+          "value": -586710.2804036826
+        },
+        {
+          "name": "short pnl",
+          "value": 1872042.8296791865
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17594678.539889894
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20429914.419744793
+        },
+        {
+          "name": "gm token value",
+          "value": 1.4210531735657164
+        },
+        {
+          "name": "index token price",
+          "value": 2525.458828485942
+        },
+        {
+          "name": "long token price",
+          "value": 2525.458828485942
+        },
+        {
+          "name": "short token price",
+          "value": 0.9999833898268338
+        },
+        {
+          "name": "Current trader pnl",
+          "value": 30.996696748336216
+        }
+      ]
+    },
+    "248102250": {
+      "agents": [
+        {
+          "reward": -69.69786071777344,
+          "gmx": {
+            "total_trader_pnl": -69.69786071777344
+          }
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1286420.2746218934
+        },
+        {
+          "name": "long pnl",
+          "value": -602419.0696839304
+        },
+        {
+          "name": "short pnl",
+          "value": 1888839.3443058238
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17578969.750609647
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20446710.93437143
+        },
+        {
+          "name": "gm token value",
+          "value": 1.4203393345052417
+        },
+        {
+          "name": "index token price",
+          "value": 2523.060342440539
+        },
+        {
+          "name": "long token price",
+          "value": 2523.060342440539
+        },
+        {
+          "name": "short token price",
+          "value": 0.9998961314464663
+        },
+        {
+          "name": "Current trader pnl",
+          "value": -69.6978580898931
+        }
+      ]
+    },
+    "248102300": {
+      "agents": [
+        {
+          "reward": -69.69786071777344,
+          "gmx": {
+            "total_trader_pnl": -69.69786071777344
+          }
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1286420.2746218934
+        },
+        {
+          "name": "long pnl",
+          "value": -602419.0696839304
+        },
+        {
+          "name": "short pnl",
+          "value": 1888839.3443058238
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17578969.750609647
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20446710.93437143
+        },
+        {
+          "name": "gm token value",
+          "value": 1.4203393557825286
+        },
+        {
+          "name": "index token price",
+          "value": 2523.060342440539
+        },
+        {
+          "name": "long token price",
+          "value": 2523.060342440539
+        },
+        {
+          "name": "short token price",
+          "value": 0.9998961314464663
+        },
+        {
+          "name": "Current trader pnl",
+          "value": -69.6978580898931
+        }
+      ]
+    },
+    "248102350": {
+      "agents": [
+        {
+          "reward": -69.69786071777344,
+          "gmx": {
+            "total_trader_pnl": -69.69786071777344
+          }
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1286420.2746218934
+        },
+        {
+          "name": "long pnl",
+          "value": -602419.0696839304
+        },
+        {
+          "name": "short pnl",
+          "value": 1888839.3443058238
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17578969.750609647
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20446710.93437143
+        },
+        {
+          "name": "gm token value",
+          "value": 1.4203393770598156
+        },
+        {
+          "name": "index token price",
+          "value": 2523.060342440539
+        },
+        {
+          "name": "long token price",
+          "value": 2523.060342440539
+        },
+        {
+          "name": "short token price",
+          "value": 0.9998961314464663
+        },
+        {
+          "name": "Current trader pnl",
+          "value": -69.6978580898931
+        }
+      ]
+    },
+    "248102369": {
+      "agents": [
+        {
+          "reward": -69.69786071777344,
+          "gmx": {
+            "total_trader_pnl": -69.69786071777344
+          }
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1286420.2746218934
+        },
+        {
+          "name": "long pnl",
+          "value": -602419.0696839304
+        },
+        {
+          "name": "short pnl",
+          "value": 1888839.3443058238
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17578969.750609647
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20446710.93437143
+        },
+        {
+          "name": "gm token value",
+          "value": 1.4203393851451844
+        },
+        {
+          "name": "index token price",
+          "value": 2523.060342440539
+        },
+        {
+          "name": "long token price",
+          "value": 2523.060342440539
+        },
+        {
+          "name": "short token price",
+          "value": 0.9998961314464663
+        },
+        {
+          "name": "Current trader pnl",
+          "value": -69.6978580898931
+        }
+      ]
+    },
+    "248102400": {
+      "agents": [
+        {
+          "reward": -69.69786071777344,
+          "gmx": {
+            "total_trader_pnl": -69.69786071777344
+          }
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1286420.2746218934
+        },
+        {
+          "name": "long pnl",
+          "value": -602419.0696839304
+        },
+        {
+          "name": "short pnl",
+          "value": 1888839.3443058238
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17578969.750609647
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20446710.93437143
+        },
+        {
+          "name": "gm token value",
+          "value": 1.4203393983371024
+        },
+        {
+          "name": "index token price",
+          "value": 2523.060342440539
+        },
+        {
+          "name": "long token price",
+          "value": 2523.060342440539
+        },
+        {
+          "name": "short token price",
+          "value": 0.9998961314464663
+        },
+        {
+          "name": "Current trader pnl",
+          "value": -69.6978580898931
+        }
+      ]
+    },
+    "248102450": {
+      "agents": [
+        {
+          "reward": -69.69786071777344,
+          "gmx": {
+            "total_trader_pnl": -69.69786071777344
+          }
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1286420.2746218934
+        },
+        {
+          "name": "long pnl",
+          "value": -602419.0696839304
+        },
+        {
+          "name": "short pnl",
+          "value": 1888839.3443058238
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17578969.750609647
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20446710.93437143
+        },
+        {
+          "name": "gm token value",
+          "value": 1.4203394196143893
+        },
+        {
+          "name": "index token price",
+          "value": 2523.060342440539
+        },
+        {
+          "name": "long token price",
+          "value": 2523.060342440539
+        },
+        {
+          "name": "short token price",
+          "value": 0.9998961314464663
+        },
+        {
+          "name": "Current trader pnl",
+          "value": -69.6978580898931
+        }
+      ]
+    },
+    "248102500": {
+      "agents": [
+        {
+          "reward": -69.69786071777344,
+          "gmx": {
+            "total_trader_pnl": -69.69786071777344
+          }
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1286420.2746218934
+        },
+        {
+          "name": "long pnl",
+          "value": -602419.0696839304
+        },
+        {
+          "name": "short pnl",
+          "value": 1888839.3443058238
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17578969.750609647
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20446710.93437143
+        },
+        {
+          "name": "gm token value",
+          "value": 1.420339440891676
+        },
+        {
+          "name": "index token price",
+          "value": 2523.060342440539
+        },
+        {
+          "name": "long token price",
+          "value": 2523.060342440539
+        },
+        {
+          "name": "short token price",
+          "value": 0.9998961314464663
+        },
+        {
+          "name": "Current trader pnl",
+          "value": -69.6978580898931
+        }
+      ]
+    },
+    "248102550": {
+      "agents": [
+        {
+          "reward": -69.69786071777344,
+          "gmx": {
+            "total_trader_pnl": -69.69786071777344
+          }
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1286420.2746218934
+        },
+        {
+          "name": "long pnl",
+          "value": -602419.0696839304
+        },
+        {
+          "name": "short pnl",
+          "value": 1888839.3443058238
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17578969.750609647
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20446710.93437143
+        },
+        {
+          "name": "gm token value",
+          "value": 1.4203394621689631
+        },
+        {
+          "name": "index token price",
+          "value": 2523.060342440539
+        },
+        {
+          "name": "long token price",
+          "value": 2523.060342440539
+        },
+        {
+          "name": "short token price",
+          "value": 0.9998961314464663
+        },
+        {
+          "name": "Current trader pnl",
+          "value": -69.6978580898931
+        }
+      ]
+    },
+    "248102600": {
+      "agents": [
+        {
+          "reward": -69.69786071777344,
+          "gmx": {
+            "total_trader_pnl": -69.69786071777344
+          }
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1286420.2746218934
+        },
+        {
+          "name": "long pnl",
+          "value": -602419.0696839304
+        },
+        {
+          "name": "short pnl",
+          "value": 1888839.3443058238
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17578969.750609647
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20446710.93437143
+        },
+        {
+          "name": "gm token value",
+          "value": 1.42033948344625
+        },
+        {
+          "name": "index token price",
+          "value": 2523.060342440539
+        },
+        {
+          "name": "long token price",
+          "value": 2523.060342440539
+        },
+        {
+          "name": "short token price",
+          "value": 0.9998961314464663
+        },
+        {
+          "name": "Current trader pnl",
+          "value": -69.6978580898931
+        }
+      ]
+    },
+    "248102650": {
+      "agents": [
+        {
+          "reward": -69.69786071777344,
+          "gmx": {
+            "total_trader_pnl": -69.69786071777344
+          }
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1286420.2746218934
+        },
+        {
+          "name": "long pnl",
+          "value": -602419.0696839304
+        },
+        {
+          "name": "short pnl",
+          "value": 1888839.3443058238
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17578969.750609647
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20446710.93437143
+        },
+        {
+          "name": "gm token value",
+          "value": 1.4203395047235368
+        },
+        {
+          "name": "index token price",
+          "value": 2523.060342440539
+        },
+        {
+          "name": "long token price",
+          "value": 2523.060342440539
+        },
+        {
+          "name": "short token price",
+          "value": 0.9998961314464663
+        },
+        {
+          "name": "Current trader pnl",
+          "value": -69.6978580898931
+        }
+      ]
+    },
+    "248102700": {
+      "agents": [
+        {
+          "reward": -69.69786071777344,
+          "gmx": {
+            "total_trader_pnl": -69.69786071777344
+          }
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1286420.2746218934
+        },
+        {
+          "name": "long pnl",
+          "value": -602419.0696839304
+        },
+        {
+          "name": "short pnl",
+          "value": 1888839.3443058238
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17578969.750609647
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20446710.93437143
+        },
+        {
+          "name": "gm token value",
+          "value": 1.4203395260008236
+        },
+        {
+          "name": "index token price",
+          "value": 2523.060342440539
+        },
+        {
+          "name": "long token price",
+          "value": 2523.060342440539
+        },
+        {
+          "name": "short token price",
+          "value": 0.9998961314464663
+        },
+        {
+          "name": "Current trader pnl",
+          "value": -69.6978580898931
+        }
+      ]
+    },
+    "248102750": {
+      "agents": [
+        {
+          "reward": -69.69786071777344,
+          "gmx": {
+            "total_trader_pnl": -69.69786071777344
+          }
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1286420.2746218934
+        },
+        {
+          "name": "long pnl",
+          "value": -602419.0696839304
+        },
+        {
+          "name": "short pnl",
+          "value": 1888839.3443058238
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17578969.750609647
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20446710.93437143
+        },
+        {
+          "name": "gm token value",
+          "value": 1.4203395472781106
+        },
+        {
+          "name": "index token price",
+          "value": 2523.060342440539
+        },
+        {
+          "name": "long token price",
+          "value": 2523.060342440539
+        },
+        {
+          "name": "short token price",
+          "value": 0.9998961314464663
+        },
+        {
+          "name": "Current trader pnl",
+          "value": -69.6978580898931
+        }
+      ]
+    },
+    "248102800": {
+      "agents": [
+        {
+          "reward": -69.69786071777344,
+          "gmx": {
+            "total_trader_pnl": -69.69786071777344
+          }
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1286420.2746218934
+        },
+        {
+          "name": "long pnl",
+          "value": -602419.0696839304
+        },
+        {
+          "name": "short pnl",
+          "value": 1888839.3443058238
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17578969.750609647
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20446710.93437143
+        },
+        {
+          "name": "gm token value",
+          "value": 1.4203395685553974
+        },
+        {
+          "name": "index token price",
+          "value": 2523.060342440539
+        },
+        {
+          "name": "long token price",
+          "value": 2523.060342440539
+        },
+        {
+          "name": "short token price",
+          "value": 0.9998961314464663
+        },
+        {
+          "name": "Current trader pnl",
+          "value": -69.6978580898931
+        }
+      ]
+    },
+    "248102850": {
+      "agents": [
+        {
+          "reward": -69.69786071777344,
+          "gmx": {
+            "total_trader_pnl": -69.69786071777344
+          }
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1286420.2746218934
+        },
+        {
+          "name": "long pnl",
+          "value": -602419.0696839304
+        },
+        {
+          "name": "short pnl",
+          "value": 1888839.3443058238
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17578969.750609647
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20446710.93437143
+        },
+        {
+          "name": "gm token value",
+          "value": 1.4203395898326843
+        },
+        {
+          "name": "index token price",
+          "value": 2523.060342440539
+        },
+        {
+          "name": "long token price",
+          "value": 2523.060342440539
+        },
+        {
+          "name": "short token price",
+          "value": 0.9998961314464663
+        },
+        {
+          "name": "Current trader pnl",
+          "value": -69.6978580898931
+        }
+      ]
+    },
+    "248102885": {
+      "agents": [
+        {
+          "reward": -69.69786071777344,
+          "gmx": {
+            "total_trader_pnl": -69.69786071777344
+          }
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1286420.2746218934
+        },
+        {
+          "name": "long pnl",
+          "value": -602419.0696839304
+        },
+        {
+          "name": "short pnl",
+          "value": 1888839.3443058238
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17578969.750609647
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20446710.93437143
+        },
+        {
+          "name": "gm token value",
+          "value": 1.420339604726785
+        },
+        {
+          "name": "index token price",
+          "value": 2523.060342440539
+        },
+        {
+          "name": "long token price",
+          "value": 2523.060342440539
+        },
+        {
+          "name": "short token price",
+          "value": 0.9998961314464663
+        },
+        {
+          "name": "Current trader pnl",
+          "value": -69.6978580898931
+        }
+      ]
+    },
+    "248102900": {
+      "agents": [
+        {
+          "reward": -69.69786071777344,
+          "gmx": {
+            "total_trader_pnl": -69.69786071777344
+          }
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1286420.2746218934
+        },
+        {
+          "name": "long pnl",
+          "value": -602419.0696839304
+        },
+        {
+          "name": "short pnl",
+          "value": 1888839.3443058238
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17578969.750609647
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20446710.93437143
+        },
+        {
+          "name": "gm token value",
+          "value": 1.4203396111099713
+        },
+        {
+          "name": "index token price",
+          "value": 2523.060342440539
+        },
+        {
+          "name": "long token price",
+          "value": 2523.060342440539
+        },
+        {
+          "name": "short token price",
+          "value": 0.9998961314464663
+        },
+        {
+          "name": "Current trader pnl",
+          "value": -69.6978580898931
+        }
+      ]
+    },
+    "248102950": {
+      "agents": [
+        {
+          "reward": -69.69786071777344,
+          "gmx": {
+            "total_trader_pnl": -69.69786071777344
+          }
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1286420.2746218934
+        },
+        {
+          "name": "long pnl",
+          "value": -602419.0696839304
+        },
+        {
+          "name": "short pnl",
+          "value": 1888839.3443058238
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17578969.750609647
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20446710.93437143
+        },
+        {
+          "name": "gm token value",
+          "value": 1.4203396323872581
+        },
+        {
+          "name": "index token price",
+          "value": 2523.060342440539
+        },
+        {
+          "name": "long token price",
+          "value": 2523.060342440539
+        },
+        {
+          "name": "short token price",
+          "value": 0.9998961314464663
+        },
+        {
+          "name": "Current trader pnl",
+          "value": -69.6978580898931
+        }
+      ]
+    },
+    "248103000": {
+      "agents": [
+        {
+          "reward": -69.69786071777344,
+          "gmx": {
+            "total_trader_pnl": -69.69786071777344
+          }
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1286420.2746218934
+        },
+        {
+          "name": "long pnl",
+          "value": -602419.0696839304
+        },
+        {
+          "name": "short pnl",
+          "value": 1888839.3443058238
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17578969.750609647
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20446710.93437143
+        },
+        {
+          "name": "gm token value",
+          "value": 1.420339653664545
+        },
+        {
+          "name": "index token price",
+          "value": 2523.060342440539
+        },
+        {
+          "name": "long token price",
+          "value": 2523.060342440539
+        },
+        {
+          "name": "short token price",
+          "value": 0.9998961314464663
+        },
+        {
+          "name": "Current trader pnl",
+          "value": -69.6978580898931
+        }
+      ]
+    },
+    "248103002": {
+      "agents": [
+        {
+          "reward": -69.69786071777344,
+          "gmx": {
+            "total_trader_pnl": -69.69786071777344
+          }
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1286420.2746218934
+        },
+        {
+          "name": "long pnl",
+          "value": -602419.0696839304
+        },
+        {
+          "name": "short pnl",
+          "value": 1888839.3443058238
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17578969.750609647
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20446710.93437143
+        },
+        {
+          "name": "gm token value",
+          "value": 1.4203396545156364
+        },
+        {
+          "name": "index token price",
+          "value": 2523.060342440539
+        },
+        {
+          "name": "long token price",
+          "value": 2523.060342440539
+        },
+        {
+          "name": "short token price",
+          "value": 0.9998961314464663
+        },
+        {
+          "name": "Current trader pnl",
+          "value": -69.6978580898931
+        }
+      ]
+    },
+    "248103008": {
+      "agents": [
+        {
+          "reward": -69.69786071777344,
+          "gmx": {
+            "total_trader_pnl": -69.69786071777344
+          }
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1286420.2746218934
+        },
+        {
+          "name": "long pnl",
+          "value": -602419.0696839304
+        },
+        {
+          "name": "short pnl",
+          "value": 1888839.3443058238
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17578969.750609647
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20446710.93437143
+        },
+        {
+          "name": "gm token value",
+          "value": 1.4203396570689109
+        },
+        {
+          "name": "index token price",
+          "value": 2523.060342440539
+        },
+        {
+          "name": "long token price",
+          "value": 2523.060342440539
+        },
+        {
+          "name": "short token price",
+          "value": 0.9998961314464663
+        },
+        {
+          "name": "Current trader pnl",
+          "value": -69.6978580898931
+        }
+      ]
+    },
+    "248103050": {
+      "agents": [
+        {
+          "reward": -69.69786071777344,
+          "gmx": {
+            "total_trader_pnl": -69.69786071777344
+          }
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1286420.2746218934
+        },
+        {
+          "name": "long pnl",
+          "value": -602419.0696839304
+        },
+        {
+          "name": "short pnl",
+          "value": 1888839.3443058238
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17578969.750609647
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20446710.93437143
+        },
+        {
+          "name": "gm token value",
+          "value": 1.4203354900665226
+        },
+        {
+          "name": "index token price",
+          "value": 2523.060342440539
+        },
+        {
+          "name": "long token price",
+          "value": 2523.060342440539
+        },
+        {
+          "name": "short token price",
+          "value": 0.9998964779460121
+        },
+        {
+          "name": "Current trader pnl",
+          "value": -69.6978580898931
+        }
+      ]
+    },
+    "248103067": {
+      "agents": [
+        {
+          "reward": -69.69786071777344,
+          "gmx": {
+            "total_trader_pnl": -69.69786071777344
+          }
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1286420.2746218934
+        },
+        {
+          "name": "long pnl",
+          "value": -602419.0696839304
+        },
+        {
+          "name": "short pnl",
+          "value": 1888839.3443058238
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17578969.750609647
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20446710.93437143
+        },
+        {
+          "name": "gm token value",
+          "value": 1.4203354973007534
+        },
+        {
+          "name": "index token price",
+          "value": 2523.060342440539
+        },
+        {
+          "name": "long token price",
+          "value": 2523.060342440539
+        },
+        {
+          "name": "short token price",
+          "value": 0.9998964779460121
+        },
+        {
+          "name": "Current trader pnl",
+          "value": -69.6978580898931
+        }
+      ]
+    },
+    "248103094": {
+      "agents": [
+        {
+          "reward": -69.69786071777344,
+          "gmx": {
+            "total_trader_pnl": -69.69786071777344
+          }
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1286420.2746218934
+        },
+        {
+          "name": "long pnl",
+          "value": -602419.0696839304
+        },
+        {
+          "name": "short pnl",
+          "value": 1888839.3443058238
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17578969.750609647
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20446710.93437143
+        },
+        {
+          "name": "gm token value",
+          "value": 1.420335508790414
+        },
+        {
+          "name": "index token price",
+          "value": 2523.060342440539
+        },
+        {
+          "name": "long token price",
+          "value": 2523.060342440539
+        },
+        {
+          "name": "short token price",
+          "value": 0.9998964779460121
+        },
+        {
+          "name": "Current trader pnl",
+          "value": -69.6978580898931
+        }
+      ]
+    },
+    "248103100": {
+      "agents": [
+        {
+          "reward": -69.69786071777344,
+          "gmx": {
+            "total_trader_pnl": -69.69786071777344
+          }
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1286420.2746218934
+        },
+        {
+          "name": "long pnl",
+          "value": -602419.0696839304
+        },
+        {
+          "name": "short pnl",
+          "value": 1888839.3443058238
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17578969.750609647
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20446710.93437143
+        },
+        {
+          "name": "gm token value",
+          "value": 1.4203355113436718
+        },
+        {
+          "name": "index token price",
+          "value": 2523.060342440539
+        },
+        {
+          "name": "long token price",
+          "value": 2523.060342440539
+        },
+        {
+          "name": "short token price",
+          "value": 0.9998964779460121
+        },
+        {
+          "name": "Current trader pnl",
+          "value": -69.6978580898931
+        }
+      ]
+    },
+    "248103103": {
+      "agents": [
+        {
+          "reward": -69.69786071777344,
+          "gmx": {
+            "total_trader_pnl": -69.69786071777344
+          }
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1286420.2746218934
+        },
+        {
+          "name": "long pnl",
+          "value": -602419.0696839304
+        },
+        {
+          "name": "short pnl",
+          "value": 1888839.3443058238
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17578969.750609647
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20446710.93437143
+        },
+        {
+          "name": "gm token value",
+          "value": 1.4203355126203008
+        },
+        {
+          "name": "index token price",
+          "value": 2523.060342440539
+        },
+        {
+          "name": "long token price",
+          "value": 2523.060342440539
+        },
+        {
+          "name": "short token price",
+          "value": 0.9998964779460121
+        },
+        {
+          "name": "Current trader pnl",
+          "value": -69.6978580898931
+        }
+      ]
+    },
+    "248103110": {
+      "agents": [
+        {
+          "reward": -69.69786071777344,
+          "gmx": {
+            "total_trader_pnl": -69.69786071777344
+          }
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1286420.2746218934
+        },
+        {
+          "name": "long pnl",
+          "value": -602419.0696839304
+        },
+        {
+          "name": "short pnl",
+          "value": 1888839.3443058238
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17578969.750609647
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20446710.93437143
+        },
+        {
+          "name": "gm token value",
+          "value": 1.420338123538126
+        },
+        {
+          "name": "index token price",
+          "value": 2523.060342440539
+        },
+        {
+          "name": "long token price",
+          "value": 2523.060342440539
+        },
+        {
+          "name": "short token price",
+          "value": 0.9999000786573303
+        },
+        {
+          "name": "Current trader pnl",
+          "value": -69.6978580898931
+        }
+      ]
+    },
+    "248103150": {
+      "agents": [
+        {
+          "reward": -69.69786071777344,
+          "gmx": {
+            "total_trader_pnl": -69.69786071777344
+          }
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1286420.2746218934
+        },
+        {
+          "name": "long pnl",
+          "value": -602419.0696839304
+        },
+        {
+          "name": "short pnl",
+          "value": 1888839.3443058238
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17578969.750609647
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20446710.93437143
+        },
+        {
+          "name": "gm token value",
+          "value": 1.4203381405597841
+        },
+        {
+          "name": "index token price",
+          "value": 2523.060342440539
+        },
+        {
+          "name": "long token price",
+          "value": 2523.060342440539
+        },
+        {
+          "name": "short token price",
+          "value": 0.9999000786573303
+        },
+        {
+          "name": "Current trader pnl",
+          "value": -69.6978580898931
+        }
+      ]
+    },
+    "248103200": {
+      "agents": [
+        {
+          "reward": -69.69786071777344,
+          "gmx": {
+            "total_trader_pnl": -69.69786071777344
+          }
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1286420.2746218934
+        },
+        {
+          "name": "long pnl",
+          "value": -602419.0696839304
+        },
+        {
+          "name": "short pnl",
+          "value": 1888839.3443058238
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17578969.750609647
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20446710.93437143
+        },
+        {
+          "name": "gm token value",
+          "value": 1.4203381618368567
+        },
+        {
+          "name": "index token price",
+          "value": 2523.060342440539
+        },
+        {
+          "name": "long token price",
+          "value": 2523.060342440539
+        },
+        {
+          "name": "short token price",
+          "value": 0.9999000786573303
+        },
+        {
+          "name": "Current trader pnl",
+          "value": -69.6978580898931
+        }
+      ]
+    },
+    "248103250": {
+      "agents": [
+        {
+          "reward": -69.69786071777344,
+          "gmx": {
+            "total_trader_pnl": -69.69786071777344
+          }
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1286420.2746218934
+        },
+        {
+          "name": "long pnl",
+          "value": -602419.0696839304
+        },
+        {
+          "name": "short pnl",
+          "value": 1888839.3443058238
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17578969.750609647
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20446710.93437143
+        },
+        {
+          "name": "gm token value",
+          "value": 1.4203381831139292
+        },
+        {
+          "name": "index token price",
+          "value": 2523.060342440539
+        },
+        {
+          "name": "long token price",
+          "value": 2523.060342440539
+        },
+        {
+          "name": "short token price",
+          "value": 0.9999000786573303
+        },
+        {
+          "name": "Current trader pnl",
+          "value": -69.6978580898931
+        }
+      ]
+    },
+    "248103256": {
+      "agents": [
+        {
+          "reward": -69.69786071777344,
+          "gmx": {
+            "total_trader_pnl": -69.69786071777344
+          }
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1286420.2746218934
+        },
+        {
+          "name": "long pnl",
+          "value": -602419.0696839304
+        },
+        {
+          "name": "short pnl",
+          "value": 1888839.3443058238
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17578969.750609647
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20446710.93437143
+        },
+        {
+          "name": "gm token value",
+          "value": 1.420338185667178
+        },
+        {
+          "name": "index token price",
+          "value": 2523.060342440539
+        },
+        {
+          "name": "long token price",
+          "value": 2523.060342440539
+        },
+        {
+          "name": "short token price",
+          "value": 0.9999000786573303
+        },
+        {
+          "name": "Current trader pnl",
+          "value": -69.6978580898931
+        }
+      ]
+    },
+    "248103262": {
+      "agents": [
+        {
+          "reward": -69.69786071777344,
+          "gmx": {
+            "total_trader_pnl": -69.69786071777344
+          }
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1286420.2746218934
+        },
+        {
+          "name": "long pnl",
+          "value": -602419.0696839304
+        },
+        {
+          "name": "short pnl",
+          "value": 1888839.3443058238
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17578969.750609647
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20446710.93437143
+        },
+        {
+          "name": "gm token value",
+          "value": 1.4203381882204267
+        },
+        {
+          "name": "index token price",
+          "value": 2523.060342440539
+        },
+        {
+          "name": "long token price",
+          "value": 2523.060342440539
+        },
+        {
+          "name": "short token price",
+          "value": 0.9999000786573303
+        },
+        {
+          "name": "Current trader pnl",
+          "value": -69.6978580898931
+        }
+      ]
+    },
+    "248103263": {
+      "agents": [
+        {
+          "reward": -71.96161651611328,
+          "gmx": {
+            "actions": [
+              {
+                "type": "MARKET_DECREASE",
+                "market": "WETH:WETH:USDC",
+                "usd_value": 100000,
+                "leverage": 3,
+                "token_in_symbol": "WETH",
+                "collateral_symbol": "WETH",
+                "is_long": true,
+                "order_id": 4
+              }
+            ],
+            "total_trader_pnl": -71.96161651611328
+          }
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1284806.7222017802
+        },
+        {
+          "name": "long pnl",
+          "value": -604398.6148175525
+        },
+        {
+          "name": "short pnl",
+          "value": 1889205.3370193327
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17576990.205476023
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20556664.10922298
+        },
+        {
+          "name": "gm token value",
+          "value": 1.4202556871127094
+        },
+        {
+          "name": "index token price",
+          "value": 2522.889696191387
+        },
+        {
+          "name": "long token price",
+          "value": 2522.889696191387
+        },
+        {
+          "name": "short token price",
+          "value": 0.9999189281701121
+        },
+        {
+          "name": "Current trader pnl",
+          "value": -69.6978580898931
+        }
+      ]
+    },
+    "248103273": {
+      "agents": [
+        {
+          "reward": -71.96161651611328,
+          "gmx": {
+            "actions": [
+              {
+                "type": "EXECUTE_ORDER",
+                "order_id": 4
+              }
+            ]
+          }
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1284806.7222017802
+        },
+        {
+          "name": "long pnl",
+          "value": -604398.6148175525
+        },
+        {
+          "name": "short pnl",
+          "value": 1889205.3370193327
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17576990.205476023
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20556664.10922298
+        },
+        {
+          "name": "gm token value",
+          "value": 1.4202556914286355
+        },
+        {
+          "name": "index token price",
+          "value": 2522.889696191387
+        },
+        {
+          "name": "long token price",
+          "value": 2522.889696191387
+        },
+        {
+          "name": "short token price",
+          "value": 0.9999189281701121
+        },
+        {
+          "name": "Current trader pnl",
+          "value": -71.96161999186717
+        }
+      ]
+    },
+    "248103300": {
+      "agents": [
+        {
+          "reward": 0,
+          "gmx": {}
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1284871.8152871071
+        },
+        {
+          "name": "long pnl",
+          "value": -604333.5217322257
+        },
+        {
+          "name": "short pnl",
+          "value": 1889205.3370193327
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17477055.298561353
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20556664.10922298
+        },
+        {
+          "name": "gm token value",
+          "value": 1.420256381080997
+        },
+        {
+          "name": "index token price",
+          "value": 2522.889696191387
+        },
+        {
+          "name": "long token price",
+          "value": 2522.889696191387
+        },
+        {
+          "name": "short token price",
+          "value": 0.9999189281701121
+        },
+        {
+          "name": "Current trader pnl",
+          "value": 0
+        }
+      ]
+    },
+    "248103350": {
+      "agents": [
+        {
+          "reward": 0,
+          "gmx": {}
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1284871.8152871071
+        },
+        {
+          "name": "long pnl",
+          "value": -604333.5217322257
+        },
+        {
+          "name": "short pnl",
+          "value": 1889205.3370193327
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17477055.298561353
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20556664.10922298
+        },
+        {
+          "name": "gm token value",
+          "value": 1.4202564026606272
+        },
+        {
+          "name": "index token price",
+          "value": 2522.889696191387
+        },
+        {
+          "name": "long token price",
+          "value": 2522.889696191387
+        },
+        {
+          "name": "short token price",
+          "value": 0.9999189281701121
+        },
+        {
+          "name": "Current trader pnl",
+          "value": 0
+        }
+      ]
+    },
+    "248103400": {
+      "agents": [
+        {
+          "reward": 0,
+          "gmx": {}
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1284871.8152871071
+        },
+        {
+          "name": "long pnl",
+          "value": -604333.5217322257
+        },
+        {
+          "name": "short pnl",
+          "value": 1889205.3370193327
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17477055.298561353
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20556664.10922298
+        },
+        {
+          "name": "gm token value",
+          "value": 1.4202564242402578
+        },
+        {
+          "name": "index token price",
+          "value": 2522.889696191387
+        },
+        {
+          "name": "long token price",
+          "value": 2522.889696191387
+        },
+        {
+          "name": "short token price",
+          "value": 0.9999189281701121
+        },
+        {
+          "name": "Current trader pnl",
+          "value": 0
+        }
+      ]
+    },
+    "248103434": {
+      "agents": [
+        {
+          "reward": 0,
+          "gmx": {}
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1284871.8152871071
+        },
+        {
+          "name": "long pnl",
+          "value": -604333.5217322257
+        },
+        {
+          "name": "short pnl",
+          "value": 1889205.3370193327
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17477055.298561353
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20556664.10922298
+        },
+        {
+          "name": "gm token value",
+          "value": 1.4202564389144063
+        },
+        {
+          "name": "index token price",
+          "value": 2522.889696191387
+        },
+        {
+          "name": "long token price",
+          "value": 2522.889696191387
+        },
+        {
+          "name": "short token price",
+          "value": 0.9999189281701121
+        },
+        {
+          "name": "Current trader pnl",
+          "value": 0
+        }
+      ]
+    },
+    "248103450": {
+      "agents": [
+        {
+          "reward": 0,
+          "gmx": {}
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1284871.8152871071
+        },
+        {
+          "name": "long pnl",
+          "value": -604333.5217322257
+        },
+        {
+          "name": "short pnl",
+          "value": 1889205.3370193327
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17477055.298561353
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20556664.10922298
+        },
+        {
+          "name": "gm token value",
+          "value": 1.420256445819888
+        },
+        {
+          "name": "index token price",
+          "value": 2522.889696191387
+        },
+        {
+          "name": "long token price",
+          "value": 2522.889696191387
+        },
+        {
+          "name": "short token price",
+          "value": 0.9999189281701121
+        },
+        {
+          "name": "Current trader pnl",
+          "value": 0
+        }
+      ]
+    },
+    "248103500": {
+      "agents": [
+        {
+          "reward": 0,
+          "gmx": {}
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1284871.8152871071
+        },
+        {
+          "name": "long pnl",
+          "value": -604333.5217322257
+        },
+        {
+          "name": "short pnl",
+          "value": 1889205.3370193327
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17477055.298561353
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20556664.10922298
+        },
+        {
+          "name": "gm token value",
+          "value": 1.4202564673995184
+        },
+        {
+          "name": "index token price",
+          "value": 2522.889696191387
+        },
+        {
+          "name": "long token price",
+          "value": 2522.889696191387
+        },
+        {
+          "name": "short token price",
+          "value": 0.9999189281701121
+        },
+        {
+          "name": "Current trader pnl",
+          "value": 0
+        }
+      ]
+    },
+    "248103533": {
+      "agents": [
+        {
+          "reward": 0,
+          "gmx": {}
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1284871.8152871071
+        },
+        {
+          "name": "long pnl",
+          "value": -604333.5217322257
+        },
+        {
+          "name": "short pnl",
+          "value": 1889205.3370193327
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17477055.298561353
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20556664.10922298
+        },
+        {
+          "name": "gm token value",
+          "value": 1.4202564816420746
+        },
+        {
+          "name": "index token price",
+          "value": 2522.889696191387
+        },
+        {
+          "name": "long token price",
+          "value": 2522.889696191387
+        },
+        {
+          "name": "short token price",
+          "value": 0.9999189281701121
+        },
+        {
+          "name": "Current trader pnl",
+          "value": 0
+        }
+      ]
+    },
+    "248103550": {
+      "agents": [
+        {
+          "reward": 0,
+          "gmx": {}
+        }
+      ],
+      "signals": [
+        {
+          "name": "net pnl",
+          "value": 1284871.8152871071
+        },
+        {
+          "name": "long pnl",
+          "value": -604333.5217322257
+        },
+        {
+          "name": "short pnl",
+          "value": 1889205.3370193327
+        },
+        {
+          "name": "long open interest with pnl",
+          "value": 17477055.298561353
+        },
+        {
+          "name": "short open interest with pnl",
+          "value": 20556664.10922298
+        },
+        {
+          "name": "gm token value",
+          "value": 1.420256488979149
+        },
+        {
+          "name": "index token price",
+          "value": 2522.889696191387
+        },
+        {
+          "name": "long token price",
+          "value": 2522.889696191387
+        },
+        {
+          "name": "short token price",
+          "value": 0.9999189281701121
+        },
+        {
+          "name": "Current trader pnl",
+          "value": 0
+        }
+      ]
+    }
+  }
+}
