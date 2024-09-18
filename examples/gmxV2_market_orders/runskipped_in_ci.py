@@ -42,34 +42,36 @@ def main() -> None:
     )
 
     # Agents
-    agent1 = GmxV2Agent(
+    gmx_agent = GmxV2Agent(
         initial_portfolio={
             "ETH": Decimal(100),
             "USDC": Decimal(30000),
             "WETH": Decimal(200),
         },
-        name="GMXAgent",
+        name="GMX_Agent",
     )
 
     # Simulation environment
     env = GmxV2Env(
         chain=Chain.ARBITRUM,
         date_range=(start_time, end_time),
-        agents=[agent1],
+        agents=[gmx_agent],
         market_venues=[market_venue],
         market_impact="replay",
         backend_type="forked",
     )
 
     # Policies
-    policy = GmxV2Policy(agent=agent1)
+    policy = GmxV2Policy(agent=gmx_agent)
 
     backtest_run(
         env=env,
         policies=[policy],
         dashboard_server_port=8051,
-        output_dir="./",
+        output_file="gmxV2_market_orders.db",
         auto_close=False,
+        simulation_title="GMXv2 Market Orders",
+        simulation_description="GMXv2 Market Orders",
     )
     # SNIPPET 1 END
 

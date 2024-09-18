@@ -99,7 +99,6 @@ class GmxV2Policy(BasePolicy):
                     leverage=Decimal(3),
                 )
             ]
-        # SNIPPET 3 END
 
         if total_trader_pnl < Decimal(-70) and self.state == State.POSITION_OPEN:
             self.state = State.FINISH
@@ -115,6 +114,7 @@ class GmxV2Policy(BasePolicy):
                     leverage=Decimal(3),
                 )
             ]
+        # SNIPPET 3 END
 
         obs.add_signal("Current trader pnl", total_trader_pnl)
 

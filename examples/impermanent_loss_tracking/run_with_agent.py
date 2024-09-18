@@ -49,6 +49,5 @@ backtest_run(
     env=env,
     policies=[liquidity_policy],
     dashboard_server_port=8051,
-    output_dir="./",
-    auto_close=True,
+    auto_close=False,
 )

@@ -35,48 +35,50 @@ def main() -> None:
     start_time = dateparser.parse("2024-08-30 00:00:00 UTC")
     end_time = dateparser.parse("2024-08-30 00:25:00 UTC")
 
-    # SNIPPET 2 START
-    market_venue = MarketVenue(
+    market_venue1 = MarketVenue(
         long_token="WETH",
         short_token="USDC",
         index_token="WETH",
     )
-    # SNIPPET 2 END
+    market_venue2 = MarketVenue(
+        long_token="PEPE",
+        short_token="USDC",
+        index_token="PEPE",
+    )
 
     # Agents
-    agent1 = GmxV2Agent(
+    gmx_agent = GmxV2Agent(
         initial_portfolio={
             "ETH": Decimal(100),
             "USDC": Decimal(30000),
             "WETH": Decimal(200),
         },
-        name="GMXAgent",
+        name="GMX_Agent",
     )
 
     # Simulation environment
-    # SNIPPET 1 START
     env = GmxV2Env(
         chain=Chain.ARBITRUM,
         date_range=(start_time, end_time),
-        agents=[agent1],
-        market_venues=[market_venue],
+        agents=[gmx_agent],
+        market_venues=[market_venue1, market_venue2],
         market_impact="replay",
         backend_type="forked",
     )
-    # SNIPPET 1 END
 
     # Policies
-    policy = GmxV2Policy(agent=agent1)
+    policy = GmxV2Policy(agent=gmx_agent)
 
     backtest_run(
         env=env,
         policies=[policy],
         dashboard_server_port=8051,
-        output_file="gmxV2_deposits.db",
+        output_file="gmxV2_swap_orders.db",
         auto_close=False,
-        simulation_title="GMXv2 Deposit Orders",
-        simulation_description="GMXv2 Deposit Orders",
+        simulation_title="GMXv2 Swap Orders",
+        simulation_description="GMXv2 Swap Orders",
     )
+    # SNIPPET 1 END
 
 
 if __name__ == "__main__":

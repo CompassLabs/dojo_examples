@@ -47,6 +47,8 @@ backtest_run(
     env=env,
     policies=[impermanent_loss_policy],
     dashboard_server_port=8051,
-    output_dir="./",
+    output_file="impermanent_loss_tracking.db",
     auto_close=True,
+    simulation_title="Impermanent Loss Tracking",
+    simulation_description="Comparing a passive LP agent to a HODL agent to measure IL.",
 )
