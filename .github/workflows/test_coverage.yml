@@ -1,13 +1,16 @@
 name: Coverage
 
+# To be re-enabled if we use pytest in the example repository.
+# For now all tests are run in the private repository, with extensive coverage.
+
 on:
-  push:
-    branches: [ main, dev ]
-  pull_request:
-    branches: '*'
-  workflow_dispatch:
-  schedule:
-    - cron: '0 0 */3 * *'   # Runs at midnight every 3 days
+#  push:
+#    branches: [ main, dev ]
+#  pull_request:
+#    branches: '*'
+#  workflow_dispatch:
+#  schedule:
+#    - cron: '0 0 */3 * *'   # Runs at midnight every 3 days
 
 env:
   RPC_URL: ${{ secrets.RPC_URL }}
