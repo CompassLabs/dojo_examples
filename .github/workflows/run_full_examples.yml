@@ -10,10 +10,9 @@ on:
   workflow_dispatch:
 
 env:
-  RPC_URL: ${{ secrets.RPC_URL }}
+  ETHEREUM_RPC_URL: ${{ secrets.RPC_URL }}
   LICENSE_KEY: ${{ secrets.LICENSE_KEY }}
   FAILURE_WEBHOOK: ${{secrets.FAILURE_WEBHOOK}}
-  CHAIN: ethereum
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
