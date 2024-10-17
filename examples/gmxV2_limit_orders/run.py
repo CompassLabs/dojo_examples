@@ -91,8 +91,8 @@ def main(
         output_file="gmxV2_limit_order.db",
         auto_close=auto_close,
         simulation_status_bar=simulation_status_bar,
-        simulation_title="GMXv2 GmxDeposit Orders",
-        simulation_description="GMXv2 GmxDeposit Orders",
+        simulation_title="GMXv2 Limit Orders",
+        simulation_description="GMXv2 Limit Orders",
     )
 
 
