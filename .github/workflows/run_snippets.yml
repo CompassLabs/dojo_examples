@@ -28,7 +28,7 @@ jobs:
         python-version: ['3.10', '3.11']
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
       - name: Setup dev environment
         uses: CompassLabs/workflows/.github/actions/setup_dojo_pypi@main

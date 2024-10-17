@@ -31,7 +31,7 @@ class _PositionInfo:
 
 
 class ActiveConcentratedLP(BasePolicy):  # type: ignore
-    """TODO."""
+    """Actively managing LP postions to always stay around the current price."""
 
     def __init__(self, agent: BaseAgent, lp_width: int) -> None:
         """Initialize the policy.
@@ -113,7 +113,6 @@ class ActiveConcentratedLP(BasePolicy):  # type: ignore
             provided_lp_stats = obs.nft_positions(position_id)
             action = UniswapV3WithdrawLiquidity(
                 agent=self.agent,
-                pool=obs.pools[0],
                 position_id=position_id,
                 liquidity=provided_lp_stats["liquidity"],
             )
@@ -135,7 +134,6 @@ class ActiveConcentratedLP(BasePolicy):  # type: ignore
     def _burn_position(self, obs: UniswapV3Observation) -> list[BaseAction[Any]]:
         action = UniswapV3BurnNew(
             agent=self.agent,
-            pool=obs.pools[0],
             position_id=self.agent.erc721_portfolio()["UNI-V3-POS"][-1],
         )
         self.position_info = None

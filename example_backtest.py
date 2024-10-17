@@ -1,11 +1,8 @@
 import logging
-import os
-import sys
-from datetime import timedelta
+from datetime import datetime, timedelta
 from decimal import Decimal
-from typing import Optional
+from typing import Any, Optional
 
-import cli_runner
 from agents.uniswapV3_pool_wealth import UniswapV3PoolWealthAgent
 from dateutil import parser as dateparser
 from examples.moving_averages.policy import MovingAveragePolicy
@@ -18,16 +15,14 @@ from dojo.runners import backtest_run
 
 def main(
     *,
-    dashboard_server_port: Optional[int],
-    simulation_status_bar: bool,
+    dashboard_server_port: Optional[int] = 8768,
+    simulation_status_bar: bool = False,
     auto_close: bool,
     run_length: timedelta = timedelta(hours=1),
+    **kwargs: dict[str, Any],
 ) -> None:
 
     # SNIPPET 1 START
-    # pools = ["USDC/WETH-0.3"]
-    # start_time = dateparser.parse("2021-06-22 00:00:00 UTC")
-    # end_time = dateparser.parse("2021-06-22 12:0:00 UTC")
     pools = ["USDC/WETH-0.05"]
     start_time = dateparser.parse("2022-06-21 00:00:00 UTC")
     end_time = start_time + run_length
@@ -77,4 +72,11 @@ def main(
 
 
 if __name__ == "__main__":
-    cli_runner.run_main(main)
+    logging.basicConfig(format="%(asctime)s - %(message)s", level=logging.ERROR)
+
+    main(
+        dashboard_server_port=8768,
+        simulation_status_bar=True,
+        auto_close=False,
+        run_length=timedelta(hours=2),
+    )

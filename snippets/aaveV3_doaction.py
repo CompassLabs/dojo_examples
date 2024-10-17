@@ -34,10 +34,10 @@ env = AAVEv3Env(
 actions = [
     AAVEv3Supply(
         agent=agent,
-        token_name="USDC",
+        token="USDC",
         amount=Decimal(10_000),
     ),
-    AAVEv3WithdrawAll(agent=agent, token_name="USDC"),
+    AAVEv3WithdrawAll(agent=agent, token="USDC"),
 ]
 
 for action in actions:

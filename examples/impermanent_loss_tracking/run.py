@@ -1,23 +1,28 @@
+import os
+import sys
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..")))
 import logging
 import os
 import sys
-from datetime import datetime, timedelta
 from decimal import Decimal
+
+from demo.agents.uniswapV3_impermanent_loss import ImpermanentLossAgent
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..")))
 sys.path.append(os.path.abspath(os.path.dirname(__file__)))
 
-from datetime import datetime, timedelta
+from datetime import timedelta
 from typing import Any, Optional
 
-from agents.uniswapV3_pool_wealth import UniswapV3PoolWealthAgent
 from dateutil import parser as dateparser
 from policies.passiveLP import PassiveConcentratedLP
-from policy import MovingAveragePolicy
 
 from dojo.common.constants import Chain
 from dojo.environments import UniswapV3Env
 from dojo.runners import backtest_run
+
+logging.basicConfig(format="%(asctime)s - %(message)s", level=logging.INFO)
 
 
 def main(
@@ -33,50 +38,41 @@ def main(
     end_time = start_time + run_length
 
     # Agents
-    mavg_agent = UniswapV3PoolWealthAgent(
+    impermanent_loss_agent = ImpermanentLossAgent(
         initial_portfolio={
-            "ETH": Decimal(100),
             "USDC": Decimal(10_000),
             "WETH": Decimal(1),
         },
-        name="MAvg_Agent",
-    )
-    lp_agent = UniswapV3PoolWealthAgent(
-        initial_portfolio={"USDC": Decimal(10_000), "WETH": Decimal(1)},
-        name="LP_Agent",
+        name="Impermanent_Loss_Agent",
     )
 
     # Simulation environment (Uniswap V3)
     env = UniswapV3Env(
         chain=Chain.ETHEREUM,
         date_range=(start_time, end_time),
-        agents=[mavg_agent, lp_agent],
+        agents=[impermanent_loss_agent],
         pools=pools,
-        backend_type="forked",  # change to local for better speed
+        backend_type="forked",
         market_impact="replay",
     )
 
     # Policies
-    mavg_policy = MovingAveragePolicy(
-        agent=mavg_agent, pool="USDC/WETH-0.05", short_window=25, long_window=100
+    liquidity_policy = PassiveConcentratedLP(
+        agent=impermanent_loss_agent,
+        lower_price_bound=0.95,
+        upper_price_bound=1.05,
     )
 
-    passive_lp_policy = PassiveConcentratedLP(
-        agent=lp_agent, lower_price_bound=0.95, upper_price_bound=1.05
-    )
-
-    # SNIPPET 1 START
     backtest_run(
         env=env,
-        policies=[mavg_policy, passive_lp_policy],
-        dashboard_server_port=dashboard_server_port,
-        output_file="moving_averages.db",
-        auto_close=auto_close,
+        policies=[liquidity_policy],
         simulation_status_bar=simulation_status_bar,
-        simulation_title="Moving averages",
-        simulation_description="Moving Average Strategy	Also known as mean reversion or mean crossover strategy.",
+        dashboard_server_port=dashboard_server_port,
+        output_file="impermanent_loss_tracking.db",
+        auto_close=auto_close,
+        simulation_title="Impermanent Loss Tracking",
+        simulation_description="Comparing a passive LP agent to a HODL agent to measure IL.",
     )
-    # SNIPPET 1 END
 
 
 if __name__ == "__main__":

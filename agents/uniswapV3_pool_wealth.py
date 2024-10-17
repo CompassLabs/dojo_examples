@@ -23,7 +23,7 @@ class UniswapV3PoolWealthAgent(UniswapV3Agent):
         pool_tokens = obs.pool_tokens(pool=pool)
 
         token_ids = self.get_liquidity_ownership_tokens()
-        lp_portfolio = obs.lp_total_potential_tokens_on_withdrawal(token_ids)
+        lp_portfolio = obs.lp_portfolio(token_ids)
         wallet_portfolio = self.erc20_portfolio()
 
         # wealth expressed as token0 of the pool

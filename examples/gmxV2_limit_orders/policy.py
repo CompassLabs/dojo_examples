@@ -4,8 +4,8 @@ from enum import Enum
 
 from dojo.actions.gmxV2.orders.models import (
     GmxBaseTraderOrder,
-    GmxDecreaseLongMarketOrder,
-    GmxIncreaseLongMarketOrder,
+    GmxIncreaseLongLimitOrder,
+    GmxIncreaseShortLimitOrder,
 )
 from dojo.agents import BaseAgent
 from dojo.environments.gmxV2 import GmxV2Observation
@@ -27,6 +27,7 @@ class GmxV2Policy(BasePolicy):
         """Initialize the policy."""
         super().__init__(agent=agent)
         self.state = State.NO_POSITION
+        self.counter = 0
 
     # SNIPPET 1 END
 
@@ -34,6 +35,7 @@ class GmxV2Policy(BasePolicy):
         pass
 
     def predict(self, obs: GmxV2Observation) -> list[GmxBaseTraderOrder]:
+
         total_trader_pnl = 0
         # SNIPPET 2 START
         gm_token_value, market_pool_value_info = obs.get_market_token_price_for_traders(
@@ -65,56 +67,33 @@ class GmxV2Policy(BasePolicy):
         obs.add_signal("long token price", long_token_price)
         obs.add_signal("short token price", short_token_price)
         total_trader_pnl = self.agent.reward(obs)
-        # SNIPPET 2 END
 
         index_token_price = obs.index_token_price(market_key="WETH:WETH:USDC")
-        # SNIPPET 3 START
-        if index_token_price < Decimal(2525) and self.state == State.NO_POSITION:
+        self.counter += 1
+        if index_token_price < Decimal(2600) and self.state == State.NO_POSITION:
             self.state = State.POSITION_OPEN
             return [
-                GmxIncreaseLongMarketOrder(
+                GmxIncreaseLongLimitOrder(
                     agent=self.agent,
-                    size_delta_usd=Decimal(100000),
+                    size_delta_usd=Decimal(10000),
                     market_key="WETH:WETH:USDC",
                     token_in_symbol="WETH",
                     collateral_token_symbol="WETH",
                     slippage=200,
                     observations=obs,
                     leverage=Decimal(3),
-                )
-            ]
-
-        if total_trader_pnl > Decimal(120) and self.state == State.POSITION_OPEN:
-            self.state = State.NO_POSITION
-            return [
-                GmxDecreaseLongMarketOrder(
+                    trigger_price=Decimal(2525),
+                ),
+                GmxIncreaseShortLimitOrder(
                     agent=self.agent,
-                    size_delta_usd=Decimal(100000),
+                    size_delta_usd=Decimal(10000),
                     market_key="WETH:WETH:USDC",
                     token_in_symbol="WETH",
                     collateral_token_symbol="WETH",
                     slippage=200,
                     observations=obs,
                     leverage=Decimal(3),
-                )
+                    trigger_price=Decimal(2527.6),
+                ),
             ]
-
-        if total_trader_pnl < Decimal(-70) and self.state == State.POSITION_OPEN:
-            self.state = State.FINISH
-            return [
-                GmxDecreaseLongMarketOrder(
-                    agent=self.agent,
-                    size_delta_usd=Decimal(100000),
-                    market_key="WETH:WETH:USDC",
-                    token_in_symbol="WETH",
-                    collateral_token_symbol="WETH",
-                    slippage=200,
-                    observations=obs,
-                    leverage=Decimal(3),
-                )
-            ]
-        # SNIPPET 3 END
-
-        obs.add_signal("Current trader pnl", total_trader_pnl)
-
         return []

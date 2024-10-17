@@ -41,7 +41,7 @@ class ImpermanentLossPolicy(BasePolicy):  # type: ignore
         token0, token1 = obs.pool_tokens(pool)
         token_ids = self.agent.get_liquidity_ownership_tokens()
 
-        current_portfolio = obs.lp_total_potential_tokens_on_withdrawal(token_ids)
+        current_portfolio = obs.lp_portfolio(token_ids)
         current_quantities = obs.lp_quantities(token_ids)
 
         if current_portfolio == {}:

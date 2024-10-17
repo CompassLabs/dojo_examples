@@ -1,7 +1,8 @@
 import argparse
+import importlib
 import logging
 import os
-from datetime import timedelta
+from datetime import datetime, timedelta
 from typing import Callable, Literal, Optional, Protocol, Union
 
 from mypy_extensions import NamedArg
@@ -18,6 +19,7 @@ Main = Callable[
 ]
 
 from enum import Enum
+from typing import Any
 
 
 class CliLogLevel(Enum):
@@ -55,7 +57,7 @@ class NotLogFilter(logging.Filter):
         return not (self.inner.filter(record))
 
 
-def run_main(main_f: Main) -> None:
+def run_main() -> None:
     parser = argparse.ArgumentParser(description="Run a Dojo Simulation")
     default_dashboard_server_port = 8786
     dashboard_group = parser.add_mutually_exclusive_group()
@@ -88,7 +90,15 @@ def run_main(main_f: Main) -> None:
         default=None,
         help="parsed using pytimeparse (e.g. you can use '1h')",
     )
+    parser.add_argument(
+        "--module", type=str, help="The module to run", default="example_backtest"
+    )
     args = parser.parse_args()
+    module = importlib.import_module(args.module)
+    print()
+    print(f"Now running: {args.module}")
+    print()
+    main_f: Main = module.main
 
     main_handler = logging.StreamHandler()
     main_handler.setLevel(args.global_log_level.value)
@@ -120,3 +130,7 @@ def run_main(main_f: Main) -> None:
         if not (k == "run_length" and v == None)
     }
     main_f(**call_args)
+
+
+if __name__ == "__main__":
+    run_main()

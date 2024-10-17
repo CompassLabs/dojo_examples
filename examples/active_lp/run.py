@@ -7,10 +7,12 @@ from typing import Optional
 from dateutil import parser as dateparser
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..")))
+sys.path.append(os.path.abspath(os.path.dirname(__file__)))
 
-import cli_runner
+from typing import Any
+
 from agents.uniswapV3_pool_wealth import UniswapV3PoolWealthAgent
-from examples.active_lp.policy import ActiveConcentratedLP
+from policy import ActiveConcentratedLP
 
 from dojo.common.constants import Chain
 from dojo.environments import UniswapV3Env
@@ -23,6 +25,7 @@ def main(
     simulation_status_bar: bool,
     auto_close: bool,
     run_length: timedelta = timedelta(days=1),
+    **kwargs: dict[str, Any],
 ) -> None:
     # SNIPPET 1 START
     pools = ["USDC/WETH-0.05"]
@@ -64,4 +67,9 @@ def main(
 
 
 if __name__ == "__main__":
-    cli_runner.run_main(main)
+    main(
+        dashboard_server_port=8768,
+        simulation_status_bar=True,
+        auto_close=False,
+        run_length=timedelta(hours=2),
+    )

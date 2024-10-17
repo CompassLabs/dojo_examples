@@ -1,9 +1,17 @@
 # type: ignore
 import logging
+import os
+import sys
 from decimal import Decimal
-from typing import Optional
+from typing import Any, Optional
 
 from dateutil import parser as dateparser
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..")))
+sys.path.append(os.path.abspath(os.path.dirname(__file__)))
+
+from datetime import timedelta
+
 from policy import GmxV2Policy
 
 from dojo.agents import BaseAgent
@@ -12,8 +20,6 @@ from dojo.environments import GmxV2Env
 from dojo.models.gmxV2.market import MarketVenue
 from dojo.observations.gmxV2 import GmxV2Observation
 from dojo.runners import backtest_run
-
-logging.basicConfig(format="%(asctime)s - %(message)s", level=logging.INFO)
 
 
 class GmxV2Agent(BaseAgent):
@@ -30,10 +36,17 @@ class GmxV2Agent(BaseAgent):
         return obs.total_trader_pnl(self.original_address)
 
 
-def main() -> None:
+def main(
+    *,
+    dashboard_server_port: Optional[int],
+    simulation_status_bar: bool,
+    auto_close: bool,
+    run_length: timedelta = timedelta(minutes=20),
+    **kwargs: dict[str, Any]
+) -> None:
     # SNIPPET 1 START
     start_time = dateparser.parse("2024-08-30 00:00:00 UTC")
-    end_time = dateparser.parse("2024-08-30 00:25:00 UTC")
+    end_time = start_time + run_length
 
     market_venue = MarketVenue(
         long_token="WETH",
@@ -67,9 +80,10 @@ def main() -> None:
     backtest_run(
         env=env,
         policies=[policy],
-        dashboard_server_port=8051,
+        dashboard_server_port=dashboard_server_port,
         output_file="gmxV2_market_orders.db",
-        auto_close=False,
+        auto_close=auto_close,
+        simulation_status_bar=simulation_status_bar,
         simulation_title="GMXv2 Market Orders",
         simulation_description="GMXv2 Market Orders",
     )
@@ -77,4 +91,9 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    main(
+        dashboard_server_port=8768,
+        simulation_status_bar=True,
+        auto_close=False,
+        run_length=timedelta(hours=2),
+    )

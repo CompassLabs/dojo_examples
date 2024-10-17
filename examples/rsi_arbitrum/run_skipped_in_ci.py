@@ -2,13 +2,14 @@ import logging
 import os
 import sys
 from decimal import Decimal
+from typing import Any
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..")))
+sys.path.append(os.path.abspath(os.path.dirname(__file__)))
 
 from datetime import timedelta
 from typing import Optional
 
-import cli_runner
 from agents.uniswapV3_pool_wealth import UniswapV3PoolWealthAgent
 from dateutil import parser as dateparser
 from policy import RSIPolicy
@@ -30,6 +31,7 @@ def main(
     simulation_status_bar: bool,
     auto_close: bool,
     run_length: timedelta = timedelta(minutes=1),
+    **kwargs: dict[str, Any]
 ) -> None:
     logging.basicConfig(format="%(asctime)s - %(message)s", level=logging.INFO)
     pools = ["WETH/USDC-0.05"]
@@ -74,4 +76,9 @@ def main(
 
 
 if __name__ == "__main__":
-    cli_runner.run_main(main)
+    main(
+        dashboard_server_port=8768,
+        simulation_status_bar=True,
+        auto_close=False,
+        run_length=timedelta(hours=2),
+    )

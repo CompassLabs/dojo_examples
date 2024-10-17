@@ -1,16 +1,15 @@
-import logging
 import os
 import sys
-from decimal import Decimal
-
-from dateutil import parser as dateparser
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..")))
-from datetime import timedelta
-from typing import Optional
+sys.path.append(os.path.abspath(os.path.dirname(__file__)))
 
-import cli_runner
+from datetime import timedelta
+from decimal import Decimal
+from typing import Any, Optional
+
 from agents.uniswapV3_pool_wealth import UniswapV3PoolWealthAgent
+from dateutil import parser as dateparser
 from policy import ArbitragePolicy
 
 from dojo.common.constants import Chain
@@ -24,6 +23,7 @@ def main(
     simulation_status_bar: bool,
     auto_close: bool,
     run_length: timedelta = timedelta(minutes=10),
+    **kwargs: dict[str, Any]
 ) -> None:
     pools = ["USDC/WETH-0.05", "USDC/WETH-0.3"]
     start_time = dateparser.parse("2021-06-21 00:00:00 UTC")
@@ -65,4 +65,9 @@ def main(
 
 
 if __name__ == "__main__":
-    cli_runner.run_main(main)
+    main(
+        dashboard_server_port=8768,
+        simulation_status_bar=True,
+        auto_close=False,
+        run_length=timedelta(hours=2),
+    )

@@ -1,26 +1,31 @@
+# type: ignore
 import logging
 import os
 import sys
-from datetime import timedelta
 from decimal import Decimal
 from typing import Optional
+
+from dateutil import parser as dateparser
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..")))
 sys.path.append(os.path.abspath(os.path.dirname(__file__)))
 
+from datetime import timedelta
 from typing import Any
 
-from dateutil import parser as dateparser
-from policy import AAVEv3Policy
+from policy import GmxV2Policy
 
-from dojo.agents import AAVEv3Agent
+from dojo.agents import BaseAgent
 from dojo.common.constants import Chain
-from dojo.environments import AAVEv3Env
-from dojo.environments.aaveV3 import AAVEv3Observation
+from dojo.environments import GmxV2Env
+from dojo.models.gmxV2.market import MarketVenue
+from dojo.observations.gmxV2 import GmxV2Observation
 from dojo.runners import backtest_run
 
+logging.basicConfig(format="%(asctime)s - %(message)s", level=logging.INFO)
 
-class ConstantRewardAgent(AAVEv3Agent):
+
+class GmxV2Agent(BaseAgent):
     """An agent that does not have any particular objective."""
 
     def __init__(
@@ -29,10 +34,9 @@ class ConstantRewardAgent(AAVEv3Agent):
         """Initialize the agent."""
         super().__init__(name=name, initial_portfolio=initial_portfolio)
 
-    def reward(self, obs: AAVEv3Observation) -> float:  # type: ignore
-        """This agent does not measure reward."""
-        ###print(obs.get_user_account_data_base(self.original_address).healthFactor)
-        return obs.get_user_account_data_base(self.original_address).healthFactor  # type: ignore[arg-type]
+    def reward(self, obs: GmxV2Observation) -> float:
+        """PnL in USD."""
+        return obs.total_trader_pnl(self.original_address)
 
 
 def main(
@@ -40,43 +44,55 @@ def main(
     dashboard_server_port: Optional[int],
     simulation_status_bar: bool,
     auto_close: bool,
-    run_length: timedelta = timedelta(hours=6),
+    run_length: timedelta = timedelta(minutes=20),
     **kwargs: dict[str, Any]
 ) -> None:
-    start_time = dateparser.parse("2023-03-11 00:00:00 UTC")
+    # SNIPPET 1 START
+    start_time = dateparser.parse("2024-08-30 00:00:00 UTC")
     end_time = start_time + run_length
+
+    # SNIPPET 2 START
+    market_venue = MarketVenue(
+        long_token="WETH",
+        short_token="USDC",
+        index_token="WETH",
+    )
+    # SNIPPET 2 END
+
     # Agents
-    agent1 = ConstantRewardAgent(
+    agent1 = GmxV2Agent(
         initial_portfolio={
             "ETH": Decimal(100),
             "USDC": Decimal(30000),
-            "WBTC": Decimal(2),
+            "WETH": Decimal(200),
         },
-        name="AAVE_Agent",
+        name="GMXAgent",
     )
 
+    # Simulation environment
     # SNIPPET 1 START
-    env = AAVEv3Env(
-        chain=Chain.ETHEREUM,
+    env = GmxV2Env(
+        chain=Chain.ARBITRUM,
         date_range=(start_time, end_time),
         agents=[agent1],
-        backend_type="local",
-        market_impact="default",
+        market_venues=[market_venue],
+        market_impact="no_market",
+        backend_type="forked",
     )
     # SNIPPET 1 END
 
     # Policies
-    policy = AAVEv3Policy(agent=agent1)
+    policy = GmxV2Policy(agent=agent1)
 
     backtest_run(
         env=env,
         policies=[policy],
         dashboard_server_port=dashboard_server_port,
-        output_file="aavev3.db",
+        output_file="gmxV2_limit_order.db",
         auto_close=auto_close,
         simulation_status_bar=simulation_status_bar,
-        simulation_title="AAVE strategy",
-        simulation_description="This example is maintaining a position between 2 health factor thresholds.",
+        simulation_title="GMXv2 GmxDeposit Orders",
+        simulation_description="GMXv2 GmxDeposit Orders",
     )
 
 

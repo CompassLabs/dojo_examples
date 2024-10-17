@@ -29,9 +29,7 @@ class AAVEv3Policy(BasePolicy):  # type: ignore
         if not self.has_invested:
             self.has_invested = True
             return [
-                AAVEv3Supply(
-                    agent=self.agent, token_name="USDC", amount=Decimal("30000")
-                )
+                AAVEv3Supply(agent=self.agent, token="USDC", amount=Decimal("30000"))
             ]
         # SNIPPET 2 END
         # SNIPPET 3 START
@@ -42,13 +40,13 @@ class AAVEv3Policy(BasePolicy):  # type: ignore
         if health_factor > 2.0:
             return [
                 AAVEv3BorrowToHealthFactor(
-                    agent=self.agent, token_name="WBTC", factor=1.8, mode="variable"
+                    agent=self.agent, token="WBTC", factor=1.8, mode="variable"
                 )
             ]
         if health_factor < 1.7:
             return [
                 AAVEv3RepayToHealthFactor(
-                    agent=self.agent, token_name="WBTC", factor=1.90, mode="variable"
+                    agent=self.agent, token="WBTC", factor=1.90, mode="variable"
                 )
             ]
         return []

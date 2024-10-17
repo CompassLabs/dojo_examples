@@ -68,7 +68,9 @@ class RSIPolicy(BasePolicy):  # type: ignore
                 return []
             return [
                 UniswapV3Trade(
-                    self.agent, pool, (Decimal(self.agent.quantity(token0)), Decimal(0))
+                    agent=self.agent,
+                    pool=pool,
+                    quantities=(Decimal(self.agent.quantity(token0)), Decimal(0)),
                 )
             ]
         elif self.selling:
@@ -77,7 +79,9 @@ class RSIPolicy(BasePolicy):  # type: ignore
                 return []
             return [
                 UniswapV3Trade(
-                    self.agent, pool, (Decimal(0), Decimal(self.agent.quantity(token1)))
+                    agent=self.agent,
+                    pool=pool,
+                    quantities=(Decimal(0), Decimal(self.agent.quantity(token1))),
                 )
             ]
         return []

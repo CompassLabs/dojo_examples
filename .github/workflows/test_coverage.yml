@@ -1,13 +1,15 @@
 name: Coverage
 
+# Disabled in favour of more extensive coverage in our private repository.
+
 on:
-  push:
-    branches: [ main, dev ]
-  pull_request:
-    branches: '*'
-  workflow_dispatch:
-  schedule:
-    - cron: '0 0 */3 * *'   # Runs at midnight every 3 days
+#  push:
+#    branches: [ main, dev ]
+#  pull_request:
+#    branches: '*'
+#  workflow_dispatch:
+#  schedule:
+#    - cron: '0 0 */3 * *'   # Runs at midnight every 3 days
 
 env:
   RPC_URL: ${{ secrets.RPC_URL }}
@@ -29,7 +31,7 @@ jobs:
     # concurrency: single
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
       - name: Setup dev environment
         uses: CompassLabs/workflows/.github/actions/setup_dojo_pypi@main

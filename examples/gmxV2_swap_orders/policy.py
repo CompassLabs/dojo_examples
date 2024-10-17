@@ -1,15 +1,7 @@
 # type: ignore
-from dojo.actions.gmxV2.orders.base_models import BaseTraderOrder, SwapOrder
-from dojo.actions.gmxV2.orders.models import (
-    DecreaseLongLimitOrder,
-    DecreaseLongMarketOrder,
-    DecreaseShortLimitOrder,
-    DecreaseShortMarketOrder,
-    IncreaseLongLimitOrder,
-    IncreaseLongMarketOrder,
-    IncreaseShortLimitOrder,
-    IncreaseShortMarketOrder,
-)
+from decimal import Decimal
+
+from dojo.actions.gmxV2.orders.models import GmxBaseTraderOrder, GmxSwapOrder
 from dojo.agents import BaseAgent
 from dojo.environments.gmxV2 import GmxV2Observation
 from dojo.policies import BasePolicy
@@ -27,17 +19,18 @@ class GmxV2Policy(BasePolicy):
     def fit(self):
         pass
 
-    def predict(self, obs: GmxV2Observation) -> list[BaseTraderOrder]:
+    def predict(self, obs: GmxV2Observation) -> list[GmxBaseTraderOrder]:
         if self.count % 10 == 0:
             self.count = 1
             return [
-                SwapOrder.from_parameters(
+                GmxSwapOrder(
                     agent=self.agent,
-                    start_token="USDC",  # swap USDC to PEPE
+                    in_token="USDC",  # swap USDC to PEPE
                     out_token="PEPE",
-                    initial_collateral_delta=100,  # number of tokens in start_token amount
+                    in_token_amount=Decimal(
+                        100
+                    ),  # number of tokens in start_token amount
                     slippage=300,  # 3% slippage
-                    market_key="PEPE:PEPE:USDC",
                     observations=obs,
                 )
             ]

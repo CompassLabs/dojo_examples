@@ -1,4 +1,3 @@
-import logging
 import os
 import sys
 from decimal import Decimal
@@ -6,10 +5,11 @@ from decimal import Decimal
 from dateutil import parser as dateparser
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..")))
-from datetime import timedelta
-from typing import Optional
+sys.path.append(os.path.abspath(os.path.dirname(__file__)))
 
-import cli_runner
+from datetime import timedelta
+from typing import Any, Optional
+
 from agents.uniswapV3_pool_wealth import UniswapV3PoolWealthAgent
 from binance_data import load_binance_data
 from policy import TradeTowardsCentralisedExchangePolicy
@@ -25,6 +25,7 @@ def main(
     simulation_status_bar: bool,
     auto_close: bool,
     run_length: timedelta = timedelta(days=2),
+    **kwargs: dict[str, Any],
 ) -> None:
     pools = ["USDC/WETH-0.05"]
     year = 2021
@@ -75,4 +76,9 @@ def main(
 
 
 if __name__ == "__main__":
-    cli_runner.run_main(main)
+    main(
+        dashboard_server_port=8768,
+        simulation_status_bar=True,
+        auto_close=False,
+        run_length=timedelta(hours=2),
+    )
