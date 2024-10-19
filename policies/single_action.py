@@ -1,6 +1,6 @@
 from typing import List
 
-from dojo.actions import BaseAction
+from dojo.actions.base_action import BaseAction
 from dojo.agents.base_agent import BaseAgent
 from dojo.observations import BaseObservation
 from dojo.policies import BasePolicy

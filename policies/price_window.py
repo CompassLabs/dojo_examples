@@ -2,7 +2,7 @@ import logging
 from decimal import Decimal
 from typing import List
 
-from dojo.actions import BaseAction
+from dojo.actions.base_action import BaseAction
 from dojo.actions.uniswapV3 import UniswapV3Trade
 from dojo.agents import BaseAgent
 from dojo.observations.uniswapV3 import UniswapV3Observation

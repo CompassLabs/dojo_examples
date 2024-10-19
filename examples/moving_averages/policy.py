@@ -4,7 +4,7 @@ from typing import Any, List
 
 import numpy as np
 
-from dojo.actions import BaseAction
+from dojo.actions.base_action import BaseAction
 from dojo.actions.uniswapV3 import UniswapV3Trade
 from dojo.agents import BaseAgent
 from dojo.environments.uniswapV3 import UniswapV3Observation
