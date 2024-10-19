@@ -106,7 +106,7 @@ jobs:
       - name: Run Python Script
         run: |
           echo ${{ matrix.file }}
-          echo ${{ matrix.file }} | sed 's|demo/||' | sed 's|.py||' | sed 's|/|.|g' | xargs -n1 -I{} poetry run python cli_runner.py --module={} --no-dashboard
+          echo ${{ matrix.file }} | sed 's|demo/||' | sed 's|.py||' | sed 's|/|.|g' | xargs -n1 -I{} run python cli_runner.py --module={} --no-dashboard
           # poetry run python ${{ matrix.file }}  --run-length=10m --auto-close=True --dashboard_server_port=None --simulation-status-bar True 
 
 
@@ -152,6 +152,6 @@ jobs:
       - name: Run Python Script
         run: |
           echo ${{ matrix.file }}
-          echo ${{ matrix.file }} | sed 's|demo/||' | sed 's|.py||' | sed 's|/|.|g' | xargs -n1 -I{} poetry run python cli_runner.py --module={} --no-dashboard
+          echo ${{ matrix.file }} | sed 's|demo/||' | sed 's|.py||' | sed 's|/|.|g' | xargs -n1 -I{} python cli_runner.py --module={} --no-dashboard
           # poetry run python ${{ matrix.file }}  --run-length=10m --auto-close=True --dashboard_server_port=None --simulation-status-bar True 
 
