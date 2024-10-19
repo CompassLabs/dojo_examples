@@ -34,7 +34,7 @@ jobs:
       - name: Find Python Files
         id: set-matrix
         run: |
-          brew install jq
+          brew install jq || sudo apt install jq
         
           # Find all run.py files in the demo/ directory
           files=$(find . -name run.py)
