@@ -67,7 +67,7 @@ jobs:
 
   run-demo-files-macos:
     needs: generate-matrix-of-demo-files
-    runs-on: macOS
+    runs-on: macos-latest
     strategy:
       matrix:
         file: ${{ fromJson(needs.generate-matrix-of-demo-files.outputs.matrix) }}
