@@ -23,7 +23,7 @@ jobs:
 
 
   generate-matrix-of-demo-files:
-    runs-on: ubunut-latest
+    runs-on: ubuntu-latest
     outputs:
       matrix: ${{ steps.set-matrix.outputs.matrix }}
     steps:
