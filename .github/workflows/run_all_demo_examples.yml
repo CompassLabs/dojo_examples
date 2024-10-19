@@ -99,7 +99,7 @@ jobs:
       - name: Install dojo from pypi
         uses: CompassLabs/workflows/.github/actions/setup_dojo_pypi@main
         with:
-          python-version: ${{ matrix.python-version }}
+          python-version: 3.11
 
       - name: Run Python Script
         run: |
@@ -147,7 +147,7 @@ jobs:
       - name: Install dojo from pypi
         uses: CompassLabs/workflows/.github/actions/setup_dojo_pypi@main
         with:
-          python-version: ${{ matrix.python-version }}
+          python-version: 3.11
 
       - name: Run Python Script
         run: |
