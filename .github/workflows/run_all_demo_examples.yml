@@ -99,7 +99,8 @@ jobs:
       - name: Install dojo from pypi
         uses: CompassLabs/workflows/.github/actions/setup_dojo_pypi@main
         with:
-          python-version: ${{ matrix.python-version }}
+          python-version: 3.11
+          #TODO use matrix of python versions
 
       - name: Run Python Script
         run: |
@@ -107,7 +108,6 @@ jobs:
           pip install pytimeparse
           echo ${{ matrix.file }}
           echo ${{ matrix.file }} | sed 's|./||' | sed 's|.py||' | sed 's|/|.|g' | xargs -n1 -I{} python cli_runner.py --module={} --no-dashboard
-          # poetry run python ${{ matrix.file }}  --run-length=10m --auto-close=True --dashboard_server_port=None --simulation-status-bar True 
 
 
 
@@ -147,7 +147,8 @@ jobs:
       - name: Install dojo from pypi
         uses: CompassLabs/workflows/.github/actions/setup_dojo_pypi@main
         with:
-          python-version: ${{ matrix.python-version }}
+          python-version: 3.11
+          #TODO use matrix of python versions
 
       - name: Run Python Script
         run: |
