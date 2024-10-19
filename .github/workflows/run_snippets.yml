@@ -12,6 +12,8 @@ on:
 env:
   LICENSE_KEY: ${{ secrets.LICENSE_KEY }}
   FAILURE_WEBHOOK: ${{secrets.FAILURE_WEBHOOK}}
+  ETHEREUM_RPC_URL: ${{secrets.ETHEREUM_RPC_URL}}
+  ARBITRUM_RPC_URL: ${{secrets.ARBITRUM_RPC_URL}}
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -73,28 +75,28 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v4
 
-      - name: Authenticate to Google Cloud
-        id: auth
-        uses: google-github-actions/auth@v2
-        with:
-          project_id: "dojo-405216"
-          workload_identity_provider: "projects/557429359617/locations/global/workloadIdentityPools/github/providers/dojo-ci"
-          service_account: "github-dojo-ci@dojo-405216.iam.gserviceaccount.com"
+      # - name: Authenticate to Google Cloud
+      #   id: auth
+      #   uses: google-github-actions/auth@v2
+      #   with:
+      #     project_id: "dojo-405216"
+      #     workload_identity_provider: "projects/557429359617/locations/global/workloadIdentityPools/github/providers/dojo-ci"
+      #     service_account: "github-dojo-ci@dojo-405216.iam.gserviceaccount.com"
 
-      - name: Retrieve secrets from GCP Secrets Manager
-        id: get-secrets
-        uses: google-github-actions/get-secretmanager-secrets@v2
-        with:
-          secrets: |
-            NODE_API_KEY: projects/557429359617/secrets/node_api_key_secret
-            NODE_RPC_URL: projects/557429359617/secrets/node_rpc_url_secret
-            ARBITRUM_NODE_RPC_URL: projects/557429359617/secrets/arbitrum_node_rpc_url_secret
-            CODECOV_TOKEN: projects/557429359617/secrets/codecov_token
+      # - name: Retrieve secrets from GCP Secrets Manager
+      #   id: get-secrets
+      #   uses: google-github-actions/get-secretmanager-secrets@v2
+      #   with:
+      #     secrets: |
+      #       NODE_API_KEY: projects/557429359617/secrets/node_api_key_secret
+      #       NODE_RPC_URL: projects/557429359617/secrets/node_rpc_url_secret
+      #       ARBITRUM_NODE_RPC_URL: projects/557429359617/secrets/arbitrum_node_rpc_url_secret
+      #       CODECOV_TOKEN: projects/557429359617/secrets/codecov_token
 
-      - name: Set up environment variable
-        run: |
-          echo "ETHEREUM_RPC_URL=https://${{ steps.get-secrets.outputs.NODE_RPC_URL}}?key=${{ steps.get-secrets.outputs.NODE_API_KEY }}" >> $GITHUB_ENV
-          echo "ARBITRUM_RPC_URL=${{ steps.get-secrets.outputs.ARBITRUM_NODE_RPC_URL}}" >> $GITHUB_ENV
+      # - name: Set up environment variable
+      #   run: |
+      #     echo "ETHEREUM_RPC_URL=https://${{ steps.get-secrets.outputs.NODE_RPC_URL}}?key=${{ steps.get-secrets.outputs.NODE_API_KEY }}" >> $GITHUB_ENV
+      #     echo "ARBITRUM_RPC_URL=${{ steps.get-secrets.outputs.ARBITRUM_NODE_RPC_URL}}" >> $GITHUB_ENV
 
       - name: Install dojo from pypi
         uses: CompassLabs/workflows/.github/actions/setup_dojo_pypi@main
@@ -119,28 +121,28 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v4
 
-      - name: Authenticate to Google Cloud
-        id: auth
-        uses: google-github-actions/auth@v2
-        with:
-          project_id: "dojo-405216"
-          workload_identity_provider: "projects/557429359617/locations/global/workloadIdentityPools/github/providers/dojo-ci"
-          service_account: "github-dojo-ci@dojo-405216.iam.gserviceaccount.com"
+      # - name: Authenticate to Google Cloud
+      #   id: auth
+      #   uses: google-github-actions/auth@v2
+      #   with:
+      #     project_id: "dojo-405216"
+      #     workload_identity_provider: "projects/557429359617/locations/global/workloadIdentityPools/github/providers/dojo-ci"
+      #     service_account: "github-dojo-ci@dojo-405216.iam.gserviceaccount.com"
 
-      - name: Retrieve secrets from GCP Secrets Manager
-        id: get-secrets
-        uses: google-github-actions/get-secretmanager-secrets@v2
-        with:
-          secrets: |
-            NODE_API_KEY: projects/557429359617/secrets/node_api_key_secret
-            NODE_RPC_URL: projects/557429359617/secrets/node_rpc_url_secret
-            ARBITRUM_NODE_RPC_URL: projects/557429359617/secrets/arbitrum_node_rpc_url_secret
-            CODECOV_TOKEN: projects/557429359617/secrets/codecov_token
+      # - name: Retrieve secrets from GCP Secrets Manager
+      #   id: get-secrets
+      #   uses: google-github-actions/get-secretmanager-secrets@v2
+      #   with:
+      #     secrets: |
+      #       NODE_API_KEY: projects/557429359617/secrets/node_api_key_secret
+      #       NODE_RPC_URL: projects/557429359617/secrets/node_rpc_url_secret
+      #       ARBITRUM_NODE_RPC_URL: projects/557429359617/secrets/arbitrum_node_rpc_url_secret
+      #       CODECOV_TOKEN: projects/557429359617/secrets/codecov_token
 
-      - name: Set up environment variable
-        run: |
-          echo "ETHEREUM_RPC_URL=https://${{ steps.get-secrets.outputs.NODE_RPC_URL}}?key=${{ steps.get-secrets.outputs.NODE_API_KEY }}" >> $GITHUB_ENV
-          echo "ARBITRUM_RPC_URL=${{ steps.get-secrets.outputs.ARBITRUM_NODE_RPC_URL}}" >> $GITHUB_ENV
+      # - name: Set up environment variable
+      #   run: |
+      #     echo "ETHEREUM_RPC_URL=https://${{ steps.get-secrets.outputs.NODE_RPC_URL}}?key=${{ steps.get-secrets.outputs.NODE_API_KEY }}" >> $GITHUB_ENV
+      #     echo "ARBITRUM_RPC_URL=${{ steps.get-secrets.outputs.ARBITRUM_NODE_RPC_URL}}" >> $GITHUB_ENV
 
       - name: Install dojo from pypi
         uses: CompassLabs/workflows/.github/actions/setup_dojo_pypi@main
