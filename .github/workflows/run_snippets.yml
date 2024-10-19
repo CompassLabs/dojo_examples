@@ -1,4 +1,4 @@
-name: run_snippets
+name: run_all_examples
 
 on:
   push:
@@ -20,24 +20,133 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  run_snippets:
-    runs-on: ${{ matrix.os }}
+
+
+  generate-matrix-of-demo-files:
+    runs-on: ubunut-latest
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      # Step 1: Dynamically generate the list of Python files (run.py) in demo directory
+      - name: Find Python Files
+        id: set-matrix
+        run: |
+          brew install jq
+        
+          # Find all run.py files in the demo/ directory
+          files=$(find . -name run.py)
+
+          # Debug step: Print the files found (for troubleshooting)
+          echo "Files found: $files"
+
+          # Ensure the files are converted into a JSON array, skipping any empty results
+          if [ -z "$files" ]; then
+            echo "No files found!"
+            exit 1
+          fi
+
+          # Convert the list of files into JSON format
+          files_json=$(echo "$files" | jq -R -s -c 'split("\n")[:-1]')
+          echo "Matrix JSON: $files_json"
+          
+          new_file="example_backtest.py"
+          files_json=$(echo "$files_json" | jq -c --arg new_file "$new_file" '. + [$new_file]')
+          echo "Matrix JSON: $files_json"
+
+
+          # Set the matrix output for the next job
+          echo "matrix=$files_json" >> $GITHUB_OUTPUT
+
+  run-demo-files-macos:
+    needs: generate-matrix-of-demo-files
+    runs-on: macOS
     strategy:
       matrix:
-        os: ['ubuntu-latest', 'macos-14']
-        python-version: ['3.10', '3.11']
-
+        file: ${{ fromJson(needs.generate-matrix-of-demo-files.outputs.matrix) }}
     steps:
-      - uses: actions/checkout@v4
+      - name: Check out code
+        uses: actions/checkout@v4
 
-      - name: Setup dev environment
+      - name: Authenticate to Google Cloud
+        id: auth
+        uses: google-github-actions/auth@v2
+        with:
+          project_id: "dojo-405216"
+          workload_identity_provider: "projects/557429359617/locations/global/workloadIdentityPools/github/providers/dojo-ci"
+          service_account: "github-dojo-ci@dojo-405216.iam.gserviceaccount.com"
+
+      - name: Retrieve secrets from GCP Secrets Manager
+        id: get-secrets
+        uses: google-github-actions/get-secretmanager-secrets@v2
+        with:
+          secrets: |
+            NODE_API_KEY: projects/557429359617/secrets/node_api_key_secret
+            NODE_RPC_URL: projects/557429359617/secrets/node_rpc_url_secret
+            ARBITRUM_NODE_RPC_URL: projects/557429359617/secrets/arbitrum_node_rpc_url_secret
+            CODECOV_TOKEN: projects/557429359617/secrets/codecov_token
+
+      - name: Set up environment variable
+        run: |
+          echo "ETHEREUM_RPC_URL=https://${{ steps.get-secrets.outputs.NODE_RPC_URL}}?key=${{ steps.get-secrets.outputs.NODE_API_KEY }}" >> $GITHUB_ENV
+          echo "ARBITRUM_RPC_URL=${{ steps.get-secrets.outputs.ARBITRUM_NODE_RPC_URL}}" >> $GITHUB_ENV
+
+      - name: Install dojo from pypi
         uses: CompassLabs/workflows/.github/actions/setup_dojo_pypi@main
         with:
           python-version: ${{ matrix.python-version }}
 
-      - name: Run Snippets first
-        id: snippets_first_try
-        continue-on-error: true
+      - name: Run Python Script
         run: |
-          cd snippets
-          find . -name "*.py" -exec python {} \;
+          echo ${{ matrix.file }}
+          echo ${{ matrix.file }} | sed 's|demo/||' | sed 's|.py||' | sed 's|/|.|g' | xargs -n1 -I{} poetry run python cli_runner.py --module={} --no-dashboard
+          # poetry run python ${{ matrix.file }}  --run-length=10m --auto-close=True --dashboard_server_port=None --simulation-status-bar True 
+
+
+
+  run-demo-files-ubuntu:
+    needs: generate-matrix-of-demo-files
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        file: ${{ fromJson(needs.generate-matrix-of-demo-files.outputs.matrix) }}
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - name: Authenticate to Google Cloud
+        id: auth
+        uses: google-github-actions/auth@v2
+        with:
+          project_id: "dojo-405216"
+          workload_identity_provider: "projects/557429359617/locations/global/workloadIdentityPools/github/providers/dojo-ci"
+          service_account: "github-dojo-ci@dojo-405216.iam.gserviceaccount.com"
+
+      - name: Retrieve secrets from GCP Secrets Manager
+        id: get-secrets
+        uses: google-github-actions/get-secretmanager-secrets@v2
+        with:
+          secrets: |
+            NODE_API_KEY: projects/557429359617/secrets/node_api_key_secret
+            NODE_RPC_URL: projects/557429359617/secrets/node_rpc_url_secret
+            ARBITRUM_NODE_RPC_URL: projects/557429359617/secrets/arbitrum_node_rpc_url_secret
+            CODECOV_TOKEN: projects/557429359617/secrets/codecov_token
+
+      - name: Set up environment variable
+        run: |
+          echo "ETHEREUM_RPC_URL=https://${{ steps.get-secrets.outputs.NODE_RPC_URL}}?key=${{ steps.get-secrets.outputs.NODE_API_KEY }}" >> $GITHUB_ENV
+          echo "ARBITRUM_RPC_URL=${{ steps.get-secrets.outputs.ARBITRUM_NODE_RPC_URL}}" >> $GITHUB_ENV
+
+      - name: Install dojo from pypi
+        uses: CompassLabs/workflows/.github/actions/setup_dojo_pypi@main
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Run Python Script
+        run: |
+          echo ${{ matrix.file }}
+          echo ${{ matrix.file }} | sed 's|demo/||' | sed 's|.py||' | sed 's|/|.|g' | xargs -n1 -I{} poetry run python cli_runner.py --module={} --no-dashboard
+          # poetry run python ${{ matrix.file }}  --run-length=10m --auto-close=True --dashboard_server_port=None --simulation-status-bar True 
+
