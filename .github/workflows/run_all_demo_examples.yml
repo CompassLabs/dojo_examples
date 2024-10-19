@@ -65,7 +65,7 @@ jobs:
 
   run-demo-files-macos:
     needs: generate-matrix-of-demo-files
-    runs-on: macos-latest
+    runs-on: macos-14
     strategy:
       matrix:
         file: ${{ fromJson(needs.generate-matrix-of-demo-files.outputs.matrix) }}
@@ -103,6 +103,8 @@ jobs:
 
       - name: Run Python Script
         run: |
+          pip install mypy_extensions
+          pip install pytimeparse
           echo ${{ matrix.file }}
           echo ${{ matrix.file }} | sed 's|./||' | sed 's|.py||' | sed 's|/|.|g' | xargs -n1 -I{} python cli_runner.py --module={} --no-dashboard
           # poetry run python ${{ matrix.file }}  --run-length=10m --auto-close=True --dashboard_server_port=None --simulation-status-bar True 
@@ -149,6 +151,8 @@ jobs:
 
       - name: Run Python Script
         run: |
+          pip install mypy_extensions
+          pip install pytimeparse
           echo ${{ matrix.file }}
           echo ${{ matrix.file }} | sed 's|./||' | sed 's|.py||' | sed 's|/|.|g' | xargs -n1 -I{} python cli_runner.py --module={} --no-dashboard
         # continue-on-error: true
