@@ -49,9 +49,7 @@ def main(
 ) -> None:
     # SNIPPET 1 START
     start_time = dateparser.parse("2024-08-30 00:00:00 UTC")
-    end_time = start_time + timedelta(
-        minutes=2
-    )  # run_length TODO(way to slow to run long sims in CD)
+    end_time = start_time + run_length
 
     market_venue1 = MarketVenue(
         long_token="WETH",

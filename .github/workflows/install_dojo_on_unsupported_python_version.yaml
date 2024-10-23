@@ -1,0 +1,33 @@
+name: install_dojo_on_unsupported_python_version
+
+on:
+  push:
+    branches: [ main ]
+  schedule:
+    - cron: '0 0 */1 * *'   # Runs at midnight every 1 days
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-14]   # Operating systems
+        python-version: [3.7, 3.8, 3.9, 3.13]  # Python versions
+
+    steps:
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Try pip install
+        run: |
+          pip install dojo-compass
+          if [ $? -eq 0 ]; then
+            echo "pip install succeeded, failing the workflow."
+            exit 1
+          else
+            echo "pip install failed, passing the workflow."
+            exit 0

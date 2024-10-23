@@ -22,6 +22,19 @@ from enum import Enum
 from typing import Any
 
 
+class RunProfile(Enum):
+    NONE = "None"
+    GENERATING_WEBSITE_DB_FILES = "GENERATING_WEBSITE_DB_FILES"
+
+    @staticmethod
+    def of_string(s: str) -> "RunProfile":
+        s = s.upper()
+        try:
+            return RunProfile[s]
+        except:
+            raise Exception(f"{s} is not a valid run profile!")
+
+
 class CliLogLevel(Enum):
     CRITICAL = 50
     FATAL = CRITICAL
@@ -68,6 +81,13 @@ def run_main() -> None:
         help=f"The port the dashboard should be server on. {default_dashboard_server_port=}",
     )
     dashboard_group.add_argument("--no-dashboard", action="store_true")
+    parser.add_argument(
+        "--run-profile",
+        type=RunProfile.of_string,
+        choices=list(RunProfile),
+        default=RunProfile.NONE,
+        help="apply a set of defaults for a pre-defined scenario",
+    )
     parser.add_argument(
         "--log-level",
         type=CliLogLevel.of_string,
@@ -116,12 +136,29 @@ def run_main() -> None:
         dashboard_server_port: Optional[int] = None
     else:
         dashboard_server_port = args.dashboard_server_port
+    run_length = args.run_length
+    auto_close = args.auto_close
+    simulation_status_bar = args.simulation_status_bar
+
+    run_profile: RunProfile = args.run_profile
+    match run_profile:
+        case RunProfile.NONE:
+            pass
+        case RunProfile.GENERATING_WEBSITE_DB_FILES:
+            match args.module:
+                case "examples.gmxV2_swap_orders.run":
+                    run_length = timedelta(minutes=2.0)
+                case _:
+                    pass
+        case _:
+            print("Unrecognised run profile!")
+    args = argparse.Namespace()  # shadow args to make bugs less likely
 
     call_args = {
         "dashboard_server_port": dashboard_server_port,
-        "simulation_status_bar": args.simulation_status_bar,
-        "auto_close": args.auto_close,
-        "run_length": args.run_length,
+        "simulation_status_bar": simulation_status_bar,
+        "auto_close": auto_close,
+        "run_length": run_length,
     }
     call_args = {
         # let main functions use default values for run_length - we don't want to override them with the 'None' value
