@@ -86,10 +86,10 @@ jobs:
       #   uses: google-github-actions/get-secretmanager-secrets@v2
       #   with:
       #     secrets: |
-      #       NODE_API_KEY: projects/557429359617/secrets/node_api_key_secret
-      #       NODE_RPC_URL: projects/557429359617/secrets/node_rpc_url_secret
-      #       ARBITRUM_NODE_RPC_URL: projects/557429359617/secrets/arbitrum_node_rpc_url_secret
-      #       CODECOV_TOKEN: projects/557429359617/secrets/codecov_token
+      #       NODE_API_KEY:557429359617/node_api_key_secret
+      #       NODE_RPC_URL:557429359617/node_rpc_url_secret
+      #       ARBITRUM_NODE_RPC_URL:557429359617/arbitrum_node_rpc_url_secret
+      #       CODECOV_TOKEN:557429359617/codecov_token
 
       # - name: Set up environment variable
       #   run: |
@@ -134,10 +134,10 @@ jobs:
       #   uses: google-github-actions/get-secretmanager-secrets@v2
       #   with:
       #     secrets: |
-      #       NODE_API_KEY: projects/557429359617/secrets/node_api_key_secret
-      #       NODE_RPC_URL: projects/557429359617/secrets/node_rpc_url_secret
-      #       ARBITRUM_NODE_RPC_URL: projects/557429359617/secrets/arbitrum_node_rpc_url_secret
-      #       CODECOV_TOKEN: projects/557429359617/secrets/codecov_token
+      #       NODE_API_KEY:557429359617/node_api_key_secret
+      #       NODE_RPC_URL:557429359617/node_rpc_url_secret
+      #       ARBITRUM_NODE_RPC_URL:557429359617/arbitrum_node_rpc_url_secret
+      #       CODECOV_TOKEN:557429359617/codecov_token
 
       # - name: Set up environment variable
       #   run: |
