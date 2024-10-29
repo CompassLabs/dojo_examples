@@ -5,14 +5,15 @@ from decimal import Decimal
 
 from dateutil import parser as dateparser
 
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..")))
+sys.path.append(os.path.abspath(os.path.dirname(__file__)))
+
 from demo.agents.uniswapV3_pool_wealth import UniswapV3PoolWealthAgent
 from demo.examples.impermanent_loss_tracking.policy import ImpermanentLossPolicy
 from dojo.common.constants import Chain
 from dojo.environments import UniswapV3Env
 from dojo.runners import backtest_run
 
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..")))
-sys.path.append(os.path.abspath(os.path.dirname(__file__)))
 logging.basicConfig(format="%(asctime)s - %(message)s", level=logging.INFO)
 
 pools = ["USDC/WETH-0.05"]

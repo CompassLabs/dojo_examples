@@ -1,8 +1,12 @@
+import logging
 import os
 import sys
 from datetime import timedelta
 from decimal import Decimal
 from typing import Any, Optional
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..")))
+sys.path.append(os.path.abspath(os.path.dirname(__file__)))
 
 from dateutil import parser as dateparser
 from policy import AAVEv3Policy
@@ -12,9 +16,6 @@ from dojo.common.constants import Chain
 from dojo.environments import AAVEv3Env
 from dojo.environments.aaveV3 import AAVEv3Observation
 from dojo.runners import backtest_run
-
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..")))
-sys.path.append(os.path.abspath(os.path.dirname(__file__)))
 
 
 class ConstantRewardAgent(AAVEv3Agent):

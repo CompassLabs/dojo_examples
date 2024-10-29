@@ -41,3 +41,10 @@ jobs:
         run: |
           cd snippets
           find . -name "*.py" -exec python {} \;
+
+      - name: Send failure notification to AllQuiet
+        if: ${{ failure() }}
+        run: |
+          curl ${{ secrets.ALLQUIET_URL }} \
+           -H "Content-Type: application/json" \
+           --data '{"alertName":"${{ github.repository }} workflow ${{ github.workflow }} failed!","alertStatus":"Warning"}'

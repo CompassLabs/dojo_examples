@@ -1,8 +1,12 @@
+import logging
 import os
 import sys
 from datetime import timedelta
 from decimal import Decimal
 from typing import Any, Optional
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..")))
+sys.path.append(os.path.abspath(os.path.dirname(__file__)))
 
 from dateutil import parser as dateparser
 from policy import GmxV2Policy
@@ -13,9 +17,6 @@ from dojo.environments import GmxV2Env
 from dojo.models.gmxV2.market import MarketVenue
 from dojo.observations.gmxV2 import GmxV2Observation
 from dojo.runners import backtest_run
-
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..")))
-sys.path.append(os.path.abspath(os.path.dirname(__file__)))
 
 
 class GmxV2Agent(BaseAgent[GmxV2Observation]):

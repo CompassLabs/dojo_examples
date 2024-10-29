@@ -31,3 +31,10 @@ jobs:
           else
             echo "pip install failed, passing the workflow."
             exit 0
+
+      - name: Send failure notification to AllQuiet
+        if: ${{ failure() }}
+        run: |
+          curl ${{ secrets.ALLQUIET_URL }} \
+           -H "Content-Type: application/json" \
+           --data '{"alertName":"${{ github.repository }} workflow ${{ github.workflow }} failed!","alertStatus":"Warning"}'
