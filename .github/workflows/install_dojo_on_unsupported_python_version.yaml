@@ -31,6 +31,7 @@ jobs:
           else
             echo "pip install failed, passing the workflow."
             exit 0
+          fi
 
       - name: Send failure notification to AllQuiet
         if: ${{ failure() }}
