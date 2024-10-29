@@ -1,14 +1,8 @@
-import logging
 import os
 import sys
 from datetime import timedelta
 from decimal import Decimal
-from typing import Optional
-
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..")))
-sys.path.append(os.path.abspath(os.path.dirname(__file__)))
-
-from typing import Any
+from typing import Any, Optional
 
 from dateutil import parser as dateparser
 from policy import AAVEv3Policy
@@ -18,6 +12,9 @@ from dojo.common.constants import Chain
 from dojo.environments import AAVEv3Env
 from dojo.environments.aaveV3 import AAVEv3Observation
 from dojo.runners import backtest_run
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..")))
+sys.path.append(os.path.abspath(os.path.dirname(__file__)))
 
 
 class ConstantRewardAgent(AAVEv3Agent):
@@ -29,10 +26,9 @@ class ConstantRewardAgent(AAVEv3Agent):
         """Initialize the agent."""
         super().__init__(name=name, initial_portfolio=initial_portfolio)
 
-    def reward(self, obs: AAVEv3Observation) -> float:  # type: ignore
+    def reward(self, obs: AAVEv3Observation) -> float:
         """This agent does not measure reward."""
-        ###print(obs.get_user_account_data_base(self.original_address).healthFactor)
-        return obs.get_user_account_data_base(self.original_address).healthFactor  # type: ignore[arg-type]
+        return obs.get_user_account_data_base(self.original_address).healthFactor
 
 
 def main(
@@ -81,6 +77,9 @@ def main(
 
 
 if __name__ == "__main__":
+    logging.basicConfig(
+        format="%(asctime)s - %(message)s", level=logging.ERROR
+    )  # change to logging.INFO for higher verbosity
     main(
         dashboard_server_port=8768,
         simulation_status_bar=True,

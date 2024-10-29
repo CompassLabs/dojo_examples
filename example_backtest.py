@@ -1,5 +1,5 @@
 import logging
-from datetime import datetime, timedelta
+from datetime import timedelta
 from decimal import Decimal
 from typing import Any, Optional
 
@@ -72,7 +72,9 @@ def main(
 
 
 if __name__ == "__main__":
-    logging.basicConfig(format="%(asctime)s - %(message)s", level=logging.ERROR)
+    logging.basicConfig(
+        format="%(asctime)s - %(message)s", level=logging.ERROR
+    )  # change to logging.INFO for higher verbosity
 
     main(
         dashboard_server_port=8768,

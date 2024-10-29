@@ -1,26 +1,24 @@
 from collections import deque
 from decimal import Decimal
-from typing import List
 
 import numpy as np
 
-from dojo.actions.base_action import BaseAction
-from dojo.actions.uniswapV3 import UniswapV3Trade
-from dojo.agents import BaseAgent
+from dojo.actions.uniswapV3 import BaseUniswapV3Action, UniswapV3Trade
+from dojo.agents import UniswapV3Agent
 from dojo.observations.uniswapV3 import UniswapV3Observation
-from dojo.policies import BasePolicy
+from dojo.policies import UniswapV3Policy
 
 
 # SNIPPET 1 START
 # a policy that uses the RSI indicator to make decisions
-class RSIPolicy(BasePolicy):  # type: ignore
+class RSIPolicy(UniswapV3Policy):
     """RSI trading policy for a UniswapV3Env with a single pool.
 
     :param agent: The agent which is using this policy.
     """
 
-    def __init__(self, agent: BaseAgent):
-        self.agent: BaseAgent = agent
+    def __init__(self, agent: UniswapV3Agent):
+        self.agent: UniswapV3Agent = agent
         self.rsi_period: int = 14
         self.rsi_values: deque[Decimal] = deque(maxlen=self.rsi_period)
         self.rsi: float = 0.0
@@ -29,7 +27,7 @@ class RSIPolicy(BasePolicy):  # type: ignore
 
     # SNIPPET 1 END
 
-    def predict(self, obs: UniswapV3Observation) -> List[BaseAction]:  # type: ignore
+    def predict(self, obs: UniswapV3Observation) -> list[BaseUniswapV3Action]:
         # SNIPPET 2 START
         pool = obs.pools[0]
         token0, token1 = obs.pool_tokens(pool)

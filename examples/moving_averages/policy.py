@@ -1,18 +1,16 @@
 from collections import deque
 from decimal import Decimal
-from typing import Any, List
 
 import numpy as np
 
-from dojo.actions.base_action import BaseAction
-from dojo.actions.uniswapV3 import UniswapV3Trade
-from dojo.agents import BaseAgent
+from dojo.actions.uniswapV3 import BaseUniswapV3Action, UniswapV3Trade
+from dojo.agents import UniswapV3Agent
 from dojo.environments.uniswapV3 import UniswapV3Observation
-from dojo.policies import BasePolicy
+from dojo.policies import UniswapV3Policy
 
 
 # SNIPPET 1 START
-class MovingAveragePolicy(BasePolicy):  # type: ignore
+class MovingAveragePolicy(UniswapV3Policy):
     """Moving average trading policy for a UniswapV3Env with a single pool.
 
     :param agent: The agent which is using this policy.
@@ -21,7 +19,7 @@ class MovingAveragePolicy(BasePolicy):  # type: ignore
     """
 
     def __init__(
-        self, agent: BaseAgent, pool: str, short_window: int, long_window: int
+        self, agent: UniswapV3Agent, pool: str, short_window: int, long_window: int
     ) -> None:
         super().__init__(agent=agent)
         self._short_window_len: int = short_window
@@ -58,7 +56,7 @@ class MovingAveragePolicy(BasePolicy):  # type: ignore
             and self.agent.quantity(pool_tokens[0]) > 0
         )
 
-    def predict(self, obs: UniswapV3Observation) -> List[BaseAction[Any]]:
+    def predict(self, obs: UniswapV3Observation) -> list[BaseUniswapV3Action]:
         """Make a trade if the mean of the short window crosses the mean of the long
         window."""
         pool_tokens = obs.pool_tokens(pool=self.pool)

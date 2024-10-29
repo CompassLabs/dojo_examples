@@ -10,7 +10,6 @@ from dojo.actions.gmxV2.orders.models import (
 from dojo.agents import BaseAgent
 from dojo.environments.gmxV2 import GmxV2Observation
 from dojo.policies import BasePolicy
-from dojo.utils.gmxV2.position import get_position_key
 
 
 # SNIPPET 1 START
@@ -29,9 +28,6 @@ class GmxV2Policy(BasePolicy):
         self.state = State.NO_POSITION
 
     # SNIPPET 1 END
-
-    def fit(self):
-        pass
 
     def predict(self, obs: GmxV2Observation) -> list[GmxBaseTraderOrder]:
         total_trader_pnl = 0
@@ -53,7 +49,7 @@ class GmxV2Policy(BasePolicy):
         short_open_interest_with_pnl = obs.get_open_interest_with_pnl(
             market_key="WETH:WETH:USDC", is_long=False, maximize=True
         )
-        market_info = obs.get_market_info(market_key="WETH:WETH:USDC")
+        _ = obs.get_market_info(market_key="WETH:WETH:USDC")
 
         obs.add_signal("net pnl", net_pnl)
         obs.add_signal("long pnl", long_pnl)

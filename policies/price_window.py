@@ -1,27 +1,25 @@
 import logging
 from decimal import Decimal
-from typing import List
 
-from dojo.actions.base_action import BaseAction
-from dojo.actions.uniswapV3 import UniswapV3Trade
-from dojo.agents import BaseAgent
+from dojo.actions.uniswapV3 import BaseUniswapV3Action, UniswapV3Trade
+from dojo.agents import UniswapV3Agent
 from dojo.observations.uniswapV3 import UniswapV3Observation
-from dojo.policies import BasePolicy
+from dojo.policies import UniswapV3Policy
 
 logging.basicConfig(format="%(asctime)s - %(message)s", level=logging.INFO)
 
 
 # SNIPPET price_window START
-class PriceWindowPolicy(BasePolicy):  # type: ignore
+class PriceWindowPolicy(UniswapV3Policy):
     def __init__(
-        self, agent: BaseAgent, lower_limit: float, upper_limit: float
+        self, agent: UniswapV3Agent, lower_limit: float, upper_limit: float
     ) -> None:
         super().__init__(agent=agent)
         self.upper_limit = upper_limit
         self.lower_limit = lower_limit
 
     # derive actions from observations
-    def predict(self, obs: UniswapV3Observation) -> List[BaseAction]:  # type: ignore
+    def predict(self, obs: UniswapV3Observation) -> list[BaseUniswapV3Action]:
         pool = obs.pools[0]
         x_token, y_token = obs.pool_tokens(pool)
         spot_price = obs.price(token=x_token, unit=y_token, pool=pool)

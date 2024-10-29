@@ -1,12 +1,11 @@
-from typing import List
+from typing import Any
 
 from dojo.actions.base_action import BaseAction
 from dojo.agents.base_agent import BaseAgent
-from dojo.observations import BaseObservation
-from dojo.policies import BasePolicy
+from dojo.policies.base_policy import BasePolicy
 
 
-class SingleAction(BasePolicy):  # type: ignore
+class SingleAction(BasePolicy[Any, Any, Any]):
     """A policy that executes a single action.
 
     This is useful for testing the impact of a single action in an environment. For
@@ -14,7 +13,7 @@ class SingleAction(BasePolicy):  # type: ignore
     you executed a single swap.
     """
 
-    def __init__(self, agent: BaseAgent, action: BaseAction) -> None:  # type: ignore
+    def __init__(self, agent: BaseAgent[Any], action: BaseAction[Any]) -> None:
         """Initialize the policy.
 
         :param agent: The agent which is using this policy.

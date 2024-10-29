@@ -2,6 +2,13 @@ import logging
 import sys
 from decimal import Decimal
 
+from agents.uniswapV3_pool_wealth import UniswapV3PoolWealthAgent
+from dateutil import parser as dateparser
+
+from dojo.actions.uniswapV3 import UniswapV3Quote, UniswapV3Trade
+from dojo.common.constants import Chain
+from dojo.environments import UniswapV3Env
+
 logging.basicConfig(
     level=logging.ERROR,  # Log only Errors from dojo itself.
     handlers=[logging.StreamHandler()],
@@ -10,19 +17,11 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
-
 sys.path.append("..")
-from agents.uniswapV3_pool_wealth import UniswapV3PoolWealthAgent
-from dateutil import parser as dateparser
-
-from dojo.actions.uniswapV3 import UniswapV3Quote, UniswapV3Trade
-from dojo.common.constants import Chain
-from dojo.environments import UniswapV3Env
 
 POOL = "SAFE/WETH-0.1"
 start_time = dateparser.parse("2024-06-21 00:00:00 UTC")
 end_time = dateparser.parse("2024-06-21 06:00:00 UTC")
-
 
 initial_portfolio = initial_portfolio = {
     "ETH": Decimal(0.2),  # just a bit of ETH to cover fees
@@ -78,7 +77,6 @@ logger.info(
 
 without_slippage = trader_agent.portfolio()[token1] * price_1_in_0 * (1 - fee)
 
-
 # Provide LP in current tick range
 env.step(
     actions=[
@@ -93,7 +91,6 @@ env.step(
         )
     ]
 )
-
 
 liquidity_post_lp = obs.liquidity(POOL)
 logger.info("AFTER LP PROVISION")
@@ -127,7 +124,7 @@ effective_price = (post_portfolio[token0] - initial_portfolio[token0]) / (
 )
 
 post_trade_tick_range = obs.active_tick_range(POOL)
-logger.info(f"AFTER TRADE")
+logger.info("AFTER TRADE")
 logger.info(f"tick: {tick_post_trade}")
 logger.info(f"pool_price: {float(price_1_in_0_post_trade)}")
 logger.info(f"agent portfolio {trader_agent.portfolio()}")
@@ -136,5 +133,5 @@ logger.info(
     "--------------------------------------------------------------------------------------------------------"
 )
 logger.info(f"effective trade price = {float(effective_price)}")
-logger.info(f"slippage = {round(float(1-effective_price/price_1_in_0),2)*100} %")
+logger.info(f"slippage = {round(float(1 - effective_price / price_1_in_0), 2) * 100} %")
 # We expect to slippage to decrease if more LP is provided.

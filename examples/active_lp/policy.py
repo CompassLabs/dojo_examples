@@ -1,18 +1,19 @@
 from dataclasses import dataclass
+from decimal import Decimal
 from enum import Enum
-from typing import Any, List, Union
+from typing import Union
 
-from dojo.actions.base_action import BaseAction
 from dojo.actions.uniswapV3 import (
+    BaseUniswapV3Action,
     UniswapV3BurnNew,
     UniswapV3CollectFull,
     UniswapV3ProvideQuantities,
     UniswapV3TradeToTickRange,
     UniswapV3WithdrawLiquidity,
 )
-from dojo.agents import BaseAgent
+from dojo.agents import UniswapV3Agent
 from dojo.observations import UniswapV3Observation
-from dojo.policies import BasePolicy
+from dojo.policies import UniswapV3Policy
 
 
 class State(Enum):
@@ -30,27 +31,23 @@ class _PositionInfo:
     liquidity: int
 
 
-class ActiveConcentratedLP(BasePolicy):  # type: ignore
+class ActiveConcentratedLP(UniswapV3Policy):
     """Actively managing LP postions to always stay around the current price."""
 
-    def __init__(self, agent: BaseAgent, lp_width: int) -> None:
+    def __init__(self, agent: UniswapV3Agent, lp_width: int) -> None:
         """Initialize the policy.
 
         :param agent: The agent which is using this policy.
-        :param lower_price_bound: The lower price bound for the tick range of the LP
-            position to invest in. e.g. 0.95 means the lower price bound is 95% of the
-            current spot price.
-        :param upper_price_bound: The upper price bound for the tick range of the LP
-            position to invest in. e.g. 1.05 means the upper price bound is 105% of the
-            current spot price.
+        :param lp_width: How many ticks to the left and right the liquidity will be
+            spread.
         """
         super().__init__(agent=agent)
         self.state: State = State.IDLE
         self.position_info: Union[_PositionInfo, None] = None
         self.lp_width = lp_width
-        self.swap_volume = 0
-        self.swap_count = 0
-        self.wealth_before = 0
+        self.swap_volume = Decimal(0)
+        self.swap_count = Decimal(0)
+        self.wealth_before = Decimal(0)
 
     def _get_provide_lp_range(self, obs: UniswapV3Observation) -> tuple[int, int]:
         lower_active_tick, upper_active_tick = obs.active_tick_range(obs.pools[0])
@@ -60,7 +57,7 @@ class ActiveConcentratedLP(BasePolicy):  # type: ignore
             upper_active_tick + self.lp_width * tick_spacing,
         )
 
-    def _rebalance(self, obs: UniswapV3Observation) -> list[BaseAction[Any]]:
+    def _rebalance(self, obs: UniswapV3Observation) -> list[BaseUniswapV3Action]:
         token0, token1 = obs.pool_tokens(obs.pools[0])
         portfolio = self.agent.portfolio()
         self.wealth_before = portfolio[token0] + portfolio[token1] * obs.price(
@@ -75,7 +72,7 @@ class ActiveConcentratedLP(BasePolicy):  # type: ignore
         self.state = State.REBALANCED
         return [action]
 
-    def _invest(self, obs: UniswapV3Observation) -> list[BaseAction[Any]]:
+    def _invest(self, obs: UniswapV3Observation) -> list[BaseUniswapV3Action]:
         token0, token1 = obs.pool_tokens(obs.pools[0])
         portfolio = self.agent.portfolio()
         wealth_after = portfolio[token0] + portfolio[token1] * obs.price(
@@ -100,7 +97,9 @@ class ActiveConcentratedLP(BasePolicy):  # type: ignore
         self.state = State.INVESTED
         return [action]
 
-    def _withdraw_if_neccessary(self, obs: UniswapV3Observation) -> list[Any]:
+    def _withdraw_if_neccessary(
+        self, obs: UniswapV3Observation
+    ) -> list[BaseUniswapV3Action]:
         lower_active_tick, upper_active_tick = obs.active_tick_range(obs.pools[0])
 
         if not self.position_info:
@@ -121,20 +120,20 @@ class ActiveConcentratedLP(BasePolicy):  # type: ignore
         else:
             return []
 
-    def _collect(self, obs: UniswapV3Observation) -> list[BaseAction[Any]]:
+    def _collect(self, obs: UniswapV3Observation) -> list[BaseUniswapV3Action]:
         position_id = self.agent.erc721_portfolio()["UNI-V3-POS"][-1]
         action = UniswapV3CollectFull(
             agent=self.agent,
             pool=obs.pools[0],
-            position_id=position_id,
+            position_id=str(position_id),
         )
         self.state = State.COLLECTED
         return [action]
 
-    def _burn_position(self, obs: UniswapV3Observation) -> list[BaseAction[Any]]:
+    def _burn_position(self, obs: UniswapV3Observation) -> list[BaseUniswapV3Action]:
         action = UniswapV3BurnNew(
             agent=self.agent,
-            position_id=self.agent.erc721_portfolio()["UNI-V3-POS"][-1],
+            position_id=str(self.agent.erc721_portfolio()["UNI-V3-POS"][-1]),
         )
         self.position_info = None
         self.state = State.IDLE
@@ -161,7 +160,7 @@ class ActiveConcentratedLP(BasePolicy):  # type: ignore
         obs.add_signal("Swap count", self.swap_count)
         obs.add_signal("Swap volume", self.swap_volume)
 
-    def predict(self, obs: UniswapV3Observation) -> List[BaseAction]:  # type: ignore
+    def predict(self, obs: UniswapV3Observation) -> list[BaseUniswapV3Action]:
         obs.add_signal("Swap Volume", self.swap_volume)
         obs.add_signal("Swap Count", self.swap_count)
         obs.add_signal("LP fees earned", float(0))

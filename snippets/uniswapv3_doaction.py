@@ -2,15 +2,16 @@ import os
 import sys
 from decimal import Decimal
 
-current = os.path.dirname(os.path.realpath(__file__))
-parent = os.path.dirname(current)
-sys.path.append(parent)
 from agents.uniswapV3_pool_wealth import UniswapV3PoolWealthAgent
 from dateutil import parser as dateparser
 
 from dojo.actions.uniswapV3 import UniswapV3Trade
 from dojo.common.constants import Chain
 from dojo.environments.uniswapV3 import UniswapV3Env
+
+current = os.path.dirname(os.path.realpath(__file__))
+parent = os.path.dirname(current)
+sys.path.append(parent)
 
 pools = ["USDC/WETH-0.3"]
 sim_start = dateparser.parse("2021-06-21 00:00:00 UTC")

@@ -2,16 +2,11 @@ import os
 import sys
 from decimal import Decimal
 
-from dojo.common.constants import Chain
-
-current = os.path.dirname(os.path.realpath(__file__))
-parent = os.path.dirname(current)
-sys.path.append(parent)
-
 from agents.dummy_agent import DummyAgent
 from dateutil import parser as dateparser
 
 from dojo.actions.aaveV3 import AAVEv3Supply, AAVEv3WithdrawAll
+from dojo.common.constants import Chain
 from dojo.environments.aaveV3 import AAVEv3Env
 
 current = os.path.dirname(os.path.realpath(__file__))

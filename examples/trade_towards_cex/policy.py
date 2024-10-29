@@ -3,16 +3,15 @@ import sys
 from datetime import timedelta
 from decimal import Decimal
 from enum import Enum
-from typing import List, Tuple
 
-sys.path.append(os.path.abspath(os.path.dirname(__file__)))
+from binance_data import Binance_data
 
-from binance_data import Binance_data, Binance_data_point
-
-from dojo.actions.uniswapV3 import UniswapV3Action, UniswapV3Trade
+from dojo.actions.uniswapV3 import BaseUniswapV3Action, UniswapV3Trade
 from dojo.agents import UniswapV3Agent
 from dojo.environments.uniswapV3 import UniswapV3Observation
-from dojo.policies import BasePolicy
+from dojo.policies import UniswapV3Policy
+
+sys.path.append(os.path.abspath(os.path.dirname(__file__)))
 
 
 class State(Enum):
@@ -22,9 +21,7 @@ class State(Enum):
     IN_TOKEN1 = 3
 
 
-class TradeTowardsCentralisedExchangePolicy(
-    BasePolicy[UniswapV3Action, UniswapV3Agent, UniswapV3Observation]
-):
+class TradeTowardsCentralisedExchangePolicy(UniswapV3Policy):
     """Arbitrage trading policy for a UniswapV3Env with two pools.
 
     :param agent: The agent which is using this policy.
@@ -44,7 +41,7 @@ class TradeTowardsCentralisedExchangePolicy(
 
     # SNIPPET 1 END
 
-    def predict(self, obs: UniswapV3Observation) -> List[UniswapV3Action]:
+    def predict(self, obs: UniswapV3Observation) -> list[BaseUniswapV3Action]:
         block = obs.block
         obs.add_signal("state", float(self.state.value))
         if not block or block - self.block_last_trade < self.FREEZE_BLOCKS:
@@ -53,11 +50,6 @@ class TradeTowardsCentralisedExchangePolicy(
         pool = obs.pools[0]
         token0, token1 = obs.pool_tokens(pool)
         dex_usdc_per_eth = float(obs.price(token1, token0, pool))
-        initial_portfolio = self.agent.initial_portfolio
-
-        # let's run every tenth block
-        # if block % 10 != 0:  # type: ignore
-        #     return []
 
         date = obs.backend.block_to_datetime(block) + self.TIME_ADVANTAGE
         # SNIPPET 2 START

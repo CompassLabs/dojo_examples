@@ -6,7 +6,6 @@ from datetime import datetime
 from typing import List
 
 import requests
-from dateutil import parser as dateparser
 from pytz import UTC
 
 

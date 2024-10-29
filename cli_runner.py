@@ -1,25 +1,22 @@
 import argparse
 import importlib
 import logging
-import os
-from datetime import datetime, timedelta
-from typing import Callable, Literal, Optional, Protocol, Union
+from datetime import timedelta
+from enum import Enum
+from typing import Callable, Optional
 
 from mypy_extensions import NamedArg
 from pytimeparse.timeparse import timeparse
 
 Main = Callable[
     [
-        NamedArg(Optional[int], "dashboard_server_port"),
-        NamedArg(bool, "simulation_status_bar"),
-        NamedArg(bool, "auto_close"),
-        NamedArg(Optional[timedelta], "run_length"),
+        NamedArg(Optional[int], "dashboard_server_port"),  # noqa: F821
+        NamedArg(bool, "simulation_status_bar"),  # noqa: F821
+        NamedArg(bool, "auto_close"),  # noqa: F821
+        NamedArg(Optional[timedelta], "run_length"),  # noqa: F821
     ],
     None,
 ]
-
-from enum import Enum
-from typing import Any
 
 
 class RunProfile(Enum):
@@ -31,7 +28,7 @@ class RunProfile(Enum):
         s = s.upper()
         try:
             return RunProfile[s]
-        except:
+        except:  # noqa: E722
             raise Exception(f"{s} is not a valid run profile!")
 
 
@@ -53,7 +50,7 @@ class CliLogLevel(Enum):
         s = s.upper()
         try:
             return CliLogLevel[s]
-        except:
+        except:  # noqa: E722
             raise Exception(f"{s=} is not a valid log level!")
 
 
@@ -164,7 +161,7 @@ def run_main() -> None:
         # let main functions use default values for run_length - we don't want to override them with the 'None' value
         k: v
         for k, v in call_args.items()
-        if not (k == "run_length" and v == None)
+        if not (k == "run_length" and v is None)
     }
     main_f(**call_args)
 

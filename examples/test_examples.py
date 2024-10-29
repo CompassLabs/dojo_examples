@@ -20,7 +20,7 @@ def test_all_files() -> None:
     for test_file in test_files:
         print(test_file)
         # Run each test file using subprocess
-        result = subprocess.run(["pytest", test_file], capture_output=True, text=True)
+        _ = subprocess.run(["pytest", test_file], capture_output=True, text=True)
 
         # Check if the test run was successful
         # assert (

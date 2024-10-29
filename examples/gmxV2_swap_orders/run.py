@@ -2,17 +2,11 @@
 import logging
 import os
 import sys
+from datetime import timedelta
 from decimal import Decimal
-from typing import Optional
+from typing import Any, Optional
 
 from dateutil import parser as dateparser
-
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..")))
-sys.path.append(os.path.abspath(os.path.dirname(__file__)))
-
-from datetime import timedelta
-from typing import Any
-
 from policy import GmxV2Policy
 
 from dojo.agents import BaseAgent
@@ -22,6 +16,8 @@ from dojo.models.gmxV2.market import MarketVenue
 from dojo.observations.gmxV2 import GmxV2Observation
 from dojo.runners import backtest_run
 
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..")))
+sys.path.append(os.path.abspath(os.path.dirname(__file__)))
 logging.basicConfig(format="%(asctime)s - %(message)s", level=logging.INFO)
 
 
@@ -99,6 +95,9 @@ def main(
 
 
 if __name__ == "__main__":
+    logging.basicConfig(
+        format="%(asctime)s - %(message)s", level=logging.ERROR
+    )  # change to logging.INFO for higher verbosity
     main(
         dashboard_server_port=8768,
         simulation_status_bar=True,

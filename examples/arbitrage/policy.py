@@ -1,21 +1,20 @@
 from decimal import Decimal
-from typing import List, Tuple, Union
+from typing import Tuple, Union
 
-from dojo.actions.base_action import BaseAction
-from dojo.actions.uniswapV3 import UniswapV3Trade
-from dojo.agents import BaseAgent
+from dojo.actions.uniswapV3 import BaseUniswapV3Action, UniswapV3Trade
+from dojo.agents import UniswapV3Agent
 from dojo.observations.uniswapV3 import UniswapV3Observation
-from dojo.policies import BasePolicy
+from dojo.policies import UniswapV3Policy
 
 
 # SNIPPET 1 START
-class ArbitragePolicy(BasePolicy):  # type: ignore
+class ArbitragePolicy(UniswapV3Policy):
     """Arbitrage trading policy for a UniswapV3Env with two pools.
 
     :param agent: The agent which is using this policy.
     """
 
-    def __init__(self, agent: BaseAgent) -> None:
+    def __init__(self, agent: UniswapV3Agent) -> None:
         super().__init__(agent=agent)
         self.block_last_trade: int = -1
         self.min_block_dist: int = 20
@@ -59,7 +58,7 @@ class ArbitragePolicy(BasePolicy):  # type: ignore
     # SNIPPET 2 END
 
     # SNIPPET 3 START
-    def predict(self, obs: UniswapV3Observation) -> List[BaseAction]:  # type: ignore
+    def predict(self, obs: UniswapV3Observation) -> list[BaseUniswapV3Action]:
         pools = obs.pools
         pool_tokens_0 = obs.pool_tokens(pool=pools[0])
         pool_tokens_1 = obs.pool_tokens(pool=pools[1])

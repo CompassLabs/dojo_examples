@@ -2,13 +2,13 @@
 # SNIPPET 1 START
 from decimal import Decimal
 
-from dojo.agents import BaseAgent
-from dojo.environments.uniswapV3 import UniswapV3Env, UniswapV3Observation
+from dojo.agents import UniswapV3Agent
+from dojo.environments.uniswapV3 import UniswapV3Observation
 
 # SNIPPET 2 END
 
 
-class ETHAgent(BaseAgent):
+class ETHAgent(UniswapV3Agent):
     def __init__(
         self,
         initial_portfolio: dict[str, Decimal] = {

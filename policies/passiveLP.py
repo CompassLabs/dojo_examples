@@ -1,19 +1,17 @@
 from decimal import Decimal
-from typing import List
 
-from dojo.actions.base_action import BaseAction
-from dojo.actions.uniswapV3 import UniswapV3Quote, UniswapV3Trade
-from dojo.agents import BaseAgent
+from dojo.actions.uniswapV3 import BaseUniswapV3Action, UniswapV3Quote, UniswapV3Trade
+from dojo.agents import UniswapV3Agent
 from dojo.observations import uniswapV3
 from dojo.observations.uniswapV3 import UniswapV3Observation
-from dojo.policies import BasePolicy
+from dojo.policies import UniswapV3Policy
 
 
-class PassiveConcentratedLP(BasePolicy):  # type: ignore
+class PassiveConcentratedLP(UniswapV3Policy):
     """Provide liquidity passively to a pool in the specified price bounds."""
 
     def __init__(
-        self, agent: BaseAgent, lower_price_bound: float, upper_price_bound: float
+        self, agent: UniswapV3Agent, lower_price_bound: float, upper_price_bound: float
     ) -> None:
         """Initialize the policy.
 
@@ -31,7 +29,7 @@ class PassiveConcentratedLP(BasePolicy):  # type: ignore
         self.has_traded = False
         self.has_invested = False
 
-    def initial_trade(self, obs: UniswapV3Observation) -> List[BaseAction]:  # type: ignore
+    def initial_trade(self, obs: UniswapV3Observation) -> list[BaseUniswapV3Action]:
         pool_idx = 0
         pool = obs.pools[pool_idx]
         token0, token1 = obs.pool_tokens(pool)
@@ -53,7 +51,7 @@ class PassiveConcentratedLP(BasePolicy):  # type: ignore
         self.has_traded = True
         return [trade_action]
 
-    def inital_quote(self, obs: UniswapV3Observation) -> List[BaseAction]:  # type: ignore
+    def inital_quote(self, obs: UniswapV3Observation) -> list[BaseUniswapV3Action]:
         pool_idx = 0
         pool = obs.pools[pool_idx]
         portfolio = self.agent.portfolio()
@@ -82,7 +80,7 @@ class PassiveConcentratedLP(BasePolicy):  # type: ignore
         self.has_invested = True
         return [provide_action]
 
-    def predict(self, obs: UniswapV3Observation) -> List[BaseAction]:  # type: ignore
+    def predict(self, obs: UniswapV3Observation) -> list[BaseUniswapV3Action]:
         if not self.has_traded:
             return self.initial_trade(obs)
         if not self.has_invested:

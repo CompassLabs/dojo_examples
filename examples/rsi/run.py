@@ -1,12 +1,8 @@
 import logging
 import os
 import sys
-from decimal import Decimal
-
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..")))
-sys.path.append(os.path.abspath(os.path.dirname(__file__)))
-
 from datetime import timedelta
+from decimal import Decimal
 from typing import Any, Optional
 
 from agents.uniswapV3_pool_wealth import UniswapV3PoolWealthAgent
@@ -20,6 +16,9 @@ from dojo.environments import UniswapV3Env
 
 # SNIPPET 1 END
 from dojo.runners import backtest_run
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..")))
+sys.path.append(os.path.abspath(os.path.dirname(__file__)))
 
 
 def main(
@@ -72,6 +71,9 @@ def main(
 
 
 if __name__ == "__main__":
+    logging.basicConfig(
+        format="%(asctime)s - %(message)s", level=logging.ERROR
+    )  # change to logging.INFO for higher verbosity
     main(
         dashboard_server_port=8768,
         simulation_status_bar=True,

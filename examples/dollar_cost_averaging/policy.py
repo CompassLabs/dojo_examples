@@ -1,16 +1,14 @@
 from decimal import Decimal
-from typing import List
 
-from dojo.actions.base_action import BaseAction
-from dojo.actions.uniswapV3 import UniswapV3Trade
-from dojo.agents import BaseAgent
+from dojo.actions.uniswapV3 import BaseUniswapV3Action, UniswapV3Trade
+from dojo.agents import UniswapV3Agent
 from dojo.observations.uniswapV3 import UniswapV3Observation
-from dojo.policies import BasePolicy
+from dojo.policies import UniswapV3Policy
 
 
 # a policy that buys a fixed amount of the first token in the pool
 # SNIPPET 1 START
-class DCAPolicy(BasePolicy):  # type: ignore
+class DCAPolicy(UniswapV3Policy):
     """Dollar Cost Averaging policy for a UniswapV3Env with a single pool.
 
     :param agent: The agent which is using this policy.
@@ -19,7 +17,9 @@ class DCAPolicy(BasePolicy):  # type: ignore
         last trade was at least min_dist blocks ago.
     """
 
-    def __init__(self, agent: BaseAgent, buying_amount: float, min_dist: int) -> None:
+    def __init__(
+        self, agent: UniswapV3Agent, buying_amount: float, min_dist: int
+    ) -> None:
         super().__init__(agent=agent)
         self.buying_amount = buying_amount
         self.min_dist = min_dist
@@ -27,13 +27,14 @@ class DCAPolicy(BasePolicy):  # type: ignore
 
     # SNIPPET 1 END
 
-    def predict(self, obs: UniswapV3Observation) -> List[BaseAction]:  # type: ignore
+    def predict(self, obs: UniswapV3Observation) -> list[BaseUniswapV3Action]:
         # SNIPPET 2 START
         pool = obs.pools[0]
         token0, token1 = obs.pool_tokens(pool)
         portfolio = self.agent.portfolio()
 
-        # add a signal to obs to monitor the difference in wealth if the agent bought the token all at once vs. dollar cost averaging
+        # add a signal to obs to monitor the difference in wealth
+        # if the agent bought the token all at once vs. dollar cost averaging
         token0_balance = portfolio.get(token0, 0)
         token1_balance = portfolio.get(token1, 0)
 

@@ -24,9 +24,6 @@ class GmxV2Policy(BasePolicy):
         self.state = State.NO_POSITION
         self.count = 0
 
-    def fit(self):
-        pass
-
     def predict(self, obs: GmxV2Observation) -> list[GmxDeposit]:
         self.count += 1
         total_trader_pnl = 0
@@ -47,7 +44,7 @@ class GmxV2Policy(BasePolicy):
         short_open_interest_with_pnl = obs.get_open_interest_with_pnl(
             market_key="WETH:WETH:USDC", is_long=False, maximize=True
         )
-        market_info = obs.get_market_info(market_key="WETH:WETH:USDC")
+        _ = obs.get_market_info(market_key="WETH:WETH:USDC")
 
         obs.add_signal("net pnl", net_pnl)
         obs.add_signal("long pnl", long_pnl)
