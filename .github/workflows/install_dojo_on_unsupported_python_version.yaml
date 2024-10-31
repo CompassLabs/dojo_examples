@@ -23,14 +23,6 @@ jobs:
           python-version: ${{ matrix.python-version }}
 
       - name: Try pip install
-        continue-on-error: true
         run: |
-          pip install dojo-compass
+          pip install dojo-compass || curl ${{ secrets.ALLQUIET_URL }} -H "Content-Type: application/json" --data '{"alertName":"${{ github.repository }} workflow ${{ github.workflow }} failed!","alertStatus":"Warning"}'; exit 1
 
-      - name: Send failure notification to AllQuiet
-        if: ${{ success() }}
-        run: |
-          curl ${{ secrets.ALLQUIET_URL }} \
-           -H "Content-Type: application/json" \
-           --data '{"alertName":"${{ github.repository }} workflow ${{ github.workflow }} failed!","alertStatus":"Warning"}'
-          exit 1
