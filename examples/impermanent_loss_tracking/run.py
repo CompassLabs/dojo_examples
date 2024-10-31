@@ -65,7 +65,7 @@ def main(
         output_file="impermanent_loss_tracking.db",
         auto_close=auto_close,
         simulation_title="Impermanent Loss Tracking",
-        simulation_description="Comparing a passive LP agent to a HODL agent to measure IL.",
+        simulation_description="Comparing a passive LP agent to a HODL agent to measure Impermanent Loss.",
     )
 
 

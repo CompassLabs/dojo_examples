@@ -25,9 +25,11 @@ Finally, [install Foundry](https://book.getfoundry.sh/getting-started/installati
 
 ## 📄 Authentication
 
-You'll need a license key and access to an archive node (e.g. from Infura) to run Dojo.
+Dojo requires two configurations to run:
+1. A valid License Key
+2. An archive node URL (available from providers like Infura)
 
-Please refere to the [documentation](https://www.compasslabs.ai/docs/getting-started) for details on how to pass these as environment variables.
+Set these as environment variables by following our guide [here](https://www.compasslabs.ai/docs/getting-started#3-setup-configuration).
 
 ## 😧 If something isn't working...
 

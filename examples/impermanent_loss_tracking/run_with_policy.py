@@ -51,5 +51,5 @@ backtest_run(
     output_file="impermanent_loss_tracking.db",
     auto_close=True,
     simulation_title="Impermanent Loss Tracking",
-    simulation_description="Comparing a passive LP agent to a HODL agent to measure IL.",
+    simulation_description="Comparing a passive LP agent to a HODL agent to measure Impermanent Loss.",
 )

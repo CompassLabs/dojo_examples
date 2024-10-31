@@ -6,9 +6,19 @@ from dojo.environments.uniswapV3 import UniswapV3Observation
 
 
 class ImpermanentLossAgent(UniswapV3Agent):
-    """This agent implements an IL reward function for a single UniswapV3 pool.
+    """An agent that evaluates impermanent loss in a UniswapV3 pool.
 
-    The agent should not be given any tokens that are not in the UniswapV3Env pool.
+    This agent calculates the difference in value between:
+    1. Actively providing liquidity to a UniswapV3 pool
+    2. Passively holding the same initial token quantities
+
+    The reward function returns the relative impermanent loss/gain as a percentage,
+    where negative values indicate losses and positive values indicate gains.
+
+    Note:
+        - Works with a single UniswapV3 pool
+        - All tokens in the agent's portfolio must be part of the pool
+        - Wealth calculations are denominated in the pool's second token (y asset).
     """
 
     def __init__(

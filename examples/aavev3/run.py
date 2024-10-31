@@ -19,7 +19,7 @@ from dojo.runners import backtest_run
 
 
 class ConstantRewardAgent(AAVEv3Agent):
-    """An agent that does not have any particular objective."""
+    """An agent that displays health factor as its reward."""
 
     def __init__(
         self, initial_portfolio: dict[str, Decimal], name: Optional[str] = None
@@ -28,7 +28,7 @@ class ConstantRewardAgent(AAVEv3Agent):
         super().__init__(name=name, initial_portfolio=initial_portfolio)
 
     def reward(self, obs: AAVEv3Observation) -> float:
-        """This agent does not measure reward."""
+        """Tracks the health factor of the agent."""
         return obs.get_user_account_data_base(self.original_address).healthFactor
 
 

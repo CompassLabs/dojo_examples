@@ -99,8 +99,8 @@ def run_main() -> None:
         default=CliLogLevel.ERROR,
         help="log level for all libraries other than dojo",
     )
-    parser.add_argument("--simulation-status-bar", type=bool, default=False)
-    parser.add_argument("--auto-close", type=bool, default=True)
+    parser.add_argument("--simulation-status-bar", action=argparse.BooleanOptionalAction, default=False)
+    parser.add_argument("--auto-close", action=argparse.BooleanOptionalAction, default=True)
     parser.add_argument(
         "--run-length",
         type=lambda s: timedelta(seconds=timeparse(s)),
