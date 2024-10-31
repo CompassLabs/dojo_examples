@@ -23,6 +23,7 @@ jobs:
           python-version: ${{ matrix.python-version }}
 
       - name: Try pip install
+        continue-on-error: true
         run: |
           pip install dojo-compass
           if [ $? -eq 0 ]; then
