@@ -23,19 +23,21 @@ jobs:
           python-version: ${{ matrix.python-version }}
 
       - name: Try pip install
+        continue-on-error: true
         run: |
           pip install dojo-compass
-          if [ $? -eq 0 ]; then
-            echo "pip install succeeded, failing the workflow."
-            exit 1
-          else
-            echo "pip install failed, passing the workflow."
-            exit 0
-          fi
+          # if [ $? -eq 0 ]; then
+          #   echo "pip install succeeded, failing the workflow."
+          #   exit 1
+          # else
+          #   echo "pip install failed, passing the workflow."
+          #   exit 0
+          # fi
 
       - name: Send failure notification to AllQuiet
-        if: ${{ failure() }}
+        if: ${{ !failure() }}
         run: |
           curl ${{ secrets.ALLQUIET_URL }} \
            -H "Content-Type: application/json" \
            --data '{"alertName":"${{ github.repository }} workflow ${{ github.workflow }} failed!","alertStatus":"Warning"}'
+          exit 1
