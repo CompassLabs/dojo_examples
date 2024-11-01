@@ -3,7 +3,6 @@ from decimal import Decimal
 
 import numpy as np
 
-from dojo.actions import SleepAction
 from dojo.actions.uniswapV3 import BaseUniswapV3Action, UniswapV3Trade
 from dojo.agents import UniswapV3Agent
 from dojo.observations.uniswapV3 import UniswapV3Observation
@@ -29,10 +28,6 @@ class RSIPolicy(UniswapV3Policy):
     # SNIPPET 1 END
 
     def predict(self, obs: UniswapV3Observation) -> list[BaseUniswapV3Action]:
-        actions: list[BaseUniswapV3Action] = []
-        actions.append(
-            SleepAction(agent=self.agent, number_of_blocks_to_sleep=10)
-        )  # there are a lot of arbitrum blocks, let's always sleep for 10 blocks
         # SNIPPET 2 START
         pool = obs.pools[0]
         token0, token1 = obs.pool_tokens(pool)
@@ -68,27 +63,25 @@ class RSIPolicy(UniswapV3Policy):
         if self.buying:
             self.buying = False
             if self.agent.quantity(token0) == Decimal(0):
-                pass
-            else:
-                actions.append(
-                    UniswapV3Trade(
-                        agent=self.agent,
-                        pool=pool,
-                        quantities=(Decimal(self.agent.quantity(token0)), Decimal(0)),
-                    )
+                return []
+            return [
+                UniswapV3Trade(
+                    agent=self.agent,
+                    pool=pool,
+                    quantities=(Decimal(self.agent.quantity(token0)), Decimal(0)),
                 )
+            ]
         elif self.selling:
             self.selling = False
             if self.agent.quantity(token1) == Decimal(0):
-                pass
-            else:
-                actions.append(
-                    UniswapV3Trade(
-                        agent=self.agent,
-                        pool=pool,
-                        quantities=(Decimal(0), Decimal(self.agent.quantity(token1))),
-                    )
+                return []
+            return [
+                UniswapV3Trade(
+                    agent=self.agent,
+                    pool=pool,
+                    quantities=(Decimal(0), Decimal(self.agent.quantity(token1))),
                 )
-        return actions
+            ]
+        return []
 
     # SNIPPET 3 END
