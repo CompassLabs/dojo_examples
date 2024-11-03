@@ -26,6 +26,7 @@ jobs:
         id: check_install
         continue-on-error: true
         run: |
+          pip cache purge
           pip install dojo-compass
           if [ $? -eq 0 ]; then
             echo "pip install succeeded, failing the workflow."
