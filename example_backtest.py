@@ -48,7 +48,7 @@ def main(
         date_range=(start_time, end_time),
         agents=[agent1, agent2],
         pools=pools,
-        backend_type="local",
+        backend_type="forked",
         market_impact="replay",
     )
 
