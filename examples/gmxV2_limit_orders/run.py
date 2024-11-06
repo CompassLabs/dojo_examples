@@ -19,9 +19,6 @@ from dojo.models.gmxV2.market import MarketVenue
 from dojo.observations.gmxV2 import GmxV2Observation
 from dojo.runners import backtest_run
 
-logging.basicConfig(format="%(asctime)s - %(message)s", level=logging.INFO)
-
-
 class GmxV2Agent(BaseAgent):
     """An agent that does not have any particular objective."""
 

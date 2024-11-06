@@ -19,8 +19,6 @@ from dojo.models.gmxV2.market import MarketVenue
 from dojo.observations.gmxV2 import GmxV2Observation
 from dojo.runners import backtest_run
 
-logging.basicConfig(format="%(asctime)s - %(message)s", level=logging.INFO)
-
 
 class GmxV2Agent(BaseAgent):
     """An agent that does not have any particular objective."""
@@ -88,7 +86,7 @@ def main(
         dashboard_server_port=dashboard_server_port,
         output_file="gmxV2_swap_orders.db",
         simulation_status_bar=simulation_status_bar,
-        auto_close=False,
+        auto_close=auto_close,
         simulation_title="GMXv2 Swap Orders",
         simulation_description="GMXv2 Swap Orders",
     )

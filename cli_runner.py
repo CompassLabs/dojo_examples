@@ -99,8 +99,12 @@ def run_main() -> None:
         default=CliLogLevel.ERROR,
         help="log level for all libraries other than dojo",
     )
-    parser.add_argument("--simulation-status-bar", action=argparse.BooleanOptionalAction, default=False)
-    parser.add_argument("--auto-close", action=argparse.BooleanOptionalAction, default=True)
+    parser.add_argument(
+        "--simulation-status-bar", action=argparse.BooleanOptionalAction, default=False
+    )
+    parser.add_argument(
+        "--auto-close", action=argparse.BooleanOptionalAction, default=True
+    )
     parser.add_argument(
         "--run-length",
         type=lambda s: timedelta(seconds=timeparse(s)),
@@ -123,11 +127,11 @@ def run_main() -> None:
     dojo_handler = logging.StreamHandler()
     dojo_handler.setLevel(args.log_level.value)
     dojo_handler.addFilter(DojoLogFilter())
-    logging.basicConfig(
-        format="%(asctime)s - %(levelname)s - %(message)s",
-        level=logging.NOTSET,
-        handlers=[dojo_handler, main_handler],
-    )
+    # logging.basicConfig(
+    #     format="%(asctime)s - %(levelname)s - %(message)s",
+    #     level=logging.NOTSET,
+    #     handlers=[dojo_handler, main_handler],
+    # )
 
     if args.no_dashboard:
         dashboard_server_port: Optional[int] = None
@@ -167,4 +171,7 @@ def run_main() -> None:
 
 
 if __name__ == "__main__":
+    logging.basicConfig(
+        format="%(asctime)s - %(message)s", level=logging.ERROR
+    )  # change to logging.INFO for higher verbosity
     run_main()
