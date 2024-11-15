@@ -107,7 +107,8 @@ jobs:
           pip install mypy_extensions
           pip install pytimeparse
           echo ${{ matrix.file }}
-          echo ${{ matrix.file }} | sed 's|./||' | sed 's|.py||' | sed 's|/|.|g' | xargs -n1 -I{} python cli_runner.py --module={} --no-dashboard
+          # echo ${{ matrix.file }} | sed 's|./||' | sed 's|.py||' | sed 's|/|.|g' | xargs -n1 -I{} python cli_runner.py --module={} --no-dashboard
+          python ${{ matrix.file }}
 
       - name: Send failure notification to AllQuiet
         if: ${{ failure() }}
@@ -162,7 +163,8 @@ jobs:
           pip install mypy_extensions
           pip install pytimeparse
           echo ${{ matrix.file }}
-          echo ${{ matrix.file }} | sed 's|./||' | sed 's|.py||' | sed 's|/|.|g' | xargs -n1 -I{} python cli_runner.py --module={} --no-dashboard
+          # echo ${{ matrix.file }} | sed 's|./||' | sed 's|.py||' | sed 's|/|.|g' | xargs -n1 -I{} python cli_runner.py --module={} --no-dashboard
+          python ${{ matrix.file }}
         # continue-on-error: true
           # poetry run python ${{ matrix.file }}  --run-length=10m --auto-close=True --dashboard_server_port=None --simulation-status-bar True
 
@@ -172,4 +174,3 @@ jobs:
           curl ${{ secrets.ALLQUIET_URL }} \
            -H "Content-Type: application/json" \
            --data '{"alertName":"${{ github.repository }} workflow ${{ github.workflow }} failed!","alertStatus":"Warning"}'
-
