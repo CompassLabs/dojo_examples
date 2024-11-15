@@ -15,6 +15,7 @@ jobs:
       matrix:
         os: [ubuntu-latest, macos-14]   # Operating systems
         python-version: ['3.8', '3.9', '3.13']  # Python versions
+    timeout-minutes: 60
 
     steps:
       - name: Set up Python
