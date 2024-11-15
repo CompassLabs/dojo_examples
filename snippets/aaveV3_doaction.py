@@ -1,3 +1,4 @@
+"""Execute an action on AAVEv3."""
 import os
 import sys
 from decimal import Decimal

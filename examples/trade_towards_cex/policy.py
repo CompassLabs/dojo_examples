@@ -1,5 +1,4 @@
-import os
-import sys
+"""Example running a policy with Binance data."""
 from datetime import timedelta
 from decimal import Decimal
 from enum import Enum
@@ -11,10 +10,10 @@ from dojo.agents import UniswapV3Agent
 from dojo.environments.uniswapV3 import UniswapV3Observation
 from dojo.policies import UniswapV3Policy
 
-sys.path.append(os.path.abspath(os.path.dirname(__file__)))
-
 
 class State(Enum):
+    """The agent is always in on of these states."""
+
     FROZEN = 0
     NOT_INVESTED = 1
     IN_TOKEN0 = 2
@@ -33,7 +32,9 @@ class TradeTowardsCentralisedExchangePolicy(UniswapV3Policy):
     FREEZE_BLOCKS = 200
 
     # SNIPPET 1 START
-    def __init__(self, agent: UniswapV3Agent, binance_data: Binance_data) -> None:
+    def __init__(
+        self, agent: UniswapV3Agent, binance_data: Binance_data
+    ) -> None:  # noqa: D107
         super().__init__(agent=agent)
         self.binance_data = binance_data
         self.block_last_trade: int = 0
@@ -42,6 +43,7 @@ class TradeTowardsCentralisedExchangePolicy(UniswapV3Policy):
     # SNIPPET 1 END
 
     def predict(self, obs: UniswapV3Observation) -> list[BaseUniswapV3Action]:
+        """Derive actions from observations."""
         block = obs.block
         obs.add_signal("state", float(self.state.value))
         if not block or block - self.block_last_trade < self.FREEZE_BLOCKS:

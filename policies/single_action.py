@@ -1,3 +1,4 @@
+"""Execute a single action."""
 from typing import Any
 
 from dojo.actions.base_action import BaseAction

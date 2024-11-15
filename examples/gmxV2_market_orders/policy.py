@@ -1,4 +1,5 @@
 # type: ignore
+"""GMXv2 market order policy."""
 from decimal import Decimal
 from enum import Enum
 
@@ -14,6 +15,8 @@ from dojo.policies import BasePolicy
 
 # SNIPPET 1 START
 class State(Enum):
+    """The agent is always in on of these states."""
+
     NO_POSITION = 0
     POSITION_OPEN = 1
     FINISH = 2
@@ -30,6 +33,7 @@ class GmxV2Policy(BasePolicy):
     # SNIPPET 1 END
 
     def predict(self, obs: GmxV2Observation) -> list[GmxBaseTraderOrder]:
+        """Derive actions from observations."""
         total_trader_pnl = 0
         # SNIPPET 2 START
         gm_token_value, market_pool_value_info = obs.get_market_token_price_for_traders(

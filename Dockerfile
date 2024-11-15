@@ -54,4 +54,4 @@ FROM setupsecrets
 
 WORKDIR /code
 
-CMD poetry run python cli_runner.py --module examples.rsi.run --run-length 30m --log-level Info --no-simulation-status-bar
+CMD poetry run python examples/rsi/run.py --run-length 30m --log-level Info --no-simulation-status-bar

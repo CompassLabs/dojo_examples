@@ -1,3 +1,4 @@
+"""Loading binance data."""
 import csv
 import io
 import zipfile
@@ -31,7 +32,7 @@ class Binance_data_point:
 class Binance_data:
     """Represents an entire binance data file."""
 
-    def __init__(self, data: List[Binance_data_point]):
+    def __init__(self, data: List[Binance_data_point]):  # noqa: D107
         self.data = data
 
     def find_nearest(self, target_time: datetime) -> Binance_data_point:
@@ -50,6 +51,7 @@ class Binance_data:
 
 
 def load_binance_data(year: int, month: int) -> Binance_data:
+    """Load binance data for a particular month."""
     url = f"https://data.binance.vision/data/spot/monthly/klines/ETHUSDC/1m/ETHUSDC-1m-{year}-{month:02}.zip"
     file_name = f"ETHUSDC-1m-{year}-{month:02}.csv"
     zipfile_data_raw = requests.get(url)

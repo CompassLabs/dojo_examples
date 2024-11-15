@@ -1,3 +1,4 @@
+"""Policy for moving averages."""
 from collections import deque
 from decimal import Decimal
 
@@ -21,6 +22,7 @@ class MovingAveragePolicy(UniswapV3Policy):
     def __init__(
         self, agent: UniswapV3Agent, pool: str, short_window: int, long_window: int
     ) -> None:
+        """Moving agerave strategy on one Uniwap pool."""
         super().__init__(agent=agent)
         self._short_window_len: int = short_window
         self._long_window_len: int = long_window
@@ -35,8 +37,7 @@ class MovingAveragePolicy(UniswapV3Policy):
         self.short_window = deque(maxlen=self._short_window_len)
 
     def _x_to_y_indicated(self, pool_tokens: tuple[str, str]) -> bool:
-        """If the short window crosses above the long window, convert asset y to asset
-        x.
+        """Check if the short window crosses above the long window.
 
         Only do so if there are tokens left to trade.
         """
@@ -46,8 +47,7 @@ class MovingAveragePolicy(UniswapV3Policy):
         )
 
     def _y_to_x_indicated(self, pool_tokens: tuple[str, str]) -> bool:
-        """If the short window crosses below the long window, convert asset x to asset
-        y.
+        """Check if the short window crosses below the long window.
 
         Only do so if there are tokens left to trade.
         """
@@ -57,8 +57,7 @@ class MovingAveragePolicy(UniswapV3Policy):
         )
 
     def predict(self, obs: UniswapV3Observation) -> list[BaseUniswapV3Action]:
-        """Make a trade if the mean of the short window crosses the mean of the long
-        window."""
+        """Create actions from observations."""
         pool_tokens = obs.pool_tokens(pool=self.pool)
         price = obs.price(token=pool_tokens[0], unit=pool_tokens[1], pool=self.pool)
         self.short_window.append(float(price))

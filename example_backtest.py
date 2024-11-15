@@ -1,13 +1,16 @@
-import logging
+"""Run two agents.
+
+One active one passive.
+"""
 from datetime import timedelta
 from decimal import Decimal
 from typing import Any, Optional
 
-from agents.uniswapV3_pool_wealth import UniswapV3PoolWealthAgent
 from dateutil import parser as dateparser
 from examples.moving_averages.policy import MovingAveragePolicy
 from policies.passiveLP import PassiveConcentratedLP
 
+from dojo.agents.uniswapV3 import TotalWealthAgent
 from dojo.common.constants import Chain
 from dojo.environments import UniswapV3Env
 from dojo.runners import backtest_run
@@ -21,25 +24,27 @@ def main(
     run_length: timedelta = timedelta(hours=1),
     **kwargs: dict[str, Any],
 ) -> None:
-
+    """Running this strategy."""
     # SNIPPET 1 START
     pools = ["USDC/WETH-0.05"]
     start_time = dateparser.parse("2022-06-21 00:00:00 UTC")
     end_time = start_time + run_length
 
     # Agents
-    agent1 = UniswapV3PoolWealthAgent(
+    agent1 = TotalWealthAgent(
         initial_portfolio={
             "ETH": Decimal(100),
             "USDC": Decimal(10_000),
             "WETH": Decimal(1),
         },
         name="TraderAgent",
+        unit_token="USDC",
     )
 
-    agent2 = UniswapV3PoolWealthAgent(
+    agent2 = TotalWealthAgent(
         initial_portfolio={"USDC": Decimal(10_000), "WETH": Decimal(1)},
         name="LPAgent",
+        unit_token="USDC",
     )
 
     # Simulation environment (Uniswap V3)
@@ -72,10 +77,9 @@ def main(
 
 
 if __name__ == "__main__":
-    logging.basicConfig(
-        format="%(asctime)s - %(message)s", level=logging.ERROR
-    )  # change to logging.INFO for higher verbosity
+    import dojo.config.logging_config
 
+    dojo.config.logging_config.set_normal_logging_config_and_print_explanation()
     main(
         dashboard_server_port=8768,
         simulation_status_bar=True,

@@ -1,13 +1,7 @@
-# type: ignore
-import logging
-import os
-import sys
+"""Run GMXv2 limit order strategy."""
 from datetime import timedelta
 from decimal import Decimal
 from typing import Any, Optional
-
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..")))
-sys.path.append(os.path.abspath(os.path.dirname(__file__)))
 
 from dateutil import parser as dateparser
 from policy import GmxV2Policy
@@ -19,7 +13,8 @@ from dojo.models.gmxV2.market import MarketVenue
 from dojo.observations.gmxV2 import GmxV2Observation
 from dojo.runners import backtest_run
 
-class GmxV2Agent(BaseAgent):
+
+class GmxV2Agent(BaseAgent[GmxV2Observation]):
     """An agent that does not have any particular objective."""
 
     def __init__(
@@ -29,8 +24,8 @@ class GmxV2Agent(BaseAgent):
         super().__init__(name=name, initial_portfolio=initial_portfolio)
 
     def reward(self, obs: GmxV2Observation) -> float:
-        """PnL in USD."""
-        return obs.total_trader_pnl(self.original_address)
+        """Pnl in USD."""
+        return float(obs.total_trader_pnl(self.original_address))
 
 
 def main(
@@ -41,6 +36,7 @@ def main(
     run_length: timedelta = timedelta(minutes=20),
     **kwargs: dict[str, Any]
 ) -> None:
+    """Running this strategy."""
     # SNIPPET 1 START
     start_time = dateparser.parse("2024-08-30 00:00:00 UTC")
     end_time = start_time + run_length
@@ -82,7 +78,7 @@ def main(
         env=env,
         policies=[policy],
         dashboard_server_port=dashboard_server_port,
-        output_file="gmxV2_limit_order.db",
+        output_file="gmxV2_limit_orders.db",
         auto_close=auto_close,
         simulation_status_bar=simulation_status_bar,
         simulation_title="GMXv2 Limit Orders",
@@ -91,9 +87,9 @@ def main(
 
 
 if __name__ == "__main__":
-    logging.basicConfig(
-        format="%(asctime)s - %(message)s", level=logging.ERROR
-    )  # change to logging.INFO for higher verbosity
+    import dojo.config.logging_config
+
+    dojo.config.logging_config.set_normal_logging_config_and_print_explanation()
     main(
         dashboard_server_port=8768,
         simulation_status_bar=True,

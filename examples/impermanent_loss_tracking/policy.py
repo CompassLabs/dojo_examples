@@ -1,3 +1,4 @@
+"""Policy for impermanent loss tracking."""
 from decimal import Decimal
 from typing import List, Tuple
 
@@ -10,7 +11,9 @@ from dojo.policies import UniswapV3Policy
 
 # SNIPPET 1 START
 class ImpermanentLossPolicy(UniswapV3Policy):
-    def __init__(self, agent: UniswapV3Agent) -> None:
+    """Policy for tracking impermanent loss."""
+
+    def __init__(self, agent: UniswapV3Agent) -> None:  # noqa: D107
         super().__init__(agent=agent)
         self.has_provided_liquidity = False
         self.has_executed_lp_action = False
@@ -36,6 +39,7 @@ class ImpermanentLossPolicy(UniswapV3Policy):
 
     # SNIPPET 3 START
     def compute_signals(self, obs: UniswapV3Observation) -> None:
+        """Compute the impermanent loss value."""
         pool = obs.pools[0]
         token0, token1 = obs.pool_tokens(pool)
         token_ids = self.agent.get_liquidity_ownership_tokens()
@@ -83,6 +87,7 @@ class ImpermanentLossPolicy(UniswapV3Policy):
     # SNIPPET 3 END
 
     def predict(self, obs: UniswapV3Observation) -> List[BaseUniswapV3Action]:
+        """Derive actions from observations."""
         pool = obs.pools[0]
         token0, token1 = obs.pool_tokens(pool)
         action = None

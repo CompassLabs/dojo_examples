@@ -1,4 +1,5 @@
 # type: ignore
+"""GMXv2 deposit strategy."""
 from decimal import Decimal
 from enum import Enum
 
@@ -10,6 +11,8 @@ from dojo.policies import BasePolicy
 
 
 class State(Enum):
+    """The agent is always in on of these states."""
+
     NO_POSITION = 0
     POSITION_OPEN = 1
     FINISH = 2
@@ -25,6 +28,7 @@ class GmxV2Policy(BasePolicy):
         self.count = 0
 
     def predict(self, obs: GmxV2Observation) -> list[GmxDeposit]:
+        """Derive actions from observations."""
         self.count += 1
         total_trader_pnl = 0
         gm_token_value, market_pool_value_info = obs.get_market_token_price_for_traders(

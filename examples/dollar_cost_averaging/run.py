@@ -1,17 +1,12 @@
-import logging
-import os
-import sys
+"""Run backtest with DCA."""
 from datetime import timedelta
 from decimal import Decimal
 from typing import Any, Optional
 
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..")))
-sys.path.append(os.path.abspath(os.path.dirname(__file__)))
-
-from agents.uniswapV3_pool_wealth import UniswapV3PoolWealthAgent
 from dateutil import parser as dateparser
 from policy import DCAPolicy
 
+from dojo.agents.uniswapV3 import TotalWealthAgent
 from dojo.common.constants import Chain
 from dojo.environments import UniswapV3Env
 from dojo.runners import backtest_run
@@ -25,17 +20,19 @@ def main(
     run_length: timedelta = timedelta(minutes=20),
     **kwargs: dict[str, Any]
 ) -> None:
+    """Running this strategy."""
     pools = ["USDC/WETH-0.05"]
     start_time = dateparser.parse("2021-06-21 00:00:00 UTC")
     end_time = start_time + run_length
 
     # Agents
-    dca_agent = UniswapV3PoolWealthAgent(
+    dca_agent = TotalWealthAgent(
         initial_portfolio={
             "USDC": Decimal(10000),
             "WETH": Decimal(0),
         },
         name="DCA_Agent",
+        unit_token="USDC",
     )
 
     # Simulation environment (Uniswap V3)
@@ -68,9 +65,9 @@ def main(
 
 
 if __name__ == "__main__":
-    logging.basicConfig(
-        format="%(asctime)s - %(message)s", level=logging.ERROR
-    )  # change to logging.INFO for higher verbosity
+    import dojo.config.logging_config
+
+    dojo.config.logging_config.set_normal_logging_config_and_print_explanation()
     main(
         dashboard_server_port=8768,
         simulation_status_bar=True,

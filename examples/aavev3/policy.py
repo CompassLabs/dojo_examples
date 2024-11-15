@@ -1,3 +1,4 @@
+"""Policy for the AAVE agent."""
 from decimal import Decimal
 
 from dojo.actions.aaveV3 import (
@@ -25,6 +26,7 @@ class AAVEv3Policy(BaseAAVEv3Policy):
 
     # SNIPPET 2 START
     def predict(self, obs: AAVEv3Observation) -> list[BaseAaveAction]:
+        """Derive actions from observations."""
         if not self.has_invested:
             self.has_invested = True
             return [

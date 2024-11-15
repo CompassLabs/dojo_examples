@@ -1,3 +1,4 @@
+"""Price window policy."""
 import logging
 from decimal import Decimal
 
@@ -11,15 +12,18 @@ logging.basicConfig(format="%(asctime)s - %(message)s", level=logging.INFO)
 
 # SNIPPET price_window START
 class PriceWindowPolicy(UniswapV3Policy):
+    """Policy for Moving Average Price Window strategy."""
+
     def __init__(
         self, agent: UniswapV3Agent, lower_limit: float, upper_limit: float
-    ) -> None:
+    ) -> None:  # noqa: D107
         super().__init__(agent=agent)
         self.upper_limit = upper_limit
         self.lower_limit = lower_limit
 
     # derive actions from observations
     def predict(self, obs: UniswapV3Observation) -> list[BaseUniswapV3Action]:
+        """Derive actions from observations."""
         pool = obs.pools[0]
         x_token, y_token = obs.pool_tokens(pool)
         spot_price = obs.price(token=x_token, unit=y_token, pool=pool)

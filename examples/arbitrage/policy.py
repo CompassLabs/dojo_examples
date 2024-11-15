@@ -1,3 +1,4 @@
+"""Arbitrage policy."""
 from decimal import Decimal
 from typing import Tuple, Union
 
@@ -14,7 +15,7 @@ class ArbitragePolicy(UniswapV3Policy):
     :param agent: The agent which is using this policy.
     """
 
-    def __init__(self, agent: UniswapV3Agent) -> None:
+    def __init__(self, agent: UniswapV3Agent) -> None:  # noqa: D107
         super().__init__(agent=agent)
         self.block_last_trade: int = -1
         self.min_block_dist: int = 20
@@ -25,6 +26,7 @@ class ArbitragePolicy(UniswapV3Policy):
 
     # SNIPPET 2 START
     def compute_signal(self, obs: UniswapV3Observation) -> Tuple[Decimal, Decimal]:
+        """Compute strength or arbitrage signal."""
         pools = obs.pools
         pool_tokens_0 = obs.pool_tokens(pool=pools[0])
         pool_tokens_1 = obs.pool_tokens(pool=pools[1])
@@ -59,6 +61,7 @@ class ArbitragePolicy(UniswapV3Policy):
 
     # SNIPPET 3 START
     def predict(self, obs: UniswapV3Observation) -> list[BaseUniswapV3Action]:
+        """Derive actions from observations."""
         pools = obs.pools
         pool_tokens_0 = obs.pool_tokens(pool=pools[0])
         pool_tokens_1 = obs.pool_tokens(pool=pools[1])

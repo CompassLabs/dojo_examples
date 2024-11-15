@@ -1,3 +1,4 @@
+"""Estimate slippage on Uniswap."""
 import logging
 import sys
 from decimal import Decimal

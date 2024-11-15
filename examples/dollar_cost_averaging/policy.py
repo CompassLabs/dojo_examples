@@ -1,3 +1,4 @@
+"""Dollar cost averaging strategy."""
 from decimal import Decimal
 
 from dojo.actions.uniswapV3 import BaseUniswapV3Action, UniswapV3Trade
@@ -19,7 +20,7 @@ class DCAPolicy(UniswapV3Policy):
 
     def __init__(
         self, agent: UniswapV3Agent, buying_amount: float, min_dist: int
-    ) -> None:
+    ) -> None:  # noqa: D107
         super().__init__(agent=agent)
         self.buying_amount = buying_amount
         self.min_dist = min_dist
@@ -28,6 +29,7 @@ class DCAPolicy(UniswapV3Policy):
     # SNIPPET 1 END
 
     def predict(self, obs: UniswapV3Observation) -> list[BaseUniswapV3Action]:
+        """Derive actions from observations."""
         # SNIPPET 2 START
         pool = obs.pools[0]
         token0, token1 = obs.pool_tokens(pool)

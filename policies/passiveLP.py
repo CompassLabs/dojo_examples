@@ -1,3 +1,4 @@
+"""Passive LP policy."""
 from decimal import Decimal
 
 from dojo.actions.uniswapV3 import BaseUniswapV3Action, UniswapV3Quote, UniswapV3Trade
@@ -30,6 +31,7 @@ class PassiveConcentratedLP(UniswapV3Policy):
         self.has_invested = False
 
     def initial_trade(self, obs: UniswapV3Observation) -> list[BaseUniswapV3Action]:
+        """Trade all holdings into one token."""
         pool_idx = 0
         pool = obs.pools[pool_idx]
         token0, token1 = obs.pool_tokens(pool)
@@ -51,7 +53,9 @@ class PassiveConcentratedLP(UniswapV3Policy):
         self.has_traded = True
         return [trade_action]
 
-    def inital_quote(self, obs: UniswapV3Observation) -> list[BaseUniswapV3Action]:
+    def inital_quote(
+        self, obs: UniswapV3Observation
+    ) -> list[BaseUniswapV3Action]:  # noqa: D102
         pool_idx = 0
         pool = obs.pools[pool_idx]
         portfolio = self.agent.portfolio()
@@ -81,6 +85,7 @@ class PassiveConcentratedLP(UniswapV3Policy):
         return [provide_action]
 
     def predict(self, obs: UniswapV3Observation) -> list[BaseUniswapV3Action]:
+        """Derive actions from observations."""
         if not self.has_traded:
             return self.initial_trade(obs)
         if not self.has_invested:

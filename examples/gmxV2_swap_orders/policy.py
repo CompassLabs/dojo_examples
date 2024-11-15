@@ -1,4 +1,5 @@
 # type: ignore
+"""GMXv2 swap order policy."""
 from decimal import Decimal
 
 from dojo.actions import SleepAction
@@ -17,6 +18,7 @@ class GmxV2Policy(GmxV2Policy):
         self.count = 0
 
     def predict(self, obs: GmxV2Observation) -> list[GmxBaseTraderOrder]:
+        """Derive actions from observations."""
         actions = []
         actions.append(
             GmxSwapOrder(

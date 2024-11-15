@@ -1,3 +1,4 @@
+"""Policy for active liquidity provisioning."""
 from dataclasses import dataclass
 from decimal import Decimal
 from enum import Enum
@@ -17,6 +18,8 @@ from dojo.policies import UniswapV3Policy
 
 
 class State(Enum):
+    """The agent is always in on of these states."""
+
     IDLE = 0
     REBALANCED = 1
     INVESTED = 2
@@ -139,7 +142,7 @@ class ActiveConcentratedLP(UniswapV3Policy):
         self.state = State.IDLE
         return [action]
 
-    def compute_signals(self, obs: UniswapV3Observation) -> None:
+    def compute_signals(self, obs: UniswapV3Observation) -> None:  # noqa: D102
         pool = obs.pools[0]
         token0, token1 = obs.pool_tokens(pool)
         token_ids = self.agent.get_liquidity_ownership_tokens()
@@ -161,6 +164,7 @@ class ActiveConcentratedLP(UniswapV3Policy):
         obs.add_signal("Swap volume", self.swap_volume)
 
     def predict(self, obs: UniswapV3Observation) -> list[BaseUniswapV3Action]:
+        """Derive actions from observations."""
         obs.add_signal("Swap Volume", self.swap_volume)
         obs.add_signal("Swap Count", self.swap_count)
         obs.add_signal("LP fees earned", float(0))

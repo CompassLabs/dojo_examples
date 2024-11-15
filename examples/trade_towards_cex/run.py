@@ -1,18 +1,13 @@
-import logging
-import os
-import sys
+"""Run strategy against binance data."""
 from datetime import timedelta
 from decimal import Decimal
 from typing import Any, Optional
 
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..")))
-sys.path.append(os.path.abspath(os.path.dirname(__file__)))
-
-from agents.uniswapV3_pool_wealth import UniswapV3PoolWealthAgent
 from binance_data import load_binance_data
 from dateutil import parser as dateparser
 from policy import TradeTowardsCentralisedExchangePolicy
 
+from dojo.agents.uniswapV3 import TotalWealthAgent
 from dojo.common.constants import Chain
 from dojo.environments import UniswapV3Env
 from dojo.runners import backtest_run
@@ -26,6 +21,7 @@ def main(
     run_length: timedelta = timedelta(days=2),
     **kwargs: dict[str, Any],
 ) -> None:
+    """Running this strategy."""
     pools = ["USDC/WETH-0.05"]
     year = 2021
     month = 6
@@ -34,13 +30,14 @@ def main(
     end_time = start_time + run_length
 
     # Agents
-    cex_directional_agent = UniswapV3PoolWealthAgent(
+    cex_directional_agent = TotalWealthAgent(
         initial_portfolio={
             "ETH": Decimal(10),
             "USDC": Decimal(1_000),
             "WETH": Decimal(1),
         },
         name="CEX Directional Agent",
+        unit_token="USDC",
     )
 
     # Simulation environment (Uniswap V3)
@@ -75,9 +72,9 @@ def main(
 
 
 if __name__ == "__main__":
-    logging.basicConfig(
-        format="%(asctime)s - %(message)s", level=logging.ERROR
-    )  # change to logging.INFO for higher verbosity
+    import dojo.config.logging_config
+
+    dojo.config.logging_config.set_normal_logging_config_and_print_explanation()
     main(
         dashboard_server_port=8768,
         simulation_status_bar=True,

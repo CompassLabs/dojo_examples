@@ -1,3 +1,4 @@
+"""Example strategy for using RSI technical indicator."""
 from collections import deque
 from decimal import Decimal
 
@@ -17,7 +18,7 @@ class RSIPolicy(UniswapV3Policy):
     :param agent: The agent which is using this policy.
     """
 
-    def __init__(self, agent: UniswapV3Agent):
+    def __init__(self, agent: UniswapV3Agent):  # noqa: D107
         self.agent: UniswapV3Agent = agent
         self.rsi_period: int = 14
         self.rsi_values: deque[Decimal] = deque(maxlen=self.rsi_period)
@@ -28,6 +29,7 @@ class RSIPolicy(UniswapV3Policy):
     # SNIPPET 1 END
 
     def predict(self, obs: UniswapV3Observation) -> list[BaseUniswapV3Action]:
+        """Derive actions from observations."""
         # SNIPPET 2 START
         pool = obs.pools[0]
         token0, token1 = obs.pool_tokens(pool)

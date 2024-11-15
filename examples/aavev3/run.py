@@ -1,12 +1,7 @@
-import logging
-import os
-import sys
+"""Run a strategy on AAVE."""
 from datetime import timedelta
 from decimal import Decimal
 from typing import Any, Optional
-
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..")))
-sys.path.append(os.path.abspath(os.path.dirname(__file__)))
 
 from dateutil import parser as dateparser
 from policy import AAVEv3Policy
@@ -40,6 +35,7 @@ def main(
     run_length: timedelta = timedelta(hours=6),
     **kwargs: dict[str, Any]
 ) -> None:
+    """Running this strategy."""
     start_time = dateparser.parse("2023-03-11 00:00:00 UTC")
     end_time = start_time + run_length
     # Agents
@@ -78,9 +74,9 @@ def main(
 
 
 if __name__ == "__main__":
-    logging.basicConfig(
-        format="%(asctime)s - %(message)s", level=logging.ERROR
-    )  # change to logging.INFO for higher verbosity
+    import dojo.config.logging_config
+
+    dojo.config.logging_config.set_normal_logging_config_and_print_explanation()
     main(
         dashboard_server_port=8768,
         simulation_status_bar=True,
