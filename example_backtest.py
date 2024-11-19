@@ -21,7 +21,7 @@ def main(
     dashboard_server_port: Optional[int] = 8768,
     simulation_status_bar: bool = False,
     auto_close: bool,
-    run_length: timedelta = timedelta(hours=1),
+    run_length: timedelta = timedelta(hours=10),
     **kwargs: dict[str, Any],
 ) -> None:
     """Running this strategy."""
