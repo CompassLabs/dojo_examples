@@ -1,12 +1,11 @@
 """Run a strategy on AAVE."""
-from datetime import timedelta
 from decimal import Decimal
 from typing import Any, Optional
 
-from dateutil import parser as dateparser
 from policy import AAVEv3Policy
 
 from dojo.agents import AAVEv3Agent
+from dojo.common import time_to_block
 from dojo.common.constants import Chain
 from dojo.environments import AAVEv3Env
 from dojo.environments.aaveV3 import AAVEv3Observation
@@ -32,12 +31,12 @@ def main(
     dashboard_server_port: Optional[int],
     simulation_status_bar: bool,
     auto_close: bool,
-    run_length: timedelta = timedelta(hours=10),
+    num_sim_blocks: int = 1800,
     **kwargs: dict[str, Any]
 ) -> None:
     """Running this strategy."""
-    start_time = dateparser.parse("2023-03-11 00:00:00 UTC")
-    end_time = start_time + run_length
+    start_time = "2023-03-11 00:00:00"
+    chain = Chain.ETHEREUM
     # Agents
     agent1 = ConstantRewardAgent(
         initial_portfolio={
@@ -51,7 +50,10 @@ def main(
     # SNIPPET 1 START
     env = AAVEv3Env(
         chain=Chain.ETHEREUM,
-        date_range=(start_time, end_time),
+        block_range=(
+            time_to_block(start_time, chain),
+            time_to_block(start_time, chain) + num_sim_blocks,
+        ),
         agents=[agent1],
         backend_type="local",
         market_impact="default",
@@ -81,5 +83,5 @@ if __name__ == "__main__":
         dashboard_server_port=8768,
         simulation_status_bar=True,
         auto_close=False,
-        run_length=timedelta(hours=2),
+        num_sim_blocks=300,
     )

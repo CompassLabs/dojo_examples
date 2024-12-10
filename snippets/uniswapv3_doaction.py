@@ -4,9 +4,9 @@ import sys
 from decimal import Decimal
 
 from agents.uniswapV3_pool_wealth import UniswapV3PoolWealthAgent
-from dateutil import parser as dateparser
 
 from dojo.actions.uniswapV3 import UniswapV3Trade
+from dojo.common import time_to_block
 from dojo.common.constants import Chain
 from dojo.environments.uniswapV3 import UniswapV3Env
 
@@ -15,14 +15,18 @@ parent = os.path.dirname(current)
 sys.path.append(parent)
 
 pools = ["USDC/WETH-0.3"]
-sim_start = dateparser.parse("2021-06-21 00:00:00 UTC")
-sim_end = dateparser.parse("2021-06-21 00:10:00 UTC")
+sim_start = "2021-06-21 00:00:00"
+sim_end = "2021-06-21 00:10:00"
 
 agent = UniswapV3PoolWealthAgent(initial_portfolio={"USDC": Decimal(10_000)})
+chain = Chain.ETHEREUM
 env = UniswapV3Env(
     agents=[agent],  # Of course, you'd want an agent here to actually do things
-    chain=Chain.ETHEREUM,
-    date_range=(sim_start, sim_end),
+    chain=chain,
+    block_range=(
+        time_to_block(sim_start, chain),
+        time_to_block(sim_end, chain),
+    ),
     pools=pools,
     backend_type="forked",
     market_impact="replay",  # defaults to "replay", simply replaying history

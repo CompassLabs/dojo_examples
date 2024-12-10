@@ -15,7 +15,6 @@ class GmxV2Policy(GmxV2Policy):
     def __init__(self, agent: BaseAgent) -> None:
         """Initialize the policy."""
         super().__init__(agent=agent)
-        self.count = 0
 
     def predict(self, obs: GmxV2Observation) -> list[GmxBaseTraderOrder]:
         """Derive actions from observations."""
@@ -31,6 +30,6 @@ class GmxV2Policy(GmxV2Policy):
             )
         )
         actions.append(
-            SleepAction(agent=self.agent, number_of_blocks_to_sleep=9)
-        )  # only run once every 10 blocks
+            SleepAction(agent=self.agent, number_of_blocks_to_sleep=19)
+        )  # only run once every 20 blocks
         return actions

@@ -1,13 +1,13 @@
 """Run strategy against binance data."""
-from datetime import timedelta
+
 from decimal import Decimal
 from typing import Any, Optional
 
 from binance_data import load_binance_data
-from dateutil import parser as dateparser
 from policy import TradeTowardsCentralisedExchangePolicy
 
 from dojo.agents.uniswapV3 import TotalWealthAgent
+from dojo.common import time_to_block
 from dojo.common.constants import Chain
 from dojo.environments import UniswapV3Env
 from dojo.runners import backtest_run
@@ -18,7 +18,7 @@ def main(
     dashboard_server_port: Optional[int],
     simulation_status_bar: bool,
     auto_close: bool,
-    run_length: timedelta = timedelta(hours=10),
+    num_sim_blocks: int = 3000,
     **kwargs: dict[str, Any],
 ) -> None:
     """Running this strategy."""
@@ -26,8 +26,8 @@ def main(
     year = 2021
     month = 6
     start_day = 1
-    start_time = dateparser.parse(f"{year}-{month:02}-{start_day:02} 00:00:00 UTC")
-    end_time = start_time + run_length
+    start_time = f"{year}-{month:02}-{start_day:02} 00:00:00"
+    chain = Chain.ETHEREUM
 
     # Agents
     cex_directional_agent = TotalWealthAgent(
@@ -42,8 +42,11 @@ def main(
 
     # Simulation environment (Uniswap V3)
     env = UniswapV3Env(
-        chain=Chain.ETHEREUM,
-        date_range=(start_time, end_time),
+        chain=chain,
+        block_range=(
+            time_to_block(start_time, chain),
+            time_to_block(start_time, chain) + num_sim_blocks,
+        ),
         agents=[cex_directional_agent],
         pools=pools,
         backend_type="forked",
@@ -79,5 +82,5 @@ if __name__ == "__main__":
         dashboard_server_port=8768,
         simulation_status_bar=True,
         auto_close=False,
-        run_length=timedelta(hours=2),
+        num_sim_blocks=3000,
     )

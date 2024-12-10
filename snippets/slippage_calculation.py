@@ -4,9 +4,9 @@ import sys
 from decimal import Decimal
 
 from agents.uniswapV3_pool_wealth import UniswapV3PoolWealthAgent
-from dateutil import parser as dateparser
 
 from dojo.actions.uniswapV3 import UniswapV3Quote, UniswapV3Trade
+from dojo.common import time_to_block
 from dojo.common.constants import Chain
 from dojo.environments import UniswapV3Env
 
@@ -17,12 +17,12 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
-
+chain = Chain.ETHEREUM
 sys.path.append("..")
 
 POOL = "SAFE/WETH-0.1"
-start_time = dateparser.parse("2024-06-21 00:00:00 UTC")
-end_time = dateparser.parse("2024-06-21 06:00:00 UTC")
+start_time = "2024-06-21 00:00:00"
+end_time = "2024-06-21 06:00:00"
 
 initial_portfolio = initial_portfolio = {
     "ETH": Decimal(0.2),  # just a bit of ETH to cover fees
@@ -45,8 +45,11 @@ lp_agent = UniswapV3PoolWealthAgent(
 
 # Simulation environment (Uniswap V3)
 env = UniswapV3Env(
-    date_range=(start_time, end_time),
-    chain=Chain.ETHEREUM,
+    block_range=(
+        time_to_block(start_time, chain),
+        time_to_block(end_time, chain),
+    ),
+    chain=chain,
     agents=[trader_agent, lp_agent],
     pools=[POOL],
     backend_type="forked",

@@ -1,9 +1,7 @@
 """Run GMXv2 market order backtest."""
-from datetime import timedelta
 from decimal import Decimal
 from typing import Any, Optional
 
-from dateutil import parser as dateparser
 from policy import GmxV2Policy
 
 from dojo.agents import BaseAgent
@@ -33,13 +31,12 @@ def main(
     dashboard_server_port: Optional[int],
     simulation_status_bar: bool,
     auto_close: bool,
-    run_length: timedelta = timedelta(minutes=10),
+    num_sim_blocks: int = 5000,
     **kwargs: dict[str, Any]
 ) -> None:
     """Running this strategy."""
     # SNIPPET 1 START
-    start_time = dateparser.parse("2024-08-30 00:00:00 UTC")
-    end_time = start_time + run_length
+    start_block = 248100522
 
     market_venue = MarketVenue(
         long_token="WETH",
@@ -60,7 +57,10 @@ def main(
     # Simulation environment
     env = GmxV2Env(
         chain=Chain.ARBITRUM,
-        date_range=(start_time, end_time),
+        block_range=(
+            start_block,
+            start_block + num_sim_blocks,
+        ),
         agents=[gmx_agent],
         market_venues=[market_venue],
         market_impact="replay",
@@ -91,5 +91,5 @@ if __name__ == "__main__":
         dashboard_server_port=8768,
         simulation_status_bar=True,
         auto_close=False,
-        run_length=timedelta(hours=2),
+        num_sim_blocks=5000,
     )

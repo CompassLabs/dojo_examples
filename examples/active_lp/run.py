@@ -1,13 +1,12 @@
 """Run the active LP strategy."""
-from datetime import timedelta
 from decimal import Decimal
 from typing import Any, Optional
 
-from dateutil import parser as dateparser
 from policy import ActiveConcentratedLP
 
 from dojo.agents.uniswapV3 import TotalWealthAgent
 from dojo.common.constants import Chain
+from dojo.common.time_to_block import time_to_block
 from dojo.environments import UniswapV3Env
 from dojo.runners import backtest_run
 
@@ -17,14 +16,14 @@ def main(
     dashboard_server_port: Optional[int],
     simulation_status_bar: bool,
     auto_close: bool,
-    run_length: timedelta = timedelta(hours=10),
+    num_sim_blocks: int = 3000,
     **kwargs: dict[str, Any],
 ) -> None:
     """Running this strategy."""
     # SNIPPET 1 START
     pools = ["USDC/WETH-0.05"]
-    start_time = dateparser.parse("2023-05-01 00:00:00 UTC")
-    end_time = start_time + run_length
+    chain = Chain.ETHEREUM
+    start_time = "2023-05-01 00:00:00"
 
     agent2 = TotalWealthAgent(
         initial_portfolio={
@@ -38,8 +37,11 @@ def main(
 
     # Simulation environment (Uniswap V3)
     env = UniswapV3Env(
-        chain=Chain.ETHEREUM,
-        date_range=(start_time, end_time),
+        chain=chain,
+        block_range=(
+            time_to_block(start_time, chain),
+            time_to_block(start_time, chain) + num_sim_blocks,
+        ),
         agents=[agent2],
         pools=pools,
         backend_type="local",
@@ -69,5 +71,5 @@ if __name__ == "__main__":
         dashboard_server_port=8768,
         simulation_status_bar=True,
         auto_close=False,
-        run_length=timedelta(hours=2),
+        num_sim_blocks=600,
     )

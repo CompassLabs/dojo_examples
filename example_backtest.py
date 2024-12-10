@@ -2,15 +2,14 @@
 
 One active one passive.
 """
-from datetime import timedelta
 from decimal import Decimal
 from typing import Any, Optional
 
-from dateutil import parser as dateparser
 from examples.moving_averages.policy import MovingAveragePolicy
 from policies.passiveLP import PassiveConcentratedLP
 
 from dojo.agents.uniswapV3 import TotalWealthAgent
+from dojo.common import time_to_block
 from dojo.common.constants import Chain
 from dojo.environments import UniswapV3Env
 from dojo.runners import backtest_run
@@ -21,14 +20,13 @@ def main(
     dashboard_server_port: Optional[int] = 8768,
     simulation_status_bar: bool = False,
     auto_close: bool,
-    run_length: timedelta = timedelta(hours=10),
+    num_sim_blocks: int = 1800,
     **kwargs: dict[str, Any],
 ) -> None:
     """Running this strategy."""
     # SNIPPET 1 START
     pools = ["USDC/WETH-0.05"]
-    start_time = dateparser.parse("2022-06-21 00:00:00 UTC")
-    end_time = start_time + run_length
+    start_time = "2022-06-21 00:00:00"
 
     # Agents
     agent1 = TotalWealthAgent(
@@ -47,13 +45,18 @@ def main(
         unit_token="USDC",
     )
 
+    chain = Chain.ETHEREUM
+
     # Simulation environment (Uniswap V3)
     env = UniswapV3Env(
-        chain=Chain.ETHEREUM,
-        date_range=(start_time, end_time),
+        chain=chain,
+        block_range=(
+            time_to_block(start_time, chain),
+            time_to_block(start_time, chain) + num_sim_blocks,
+        ),
         agents=[agent1, agent2],
         pools=pools,
-        backend_type="forked",
+        backend_type="local",
         market_impact="replay",
     )
 
@@ -84,5 +87,5 @@ if __name__ == "__main__":
         dashboard_server_port=8768,
         simulation_status_bar=True,
         auto_close=False,
-        run_length=timedelta(hours=2),
+        num_sim_blocks=600,
     )

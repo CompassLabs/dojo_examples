@@ -1,13 +1,12 @@
 """Run uniswap RSI strategy on arbitrum."""
 import logging
-from datetime import timedelta
 from decimal import Decimal
 from typing import Any, Optional
 
-from dateutil import parser as dateparser
 from policy import RSIPolicy
 
 from dojo.agents.uniswapV3 import TotalWealthAgent
+from dojo.common import time_to_block
 from dojo.common.constants import Chain
 
 # SNIPPET 1 START
@@ -22,14 +21,14 @@ def main(
     dashboard_server_port: Optional[int],
     simulation_status_bar: bool,
     auto_close: bool,
-    run_length: timedelta = timedelta(minutes=1),
+    num_sim_blocks: int = 10,
     **kwargs: dict[str, Any]
 ) -> None:
     """Running this strategy."""
     logging.basicConfig(format="%(asctime)s - %(message)s", level=logging.INFO)
     pools = ["WETH/USDC-0.05"]
-    start_time = dateparser.parse("2024-05-01 09:08:00 UTC")
-    end_time = start_time + run_length
+    start_time = "2024-05-01 09:08:00"
+    chain = Chain.ARBITRUM
 
     # Agents
     rsi_agent = TotalWealthAgent(
@@ -45,7 +44,10 @@ def main(
     # Simulation environment (Uniswap V3)
     env = UniswapV3Env(
         chain=Chain.ARBITRUM,
-        date_range=(start_time, end_time),
+        block_range=(
+            time_to_block(start_time, chain),
+            time_to_block(start_time, chain) + num_sim_blocks,
+        ),
         agents=[rsi_agent],
         pools=pools,
         backend_type="forked",
@@ -77,5 +79,5 @@ if __name__ == "__main__":
         dashboard_server_port=8768,
         simulation_status_bar=True,
         auto_close=False,
-        run_length=timedelta(hours=2),
+        num_sim_blocks=10,
     )

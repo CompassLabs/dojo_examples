@@ -4,24 +4,27 @@ import sys
 from decimal import Decimal
 
 from agents.dummy_agent import DummyAgent
-from dateutil import parser as dateparser
 
 from dojo.actions.aaveV3 import AAVEv3Supply, AAVEv3WithdrawAll
+from dojo.common import time_to_block
 from dojo.common.constants import Chain
 from dojo.environments.aaveV3 import AAVEv3Env
 
 current = os.path.dirname(os.path.realpath(__file__))
 parent = os.path.dirname(current)
 sys.path.append(parent)
-
-start_time = dateparser.parse("2023-06-29 00:00:00 UTC")
-end_time = dateparser.parse("2023-06-29 00:05:00 UTC")
+chain = Chain.ETHEREUM
+start_time = "2023-06-29 00:00:00"
+end_time = "2023-06-29 00:05:00"
 
 # SNIPPET 1 START
 agent = DummyAgent(initial_portfolio={"USDC": Decimal(11_000)})
 env = AAVEv3Env(
-    chain=Chain.ETHEREUM,
-    date_range=(start_time, end_time),
+    chain=chain,
+    block_range=(
+        time_to_block(start_time, chain),
+        time_to_block(end_time, chain),
+    ),
     agents=[agent],
     backend_type="forked",
     market_impact="default",
