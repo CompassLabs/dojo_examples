@@ -10,6 +10,7 @@ from dojo.agents.uniswapV3 import TotalWealthAgent
 from dojo.common import time_to_block
 from dojo.common.constants import Chain
 from dojo.environments import UniswapV3Env
+from dojo.market_agents.uniswapV3 import HistoricReplayAgent
 from dojo.runners import backtest_run
 
 
@@ -28,8 +29,17 @@ def main(
     start_day = 1
     start_time = f"{year}-{month:02}-{start_day:02} 00:00:00"
     chain = Chain.ETHEREUM
+    block_range = (
+        time_to_block(start_time, chain),
+        time_to_block(start_time, chain) + num_sim_blocks,
+    )
 
     # Agents
+    market_agent = HistoricReplayAgent(
+        chain=chain, pools=pools, block_range=block_range
+    )
+
+    # SNIPPET 1 START
     cex_directional_agent = TotalWealthAgent(
         initial_portfolio={
             "ETH": Decimal(10),
@@ -38,33 +48,23 @@ def main(
         },
         name="CEX Directional Agent",
         unit_token="USDC",
+        policy=TradeTowardsCentralisedExchangePolicy(
+            binance_data=load_binance_data(year, month)
+        ),
     )
+    # SNIPPET 1 END
 
     # Simulation environment (Uniswap V3)
     env = UniswapV3Env(
         chain=chain,
-        block_range=(
-            time_to_block(start_time, chain),
-            time_to_block(start_time, chain) + num_sim_blocks,
-        ),
-        agents=[cex_directional_agent],
+        block_range=block_range,
+        agents=[market_agent, cex_directional_agent],
         pools=pools,
         backend_type="forked",
-        market_impact="replay",
     )
-
-    # SNIPPET 1 START
-    binance_data = load_binance_data(year, month)
-
-    # Policies
-    arb_policy = TradeTowardsCentralisedExchangePolicy(
-        agent=cex_directional_agent, binance_data=binance_data
-    )
-    # SNIPPET 1 END
 
     backtest_run(
         env=env,
-        policies=[arb_policy],
         dashboard_server_port=dashboard_server_port,
         output_file="trade_towards_cex.db",
         auto_close=auto_close,

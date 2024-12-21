@@ -11,6 +11,7 @@ from dojo.common.constants import Chain
 
 # SNIPPET 1 START
 from dojo.environments import UniswapV3Env
+from dojo.market_agents.uniswapV3 import HistoricReplayAgent
 
 # SNIPPET 1 END
 from dojo.runners import backtest_run
@@ -29,8 +30,15 @@ def main(
     pools = ["USDC/WETH-0.05"]
     start_time = "2021-06-21 00:00:00"
     chain = Chain.ETHEREUM
+    block_range = (
+        time_to_block(start_time, chain),
+        time_to_block(start_time, chain) + num_sim_blocks,
+    )
 
     # Agents
+    market_agent = HistoricReplayAgent(
+        chain=chain, pools=pools, block_range=block_range
+    )
     rsi_agent = TotalWealthAgent(
         initial_portfolio={
             "USDC": Decimal(10000),
@@ -38,29 +46,20 @@ def main(
         },
         name="RSI_Agent",
         unit_token="USDC",
+        policy=RSIPolicy(),
     )
 
     # Simulation environment (Uniswap V3)
     env = UniswapV3Env(
         chain=Chain.ETHEREUM,
-        block_range=(
-            time_to_block(start_time, chain),
-            time_to_block(start_time, chain) + num_sim_blocks,
-        ),
-        agents=[rsi_agent],
+        block_range=block_range,
+        agents=[market_agent, rsi_agent],
         pools=pools,
         backend_type="local",
-        market_impact="replay",
-    )
-
-    # Policies
-    rsi_policy = RSIPolicy(
-        agent=rsi_agent,
     )
 
     backtest_run(
         env=env,
-        policies=[rsi_policy],
         dashboard_server_port=dashboard_server_port,
         output_file="rsi.db",
         auto_close=auto_close,

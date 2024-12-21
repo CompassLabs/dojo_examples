@@ -4,7 +4,6 @@ from decimal import Decimal
 
 from dojo.actions import SleepAction
 from dojo.actions.gmxV2.orders.models import GmxBaseTraderOrder, GmxSwapOrder
-from dojo.agents import BaseAgent
 from dojo.environments.gmxV2 import GmxV2Observation
 from dojo.policies import GmxV2Policy
 
@@ -12,9 +11,9 @@ from dojo.policies import GmxV2Policy
 class GmxV2Policy(GmxV2Policy):
     """Example gmx policy."""
 
-    def __init__(self, agent: BaseAgent) -> None:
+    def __init__(self) -> None:
         """Initialize the policy."""
-        super().__init__(agent=agent)
+        super().__init__()
 
     def predict(self, obs: GmxV2Observation) -> list[GmxBaseTraderOrder]:
         """Derive actions from observations."""

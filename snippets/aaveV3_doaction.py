@@ -27,7 +27,6 @@ env = AAVEv3Env(
     ),
     agents=[agent],
     backend_type="forked",
-    market_impact="default",
 )
 
 actions = [

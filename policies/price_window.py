@@ -3,7 +3,6 @@ import logging
 from decimal import Decimal
 
 from dojo.actions.uniswapV3 import BaseUniswapV3Action, UniswapV3Trade
-from dojo.agents import UniswapV3Agent
 from dojo.observations.uniswapV3 import UniswapV3Observation
 from dojo.policies import UniswapV3Policy
 
@@ -14,10 +13,8 @@ logging.basicConfig(format="%(asctime)s - %(message)s", level=logging.INFO)
 class PriceWindowPolicy(UniswapV3Policy):
     """Policy for Moving Average Price Window strategy."""
 
-    def __init__(
-        self, agent: UniswapV3Agent, lower_limit: float, upper_limit: float
-    ) -> None:  # noqa: D107
-        super().__init__(agent=agent)
+    def __init__(self, lower_limit: float, upper_limit: float) -> None:  # noqa: D107
+        super().__init__()
         self.upper_limit = upper_limit
         self.lower_limit = lower_limit
 

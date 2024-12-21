@@ -8,6 +8,7 @@ from dojo.agents.uniswapV3 import TotalWealthAgent
 from dojo.common import time_to_block
 from dojo.common.constants import Chain
 from dojo.environments import UniswapV3Env
+from dojo.market_agents.uniswapV3 import HistoricReplayAgent
 from dojo.runners import backtest_run
 
 
@@ -23,8 +24,16 @@ def main(
     pools = ["USDC/WETH-0.05"]
     chain = Chain.ETHEREUM
     start_time = "2021-06-21 00:00:00"
+    block_range = (
+        time_to_block(start_time, chain),
+        time_to_block(start_time, chain) + num_sim_blocks,
+    )
 
     # Agents
+    market_agent = HistoricReplayAgent(
+        chain=chain, pools=pools, block_range=block_range
+    )
+
     dca_agent = TotalWealthAgent(
         initial_portfolio={
             "USDC": Decimal(10000),
@@ -32,31 +41,23 @@ def main(
         },
         name="DCA_Agent",
         unit_token="USDC",
+        policy=DCAPolicy(
+            buying_amount=100.0,
+            min_dist=10,
+        ),
     )
 
     # Simulation environment (Uniswap V3)
     env = UniswapV3Env(
         chain=chain,
-        block_range=(
-            time_to_block(start_time, chain),
-            time_to_block(start_time, chain) + num_sim_blocks,
-        ),
-        agents=[dca_agent],
+        block_range=block_range,
+        agents=[market_agent, dca_agent],
         pools=pools,
         backend_type="forked",
-        market_impact="replay",
-    )
-
-    # Policies
-    dca_policy = DCAPolicy(
-        agent=dca_agent,
-        buying_amount=100.0,
-        min_dist=10,
     )
 
     backtest_run(
         env=env,
-        policies=[dca_policy],
         dashboard_server_port=dashboard_server_port,
         output_file="dollar_cost_averaging.db",
         auto_close=auto_close,

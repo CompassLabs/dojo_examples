@@ -9,6 +9,7 @@ from dojo.common import time_to_block
 from dojo.common.constants import Chain
 from dojo.environments import AAVEv3Env
 from dojo.environments.aaveV3 import AAVEv3Observation
+from dojo.market_agents.aaveV3 import HistoricReplayAgent
 from dojo.runners import backtest_run
 
 
@@ -16,10 +17,13 @@ class ConstantRewardAgent(AAVEv3Agent):
     """An agent that displays health factor as its reward."""
 
     def __init__(
-        self, initial_portfolio: dict[str, Decimal], name: Optional[str] = None
+        self,
+        policy: Any,
+        initial_portfolio: dict[str, Decimal],
+        name: Optional[str] = None,
     ):
         """Initialize the agent."""
-        super().__init__(name=name, initial_portfolio=initial_portfolio)
+        super().__init__(name=name, initial_portfolio=initial_portfolio, policy=policy)
 
     def reward(self, obs: AAVEv3Observation) -> float:
         """Tracks the health factor of the agent."""
@@ -37,7 +41,12 @@ def main(
     """Running this strategy."""
     start_time = "2023-03-11 00:00:00"
     chain = Chain.ETHEREUM
+    block_range = (
+        time_to_block(start_time, chain),
+        time_to_block(start_time, chain) + num_sim_blocks,
+    )
     # Agents
+    market_agent = HistoricReplayAgent(chain=chain, block_range=block_range)
     agent1 = ConstantRewardAgent(
         initial_portfolio={
             "ETH": Decimal(100),
@@ -45,27 +54,20 @@ def main(
             "WBTC": Decimal(2),
         },
         name="AAVE_Agent",
+        policy=AAVEv3Policy(),
     )
 
     # SNIPPET 1 START
     env = AAVEv3Env(
         chain=Chain.ETHEREUM,
-        block_range=(
-            time_to_block(start_time, chain),
-            time_to_block(start_time, chain) + num_sim_blocks,
-        ),
-        agents=[agent1],
+        block_range=block_range,
+        agents=[market_agent, agent1],
         backend_type="local",
-        market_impact="default",
     )
     # SNIPPET 1 END
 
-    # Policies
-    policy = AAVEv3Policy(agent=agent1)
-
     backtest_run(
         env=env,
-        policies=[policy],
         dashboard_server_port=dashboard_server_port,
         output_file="aavev3.db",
         auto_close=auto_close,

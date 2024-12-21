@@ -5,7 +5,6 @@ from decimal import Decimal
 import numpy as np
 
 from dojo.actions.uniswapV3 import BaseUniswapV3Action, UniswapV3Trade
-from dojo.agents import UniswapV3Agent
 from dojo.environments.uniswapV3 import UniswapV3Observation
 from dojo.policies import UniswapV3Policy
 
@@ -19,11 +18,9 @@ class MovingAveragePolicy(UniswapV3Policy):
     :param long_window: The long window length for the moving average.
     """
 
-    def __init__(
-        self, agent: UniswapV3Agent, pool: str, short_window: int, long_window: int
-    ) -> None:
+    def __init__(self, pool: str, short_window: int, long_window: int) -> None:
         """Moving agerave strategy on one Uniwap pool."""
-        super().__init__(agent=agent)
+        super().__init__()
         self._short_window_len: int = short_window
         self._long_window_len: int = long_window
         self.long_window: deque[float] = deque(maxlen=long_window)

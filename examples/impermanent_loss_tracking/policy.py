@@ -3,7 +3,6 @@ from decimal import Decimal
 from typing import List, Tuple
 
 from dojo.actions.uniswapV3 import BaseUniswapV3Action, UniswapV3Quote
-from dojo.agents import UniswapV3Agent
 from dojo.observations import uniswapV3
 from dojo.observations.uniswapV3 import UniswapV3Observation
 from dojo.policies import UniswapV3Policy
@@ -13,8 +12,8 @@ from dojo.policies import UniswapV3Policy
 class ImpermanentLossPolicy(UniswapV3Policy):
     """Policy for tracking impermanent loss."""
 
-    def __init__(self, agent: UniswapV3Agent) -> None:  # noqa: D107
-        super().__init__(agent=agent)
+    def __init__(self) -> None:  # noqa: D107
+        super().__init__()
         self.has_provided_liquidity = False
         self.has_executed_lp_action = False
         self.initial_lp_positions: dict[str, Decimal] = {}

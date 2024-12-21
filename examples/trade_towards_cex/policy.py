@@ -6,7 +6,6 @@ from enum import Enum
 from binance_data import Binance_data
 
 from dojo.actions.uniswapV3 import BaseUniswapV3Action, UniswapV3Trade
-from dojo.agents import UniswapV3Agent
 from dojo.environments.uniswapV3 import UniswapV3Observation
 from dojo.policies import UniswapV3Policy
 
@@ -32,10 +31,8 @@ class TradeTowardsCentralisedExchangePolicy(UniswapV3Policy):
     FREEZE_BLOCKS = 200
 
     # SNIPPET 1 START
-    def __init__(
-        self, agent: UniswapV3Agent, binance_data: Binance_data
-    ) -> None:  # noqa: D107
-        super().__init__(agent=agent)
+    def __init__(self, binance_data: Binance_data) -> None:  # noqa: D107
+        super().__init__()
         self.binance_data = binance_data
         self.block_last_trade: int = 0
         self.state = State.NOT_INVESTED

@@ -8,6 +8,7 @@ from dojo.agents.uniswapV3 import TotalWealthAgent
 from dojo.common.constants import Chain
 from dojo.common.time_to_block import time_to_block
 from dojo.environments import UniswapV3Env
+from dojo.market_agents.uniswapV3 import HistoricReplayAgent
 from dojo.runners import backtest_run
 
 
@@ -24,8 +25,16 @@ def main(
     pools = ["USDC/WETH-0.05"]
     chain = Chain.ETHEREUM
     start_time = "2023-05-01 00:00:00"
+    block_range = (
+        time_to_block(start_time, chain),
+        time_to_block(start_time, chain) + num_sim_blocks,
+    )
 
-    agent2 = TotalWealthAgent(
+    market_agent = HistoricReplayAgent(
+        chain=chain, pools=pools, block_range=block_range, mode="swaps_only"
+    )
+
+    user_agent = TotalWealthAgent(
         initial_portfolio={
             "USDC": Decimal(1_000_000),
             "WETH": Decimal(2_000),
@@ -33,26 +42,20 @@ def main(
         },
         name="LPAgent",
         unit_token="USDC",
+        policy=ActiveConcentratedLP(lp_width=2),
     )
 
     # Simulation environment (Uniswap V3)
     env = UniswapV3Env(
         chain=chain,
-        block_range=(
-            time_to_block(start_time, chain),
-            time_to_block(start_time, chain) + num_sim_blocks,
-        ),
-        agents=[agent2],
+        block_range=block_range,
+        agents=[market_agent, user_agent],
         pools=pools,
         backend_type="local",
-        market_impact="replay_trades_only",
     )
-
-    active_lp_policy = ActiveConcentratedLP(agent=agent2, lp_width=2)
 
     backtest_run(
         env,
-        [active_lp_policy],
         dashboard_server_port=dashboard_server_port,
         output_file="active_lp.db",
         auto_close=auto_close,

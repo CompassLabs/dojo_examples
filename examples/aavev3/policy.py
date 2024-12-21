@@ -7,7 +7,6 @@ from dojo.actions.aaveV3 import (
     AAVEv3Supply,
     BaseAaveAction,
 )
-from dojo.agents import AAVEv3Agent
 from dojo.environments.aaveV3 import AAVEv3Observation
 from dojo.policies import AAVEv3Policy as BaseAAVEv3Policy
 
@@ -16,9 +15,9 @@ from dojo.policies import AAVEv3Policy as BaseAAVEv3Policy
 class AAVEv3Policy(BaseAAVEv3Policy):
     """Provide liquidity passively to a pool in the specified price bounds."""
 
-    def __init__(self, agent: AAVEv3Agent) -> None:
+    def __init__(self) -> None:
         """Initialize the policy."""
-        super().__init__(agent=agent)
+        super().__init__()
 
         self.has_invested = False
 

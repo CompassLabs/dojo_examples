@@ -8,7 +8,6 @@ from dojo.actions.gmxV2.orders.models import (
     GmxIncreaseLongLimitOrder,
     GmxIncreaseShortLimitOrder,
 )
-from dojo.agents import BaseAgent
 from dojo.environments.gmxV2 import GmxV2Observation
 from dojo.policies import BasePolicy
 
@@ -25,9 +24,9 @@ class State(Enum):
 class GmxV2Policy(BasePolicy):
     """Example gmx policy."""
 
-    def __init__(self, agent: BaseAgent) -> None:
+    def __init__(self) -> None:
         """Initialize the policy."""
-        super().__init__(agent=agent)
+        super().__init__()
         self.state = State.NO_POSITION
         self.counter = 0
 

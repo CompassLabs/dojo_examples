@@ -2,7 +2,6 @@
 from decimal import Decimal
 
 from dojo.actions.uniswapV3 import BaseUniswapV3Action, UniswapV3Trade
-from dojo.agents import UniswapV3Agent
 from dojo.observations.uniswapV3 import UniswapV3Observation
 from dojo.policies import UniswapV3Policy
 
@@ -18,10 +17,8 @@ class DCAPolicy(UniswapV3Policy):
         last trade was at least min_dist blocks ago.
     """
 
-    def __init__(
-        self, agent: UniswapV3Agent, buying_amount: float, min_dist: int
-    ) -> None:  # noqa: D107
-        super().__init__(agent=agent)
+    def __init__(self, buying_amount: float, min_dist: int) -> None:  # noqa: D107
+        super().__init__()
         self.buying_amount = buying_amount
         self.min_dist = min_dist
         self.last_trade_block = 0

@@ -39,6 +39,7 @@ def main(
         },
         name="RSI_Agent_Arbitrum",
         unit_token="USDC",
+        policy=RSIPolicy(),
     )
 
     # Simulation environment (Uniswap V3)
@@ -51,17 +52,10 @@ def main(
         agents=[rsi_agent],
         pools=pools,
         backend_type="forked",
-        market_impact="replay",
-    )
-
-    # Policies
-    rsi_policy = RSIPolicy(
-        agent=rsi_agent,
     )
 
     backtest_run(
         env=env,
-        policies=[rsi_policy],
         dashboard_server_port=dashboard_server_port,
         output_file="rsi_arbitrum.db",
         auto_close=auto_close,

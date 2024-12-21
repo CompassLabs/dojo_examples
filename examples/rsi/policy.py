@@ -5,7 +5,6 @@ from decimal import Decimal
 import numpy as np
 
 from dojo.actions.uniswapV3 import BaseUniswapV3Action, UniswapV3Trade
-from dojo.agents import UniswapV3Agent
 from dojo.observations.uniswapV3 import UniswapV3Observation
 from dojo.policies import UniswapV3Policy
 
@@ -18,8 +17,7 @@ class RSIPolicy(UniswapV3Policy):
     :param agent: The agent which is using this policy.
     """
 
-    def __init__(self, agent: UniswapV3Agent):  # noqa: D107
-        self.agent: UniswapV3Agent = agent
+    def __init__(self) -> None:  # noqa: D107
         self.rsi_period: int = 14
         self.rsi_values: deque[Decimal] = deque(maxlen=self.rsi_period)
         self.rsi: float = 0.0

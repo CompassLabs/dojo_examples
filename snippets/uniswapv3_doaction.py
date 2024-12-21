@@ -29,7 +29,6 @@ env = UniswapV3Env(
     ),
     pools=pools,
     backend_type="forked",
-    market_impact="replay",  # defaults to "replay", simply replaying history
 )
 
 action = UniswapV3Trade(

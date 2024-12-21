@@ -12,7 +12,6 @@ from dojo.actions.uniswapV3 import (
     UniswapV3TradeToTickRange,
     UniswapV3WithdrawLiquidity,
 )
-from dojo.agents import UniswapV3Agent
 from dojo.observations import UniswapV3Observation
 from dojo.policies import UniswapV3Policy
 
@@ -37,14 +36,13 @@ class _PositionInfo:
 class ActiveConcentratedLP(UniswapV3Policy):
     """Actively managing LP postions to always stay around the current price."""
 
-    def __init__(self, agent: UniswapV3Agent, lp_width: int) -> None:
+    def __init__(self, lp_width: int) -> None:
         """Initialize the policy.
 
-        :param agent: The agent which is using this policy.
         :param lp_width: How many ticks to the left and right the liquidity will be
             spread.
         """
-        super().__init__(agent=agent)
+        super().__init__()
         self.state: State = State.IDLE
         self.position_info: Union[_PositionInfo, None] = None
         self.lp_width = lp_width

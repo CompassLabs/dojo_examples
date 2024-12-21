@@ -17,7 +17,7 @@ class ETHAgent(UniswapV3Agent):  # noqa: D101
             "USDC": Decimal(10_000),
         },
     ) -> None:  # noqa: D107
-        super().__init__(initial_portfolio=initial_portfolio)
+        super().__init__(initial_portfolio=initial_portfolio, policy=None)
 
     def reward(self, obs: UniswapV3Observation) -> float:  # type: ignore
         """Compute the reward value."""

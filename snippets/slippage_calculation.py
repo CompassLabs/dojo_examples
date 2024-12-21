@@ -53,7 +53,6 @@ env = UniswapV3Env(
     agents=[trader_agent, lp_agent],
     pools=[POOL],
     backend_type="forked",
-    market_impact="replay",
 )
 
 obs = env.reset()

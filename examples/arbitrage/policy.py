@@ -3,7 +3,6 @@ from decimal import Decimal
 from typing import Tuple, Union
 
 from dojo.actions.uniswapV3 import BaseUniswapV3Action, UniswapV3Trade
-from dojo.agents import UniswapV3Agent
 from dojo.observations.uniswapV3 import UniswapV3Observation
 from dojo.policies import UniswapV3Policy
 
@@ -15,8 +14,8 @@ class ArbitragePolicy(UniswapV3Policy):
     :param agent: The agent which is using this policy.
     """
 
-    def __init__(self, agent: UniswapV3Agent) -> None:  # noqa: D107
-        super().__init__(agent=agent)
+    def __init__(self) -> None:  # noqa: D107
+        super().__init__()
         self.block_last_trade: int = -1
         self.min_block_dist: int = 20
         self.min_signal: float = 1.901

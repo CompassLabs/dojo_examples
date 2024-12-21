@@ -8,6 +8,7 @@ from dojo.agents import UniswapV3Agent
 from dojo.common import time_to_block
 from dojo.common.constants import Chain
 from dojo.environments import UniswapV3Env
+from dojo.market_agents.uniswapV3 import HistoricReplayAgent
 from dojo.observations import UniswapV3Observation
 from dojo.runners import backtest_run
 
@@ -29,9 +30,12 @@ class ImpermanentLossAgent(UniswapV3Agent):
     """
 
     def __init__(
-        self, initial_portfolio: dict[str, Decimal], name: Optional[str] = None
+        self,
+        policy: Any,
+        initial_portfolio: dict[str, Decimal],
+        name: Optional[str] = None,
     ):  # noqa: D107
-        super().__init__(name=name, initial_portfolio=initial_portfolio)
+        super().__init__(name=name, initial_portfolio=initial_portfolio, policy=policy)
         self.hold_portfolio: dict[str, Decimal] = {}
 
     def reward(self, obs: UniswapV3Observation) -> float:  # type: ignore
@@ -63,34 +67,35 @@ def main(
 
     chain = Chain.ETHEREUM
     start_time = "2021-06-21 00:00:00"
+    block_range = (
+        time_to_block(start_time, chain),
+        time_to_block(start_time, chain) + num_sim_blocks,
+    )
 
     # Agents
+    market_agent = HistoricReplayAgent(
+        chain=chain, pools=pools, block_range=block_range
+    )
     impermanent_loss_agent = ImpermanentLossAgent(
         initial_portfolio={
             "USDC": Decimal(10_000),
             "WETH": Decimal(1),
         },
         name="Impermanent_Loss_Agent",
+        policy=ImpermanentLossPolicy(),
     )
 
     # Simulation environment (Uniswap V3)
     env = UniswapV3Env(
         chain=chain,
-        block_range=(
-            time_to_block(start_time, chain),
-            time_to_block(start_time, chain) + num_sim_blocks,
-        ),
-        agents=[impermanent_loss_agent],
+        block_range=block_range,
+        agents=[market_agent, impermanent_loss_agent],
         pools=pools,
         backend_type="forked",
-        market_impact="replay",
     )
-
-    liquidity_policy = ImpermanentLossPolicy(impermanent_loss_agent)
 
     backtest_run(
         env=env,
-        policies=[liquidity_policy],
         simulation_status_bar=simulation_status_bar,
         dashboard_server_port=dashboard_server_port,
         output_file="impermanent_loss_tracking.db",

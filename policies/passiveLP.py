@@ -2,7 +2,6 @@
 from decimal import Decimal
 
 from dojo.actions.uniswapV3 import BaseUniswapV3Action, UniswapV3Quote, UniswapV3Trade
-from dojo.agents import UniswapV3Agent
 from dojo.observations import uniswapV3
 from dojo.observations.uniswapV3 import UniswapV3Observation
 from dojo.policies import UniswapV3Policy
@@ -11,12 +10,9 @@ from dojo.policies import UniswapV3Policy
 class PassiveConcentratedLP(UniswapV3Policy):
     """Provide liquidity passively to a pool in the specified price bounds."""
 
-    def __init__(
-        self, agent: UniswapV3Agent, lower_price_bound: float, upper_price_bound: float
-    ) -> None:
+    def __init__(self, lower_price_bound: float, upper_price_bound: float) -> None:
         """Initialize the policy.
 
-        :param agent: The agent which is using this policy.
         :param lower_price_bound: The lower price bound for the tick range of the LP
             position to invest in. e.g. 0.95 means the lower price bound is 95% of the
             current spot price.
@@ -24,7 +20,7 @@ class PassiveConcentratedLP(UniswapV3Policy):
             position to invest in. e.g. 1.05 means the upper price bound is 105% of the
             current spot price.
         """
-        super().__init__(agent=agent)
+        super().__init__()
         self.lower_price_bound: Decimal = Decimal(lower_price_bound)
         self.upper_price_bound: Decimal = Decimal(upper_price_bound)
         self.has_traded = False
