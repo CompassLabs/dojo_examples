@@ -31,11 +31,17 @@ class ImpermanentLossAgent(UniswapV3Agent):
 
     def __init__(
         self,
-        policy: Any,
         initial_portfolio: dict[str, Decimal],
+        unit_token: str,
+        policy: Any,
         name: Optional[str] = None,
     ):  # noqa: D107
-        super().__init__(name=name, initial_portfolio=initial_portfolio, policy=policy)
+        super().__init__(
+            name=name,
+            unit_token=unit_token,
+            initial_portfolio=initial_portfolio,
+            policy=policy,
+        )
         self.hold_portfolio: dict[str, Decimal] = {}
 
     def reward(self, obs: UniswapV3Observation) -> float:  # type: ignore
@@ -44,10 +50,10 @@ class ImpermanentLossAgent(UniswapV3Agent):
         if not self.hold_portfolio:
             self.hold_portfolio = obs.lp_quantities(token_ids)
         hold_wealth = self._pool_wealth(
-            obs=obs, portfolio=self.hold_portfolio, unit_token="USDC"
+            obs=obs, portfolio=self.hold_portfolio, unit_token=self.unit_token
         )
         lp_wealth = self._pool_wealth(
-            obs=obs, portfolio=obs.lp_portfolio(token_ids), unit_token="USDC"
+            obs=obs, portfolio=obs.lp_portfolio(token_ids), unit_token=self.unit_token
         )
         if hold_wealth == 0:
             return 0.0
@@ -66,7 +72,7 @@ def main(
     pools = ["USDC/WETH-0.05"]
 
     chain = Chain.ETHEREUM
-    start_time = "2021-06-21 00:00:00"
+    start_time = "2024-12-06 13:00:00"
     block_range = (
         time_to_block(start_time, chain),
         time_to_block(start_time, chain) + num_sim_blocks,
@@ -81,6 +87,7 @@ def main(
             "USDC": Decimal(10_000),
             "WETH": Decimal(1),
         },
+        unit_token="USDC",
         name="Impermanent_Loss_Agent",
         policy=ImpermanentLossPolicy(),
     )

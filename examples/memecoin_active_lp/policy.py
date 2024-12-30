@@ -63,8 +63,8 @@ class ActiveConcentratedLP(UniswapV3Policy):
     def _rebalance(self, obs: UniswapV3Observation) -> list[BaseUniswapV3Action]:
         token0, token1 = obs.pool_tokens(obs.pools[0])
         portfolio = self.agent.portfolio()
-        self.wealth_before = portfolio[token0] + portfolio[token1] * obs.price(
-            token1, token0, obs.pools[0]
+        self.wealth_before = portfolio[token1] + portfolio[token0] * obs.price(
+            token0, token1, obs.pools[0]
         )
         action = UniswapV3TradeToTickRange(
             agent=self.agent,
@@ -80,8 +80,8 @@ class ActiveConcentratedLP(UniswapV3Policy):
     def _invest(self, obs: UniswapV3Observation) -> list[BaseUniswapV3Action]:
         token0, token1 = obs.pool_tokens(obs.pools[0])
         portfolio = self.agent.portfolio()
-        wealth_after = portfolio[token0] + portfolio[token1] * obs.price(
-            token1, token0, obs.pools[0]
+        wealth_after = portfolio[token1] + portfolio[token0] * obs.price(
+            token0, token1, obs.pools[0]
         )
         volume = abs(wealth_after - self.wealth_before)
         self.swap_volume += volume
@@ -173,11 +173,14 @@ class ActiveConcentratedLP(UniswapV3Policy):
 
         obs.add_signal(
             "LP fees earned",
-            float(current_fees.get(token0, 0) + current_fees.get(token1, 0)),
+            float(
+                current_fees.get(token0, 0) * obs.price(token0, token1, pool)
+                + current_fees.get(token1, 0)
+            ),
         )
-        obs.add_signal("WETH Price", float(obs.price("WETH", "USDC", pool)))
+        obs.add_signal("PEPE Price", float(obs.price("PEPE", "USDC", pool)))
         obs.add_signal(
-            "WETH Holdings in USD",
+            "PEPE Holdings in USD",
             float(current_portfolio.get(token0, 0) * obs.price(token0, token1, pool)),
         )
         obs.add_signal("Swap count", self.swap_count)

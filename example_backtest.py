@@ -27,7 +27,7 @@ def main(
     """Running this strategy."""
     # SNIPPET 1 START
     pools = ["USDC/WETH-0.05"]
-    start_time = "2022-06-21 00:00:00"
+    start_time = "2024-12-06 13:00:00"
     chain = Chain.ETHEREUM
     block_range = (
         time_to_block(start_time, chain),

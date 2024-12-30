@@ -1,14 +1,13 @@
-"""Run strategy against binance data."""
-
+"""Run the active LP strategy."""
 from decimal import Decimal
 from typing import Any, Optional
 
-from binance_data import load_binance_data
-from policy import TradeTowardsCentralisedExchangePolicy
+from passive_lp_policy import PassiveConcentratedLP
+from policy import ActiveConcentratedLP
 
-from dojo.agents.uniswapV3 import TotalWealthAgent
-from dojo.common import time_to_block
+from dojo.agents.uniswapV3 import PnLAgent
 from dojo.common.constants import Chain
+from dojo.common.time_to_block import time_to_block
 from dojo.environments import UniswapV3Env
 from dojo.market_agents.uniswapV3 import HistoricReplayAgent
 from dojo.runners import backtest_run
@@ -23,55 +22,55 @@ def main(
     **kwargs: dict[str, Any],
 ) -> None:
     """Running this strategy."""
-    pools = ["USDC/WETH-0.05"]
-    year = 2024
-    month = 11
-    start_day = 21
-    start_time = f"{year}-{month:02}-{start_day:02} 11:00:00"
+    # SNIPPET 1 START
+    pools = ["PEPE/USDC-1"]
     chain = Chain.ETHEREUM
+    start_time = "2024-12-16 10:00:00"
     block_range = (
         time_to_block(start_time, chain),
         time_to_block(start_time, chain) + num_sim_blocks,
     )
 
-    # Agents
     market_agent = HistoricReplayAgent(
-        chain=chain, pools=pools, block_range=block_range
+        chain=chain, pools=pools, block_range=block_range, mode="swaps_only"
     )
 
-    # SNIPPET 1 START
-    cex_directional_agent = TotalWealthAgent(
+    active_lp_agent = PnLAgent(
         initial_portfolio={
-            "ETH": Decimal(10),
-            "USDC": Decimal(1_000),
-            "WETH": Decimal(1),
+            "USDC": Decimal(2000),
+            "PEPE": Decimal(100000000),
         },
-        name="CEX Directional Agent",
+        name="ActiveLPAgent",
         unit_token="USDC",
-        policy=TradeTowardsCentralisedExchangePolicy(
-            binance_data=load_binance_data(year, month)
-        ),
+        policy=ActiveConcentratedLP(lp_width=2),
     )
-    # SNIPPET 1 END
+
+    passive_lp_agent = PnLAgent(
+        initial_portfolio={"USDC": Decimal(2000), "PEPE": Decimal(100000000)},
+        name="PassiveLPAgent",
+        unit_token="USDC",
+        policy=PassiveConcentratedLP(lower_price_bound=0.9, upper_price_bound=1.1),
+    )
 
     # Simulation environment (Uniswap V3)
     env = UniswapV3Env(
         chain=chain,
         block_range=block_range,
-        agents=[market_agent, cex_directional_agent],
+        agents=[market_agent, active_lp_agent, passive_lp_agent],
         pools=pools,
         backend_type="forked",
     )
 
     backtest_run(
-        env=env,
+        env,
         dashboard_server_port=dashboard_server_port,
-        output_file="trade_towards_cex.db",
+        output_file="memecoin_active_lp.db",
         auto_close=auto_close,
         simulation_status_bar=simulation_status_bar,
-        simulation_title="Trading with external signals",
-        simulation_description="We make trading desicions on Uniswap based on the token price on Binance.",
+        simulation_title="Memecoin Active LP",
+        simulation_description="Keep liquidity in the active tick range in a memecoin pool.",
     )
+    # SNIPPET 1 END
 
 
 if __name__ == "__main__":
@@ -82,5 +81,5 @@ if __name__ == "__main__":
         dashboard_server_port=8768,
         simulation_status_bar=True,
         auto_close=False,
-        num_sim_blocks=3000,
+        num_sim_blocks=5000,
     )

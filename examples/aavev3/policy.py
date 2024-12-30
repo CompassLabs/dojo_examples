@@ -7,6 +7,7 @@ from dojo.actions.aaveV3 import (
     AAVEv3Supply,
     BaseAaveAction,
 )
+from dojo.config.data.aave_config import BorrowingMode
 from dojo.environments.aaveV3 import AAVEv3Observation
 from dojo.policies import AAVEv3Policy as BaseAAVEv3Policy
 
@@ -40,13 +41,19 @@ class AAVEv3Policy(BaseAAVEv3Policy):
         if health_factor > 2.0:
             return [
                 AAVEv3BorrowToHealthFactor(
-                    agent=self.agent, token="WBTC", factor=1.8, mode="variable"
+                    agent=self.agent,
+                    token="WBTC",
+                    factor=1.8,
+                    mode=BorrowingMode.VARIABLE,
                 )
             ]
         if health_factor < 1.7:
             return [
                 AAVEv3RepayToHealthFactor(
-                    agent=self.agent, token="WBTC", factor=1.90, mode="variable"
+                    agent=self.agent,
+                    token="WBTC",
+                    factor=1.90,
+                    mode=BorrowingMode.VARIABLE,
                 )
             ]
         return []

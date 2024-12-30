@@ -78,6 +78,24 @@ class PassiveConcentratedLP(UniswapV3Policy):
 
     def predict(self, obs: UniswapV3Observation) -> list[BaseUniswapV3Action]:
         """Derive actions from observations."""
+        pool = obs.pools[0]
+        token0, token1 = obs.pool_tokens(pool)
+        current_holdings = self.agent.total_wealth(obs, "USDC")
+        initial_holdings = Decimal(0)
+        for token in self.agent.initial_portfolio:
+            if token == "USDC":
+                initial_holdings += self.agent.initial_portfolio[token]
+            elif token == token0:
+                initial_holdings += self.agent.initial_portfolio[token] * obs.price(
+                    token0, "USDC", pool
+                )
+            elif token == token1:
+                initial_holdings += self.agent.initial_portfolio[token] * obs.price(
+                    token1, "USDC", pool
+                )
+        impermanent_loss = current_holdings - float(initial_holdings)
+        obs.add_signal("Impermanent Loss Passive LPing", impermanent_loss)
+
         if not self.has_traded:
             return self.initial_trade(obs)
         if not self.has_invested:

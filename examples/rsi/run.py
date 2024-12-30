@@ -28,7 +28,7 @@ def main(
     """Running this strategy."""
     logging.basicConfig(format="%(asctime)s - %(message)s", level=logging.INFO)
     pools = ["USDC/WETH-0.05"]
-    start_time = "2021-06-21 00:00:00"
+    start_time = "2024-12-06 13:00:00"
     chain = Chain.ETHEREUM
     block_range = (
         time_to_block(start_time, chain),
@@ -65,7 +65,7 @@ def main(
         auto_close=auto_close,
         simulation_status_bar=simulation_status_bar,
         simulation_title="RSI",
-        simulation_description="Investing accoring the the Relative Strenght Indicator (RSI) index.",
+        simulation_description="Investing according the the Relative Strenght Indicator (RSI) index.",
     )
 
 

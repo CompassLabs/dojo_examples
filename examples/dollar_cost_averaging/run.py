@@ -23,7 +23,7 @@ def main(
     """Running this strategy."""
     pools = ["USDC/WETH-0.05"]
     chain = Chain.ETHEREUM
-    start_time = "2021-06-21 00:00:00"
+    start_time = "2024-12-06 13:00:00"
     block_range = (
         time_to_block(start_time, chain),
         time_to_block(start_time, chain) + num_sim_blocks,

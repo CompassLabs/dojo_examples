@@ -28,16 +28,28 @@ class GmxV2Policy(BasePolicy):
         """Initialize the policy."""
         super().__init__()
         self.state = State.NO_POSITION
+        self.market_keys = [
+            "GMX:GMX:USDC",
+            "PEPE:PEPE:USDC",
+            "WETH:WETH:USDC",
+            "SOL:SOL:USDC",
+            "LINK:LINK:USDC",
+            "ARB:ARB:USDC",
+            "AAVE:AAVE:USDC",
+            "AVAX:AVAX:USDC",
+            "WIF:WIF:USDC",
+        ]
 
     # SNIPPET 1 END
 
     def predict(self, obs: GmxV2Observation) -> list[GmxBaseTraderOrder]:
         """Derive actions from observations."""
+        for market_key in self.market_keys:
+            gm_token_value, _ = obs.get_market_token_price_for_traders(market_key, True)
+            obs.add_signal(market_key + " GM Token", gm_token_value)
+
         total_trader_pnl = 0
         # SNIPPET 2 START
-        gm_token_value, market_pool_value_info = obs.get_market_token_price_for_traders(
-            "WETH:WETH:USDC", True
-        )
         index_token_price = obs.index_token_price(market_key="WETH:WETH:USDC")
         long_token_price = obs.long_token_price(market_key="WETH:WETH:USDC")
         short_token_price = obs.short_token_price(market_key="WETH:WETH:USDC")
@@ -59,7 +71,6 @@ class GmxV2Policy(BasePolicy):
         obs.add_signal("short pnl", short_pnl)
         obs.add_signal("long open interest with pnl", long_open_interest_with_pnl)
         obs.add_signal("short open interest with pnl", short_open_interest_with_pnl)
-        obs.add_signal("gm token value", gm_token_value)
         obs.add_signal("index token price", index_token_price)
         obs.add_signal("long token price", long_token_price)
         obs.add_signal("short token price", short_token_price)

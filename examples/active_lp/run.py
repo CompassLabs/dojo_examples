@@ -2,9 +2,10 @@
 from decimal import Decimal
 from typing import Any, Optional
 
+from passive_lp_policy import PassiveConcentratedLP
 from policy import ActiveConcentratedLP
 
-from dojo.agents.uniswapV3 import TotalWealthAgent
+from dojo.agents.uniswapV3 import PnLAgent
 from dojo.common.constants import Chain
 from dojo.common.time_to_block import time_to_block
 from dojo.environments import UniswapV3Env
@@ -24,7 +25,7 @@ def main(
     # SNIPPET 1 START
     pools = ["USDC/WETH-0.05"]
     chain = Chain.ETHEREUM
-    start_time = "2023-05-01 00:00:00"
+    start_time = "2024-12-06 13:00:00"
     block_range = (
         time_to_block(start_time, chain),
         time_to_block(start_time, chain) + num_sim_blocks,
@@ -34,24 +35,30 @@ def main(
         chain=chain, pools=pools, block_range=block_range, mode="swaps_only"
     )
 
-    user_agent = TotalWealthAgent(
+    active_lp_agent = PnLAgent(
         initial_portfolio={
-            "USDC": Decimal(1_000_000),
-            "WETH": Decimal(2_000),
-            "ETH": Decimal(10),
+            "USDC": Decimal(2000),
+            "WETH": Decimal(1),
         },
-        name="LPAgent",
+        name="ActiveLPAgent",
         unit_token="USDC",
-        policy=ActiveConcentratedLP(lp_width=2),
+        policy=ActiveConcentratedLP(lp_width=3),
+    )
+
+    passive_lp_agent = PnLAgent(
+        initial_portfolio={"USDC": Decimal(2000), "WETH": Decimal(1)},
+        name="PassiveLPAgent",
+        unit_token="USDC",
+        policy=PassiveConcentratedLP(lower_price_bound=0.9, upper_price_bound=1.1),
     )
 
     # Simulation environment (Uniswap V3)
     env = UniswapV3Env(
         chain=chain,
         block_range=block_range,
-        agents=[market_agent, user_agent],
+        agents=[market_agent, active_lp_agent, passive_lp_agent],
         pools=pools,
-        backend_type="local",
+        backend_type="forked",
     )
 
     backtest_run(
@@ -74,5 +81,5 @@ if __name__ == "__main__":
         dashboard_server_port=8768,
         simulation_status_bar=True,
         auto_close=False,
-        num_sim_blocks=600,
+        num_sim_blocks=3000,
     )

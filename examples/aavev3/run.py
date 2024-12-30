@@ -39,7 +39,7 @@ def main(
     **kwargs: dict[str, Any]
 ) -> None:
     """Running this strategy."""
-    start_time = "2023-03-11 00:00:00"
+    start_time = "2024-12-16 14:00:00"
     chain = Chain.ETHEREUM
     block_range = (
         time_to_block(start_time, chain),
@@ -62,7 +62,7 @@ def main(
         chain=Chain.ETHEREUM,
         block_range=block_range,
         agents=[market_agent, agent1],
-        backend_type="local",
+        backend_type="forked",
     )
     # SNIPPET 1 END
 

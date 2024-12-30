@@ -47,14 +47,30 @@ def main(
         start_block + num_sim_blocks,
     )
 
-    market_venue = MarketVenue(
-        long_token="WETH",
-        short_token="USDC",
-        index_token="WETH",
-    )
+    market_keys = [
+        "GMX:GMX:USDC",
+        "PEPE:PEPE:USDC",
+        "WETH:WETH:USDC",
+        "SOL:SOL:USDC",
+        "LINK:LINK:USDC",
+        "ARB:ARB:USDC",
+        "AAVE:AAVE:USDC",
+        "AVAX:AVAX:USDC",
+        "WIF:WIF:USDC",
+    ]
+    market_venues = []
+    for market_key in market_keys:
+        tokens = market_key.split(":")
+        market_venues.append(
+            MarketVenue(
+                index_token=tokens[0],
+                long_token=tokens[1],
+                short_token=tokens[2],
+            )
+        )
 
     market_agent = HistoricReplayAgent(
-        chain=chain, block_range=block_range, market_venues=[market_venue]
+        chain=chain, block_range=block_range, market_venues=market_venues
     )
 
     # Agents
@@ -73,7 +89,7 @@ def main(
         chain=chain,
         block_range=block_range,
         agents=[market_agent, gmx_agent],
-        market_venues=[market_venue],
+        market_venues=market_venues,
         backend_type="forked",
     )
 
@@ -94,7 +110,7 @@ if __name__ == "__main__":
 
     dojo.config.logging_config.set_normal_logging_config_and_print_explanation()
     main(
-        dashboard_server_port=None,
+        dashboard_server_port=8768,
         simulation_status_bar=True,
         auto_close=False,
         num_sim_blocks=5000,

@@ -13,8 +13,8 @@ from dojo.policies import DoNothingPolicy
 from dojo.runners import monitor_run
 
 
-class TrackPositionsAgent(MonitoringAgent, UniswapV3Agent):
-    """An agent that displays health factor as its reward."""
+class TrackPositionsAgent(UniswapV3Agent, MonitoringAgent):
+    """An agent that displays total wealth as its reward."""
 
     def __init__(
         self,
@@ -23,17 +23,36 @@ class TrackPositionsAgent(MonitoringAgent, UniswapV3Agent):
         name: Optional[str] = None,
     ):
         """Initialize the agent."""
-        super().__init__(
+        MonitoringAgent.__init__(
+            self,
             name=name,
             impersonation_address=impersonation_address,
             unit_token="USDC",
             policy=DoNothingPolicy(),
         )
+        UniswapV3Agent.__init__(
+            self,
+            name=name,
+            unit_token="USDC",
+            policy=DoNothingPolicy(),
+            initial_portfolio={},
+        )
         for token_id in token_ids:
             self.add_nft(token="UNI-V3-POS", token_id=token_id)
 
+    def total_wealth(self, obs: UniswapV3Observation, unit_token: str) -> float:
+        """Total wealth of the agent denoted in the unit_token.
+
+        :param obs: Uniswap observation that contains price information of the pools.
+        :param unit_token: Token in which the total wealth should be measured.
+        """
+        token_wealth = self._pool_wealth(
+            obs=obs, portfolio=self.portfolio(), unit_token=unit_token
+        )
+        return token_wealth
+
     def reward(self, obs: UniswapV3Observation) -> float:  # type: ignore
-        """Tracks the health factor of the agent."""
+        """Tracks the total wealth of the agent."""
         return self.total_wealth(obs=obs, unit_token=self.unit_token)
 
 
