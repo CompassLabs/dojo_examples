@@ -2,7 +2,7 @@
 
 Welcome to the Dojo trading strategy development and backtesting environment! This repository contains code examples and guidance on how to use the [Dojo](https://www.compasslabs.ai/#dojo) Python package to develop and backtest your own trading strategies.
 
-In order to run these examples, you must have Dojo installed on your machine with a valid license key.
+In order to run these examples, you must have Dojo installed on your machine with a valid license key (or [use the free sample simulations](https://compasslabs.ai/docs/frequently-asked-questions#how-can-i-try-out-dojo-before-buying-it)).
 
 Please refer to the [**Getting Started**](https://www.compasslabs.ai/docs/getting-started) guide in the docs for more detailed instructions on getting set up 🙂
 
@@ -54,7 +54,9 @@ Finally, [install Foundry](https://book.getfoundry.sh/getting-started/installati
 Dojo requires two configurations to run:
 
 1. **A Valid License Key**
-2. **An Archive Node URL** available from providers like Infura.
+2. **An Archive Node URL** available from providers like Infura. 
+
+You can also use the [free sample simulations](https://compasslabs.ai/docs/frequently-asked-questions#how-can-i-try-out-dojo-before-buying-it), in which case you _should_ set an empty archive node URL (e.g. `ETHEREUM_RPC_URL=`) but you _should not_ set a license key.
 
 Set these as environment variables by following our guide [here](https://www.compasslabs.ai/docs/getting-started#3-setup-configuration).
 
