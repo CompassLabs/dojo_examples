@@ -33,6 +33,7 @@ def main(
         time_to_block(start_time, chain),
         time_to_block(start_time, chain) + num_sim_blocks,
     )
+    # block_range = 21303933, 21354333
 
     market_agent = HistoricReplayAgent(
         chain=chain, pools=pools, block_range=block_range
