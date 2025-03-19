@@ -3,29 +3,16 @@
 One active one passive.
 """
 from decimal import Decimal
-from typing import Any, Literal, Optional
+from typing import Any, Optional
 
+from custom_loader import CustomDataLoader
 from policy import MovingAveragePolicy
 
 from dojo.agents.uniswapV3 import TotalWealthAgent
 from dojo.common.constants import Chain
-from dojo.dataloaders.base_uniswapV3_loader import BaseUniswapV3Loader
-from dojo.dataloaders.formats import UniswapV3Event
 from dojo.environments import UniswapV3Env
 from dojo.market_agents.uniswapV3 import HistoricReplayAgent
 from dojo.runners import backtest_run
-
-
-class CustomDataLoader(BaseUniswapV3Loader):
-    """Load historic data yourself."""
-
-    def __init__(self):
-        """Set up your custom dataloader here."""
-        pass
-
-    def _load_data(self, subset: Optional[list[Literal["Burn", "Mint", "Swap"]]] = None) -> list[UniswapV3Event]:  # type: ignore[override]
-        # TODO this is where your logic goes.
-        return []
 
 
 def main(
@@ -33,18 +20,17 @@ def main(
     dashboard_server_port: Optional[int] = 8768,
     simulation_status_bar: bool = False,
     auto_close: bool,
-    num_sim_blocks: int = 1800,
     **kwargs: dict[str, Any],
 ) -> None:
     """Running this strategy."""
     pools = ["USDC/WETH-0.05"]
     chain = Chain.ETHEREUM
-    block_range = 21303933, 21354333
+    block_range = 21302933, 21354333
 
-    dataloader = CustomDataLoader()
+    Loader = CustomDataLoader
 
     market_agent = HistoricReplayAgent(
-        chain=chain, pools=pools, block_range=block_range, dataloader=dataloader
+        chain=chain, pools=pools, block_range=block_range, Dataloader=Loader
     )
 
     # Agents
@@ -67,7 +53,8 @@ def main(
         block_range=block_range,
         agents=[market_agent, trader_agent],
         pools=pools,
-        backend_type="local",
+        backend_type="forked",
+        Dataloader=Loader,
     )
 
     backtest_run(
@@ -89,5 +76,4 @@ if __name__ == "__main__":
         dashboard_server_port=8768,
         simulation_status_bar=True,
         auto_close=False,
-        num_sim_blocks=600,
     )
