@@ -1,6 +1,7 @@
 """Implementation of a custom dataloader."""
 import json
 from collections import defaultdict
+from pathlib import Path
 from typing import DefaultDict, Literal, Optional
 
 from dojo.common.constants import Chain
@@ -22,7 +23,14 @@ class CustomDataLoader(BaseUniswapV3Loader):
         :raises ValueError: When the data cannot be loaded.
         """
         self.events: DefaultDict[int, list[UniswapV3Event]] = defaultdict(list)
-        with open("amberdata.json", "r") as f:
+
+        # Get the absolute path to the current file's directory
+        current_dir = Path(__file__).resolve().parent
+
+        # Construct the path to the JSON file
+        json_path = current_dir / "amberdata.json"
+
+        with open(json_path, "r") as f:
             for event in json.load(f):
                 block = event["blockNumber"]
                 match event["action"]:
