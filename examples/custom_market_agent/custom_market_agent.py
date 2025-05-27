@@ -17,7 +17,7 @@ from dojo.observations.uniswapV3 import UniswapV3Observation
 
 
 class CustomMarketPolicy(BaseMarketPolicy):
-    """Historic replay policy for UniwapV3."""
+    """Custom market policy for UniwapV3."""
 
     DEFAULT_GAS = 30_500_000
 
@@ -85,7 +85,7 @@ class CustomMarketPolicy(BaseMarketPolicy):
 
 
 class CustomMarketAgent(BaseAgent[UniswapV3Observation]):
-    """Agent that replays all historic actions exactly."""
+    """Custom market agent."""
 
     def __init__(
         self,
